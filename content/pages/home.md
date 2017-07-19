@@ -1,4 +1,5 @@
 Title: Home
+template: home
 save_as: index.html
 
 Does this work?[^1]
