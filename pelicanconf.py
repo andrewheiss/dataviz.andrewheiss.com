@@ -44,7 +44,7 @@ PLUGINS = ['pandoc_reader', 'extract_toc']
 PANDOC_ARGS = [
     '-t', 'html5',
     '--smart',
-    '--base-header-level=1',
+    '--base-header-level=2',
     '--filter', 'pandoc-sidenote',
     '--section-divs',  # wrap heading blocks with <section>
     '--table-of-contents',
