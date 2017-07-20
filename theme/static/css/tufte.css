@@ -313,7 +313,7 @@ article div.table-wrapper {
 @media screen and (max-width: 760px) {
   article p, article div.mathblock {
     width: 90%; }
-  article div.highlight {
+  article div.sourceCode {
     width: 87.5% !important; }
   article .twitter-tweet {
     max-width: 87.5%; }
@@ -329,18 +329,21 @@ article div.table-wrapper {
     padding-right: 5%; } }
 article .marginnote code, article .sidenote code {
   font-size: 1rem; }
-article div.highlight {
+article div.sourceCode {
   width: 55%; }
 article code {
   color: #333; }
 article pre, article pre code, article p pre code {
-  padding-left: 1.25%;
+  /*padding-left: 1.25%;*/
   overflow-x: auto;
-  color: #eee;
-  background: #333; }
+  /*color: #eee;*/
+  /*background: #333; */}
 article .fullwidth {
   max-width: 90%; }
-article .fullwidth div.highlight {
+article .fullwidth div.sourceCode {
+  width: 90%; }
+/* R wraps images in <p> tags, so we have to make <p>s inside .fullwidth really wide */
+article .fullwidth p {
   width: 90%; }
 article span.newthought {
   font-variant: small-caps;
