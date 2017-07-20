@@ -1,4 +1,5 @@
 Title: Home
+Date: 2017-07-20
 template: home
 save_as: index.html
 
