@@ -1,6 +1,0 @@
-$if(toc)$
-<nav id="TOC">
-$toc$
-</nav>
-$endif$
-$body$
