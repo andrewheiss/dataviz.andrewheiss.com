@@ -47,16 +47,6 @@ PLUGIN_PATHS = ['plugins']
 PLUGINS = ['extract_toc', 'pandoc_reader', 'rmd_pandoc_reader']
 # rmd_reader (or rmd_pandoc_reader) should come last:
 # https://github.com/getpelican/pelican-plugins/tree/master/rmd_reader
-#
-# Also, rpy2 has to be installed, and because R 3.4.x uses a different C
-# compiler on macOS, Python+pip need to use that same compiler:
-#
-#   brew install --with-toolchain llvm
-#   export PATH="/usr/local/opt/llvm/bin:$PATH"
-#   export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
-#   pip3 install rpy2
-#
-# see https://bitbucket.org/rpy2/rpy2/issues/403/cannot-pip-install-rpy2-with-latest-r-340#comment-38101006
 
 PANDOC_ARGS = [
     '-t', 'html5',
@@ -98,6 +88,8 @@ MENUITEMS = [('Syllabus', '/syllabus/'),
              ('Rmd test', '/testing/')]
 
 ATH_TUFTE_ICON = "/images/course-icon.png"
+ATH_LINK_COLOR = "#A5452B"
+ATH_LINK_HOVER_COLOR = "#ECAD49"
 
 
 # ---------------
