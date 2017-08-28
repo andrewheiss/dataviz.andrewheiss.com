@@ -39,7 +39,7 @@ READERS = {'html': None}  # Don't parse HTML files
 RMD_READER_RENAME_PLOT = 'directory'
 RMD_READER_KNITR_OPTS_CHUNK = {'fig.path': 'figures/'}
 RMD_READER_CLEANUP = True
-STATIC_PATHS = ['figures']
+STATIC_PATHS = ['figures', 'images']
 
 DEFAULT_PAGINATION = False
 
@@ -96,6 +96,8 @@ MENUITEMS = [('Syllabus', '/syllabus/'),
              ('Assignments', '/assignments/'),
              ('Reference', '/reference/'),
              ('Rmd test', '/testing/')]
+
+ATH_TUFTE_ICON = "/images/course-icon.png"
 
 
 # ---------------
