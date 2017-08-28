@@ -24,7 +24,7 @@ TYPOGRIFY = False
 DELETE_OUTPUT_DIRECTORY = True
 
 # Theme
-THEME = 'theme'
+THEME = '/Users/andrew/Development/•Pelican/themes/ath-tufte'
 
 # Folder where everything lives
 PATH = 'content'
@@ -45,7 +45,7 @@ DEFAULT_PAGINATION = False
 
 PLUGIN_PATHS = ['plugins']
 PLUGINS = ['extract_toc', 'pandoc_reader', 'rmd_pandoc_reader']
-# rmd_reader should come last:
+# rmd_reader (or rmd_pandoc_reader) should come last:
 # https://github.com/getpelican/pelican-plugins/tree/master/rmd_reader
 #
 # Also, rpy2 has to be installed, and because R 3.4.x uses a different C
@@ -65,7 +65,7 @@ PANDOC_ARGS = [
     '--base-header-level=2',
     '--filter', 'pandoc-sidenote',
     '--section-divs',  # wrap heading blocks with <section>
-    '--template=theme/pandoc-templates/tufte.html5'
+    '--template=' + THEME + '/pandoc-templates/tufte.html5'
 ]
 
 PANDOC_EXTENSIONS = [
