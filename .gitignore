@@ -1,17 +1,7 @@
-# Python stuff
-__pycache__/*
-pelican/*
-
-# Pelican stuff
-*.pid
-cache/*
-output/*
-plugins/*
-
-# Dependencies
-
-
-# Binary stuff
-# content/files/data/*
-# content/files/pdfs/*
-# content/files/other/*
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+blogdown/
+public/
+.DS_Store

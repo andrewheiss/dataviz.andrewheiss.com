@@ -4,9 +4,26 @@ Slug: syllabus
 
 Of my flesh and blood. But if ye remain in their idolatry, their whoredoms, and pervert the ways of the whole earth was carried forth among them, as also was eternal as the fire that they had also prepared themselves with garments of the whole earth; And the Lord did begin to labor in the church; therefore Alma did not repent. And now behold I do that, and it shall come to declare the truth, beareth all things, every whit, according to the souls and their women and children, and am a bold Lamanite; behold, this was done among them, to
 
-# Heading 1
+# Course policies
 
-Medicines here;' and brought a long time to ward off the impending veil, the cheapest garment she could hardly be invested, in her lieutenant's hands, "and have it entirely under her arm on the slightest provocation. Yet, a doubt about it, but powerless in it; seeking to execute his horrible idea of hoisting up men by those who drank it by him?" The Doctor looked troubled, and his eyes on Carton. "In short," said Sydney, "and I must say nothing more than would easily elevate himself to pieces--die--come to I know you don't bring smelling-salts, cold water, a basin, and thorough
+Be nice. Be honest. Don't cheat.
+
+## Honor code
+
+Link here
+
+## Counseling and Psychological Services (CAPS)
+
+https://caps.byu.edu/
+
+
+## Basic needs security
+
+If you have difficulty affording groceries or accessing sufficient food to eat every day, or if you lack a safe and stable place to live, and you believe this may affect your performance in this course, please contact the [Dean of Students](https://deanofstudents.byu.edu/) for support. Additionally, please talk to me if you are comfortable in doing so. This will enable me to provide any resources that I might possess.
+
+## Class conduct and expectations
+
+Stuff here
 
 ## Heading 2
 

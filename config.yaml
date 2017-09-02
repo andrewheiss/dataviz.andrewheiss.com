@@ -1,0 +1,42 @@
+baseurl: /
+languageCode: en-us
+title: Data visualization
+theme: ath-tufte-hugo
+googleAnalytics: ""
+ignoreFiles:
+  - \.Rmd$
+  - \.Rmarkdown$
+  - \.yaml$
+  - _files$
+  - _cache$
+  - \.csl$
+permalinks:
+  post: "/:year/:month/:day/:slug/"
+menu:
+  main:
+    - name: Syllabus
+      url: /syllabus/
+      weight: 1
+    - name: Schedule
+      url: /schedule/
+      weight: 2
+    - name: Assignments
+      url: /assignments/
+      weight: 3
+    - name: Reference
+      url: /reference/
+      weight: 4
+# Disable taxonomies
+taxonomies:
+  tag: ""
+  group: ""
+  category: ""
+params:
+  author: Andrew Heiss
+  courseNumber: MPA 635
+  description: A website built through Hugo and blogdown.
+  primaryColor: "#188146"
+  secondaryColor: "#ECAD49"
+  logo:
+    url: /images/stories_icon_hires.png
+    alt: Telling Stories with Data
