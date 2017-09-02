@@ -5,38 +5,43 @@ date: '2017-08-28'
 slug: syllabus
 ---
 
-<span class="newthought">Data rarely speaks for itself.</span>[^data] Without clear communication and a convincing argument, the theoretically rigorous and groundbreaking results you have found after months of backbreaking toil can easily be ignored. If you want people to understand and use your data and findings, you must present them in an engaging way.
+<span class="newthought">Visualizing stuff is cool.</span> Blah blah.
 
-In this class you’ll learn how to use techniques long used by storytellers, documentarians, and artists to communicate scientific findings in a way that is effective, engaging, professional, enjoyable, and memorable.
-
-[^data]: {-}
-  "Plural use [of data] is barbaric: amongst other crimes, it is a deliberate archaism, and thus a symptom of bad writing." 
 
 # Course policies
 
-Be nice. Be honest. Don't cheat.
+**Be nice. Be honest. Don't cheat.**
 
-## Honor code
+An entire list of Marriott School and BYU classroom policies can be found at <https://marriottschool.byu.edu/policies/classroom/>.
 
-Link here
 
 ## Counseling and Psychological Services (CAPS)
 
-https://caps.byu.edu/
+Life at BYU can be complicated and challenging. You might feel overwhelmed, experience anxiety or depression, or struggle with relationships or family responsibilities. [Counseling and Psychological Services (CAPS)](https://caps.byu.edu/) provides free, *confidential* support for students who are struggling with mental health and emotional challenges. The CAPS office is staffed by professional psychologists who are attuned to the needs of all types of college students. Please do not hesitate to contact CAPS for assistance—getting help is a smart and courageous thing to do.
 
 
 ## Basic needs security
 
-If you have difficulty affording groceries or accessing sufficient food to eat every day, or if you lack a safe and stable place to live, and you believe this may affect your performance in this course, please contact the [Dean of Students](https://deanofstudents.byu.edu/) for support. Additionally, please talk to me if you are comfortable in doing so. This will enable me to provide any resources that I might possess.
+If you have difficulty affording groceries or accessing sufficient food to eat every day, or if you lack a safe and stable place to live, and you believe this may affect your performance in this course, please contact the [Dean of Students](https://deanofstudents.byu.edu/) for support. Please also consider speaking with your local LDS bishop regarding Church welfare assistance *regardless of whether or not you are LDS*. Additionally, please talk to me if you are comfortable in doing so. This will enable me to provide any resources that I might possess.
+
 
 ## Class conduct and expectations
 
-Stuff here
+On the first day of class we’ll come up with rules, expectations, and policies for things like technology in the classroom, attendance, participation, late work, etc. I will put those here once we all agree.
 
-## Heading 2
 
-To the sight, that he was to honour and happiness to stand with the Defarges, man and wife. The Vengeance with alacrity, and kissing her father, stopping in her trouble she had neither engaged herself in her different way, and her child and her father! Lucie with her blood all chilled, "What shall I have done?" said Stryver; "and having summed up three leading reasons for my great happiness. My thoughts, when they had reddened them below the surface, with his face would rise, and he said, with a far more influence with him into imaginary beds of roses; if had
+# Assignments and grades
 
-## Another heading 2
+You can find descriptions and instructions of all assignments on the [assignments page](/assignments/).
 
-"Near to the home of her sisterhood knitted beside her. The short, rather plump wife of an army to bear Foulon company--set his head hanging on by a process that he shows you what you may buy your food, and for ever, ten gone for ever. It was prevalent everywhere. Hunger was repeated in every fragment of paving, were found the old time and place; but I can't sleep." It was so manifest, and it troubles me--just a little." "Tell me when I raise my thoughts to Him who was not a footstep was there. She was a peculiarity in mind.
+## Assignments
+
+## Grades
+
+
+# Dinosaurs
+
+[^dinosaurs] Once you have read this entire syllabus, please [click here](mailto:andrew_heiss@byu.edu) and e-mail me a picture of a dinosaur. For real.
+
+[^dinosaurs]: {-}
+  TODO: Picture goes here.
