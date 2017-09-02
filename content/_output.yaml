@@ -1,0 +1,10 @@
+blogdown::html_page:
+  fig_retina: 2
+  md_extensions: +markdown_in_html_blocks+raw_html
+  pandoc_args: [
+      "--smart",
+      "--highlight-style", "haddock",
+      "--base-header-level=2",
+      "--filter", "pandoc-citeproc",
+      "--filter", "pandoc-sidenote"
+    ]
