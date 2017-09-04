@@ -1,4 +1,4 @@
-baseurl: /
+baseURL: "https://dataviz.andrewheiss.com/"
 languageCode: en-us
 title: Data visualization
 theme: ath-tufte-hugo
@@ -33,6 +33,7 @@ taxonomies:
   category: ""
 params:
   author: Andrew Heiss
+  thumbnail: images/dataviz_meta.png
   courseNumber: MPA 635
   description: A website built through Hugo and blogdown.
   primaryColor: "#A5452B"
@@ -40,3 +41,7 @@ params:
   logo:
     url: /images/dataviz_hires.png
     alt: Data visualization
+  meta:
+    twitterSite: "@andrewheiss"
+    twitterCreator: "@andrewheiss"
+    fbAuthor: "https://www.facebook.com/andrewheiss"
