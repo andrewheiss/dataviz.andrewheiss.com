@@ -33,8 +33,25 @@ taxonomies:
   category: ""
 params:
   author: Andrew Heiss
-  thumbnail: images/dataviz_meta.png
-  courseNumber: MPA 635
+  thumbnail: /images/dataviz_meta.png
+  course:
+    number: MPA 635
+    instructor: Dr. Andrew Heiss
+    instructorURL: "https://www.andrewheiss.com"
+    instructorTwitter: andrewheiss
+    instructorGitHub: andrewheiss
+    email: andrew_heiss@byu.edu
+    semester: Fall 2017
+    days: Tuesday
+    time: "4:00–7:00 PM"
+    location: Somewhere
+    dates: "September 4–October XX, 2017"
+  university: 
+    name: Brigham Young University
+    url: "https://www.byu.edu"
+  school:
+    name: Romney Institute of Public Management
+    url: "https://marriottschool.byu.edu/mpa/"
   description: A website built through Hugo and blogdown.
   primaryColor: "#A5452B"
   secondaryColor: "#ECAD49"
