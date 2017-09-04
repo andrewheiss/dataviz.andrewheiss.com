@@ -34,18 +34,24 @@ taxonomies:
 params:
   author: Andrew Heiss
   thumbnail: /images/dataviz_meta.png
+  instructor: 
+    name: Dr. Andrew Heiss
+    email: andrew_heiss@byu.edu
+    url: "https://www.andrewheiss.com"
+    twitter: andrewheiss
+    github: andrewheiss
+    office: 773 TNRB
   course:
     number: MPA 635
-    instructor: Dr. Andrew Heiss
-    instructorURL: "https://www.andrewheiss.com"
-    instructorTwitter: andrewheiss
-    instructorGitHub: andrewheiss
-    email: andrew_heiss@byu.edu
     semester: Fall 2017
-    days: Tuesday
-    time: "4:00–7:00 PM"
-    location: Somewhere
-    dates: "September 4–October XX, 2017"
+    days: Tuesdays
+    time: "4:30–7:15 PM"
+    location: 270 TNRB
+    twitter: andrewheiss
+    dates: "September 5–October 24, 2017"
+    github: "andrewheiss/dataviz.andrewheiss.com"
+    contactDetails: >-
+      Office hours: Mondays from 10:30–11:30. E-mail me to meet at any other time.<br><br>E-mail is the best way to get in contact with me—I will respond to all course-related e-mails within 24 hours (*really*).
   university: 
     name: Brigham Young University
     url: "https://www.byu.edu"
@@ -55,6 +61,8 @@ params:
   description: A website built through Hugo and blogdown.
   primaryColor: "#A5452B"
   secondaryColor: "#ECAD49"
+  credits: >-
+    "bar graph" icon by [severino ribecca](https://thenounproject.com/r.severino/collection/data-visualisation-catalogue-icons/?i=115543) from the [noun project](https://thenounproject.com).<br>[obi-wan kenobi color scheme](http://www.colourlovers.com/palette/4506232/Obi-Wan_Kenobi) from [colourlovers](http://www.colourlovers.com/).
   logo:
     url: /images/dataviz_hires.png
     alt: Data visualization
