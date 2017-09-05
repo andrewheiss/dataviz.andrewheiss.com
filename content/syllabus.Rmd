@@ -1,12 +1,41 @@
 ---
 title: Syllabus
-author: ''
-date: '2017-08-28'
+date: "2017-08-28"
 slug: syllabus
+citeproc: false
+bibliography: ../static/bib/references.bib
+csl: ../static/bib/chicago-syllabus-no-bib.csl
 ---
 
-<span class="newthought">Visualizing stuff is cool.</span> Blah blah.
+<span class="newthought">Put real stuff here.</span> [^courseinfo] 
 
+[^courseinfo]: {-}
+  `r blogdown::shortcode("courseinfo")`
+
+# Course objectives
+
+By the end of this course, you will become (1) literate in data and graphic design principles, (2) an ethical data communicator, and (3) a collaborative sharer by producing beautiful, powerful, and clear visualizations of your own data. Specifically, you should:
+
+- Understand the principles of data and graphic design
+- Evaluate the credibility, ethics, and aesthetics of data visualizations
+- Create well-designed data visualizations with appropriate tools
+- Share data and graphics in open forums
+- Be curious and confident in consuming and producing data
+
+
+# Course materials
+
+You'll need to get these books—they're definitely worth keeping for reference, too.
+
+- [@Cairo:2016] [$34 used, $40 new at [Amazon](https://www.amazon.com/Truthful-Art-Data-Charts-Communication/dp/0321934075)]
+- [@Evergreen:2017] [$36 used, $45 new at [Amazon](https://www.amazon.com/Effective-Data-Visualization-Right-Chart/dp/1506303056)]
+- [@Wong:2010] [$13 used, $18 new at [Amazon](https://www.amazon.com/Street-Journal-Guide-Information-Graphics/dp/0393347281)]
+
+These books are optional—we'll refer to stuff in them and they're useful for reference, but they're not absolutely necessary:
+
+- [@WickhamGrolemund:2017] [**FREE** [online](http://r4ds.had.co.nz/); $25 used, $33 new at [Amazon](https://www.amazon.com/R-Data-Science-Hadley-Wickham/dp/1491910399/)]
+- [@Cairo:2013] [$26 used, $37 new at [Amazon](https://www.amazon.com/Functional-Art-introduction-information-visualization/dp/0321834739)]
+- [@Williams:2008] [$15 used at [Amazon](https://www.amazon.com/Non-Designers-Design-Type-Books-Deluxe/dp/0321534050)]
 
 # Course policies
 
@@ -37,7 +66,6 @@ You can find descriptions and instructions of all assignments on the [assignment
 ## Assignments
 
 ## Grades
-
 
 # Dinosaurs
 
