@@ -1,8 +1,6 @@
 ---
 title: Reference
-author: ''
-date: '2017-08-28'
 slug: reference
 ---
 
-Useful resources go here.
+A library of useful resources will go here.

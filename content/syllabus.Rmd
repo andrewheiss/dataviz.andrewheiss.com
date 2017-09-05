@@ -1,6 +1,5 @@
 ---
 title: Syllabus
-date: "2017-08-28"
 slug: syllabus
 citeproc: false
 bibliography: ../static/bib/references.bib
