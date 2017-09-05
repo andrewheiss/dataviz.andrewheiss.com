@@ -1,0 +1,6 @@
+---
+title: "Truth, Beauty, and Data"
+date: "2017-09-05"
+---
+
+This is a test.
