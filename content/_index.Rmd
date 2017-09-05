@@ -1,18 +1,8 @@
 ---
-title: "Home"
+title: "Let's visualize data!"
 author: "Andrew Heiss"
 date: "2017-08-28"
-output:
-  blogdown::html_page:
-    fig_retina: 2
-    pandoc_args: [
-        "--base-header-level=1",
-        "--filter", "pandoc-citeproc",
-        "--filter", "pandoc-sidenote"
-      ]
 ---
-
-# Let's visualize data!
 
 ^[{-} `r blogdown::shortcode("courseinfo")`] <span class="newthought">This site contains</span> the syllabus, schedule, and assignments for MPA 635: Data Visualization, held in the first term of Fall 2017 at Brigham Young University.
 
