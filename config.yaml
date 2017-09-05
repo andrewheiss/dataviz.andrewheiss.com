@@ -55,7 +55,7 @@ params:
   school:
     name: Romney Institute of Public Management
     url: "https://marriottschool.byu.edu/mpa/"
-  description: A website built through Hugo and blogdown.
+  description: "Communicate science with beautiful graphics"
   primaryColor: "#A5452B"
   secondaryColor: "#ECAD49"
   credits: >-
