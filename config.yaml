@@ -17,15 +17,12 @@ menu:
     - name: Syllabus
       url: /syllabus/
       weight: 1
-    - name: Schedule
+    - name: Schedule and assignments
       url: /schedule/
       weight: 2
-    - name: Assignments
-      url: /assignments/
-      weight: 3
     - name: Reference
       url: /reference/
-      weight: 4
+      weight: 3
 # Disable taxonomies
 taxonomies:
   tag: ""
