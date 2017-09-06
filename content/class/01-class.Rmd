@@ -3,4 +3,34 @@ title: "Truth, Beauty, and Data"
 date: "2017-09-05"
 ---
 
-This is a test.
+# Slides
+
+[Download the slides from today's lecture](/slides/MPA-635_2017-09-05.pdf)
+
+<figure>
+[![First slide](/images/slides/slides_2017-09-05.png)](/slides/MPA-635_2017-09-05.pdf)
+</figure>
+
+
+# Data and other files
+
+- [fix_me.pptx](/files/fix_me.pptx)
+
+
+# Installing R, RStudio, and the tidyverse
+
+1. [Download and install R](https://cloud.r-project.org/)
+2. [Download and install RStudio](https://www.rstudio.com/products/rstudio/download/#download)
+3. Install the `tidyverse` package
+
+    ![Install tidyverse from RStudio](/images/class/install-tidyverse.png){.img75}
+
+
+# Feedback for today
+
+Go to [this form](https://goo.gl/forms/hrh7FpcneYTw8xWp1) and answer these four questions (anonymously if you want):
+
+1. What new thing did you learn today?
+2. What was the most unclear thing about today?
+3. What are you excited about learning in this class?
+4. What are you nervous about in this class?
