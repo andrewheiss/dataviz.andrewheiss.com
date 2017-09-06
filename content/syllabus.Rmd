@@ -117,7 +117,7 @@ grading %>%
 
 # Dinosaurs
 
-[^dinosaurs] Once you have read this entire syllabus and [the assignments page](/assignments/), please [click here](mailto:andrew_heiss@byu.edu) and e-mail me a picture of a dinosaur. For real.
+[^dinosaurs] Once you have read this entire syllabus and [the assignments page](/assignments/), please [click here](mailto:andrew_heiss@byu.edu) and e-mail me a picture of a dinosaur. For real. Brownie points if you send a picture of a cat or dog dressed as a dinosaur.
 
 [^dinosaurs]: {-}
   ![Dinosaurs](/images/dinosaurs.jpg) Velociraptor and Protoceratops locked in a mortal combat, by [Raul Martin](https://dx.doi.org/10.1371/journal.pbio.0000040)
