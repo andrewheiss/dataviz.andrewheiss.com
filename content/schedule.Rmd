@@ -1,5 +1,5 @@
 ---
-title: "Schedule and assignments"
+title: "Schedule"
 slug: schedule
 ---
 
