@@ -6,10 +6,18 @@ bibliography: ../static/bib/references.bib
 csl: ../static/bib/chicago-syllabus-no-bib.csl
 ---
 
-<span class="newthought">Put real stuff here.</span> [^courseinfo] 
+```{r load-libraries, message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(pander)
+```
+
+<span class="newthought">Data rarely speaks for itself.</span> [^courseinfo] By itself, the facts contained in raw data are difficult to understand, and in the absence of beauty and order, it is impossible to understand the truth that the data shows.
+
+In this class, you'll learn how to use industry-standard graphic and data design techniques to create beautiful, understandable visualizations and uncover truth in data.
 
 [^courseinfo]: {-}
   `r blogdown::shortcode("courseinfo")`
+
 
 # Course objectives
 
@@ -62,13 +70,54 @@ On the first day of class we’ll come up with rules, expectations, and policies
 
 You can find descriptions and instructions of all assignments on the [assignments page](/assignments/).
 
-## Assignments
+```{r assignments-grades, include=FALSE}
+assignments <- tribble(
+  ~Points, ~Assignment,
+  80     , "Weekly memos (8)",
+  80     , "Homework assignments (8)",
+  30     , "Redesign 1",
+  30     , "Redesign 2",
+  30     , "Redesign 3",
+  40     , "Rubric draft",
+  40     , "Rubric test run",
+  80     , "Final rubric",
+  100    , "Final project"
+)
+
+grading <- tribble(
+  ~Grade, ~Range,
+  "A",  "93–100%",
+  "A−", "90–92%",
+  "B+", "87–89%",
+  "B",  "83–86%",
+  "B−", "80–82%",
+  "C+", "77–79%",
+  "C",  "73–76%",
+  "C−", "70–72%",
+  "D+", "67–69%",
+  "D",  "63–66%",
+  "D−", "60–62%",
+  "F",  "< 60%"
+)
+```
+
+```{r show-assignments-table, echo=FALSE, results="asis"}
+assignments %>% 
+  select(Assignment, Points) %>% 
+  pandoc.table(justify = "lc")
+```
 
 ## Grades
 
+```{r show-grades-table, echo=FALSE, results="asis"}
+grading %>%
+  pandoc.table(justify = "rc")
+```
+
+
 # Dinosaurs
 
-[^dinosaurs] Once you have read this entire syllabus, please [click here](mailto:andrew_heiss@byu.edu) and e-mail me a picture of a dinosaur. For real.
+[^dinosaurs] Once you have read this entire syllabus and [the assignments page](/assignments/), please [click here](mailto:andrew_heiss@byu.edu) and e-mail me a picture of a dinosaur. For real.
 
 [^dinosaurs]: {-}
   ![Dinosaurs](/images/dinosaurs.jpg) Velociraptor and Protoceratops locked in a mortal combat, by [Raul Martin](https://dx.doi.org/10.1371/journal.pbio.0000040)
