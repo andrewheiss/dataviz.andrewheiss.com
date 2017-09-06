@@ -19,10 +19,10 @@ menu:
       weight: 1
     - name: Assignments
       url: /assignments/
-      weight: 2
+      weight: 3
     - name: Schedule
       url: /schedule/
-      weight: 3
+      weight: 2
     - name: Reference
       url: /reference/
       weight: 4
