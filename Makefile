@@ -8,7 +8,7 @@ all: build
 clean:
 	rm -rf public/
 
-build: clean
+build:
 	Rscript -e "blogdown::build_site()"
 
 serve: build
