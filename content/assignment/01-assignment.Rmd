@@ -3,4 +3,42 @@ title: "Truth, Beauty, and Data"
 date: "2017-09-05"
 ---
 
-I will post the assignment here by Wednesday, September 6 at 5 PM.
+# Syllabus
+
+Read through the entire [syllabus](/syllabus/) and [assignments page](/assignments/).
+
+
+# Reflection memo
+
+Write a 500-word memo about [the assigned readings](/reading/01-reading/) for this week. You can use some of the prompt questions there if you want. As you write the memo, also consider these central questions:
+
+- How do these readings connect to our main goal of discovering truth?
+- How does what I just read apply to me?
+- How can this be useful to me?
+
+**[E-mail me](mailto:andrew_heiss@byu.edu) a PDF of the memo.**
+
+
+# Become familiar with RStudio and R Markdown
+
+^[{-} Follow [the instructions at the class page](/class/01-class/#installing-r-rstudio-and-the-tidyverse) and install R, RStudio, and all the tidyverse packages. If you have any questions, don't hesitate to ask me or your classmates for help!] In the next assignment, you'll play with actual R commands and create graphics. Before we get there, you need to familiarize yourself with RStudio. Go through [this short tutorial](http://stat545.com/block002_hello-r-workspace-wd-project.html) and **let me know in an e-mail that you did it**.
+
+Finally, you will write future memos and homework assignments in R Markdown instead of Word. RStudio has [a helpful tutorial and a short video about R Markdown](http://rmarkdown.rstudio.com/lesson-1.html). Go through these short lessons:
+
+- [Introduction](http://rmarkdown.rstudio.com/lesson-1.html)
+- [How it Works](http://rmarkdown.rstudio.com/lesson-2.html)
+- [Code Chunks](http://rmarkdown.rstudio.com/lesson-3.html)
+- [Inline Code](http://rmarkdown.rstudio.com/lesson-4.html)
+- [Markdown Basics](http://rmarkdown.rstudio.com/lesson-8.html) ^[{-} The [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) is super useful here.]
+- [Output Formats](http://rmarkdown.rstudio.com/lesson-9.html)
+
+Before doing these R Markdown tutorials, you'll need to install a couple more R packages. Use RStudio's "Packages" panel to install `rmarkdown` and `viridis`. Alternatively, paste these commands in the RStudio Console: `install.packages("rmarkdown")` and `install.packages("viridis")`. You can also type `install.packages(c("rmarkdown", "viridis"))` to install both at the same time.
+
+Don't worry if you don't completely understand R Markdown! We'll go over it at the beginning of class next Tuesday. Try your hardest and play around with it.
+
+Also, if you want to convert R Markdown files to PDF instead of just Word or HTML (which you do), you'll need to install LaTeX, which is a fancy scientific typesetting program. You don't need to know how it works—it just has to be installed for R to use it.
+
+- LaTeX for macOS: [MacTeX](https://www.tug.org/mactex/) ^[{-} For whatever reason, LaTeX is astoundingly huge and it will feel like you're downloading the entire internet when you install it. Be patient :)]
+- LaTeX for Windows: [MiKTeX](https://miktex.org/howto/install-miktex)
+
+^[{-} If you're feeling adventurous, generate something with R Markdown and e-mail that to me too.] Go through the tutorials, play around with R Markdown, and **e-mail me to let me know you did** (or that you tried).
