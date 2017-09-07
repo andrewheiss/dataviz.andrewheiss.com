@@ -29,6 +29,12 @@ By the end of this course, you will become (1) literate in data and graphic desi
 - Share data and graphics in open forums
 - Be curious and confident in consuming and producing data
 
+Given these objectives, this course fulfills two of the four learning outcomes for BYU's [Master of Public Administration (MPA)](https://marriottschool.byu.edu/mpa/) program: 
+
+- **Quantitative Analysis**: BYU MPA graduates are skilled at evaluating programs and policies. They know how to gather data, correctly analyze it, and employ the analysis to recommend policy and programmatic action in public service organizations.
+
+- **Communications**: BYU MPA graduates effectively convey verbal and written information with the polish and professionalism appropriate for the public service context. They listen to and promote understanding among people with diverse viewpoints.
+
 
 # Course materials
 
@@ -44,11 +50,12 @@ These books are optional—we'll refer to stuff in them and they're useful for r
 - [@Cairo:2013] [$26 used, $37 new at [Amazon](https://www.amazon.com/Functional-Art-introduction-information-visualization/dp/0321834739)]
 - [@Williams:2008] [$15 used at [Amazon](https://www.amazon.com/Non-Designers-Design-Type-Books-Deluxe/dp/0321534050)]
 
+
 # Course policies
 
 **Be nice. Be honest. Don't cheat.**
 
-An entire list of Marriott School and BYU classroom policies can be found at <https://marriottschool.byu.edu/policies/classroom/>.
+We will also follow the [full list of Marriott School and BYU classroom policies](https://marriottschool.byu.edu/policies/classroom/).
 
 
 ## Counseling and Psychological Services (CAPS)
