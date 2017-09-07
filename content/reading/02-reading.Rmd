@@ -10,14 +10,19 @@ csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 
 - Chapter 6 in Alberto Cairo, *The Truthful Art* [@Cairo:2016]
 - Chapters 2 and 6 in Stephanie Evergreen, *Effective Data Visualization* [@Evergreen:2017]
-- Websites TBA (by Thursday, September 7 at 5 PM)
+- [Engaging Readers with Square Pie/Waffle Charts](https://eagereyes.org/blog/2008/engaging-readers-with-square-pie-waffle-charts)
+- [Understanding Pie Charts](https://eagereyes.org/techniques/pie-charts)
+- [Square pie chart beats out the rest in perception study](https://flowingdata.com/2016/07/15/square-pie-chart-beats-out-the-rest-in-perception-study/)
 
 
 # Recommended
 
-- TBA
+- Ian Spence, ["No Humble Pie: The Origins and Usage of a Statistical Chart"](http://www.psych.utoronto.ca/users/spence/Spence%202005.pdf) [@Spence:2005]
+- Jeffrey Heer and Michael Bostock, ["Crowdsourcing Graphical Perception: Using Mechanical Turk to Assess Visualization Design"](http://vis.stanford.edu/papers/crowdsourcing-graphical-perception) [@HeerBostock:2010]
 
 
 # Questions to reflect on
 
-- TBA
+- How do these types of visualizations help or hinder or search for truth in data?
+- Why are pie charts and curved lines generally unacceptable? When are pie and donut charts acceptable?
+- What are different ways to show the variability of a single number? Are some more appropriate than others? Why?

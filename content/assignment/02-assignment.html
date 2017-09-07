@@ -3,6 +3,147 @@ title: "Single numbers and parts of a whole"
 date: "2017-09-12"
 ---
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 
-<p>I will post the assignment here by Thursday, September 7 at 5 PM.</p>
+<div id="task-1-reflection-memo" class="section level2">
+<h2>Task 1: Reflection memo</h2>
+<p>Write a 500-word memo about <a href="/reading/02-reading/">the assigned readings</a> for this week. You can use some of the prompt questions there if you want. As you write the memo, also consider these central questions:</p>
+<ul>
+<li>How do these readings connect to our main goal of discovering truth?</li>
+<li>How does what I just read apply to me?</li>
+<li>How can this be useful to me?</li>
+</ul>
+<p><strong><a href="mailto:andrew_heiss@byu.edu">E-mail me</a> a PDF of the memo.</strong></p>
+</div>
+<div id="task-2-playing-with-r" class="section level2">
+<h2>Task 2: Playing with R</h2>
+<p>This example uses data from the <a href="https://www.gapminder.org/">Gapminder project</a>.<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> You may have seen Hans Rosling’s <a href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen">delightful TED talk</a> showing how global health and wealth have been increasing. If you haven’t, you should watch it. Sadly, Hans died in February 2017.<br />
+<br />
+</span></span> You’ll need to install the <code>gapminder</code> R package first. Install it either with the “Packages” panel in RStudio or by typing <code>install.packages(&quot;gapminder&quot;)</code> in the R console.</p>
+<p>For this first R-based assignment, you won’t do any actual coding. <a href="https://raw.githubusercontent.com/andrewheiss/dataviz.andrewheiss.com/master/content/assignment/02-assignment.Rmd">Download this file</a>,<span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> Your browser might show the file instead of downloading it. If that’s the case, you can copy/paste the code from the browser to RStudio. In RStudio, go to “File” &gt; “New” &gt; “New R Markdown…”, click “OK” with the default options, delete all the placeholder code/text in the new file, and paste the example code in the now-blank file.<br />
+<br />
+</span></span> open it in RStudio, and walk through the examples in RStudio on your computer. If you place your cursor on some R code and press “⌘ + enter” (for macOS users) or “ctrl + enter” (for Windows users), RStudio will send that line to the console and run it.</p>
+<p>There are a few questions that you’ll need to answer, but that’s all.</p>
+<div id="life-expectancy-in-2007" class="section level3">
+<h3>Life expectancy in 2007</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This loads ggplot, dplyr, and other packages you&#39;ll need</span>
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(gapminder)</code></pre></div>
+<p>Let’s first look at the first few rows of data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(gapminder)</code></pre></div>
+<pre><code>## # A tibble: 6 x 6
+##       country continent  year lifeExp      pop gdpPercap
+##        &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+## 1 Afghanistan      Asia  1952  28.801  8425333  779.4453
+## 2 Afghanistan      Asia  1957  30.332  9240934  820.8530
+## 3 Afghanistan      Asia  1962  31.997 10267083  853.1007
+## 4 Afghanistan      Asia  1967  34.020 11537966  836.1971
+## 5 Afghanistan      Asia  1972  36.088 13079460  739.9811
+## 6 Afghanistan      Asia  1977  38.438 14880372  786.1134</code></pre>
+<p>Right now, the <code>gapminder</code> data frame contains rows for all years for all countries. We want to only look at 2007, so we create a new data frame that filters only rows for 2007.<span><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"> Note how there’s a weird sequence of characters: <code>%&gt;%</code>. This is called a <em>pipe</em> and lets you chain functions together. We could have also written this as <code>gapminder_2007 &lt;- filter(gapminder, year == 2007)</code>.<br />
+<br />
+</span></span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder_2007 &lt;-<span class="st"> </span>gapminder %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(year ==<span class="st"> </span><span class="dv">2007</span>)
+
+<span class="kw">head</span>(gapminder_2007)</code></pre></div>
+<pre><code>## # A tibble: 6 x 6
+##       country continent  year lifeExp      pop  gdpPercap
+##        &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;      &lt;dbl&gt;
+## 1 Afghanistan      Asia  2007  43.828 31889923   974.5803
+## 2     Albania    Europe  2007  76.423  3600523  5937.0295
+## 3     Algeria    Africa  2007  72.301 33333216  6223.3675
+## 4      Angola    Africa  2007  42.731 12420476  4797.2313
+## 5   Argentina  Americas  2007  75.320 40301927 12779.3796
+## 6   Australia   Oceania  2007  81.235 20434176 34435.3674</code></pre>
+<p>Now we can plot a histogram of 2007 life expectancies with the default settings:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_2007, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>()</code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/assignment/02-assignment_files/figure-html/plot-2007-1-1.png" width="672" /></p>
+<p>R will use 30 histogram bins by default, but that’s not always appropriate, and it will yell at you for doing so. <strong>Adjust the number of bins to 2, then 40, then 100.</strong> <strong>What’s a good number for this data? Why?</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_2007, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) +
+<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">2</span>)</code></pre></div>
+<p><img src="/assignment/02-assignment_files/figure-html/plot-2007-2-1.png" width="672" /></p>
+</div>
+<div id="average-life-expectancy-in-2007-by-continent" class="section level3">
+<h3>Average life expectancy in 2007 by continent</h3>
+<p>We’re also interested in the differences of life expectancy across continents. First, we can group all rows by continent and calculate the mean:<span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote"> This is where the <code>%&gt;%</code> function is actually super useful. Remember that it lets you chain functions together—this means we can read these commands as a set of instructions: take the <code>gapminder</code> data frame, filter it, group it by continent, and summarize each group by calculating the mean. Without using the <code>%&gt;%</code>, we could write this same chain like this: <code>summarize(group_by(filter(gapminder, year == 2007), continent), avg_life_exp = mean(lifeExp))</code>. But that’s <em>awful</em> and impossible to read and full of parentheses that can easily be mismatched.<br />
+<br />
+</span></span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder_cont_2007 &lt;-<span class="st"> </span>gapminder %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(year ==<span class="st"> </span><span class="dv">2007</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(continent) %&gt;%
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">avg_life_exp =</span> <span class="kw">mean</span>(lifeExp))
+
+<span class="kw">head</span>(gapminder_cont_2007)</code></pre></div>
+<pre><code>## # A tibble: 5 x 2
+##   continent avg_life_exp
+##      &lt;fctr&gt;        &lt;dbl&gt;
+## 1    Africa     54.80604
+## 2  Americas     73.60812
+## 3      Asia     70.72848
+## 4    Europe     77.64860
+## 5   Oceania     80.71950</code></pre>
+<p>Let’s plot these averages as a bar chart:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_cont_2007, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> avg_life_exp, <span class="dt">fill =</span> continent)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_col</span>()</code></pre></div>
+<p><img src="/assignment/02-assignment_files/figure-html/plot-2007-bar-1.png" width="672" /></p>
+<p>Then, let’s plot them as density distributions. We don’t need to use the summarized data frame for this, just the original filtered <code>gapminder_2007</code> data frame:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_2007, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp, <span class="dt">fill =</span> continent)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_density</span>()</code></pre></div>
+<p><img src="/assignment/02-assignment_files/figure-html/plot-2007-density-1.png" width="672" /></p>
+<p>Now let’s plot life expectancies as violin charts. These are the density distributions turned sideways:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_2007, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> lifeExp, <span class="dt">fill =</span> continent)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_violin</span>()</code></pre></div>
+<p><img src="/assignment/02-assignment_files/figure-html/plot-2007-violin-1.png" width="672" /></p>
+<p>Finally, we can add actual points of data for each country to the violin chart:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_2007, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> lifeExp, <span class="dt">fill =</span> continent)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_violin</span>() +
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="/assignment/02-assignment_files/figure-html/plot-2007-violin-points-1.png" width="672" /></p>
+<p>The bar chart, density plot, violin plot, and violin plot + points each show different ways of looking at a single number—the average life expectancy in each continent. <strong>Answer these questions:</strong></p>
+<ul>
+<li>Which plot is most helpful?</li>
+<li>Which ones show variability?</li>
+<li>What’s going on with Oceania?</li>
+</ul>
+<p><a href="mailto:andrew_heiss@byu.edu">E-mail me</a> the answers to the questions posed in this example.</p>
+</div>
+</div>
