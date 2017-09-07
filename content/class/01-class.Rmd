@@ -19,7 +19,7 @@ date: "2017-09-05"
 
 # Installing R, RStudio, and the tidyverse
 
-1. [Download and install R](https://cloud.r-project.org/)
+1. [Download and install R](https://cloud.r-project.org/) ^[{-} ![R learning path](/images/class/r-path.png) (via [\@kierisi](https://twitter.com/kierisi/status/898534740051062785))]
 2. [Download and install RStudio](https://www.rstudio.com/products/rstudio/download/#download)
 3. Install the `tidyverse` package
 
