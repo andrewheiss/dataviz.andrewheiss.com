@@ -1,6 +1,23 @@
 ---
-title: "Truth, Beauty, and Data"
-date: "2017-09-05"
+title: "Relationships"
+date: "2017-09-26"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 ---
 
-This is a test.
+# Required
+
+- Chapter 9 in Alberto Cairo, *The Truthful Art* [@Cairo:2016]
+- Chapter 7 in Stephanie Evergreen, *Effective Data Visualization* [@Evergreen:2017]
+- Websites TBA
+
+
+# Recommended
+
+- TBA
+
+
+# Questions to reflect on
+
+- TBA

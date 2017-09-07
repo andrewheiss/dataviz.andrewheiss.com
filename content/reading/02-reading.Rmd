@@ -1,6 +1,23 @@
 ---
 title: "Single numbers and parts of a whole"
 date: "2017-09-12"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 ---
 
-I will post the assignment here by Wednesday, September 6 at 5 PM.
+# Required
+
+- Chapter 6 in Alberto Cairo, *The Truthful Art* [@Cairo:2016]
+- Chapters 2 and 6 in Stephanie Evergreen, *Effective Data Visualization* [@Evergreen:2017]
+- Websites TBA (by Thursday, September 7 at 5 PM)
+
+
+# Recommended
+
+- TBA
+
+
+# Questions to reflect on
+
+- TBA

@@ -1,6 +1,24 @@
 ---
-title: "Truth, Beauty, and Data"
-date: "2017-09-05"
+title: "Change over time"
+date: "2017-10-10"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 ---
 
-This is a test.
+# Required
+
+- Chapter 8 in Alberto Cairo, *The Truthful Art* [@Cairo:2016]
+- Chapter 9 in Stephanie Evergreen, *Effective Data Visualization* [@Evergreen:2017]
+- Websites TBA
+
+
+# Recommended
+
+- TBA
+
+
+# Questions to reflect on
+
+- TBA
+

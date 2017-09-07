@@ -1,6 +1,22 @@
 ---
-title: "Truth, Beauty, and Data"
-date: "2017-09-05"
+title: "Surveys and qualitative data"
+date: "2017-10-24"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 ---
 
-This is a test.
+# Required
+
+- Chapters 5 and 8 in Stephanie Evergreen, *Effective Data Visualization* [@Evergreen:2017]
+- Websites TBA
+
+
+# Recommended
+
+- TBA
+
+
+# Questions to reflect on
+
+- TBA

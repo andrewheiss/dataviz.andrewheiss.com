@@ -1,6 +1,22 @@
 ---
-title: "Truth, Beauty, and Data"
-date: "2017-09-05"
+title: "Distributions and uncertainty"
+date: "2017-09-19"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 ---
 
-This is a test.
+# Required
+
+- Chapters 4, 7, and 11 in Alberto Cairo, *The Truthful Art* [@Cairo:2016]
+- Websites TBA
+
+
+# Recommended
+
+- TBA
+
+
+# Questions to reflect on
+
+- TBA

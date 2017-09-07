@@ -1,6 +1,23 @@
 ---
-title: "Truth, Beauty, and Data"
-date: "2017-09-05"
+title: "Comparisons"
+date: "2017-10-03"
+citeproc: false
+bibliography: ../../static/bib/references.bib
+csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 ---
 
-This is a test.
+# Required
+
+- Chapters 3 and 4 in Stephanie Evergreen, *Effective Data Visualization* [@Evergreen:2017]
+- Websites TBA
+
+
+# Recommended
+
+- TBA
+
+
+# Questions to reflect on
+
+- TBA
+
