@@ -1,0 +1,38 @@
+---
+title: "Redesign 1: Comic Relief Grants"
+date: "2017-09-19"
+---
+
+^[{-} ![Comic Relief](/images/class/comic-relief.png)] <span class="newthought">[Comic Relief](https://www.comicrelief.com/) is an international NGO</span> that funds health and educaiton programs throughout the world. The organization raises money primarily through its annual [Red Nose Day](https://www.rednoseday.com/), a celebrity-heavy comedy telethon broadcast on the BBC in the UK, on NBC in the US, and on YouTube everywhere else (they also partner with the Gates Foundation). For example, check out [the search for Stephen Hawking's new voice](https://www.youtube.com/watch?v=PqXOlfwlVag), [The Ultimate, Definitive, Multi-Celebrity Plea](https://www.youtube.com/watch?v=-zCC8ii5Ptw), and a [short history of Red Nose Day](https://www.youtube.com/watch?v=ko3oqFpsYrE). 
+
+For this first redesign project, you will use **Excel** to redesign this graphic showing how many grants Comic Relief awarded to recipients in other countries in 2015 and 2016, divided by grant size:
+
+<figure>
+![Comic Relief grant recipients](/images/assignment/comic_relief_redesign.png)
+</figure>
+
+In this redesign, we're interested in exploring this question: **Is there a difference in which countries receive bigger or smaller Comic Relief grants?**. The answer will be (*spoiler alert*) yes, which is a boring answer all by itself. Try to highlight something deeper in the data—are there discrepancies in which countries get big or small grants? Are there other interesting stories hidden in the data? 
+
+Here's what you need to do:
+
+1. [^cr-data] **Download** Comic Relief's dataset of international grants awarded in 2015–16: [<i class="fa fa-download" aria-hidden="true"></i> Comic Relief 2015–2016 grants](/data/ComicRelief_360Giving_International.xlsx) 
+2. [^pivot-table-hint] **Summarize** the data in a PivotTable. In this case, a "big" grant means that the grant was larger than the median value of all grants; a "small" grant was smaller than the median.
+3. **Create** an appropriate visualization based on the data summarized in the PivotTable.
+4. **Write** a memo (no word limit) explaining your process. I'm specifically looking for a discussion of the following:
+    - What was wrong with the original graphic?
+    - What story are you telling with your new graphic?
+    - How did you apply the principles of CRAP? ^[{-} **Pro tip**: Imagine that this new graph could show up in an annual report and try making the new figure fit with the branding and style of Comic Relief.]
+    - How did you apply Alberto Cairo's five qualities of great visualizations?
+5. **[E-mail me](mailto:andrew_heiss@byu.edu)** the following outputs:
+    - The Excel file with the PivotTable
+    - A PDF of your memo
+    - A standalone PNG version of your graphic
+    - A standalone PDF version of your graphic
+
+You will be graded based on how you use Excel and PivotTables,^[{-} It might be tempting to just type the numbers from the original chart into a spreadsheet and make a graph with them. ![Don't](https://media.giphy.com/media/l0HlJWe8FtAfCHF2U/giphy.gif)] how well you apply the principles of CRAP, *The Truthful Art*, and *Effective Data Visualization*, and how appropriate the graph is for the data and the story you're telling. **The assignment is due by midnight on Monday, September 18**.
+
+Please don't hestiate to ask for help from your classmates or from me!
+
+[^cr-data]: {-} Comic Relief follows the [360Giving standard](http://www.threesixtygiving.org/) for collecting and distributing grant data, which means the data they provide is fairly clean and standard. You can find data from dozens of other UK-based charities in [360Giving's Data Registry](http://www.threesixtygiving.org/data/data-registry/).
+
+[^pivot-table-hint]: {-} **Hint**: The columns you'll need to worry about are `Amount Awarded` and `Beneficiary Location:0:Name`. You might also want to create a new column/variable in the data to indicate if a grant is big or small—look into the `IF()` Excel function. The median value is £432,833, but you should calculate that in Excel.
