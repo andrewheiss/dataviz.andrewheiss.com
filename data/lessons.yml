@@ -8,6 +8,7 @@ lessons:
     date: "September 12"
     reading: "02-reading"
     assignment: "02-assignment"
+    class: "02-class"
   - title: "Distributions and uncertainty"
     date: "September 19"
     reading: "03-reading"

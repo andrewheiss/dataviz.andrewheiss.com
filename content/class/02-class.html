@@ -1,0 +1,273 @@
+---
+title: "Single numbers and parts of a whole"
+date: "2017-09-12"
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+---
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<h2>Contents</h2>
+<div id="TOC">
+<ul>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#making-a-bar-chart-in-excel">Making a bar chart in Excel</a></li>
+<li><a href="#introduction-to-r">Introduction to R</a></li>
+<li><a href="#introduction-to-markdown-and-r-markdown">Introduction to Markdown and R Markdown</a></li>
+<li><a href="#bonus-extended-example-creating-a-production-quality-slcpd-chart-in-r">Bonus extended example: Creating a production-quality SLCPD chart in R</a></li>
+<li><a href="#feedback-for-today">Feedback for today</a></li>
+</ul>
+</div>
+
+<div id="slides" class="section level2">
+<h2>Slides</h2>
+<p><a href="/slides/MPA-635_2017-09-12.pdf">Download the slides from today’s lecture</a></p>
+<figure>
+<a href="/slides/MPA-635_2017-09-12.pdf"><img src="/images/slides/slides_2017-09-12.png" alt="First slide" /></a>
+</figure>
+</div>
+<div id="making-a-bar-chart-in-excel" class="section level2">
+<h2>Making a bar chart in Excel</h2>
+<p><span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> Salt Lake City does a fairly good job of providing open data for public use. The <a href="https://sunlightfoundation.com/">Sunlight Foundation</a> and <a href="https://www.codeforamerica.org/">Code for America</a> have a database of municipal data and rate cities by how accessible and available their data is. Their <a href="http://us-city.census.okfn.org/">US City Open Data Census</a> is a fantastic resource.<br />
+<br />
+</span></span> We’ll create this chart in Excel, based on <a href="http://data.slcgov.com/Package?package=city-of-salt-lake-police-cases-for-2012">publicly available data from Salt Lake City</a>.</p>
+<p>Things to download:</p>
+<ul>
+<li><a href="/data/police-cases-2012.csv"><i class="fa fa-download" aria-hidden="true"></i> 2012 Salt Lake City Police Department cases</a><span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> Notice what happens to the Offense Code column when you open this file in Excel. This is a serious problem, <a href="https://www.washingtonpost.com/news/wonk/wp/2016/08/26/an-alarming-number-of-scientific-papers-contain-excel-errors/">particularly in genetics research</a>.<br />
+<br />
+</span></span></li>
+<li><a href="https://fonts.google.com/specimen/Source+Sans+Pro"><i class="fa fa-font" aria-hidden="true"></i> Source Sans Pro font</a></li>
+</ul>
+<figure>
+<img src="/images/class/slcpd.png" alt="SLC PD traffic stops example" />
+</figure>
+</div>
+<div id="introduction-to-r" class="section level2">
+<h2>Introduction to R</h2>
+<ul>
+<li>Creating an RStudio project</li>
+<li>Creating variables</li>
+<li>Working with data frames</li>
+<li>Getting help</li>
+<li>Loading data</li>
+<li>Basic plotting and saving (<a href="http://ggplot2.tidyverse.org/reference/">ggplot2 documentation</a>)</li>
+</ul>
+</div>
+<div id="introduction-to-markdown-and-r-markdown" class="section level2">
+<h2>Introduction to Markdown and R Markdown</h2>
+<ul>
+<li>What is Markdown?<span><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"> Remember to check out the <a href="/reference/#markdown">list of Markdown resources</a>.<br />
+<br />
+</span></span></li>
+<li>Writing in Markdown (<a href="https://dillinger.io/">play with Markdown</a>).</li>
+<li>Converting Markdown files to other formats</li>
+<li>Literate programming and R Markdown</li>
+</ul>
+</div>
+<div id="bonus-extended-example-creating-a-production-quality-slcpd-chart-in-r" class="section level2">
+<h2>Bonus extended example: Creating a production-quality SLCPD chart in R</h2>
+<p><span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote"> <img src="/images/class/slcpd-badge.jpg" alt="Salt Lake City Police Department badge" /><br />
+<br />
+</span></span> Previously, we used R ggplot2 to create analysis-ready graphics. We can create production-ready graphics using the same tools. Here’s an example of a typical workflow:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load libraries</span>
+<span class="kw">library</span>(tidyverse)  <span class="co"># Loads the basic tidyverse packages like dplyr, tidyr, readr, etc.</span>
+<span class="kw">library</span>(forcats)  <span class="co"># Makes working with factors easier</span>
+<span class="kw">library</span>(ggstance)  <span class="co"># Create horizontal bar charts</span>
+<span class="kw">library</span>(scales)  <span class="co"># Add nicer axis labels to plots</span>
+
+<span class="co"># Install fonts</span>
+<span class="co"># install.packages(&quot;extrafont&quot;)</span>
+<span class="co"># extrafont::font_import(paths = NULL, recursive = TRUE, prompt = TRUE, pattern = NULL)</span>
+
+
+<span class="co"># Load data</span>
+crimes &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/police-cases-2012.csv&quot;</span>)</code></pre></div>
+<p><span><label for="sn-5" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="marginnote"> You can also type <code>View(crimes)</code> to look at the data in RStudio.<br />
+<br />
+</span></span> First, check that the data loaded. You can (and should) also click on the <code>crimes</code> object in the Environment panel in RStudio.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(crimes)</code></pre></div>
+<pre><code>## Observations: 61,295
+## Variables: 8
+## $ CASE                  &lt;chr&gt; &quot;SL2012221534&quot;, &quot;SL201246361&quot;, &quot;SL201215...
+## $ `OFFENSE CODE`        &lt;chr&gt; &quot;3605-0&quot;, &quot;3601-0&quot;, &quot;5707-0&quot;, &quot;2305-0&quot;, ...
+## $ `OFFENSE DESCRIPTION` &lt;chr&gt; &quot;SEXUAL OFFENSE&quot;, &quot;SEXUAL OFFENSE&quot;, &quot;INV...
+## $ `REPORT DATE`         &lt;chr&gt; &quot;12/31/2012 03:37:00 PM&quot;, &quot;02/06/2012 10...
+## $ `OCC DATE`            &lt;chr&gt; &quot;01/01/2012 12:00:00 AM&quot;, &quot;01/01/2012 12...
+## $ `DAY OF WEEK`         &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+## $ LOCATION              &lt;chr&gt; &quot;1500 W 800 S&quot;, &quot;200 N 200 W&quot;, &quot;1300 S S...
+## $ COUNCIL               &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...</code></pre>
+<p>In Excel, we used a PivotTable to summarize the data by adding how many crimes of each type happened throughout the year. We can do the same with R, using the <code>dplyr</code> package (which is loaded automatically when you run <code>library(tidyverse)</code>).<span><label for="sn-6" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="marginnote"> Note that <code>OFFENSE DESCRIPTION</code> is between backticks. Ordinarily, you don’t need to do this when using variable names, but in this case, there’s a space in the name and that breaks everything. The `s are R’s way of quoting variable names.<br />
+<br />
+</span></span></p>
+<p>Also in Excel, we only graphed the observations where the count was greater than 1,000. We can filter the data the same way here with <code>filter()</code>. View the <code>crimes_types</code> object when you’re done.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_types &lt;-<span class="st"> </span>crimes %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(<span class="st">`</span><span class="dt">OFFENSE DESCRIPTION</span><span class="st">`</span>) %&gt;%
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">number =</span> <span class="kw">n</span>()) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">percent =</span> number /<span class="st"> </span><span class="kw">sum</span>(number)) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(number &gt;<span class="st"> </span><span class="dv">1000</span>)
+
+crimes_types</code></pre></div>
+<pre><code>## # A tibble: 13 x 3
+##    `OFFENSE DESCRIPTION` number    percent
+##                    &lt;chr&gt;  &lt;int&gt;      &lt;dbl&gt;
+##  1               ASSAULT   4203 0.06857003
+##  2              BURGLARY   1868 0.03047557
+##  3          DAMAGED PROP   3141 0.05124398
+##  4                 DRUGS   2392 0.03902439
+##  5                ESCAPE   3717 0.06064116
+##  6                 FRAUD   1164 0.01899013
+##  7        INV OF PRIVACY   2880 0.04698589
+##  8               LARCENY  11394 0.18588792
+##  9                LIQUOR   2023 0.03300432
+## 10          PUBLIC ORDER   9294 0.15162738
+## 11          PUBLIC PEACE   4906 0.08003915
+## 12        STOLEN VEHICLE   2273 0.03708296
+## 13               TRAFFIC   8541 0.13934252</code></pre>
+<p>This data is sorted alphabetically by default, since we grouped the data by <code>OFFENSE DESCRIPTION</code>, but sorting it by the count or percent is easy. Note the final line with <code>fct_inorder</code>—this creates a new column called <code>crime</code> that is a <em>factor</em>, or a categorical variable. If we plot the <code>OFFENSE DESCRIPTION</code> variable, R will order it alphabetically. Transforming it into an ordered factor will make R plot the categories in the correct order.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_types_sorted &lt;-<span class="st"> </span>crimes_types %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(number)) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">crime =</span> <span class="kw">fct_inorder</span>(<span class="st">`</span><span class="dt">OFFENSE DESCRIPTION</span><span class="st">`</span>, <span class="dt">ordered =</span> <span class="ot">TRUE</span>))
+
+crimes_types_sorted</code></pre></div>
+<pre><code>## # A tibble: 13 x 4
+##    `OFFENSE DESCRIPTION` number    percent          crime
+##                    &lt;chr&gt;  &lt;int&gt;      &lt;dbl&gt;          &lt;ord&gt;
+##  1               LARCENY  11394 0.18588792        LARCENY
+##  2          PUBLIC ORDER   9294 0.15162738   PUBLIC ORDER
+##  3               TRAFFIC   8541 0.13934252        TRAFFIC
+##  4          PUBLIC PEACE   4906 0.08003915   PUBLIC PEACE
+##  5               ASSAULT   4203 0.06857003        ASSAULT
+##  6                ESCAPE   3717 0.06064116         ESCAPE
+##  7          DAMAGED PROP   3141 0.05124398   DAMAGED PROP
+##  8        INV OF PRIVACY   2880 0.04698589 INV OF PRIVACY
+##  9                 DRUGS   2392 0.03902439          DRUGS
+## 10        STOLEN VEHICLE   2273 0.03708296 STOLEN VEHICLE
+## 11                LIQUOR   2023 0.03300432         LIQUOR
+## 12              BURGLARY   1868 0.03047557       BURGLARY
+## 13                 FRAUD   1164 0.01899013          FRAUD</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_types_sorted$crime</code></pre></div>
+<pre><code>##  [1] LARCENY        PUBLIC ORDER   TRAFFIC        PUBLIC PEACE  
+##  [5] ASSAULT        ESCAPE         DAMAGED PROP   INV OF PRIVACY
+##  [9] DRUGS          STOLEN VEHICLE LIQUOR         BURGLARY      
+## [13] FRAUD         
+## 13 Levels: LARCENY &lt; PUBLIC ORDER &lt; TRAFFIC &lt; PUBLIC PEACE &lt; ... &lt; FRAUD</code></pre>
+<p>With the data summarized and sorted, we can finally plot it. We’ll go over each of the pieces of this in class, so don’t worry if it looks intimidating—this is the final product. The basic gist of what’s happening is that we take a <code>ggplot()</code> object, map data to aesthetics (in this case <code>x</code> and <code>y</code> mapped to the <code>percent</code> variable and the <code>crime</code> variable), and then add a sequence of layers that determine how that data is plotted.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(crimes_types_sorted, <span class="kw">aes</span>(<span class="dt">x =</span> percent, <span class="dt">y =</span> <span class="kw">fct_rev</span>(crime))) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_barh</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>,
+       <span class="dt">title =</span> <span class="st">&quot;Most frequent crimes in Salt Lake City&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;January 1-December 31, 2012&quot;</span>,
+       <span class="dt">caption =</span> <span class="st">&quot;Source: data.slcgov.com&quot;</span>) +
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">labels =</span> percent) +
+<span class="st">  </span><span class="kw">theme_light</span>(<span class="dt">base_family =</span> <span class="st">&quot;Source Sans Pro&quot;</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Light&quot;</span>),
+        <span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Light&quot;</span>),
+        <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Semibold&quot;</span>, <span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">1.5</span>)),
+        <span class="dt">panel.border =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">panel.grid.major.y =</span> <span class="kw">element_blank</span>())</code></pre></div>
+<p><img src="/class/02-class_files/figure-html/plot-crimes-1.png" width="672" /></p>
+<p>Highlighting the traffic bar is a little tricky, since we can’t select it with the mouse and change the color by hand. The easiest way to do it is to create a new variable to map onto the fill color of each bar. We then remove the legend and modify the colors with <code>guides()</code> and <code>scale_fill_manual()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_highlight &lt;-<span class="st"> </span>crimes_types_sorted %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">highlight =</span> <span class="kw">ifelse</span>(crime ==<span class="st"> &quot;TRAFFIC&quot;</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>))
+
+<span class="kw">ggplot</span>(crimes_highlight, <span class="kw">aes</span>(<span class="dt">x =</span> percent, <span class="dt">y =</span> <span class="kw">fct_rev</span>(crime), <span class="dt">fill =</span> highlight)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_barh</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>,
+       <span class="dt">title =</span> <span class="st">&quot;Most frequent crimes in Salt Lake City&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;January 1-December 31, 2012&quot;</span>,
+       <span class="dt">caption =</span> <span class="st">&quot;Source: data.slcgov.com&quot;</span>) +
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">labels =</span> percent) +
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;grey70&quot;</span>, <span class="st">&quot;darkorange&quot;</span>)) +
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) +
+<span class="st">  </span><span class="kw">theme_light</span>(<span class="dt">base_family =</span> <span class="st">&quot;Source Sans Pro&quot;</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Light&quot;</span>),
+        <span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Light&quot;</span>),
+        <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Semibold&quot;</span>, <span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">1.5</span>)),
+        <span class="dt">panel.border =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">panel.grid.major.y =</span> <span class="kw">element_blank</span>())</code></pre></div>
+<p><img src="/class/02-class_files/figure-html/plot-crimes-highlight-1.png" width="672" /></p>
+<p>Finally, adding the label is a little tricky too, since we can’t manually type into the plot. Here, we add yet another variable to the data frame, this time for the text that will show up in the label. We only want to label the bars where <code>highlight == TRUE</code>, so we use an <code>ifelse()</code> statement to do that. We also save the plot to a variable instead of just plotting directly (i.e. instead of running <code>ggplot()</code>, we assign it to <code>plot_crimes</code>)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_highlight_label &lt;-<span class="st"> </span>crimes_highlight %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">text =</span> <span class="kw">ifelse</span>(highlight, <span class="kw">paste0</span>(<span class="kw">round</span>(percent *<span class="st"> </span><span class="dv">100</span>), <span class="st">&quot;%&quot;</span>), <span class="st">&quot;&quot;</span>))
+
+plot_crimes &lt;-<span class="st"> </span><span class="kw">ggplot</span>(crimes_highlight_label, <span class="kw">aes</span>(<span class="dt">x =</span> percent, <span class="dt">y =</span> <span class="kw">fct_rev</span>(crime), 
+                                                  <span class="dt">fill =</span> highlight, <span class="dt">label =</span> text)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_barh</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) +
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">hjust =</span> <span class="fl">1.3</span>, <span class="dt">family =</span> <span class="st">&quot;Source Sans Pro&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>,
+       <span class="dt">title =</span> <span class="st">&quot;Most frequent crimes in Salt Lake City&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;January 1-December 31, 2012&quot;</span>,
+       <span class="dt">caption =</span> <span class="st">&quot;Source: data.slcgov.com&quot;</span>) +
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">labels =</span> percent) +
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;grey70&quot;</span>, <span class="st">&quot;darkorange&quot;</span>)) +
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) +
+<span class="st">  </span><span class="kw">theme_light</span>(<span class="dt">base_family =</span> <span class="st">&quot;Source Sans Pro&quot;</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Light&quot;</span>),
+        <span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Light&quot;</span>),
+        <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Semibold&quot;</span>, <span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">1.5</span>)),
+        <span class="dt">panel.border =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">panel.grid.major.y =</span> <span class="kw">element_blank</span>())
+
+plot_crimes</code></pre></div>
+<p><img src="/class/02-class_files/figure-html/plot-crimes-highlight-label-1.png" width="672" /></p>
+<p><em>Finally</em>, we can save this plot as a file using the <code>ggsave()</code> function. The plot should save just fine as a PNG file. Saving as a PDF is slightly trickier, though, since PDFs have embedded fonts. R’s default PDF writer can only embed a handful of PDF fonts, but R has a second PDF writer based on the <a href="https://www.cairographics.org/">Cairo graphics library</a> that can embed fonts just fine.<span><label for="sn-7" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-7" class="margin-toggle"/><span class="marginnote"> idk why ¯\_(ツ)_/¯<br><br>R is just weird sometimes. You definitely don’t need to understand the details of how Cairo works—I don’t. All that matters is that when you use the Cairo PDF library, fonts are embedded properly and everything works.<br />
+<br />
+</span></span> You just have to specify the plotting device in <code>ggsave()</code> with <code>device = cairo_pdf</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;plot_crimes.png&quot;</span>, <span class="dt">plot =</span> plot_crimes,
+       <span class="dt">width =</span> <span class="dv">6</span>, <span class="dt">height =</span> <span class="fl">3.5</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)
+
+<span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;plot_crimes.pdf&quot;</span>, <span class="dt">plot =</span> plot_crimes,
+       <span class="dt">width =</span> <span class="dv">6</span>, <span class="dt">height =</span> <span class="fl">3.5</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>, <span class="dt">device =</span> cairo_pdf)</code></pre></div>
+<p>Using the Cairo library for PNGs can also be helpful. R sometimes generates wonky PNGs in Windows, and Cairo PNGs work better in PowerPoint and Word. Saving Cairo-based PNGs with <code>ggsave()</code> has a slightly different syntax (use <code>type = &quot;cairo&quot;</code> instead of <code>device = cairo_pdf</code>):</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;plot_crimes_cairo.png&quot;</span>, <span class="dt">plot =</span> plot_crimes,
+       <span class="dt">width =</span> <span class="dv">6</span>, <span class="dt">height =</span> <span class="fl">3.5</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;cairo&quot;</span>)</code></pre></div>
+</div>
+<div id="feedback-for-today" class="section level2">
+<h2>Feedback for today</h2>
+<p>Go to <a href="https://goo.gl/forms/CFX9v8kK16LVF5j62">this form</a> and answer these three questions (anonymously if you want):</p>
+<ol style="list-style-type: decimal">
+<li>What new thing did you learn today?</li>
+<li>What was the most unclear thing about today?</li>
+<li>What was the most exciting thing you learned today?</li>
+</ol>
+</div>
