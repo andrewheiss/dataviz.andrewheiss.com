@@ -1,0 +1,36 @@
+---
+title: "Distributions and uncertainty"
+date: "2017-09-19"
+---
+
+**Super important note**: In the past couple weeks, you've probably typed your memo in Word and saved it as a PDF. Starting this week, you will put your memo and homework assignments in the same R Markdown file and e-mail me a Word file or a PDF of the compiled document.
+
+To help you with this, [here's a template to get you started](/files/your_name_homework3.Rmd).^[Your browser will most likely open it as a new tab instead of downloading the file. Either right click on the link and choose "Save link as…" or copy and paste the text into a blank R Markdown file in RStudio.] Open it in RStudio and fill in the blanks.
+
+If you run into problems, check with your classmates or come by my office!
+
+
+# Task 0: Understand Markdown
+
+- Go through the seven short lessons of this [Markdown tutorial](https://www.markdowntutorial.com).^[This tutorial has you use `_`s for italics, like `_this_`. Markdown also accepts single `*` for italics, like `*this*`. I prefer writing with asterisks for both `*italic*` and `**bold**`, but underscores work just fine too—it's a matter of personal preference. Similarly, the tutorial uses asterisks for lists. Markdown will also accept dashes.]
+- Read through this [RMarkdown tutorial](https://ismayc.github.io/rbasics-book/4-rmarkdown.html) to see how you embed chunks of R code in a Markdown document and knit that document into different output formats like HTML, Word, and PDF.^[There are lots of R Markdown files in the wild, like [*R for Data Science*](https://raw.githubusercontent.com/hadley/r4ds/master/visualize.Rmd) and [even this website](https://raw.githubusercontent.com/andrewheiss/dataviz.andrewheiss.com/master/content/assignment/03-assignment.Rmd). Check the links to see what the R Markdown source looks like.]
+
+
+# Task 1: Reflection memo
+
+Write a 500-word memo about [the assigned readings](/reading/03-reading/) for this week. You can use some of the prompt questions there if you want. As you write the memo, also consider these central questions:
+
+- How do these readings connect to our main goal of discovering truth?
+- How does what I just read apply to me?
+- How can this be useful to me?
+
+
+# Task 2: R and ggplot2
+
+Read [Chapter 3 of R for Data Science](http://r4ds.had.co.nz/data-visualisation.html) and complete the following exercises:
+
+- [3.2.4](http://r4ds.had.co.nz/data-visualisation.html#exercises): Questions 1–5
+- [3.3.1](http://r4ds.had.co.nz/data-visualisation.html#exercises-1): Questions 1–5
+- [3.5.1](http://r4ds.had.co.nz/data-visualisation.html#exercises-2): Questions 1–4
+- [3.6.1](http://r4ds.had.co.nz/data-visualisation.html#exercises-3): Questions 1–5 (\#6 if you're feeling adventurous)
+- [3.8.1](http://r4ds.had.co.nz/data-visualisation.html#exercises-5): Questions 1 and 2

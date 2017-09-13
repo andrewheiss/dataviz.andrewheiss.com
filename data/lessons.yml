@@ -12,6 +12,7 @@ lessons:
   - title: "Distributions and uncertainty"
     date: "September 19"
     reading: "03-reading"
+    assignment: "03-assignment"
   - title: "⊞ *Redesign 1 due*"
     assignment: "01-redesign"
   - title: "Relationships"
