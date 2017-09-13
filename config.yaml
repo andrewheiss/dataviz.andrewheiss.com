@@ -48,6 +48,7 @@ params:
     time: "6:30–8:45 PM"
     location: 270 TNRB
     twitter: andrewheiss
+    slack: "https://mpa635fall2017.slack.com/"
     dates: "September 5–October 24, 2017"
     github: "andrewheiss/dataviz.andrewheiss.com"
     contactDetails: >-
