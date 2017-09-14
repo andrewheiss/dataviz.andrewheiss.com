@@ -6,3 +6,4 @@ blogdown/
 public/
 .DS_Store
 static/slides/*
+assets/*
