@@ -19,6 +19,13 @@ library(emo)
 [^bibtex]: {-} You can open the file in [BibDesk on macOS](http://bibdesk.sourceforge.net/), [JabRef on Windows](http://www.jabref.org/), or [Zotero](https://www.zotero.org/) or [Mendeley](https://www.mendeley.com/) online.
 
 
+# Interesting and excellent real world examples
+
+- [The Stories Behind a Line](http://www.storiesbehindaline.com/)
+- [Australia as 100 people](https://flowingdata.com/2017/06/28/australia-as-100-people/)^[{-} You can make something like this with d3 and the [potato project](https://github.com/civisanalytics/potato).]
+- [Marrying Later, Staying Single Longer](https://flowingdata.com/2017/07/17/marrying-age-over-the-past-century/)
+
+
 # How to select the appropriate chart type
 
 [^dataviz-cat] Many people have created many useful tools for selecting the correct chart type for a given dataset or question. Here are some of the best:
@@ -76,6 +83,16 @@ Because it is focused entirely on visualization (and because it's a well-support
 [^r-google]: {-} *Pro-tip*: Searching for help with R on Google can be tricky because the program is, um, a single letter. Try searching for "rstats" instead. If you use Twitter, post R-related questions and content with [#rstats](https://twitter.com/search?q=%23rstats). The R community on [StackOverflow](https://stackoverflow.com/) is also incredibly kind and helpful.
 
 
+# Data
+
+- [**Kaggle**](https://www.kaggle.com/datasets): Kaggle hosts machine learning competitions where people compete to create the fastest, most efficient, most predictive algorithms. A byproduct of these competitions is a host of fascinating datasets that are generally free and open to the public. See, for example, [the European Soccer Database](https://www.kaggle.com/hugomathien/soccer), the [Salem Witchcraft Dataset](https://www.kaggle.com/rtatman/salem-witchcraft-dataset) or results from an [Oreo flavors taste test](https://www.kaggle.com/rtatman/oreo-flavors-tastetest-ratings).
+- [**Political science and economics datasets**]: There's a wealth of data available for political science- and economics-related topics.
+    - [François Briatte's extensive curated lists](https://github.com/briatte/srqm/wiki/Data): Includes data from/about intergovernmental organizations (IGOs), nongovernmental organizations (NGOs), public opinion surveys, parliaments and legislatures, wars, human rights, elections, and municipalities.
+    - [Thomas Leeper's list of political science datasets](https://github.com/leeper/poliscitoys/issues/1): Good short list of useful datasets, divided by type of data (country-level data, survey data, social media data, event data, text data, etc.).
+- [**360Giving**](http://www.threesixtygiving.org/data/data-registry/): Dozens of British foundations follow a standard file format for sharing grant data and have made that data available online.
+- [**US City Open Data Census**](http://us-city.census.okfn.org/): More than 100 US cities have committed to sharing dozens of types of data, including data about crime, budgets, campaign finance, lobbying, transit, and zoning. This site from the [Sunlight Foundation](http://sunlightfoundation.com/) and [Code for America](http://www.codeforamerica.org//) collects this data and rates cities by how well they're doing.
+
+
 # Colors
 
 - [^adobe-color] [**Adobe Color**](https://color.adobe.com): Create, share, and explore rule-based and custom color palettes.
@@ -89,8 +106,14 @@ Because it is focused entirely on visualization (and because it's a well-support
 [^adobe-color]: {-} ![Adobe Color](/images/reference/adobe-color.png) *Adboe Color*
 
 
+# Fonts
+
+- [**Google Fonts**](https://fonts.google.com/): Huge collection of free, well-made fonts.
+- [**The Ultimate Collection of Google Font Pairings**](https://www.reliablepsd.com/ultimate-google-font-pairings/): A list of great, well-designed font pairings from all those fonts hosted by Google (for when you're looking for good contrasting or complementary fonts).
+
+
 # Markdown
 
-- ^[{-} ![Markdown logo](/images/reference/markdown.png)] [**The Plain Person’s Guide to Plain Text Social Science**](http://plain-text.co/): A comprehensive explanation and tutorial about why you should write data-based reports in Markdown
+- ^[{-} ![Markdown logo](/images/reference/markdown.png)] [**The Plain Person’s Guide to Plain Text Social Science**](http://plain-text.co/): A comprehensive explanation and tutorial about why you should write data-based reports in Markdown.
 - [**Markdown tutorial**](https://www.markdowntutorial.com/): An interactive tutorial to practice using Markdown.
 - [**Markdown cheatsheet**](http://packetlife.net/media/library/16/Markdown.pdf): Useful one-page reminder of Markdown syntax.
