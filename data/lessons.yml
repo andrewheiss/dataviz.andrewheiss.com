@@ -19,6 +19,7 @@ lessons:
     date: "September 26"
     reading: "04-reading"
   - title: "⊞ *Draft rubric due*"
+    assignment: "rubric-draft"
   - title: "Comparisons"
     date: "October 3"
     reading: "05-reading"

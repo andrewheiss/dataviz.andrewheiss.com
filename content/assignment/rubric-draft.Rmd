@@ -1,0 +1,18 @@
+---
+title: "Draft rubric"
+date: "2017-09-26"
+---
+
+[^rubric-rubric] <span class="newthought">Evaluating data graphics is hard,</span> especially since so much of the work that goes into creating excellent visualizations is subjective. How do you know if a figure follows graphic and data design principles and communicates truth?
+
+Over the course of the term, you will develop your own rubric for evaluating the design, aesthetics, correctness, and truth of data visualizations, based on the readings, assignments, and classroom activities you’ll do. These rubrics can take any form you want, as long as they include some approach for scoring performance and some method for quickly identifying specific areas of improvement. Where possible, try to cite the materials you draw from to create the rubric items.
+
+So far, you have read enough about the foundations of data visualization to get started on your rubric. For this assignment, you will create a draft rubric. **[E-mail me](mailto:andrew_heiss@byu.edu) a PDF version of your rubric by midnight on Monday, September 25.** I will then shuffle the rubrics and send them to two people in the class—you will each provide feedback and comments for two other rubrics.
+
+I will grade your final rubric with [this rubric of rubrics][rubric-rubric-url], so keep these guidelines in mind as you work on yours.
+
+^[{-} ![Be honest](https://media.giphy.com/media/3o7aDgKgeISp05DjKU/giphy.gif)]You will only be graded for completion, but please do your best, since you'll get better feedback from me and from your peers if we can see an as-complete-as-possible version. 
+
+[^rubric-rubric]: {-} [![Visualization rubric rubric](/images/rubrics/dataviz-rubric-rubric-no-points.png)][rubric-rubric-url]
+
+[rubric-rubric-url]: /assignment/rubrics/dataviz-rubric-rubric-no-points.pdf
