@@ -4,6 +4,8 @@ date: "2017-10-24"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
+stuff-to-add: >-
+  "https://medium.com/hci-design-at-uw/explaining-the-gap-visualizing-ones-predictions-improves-recall-and-comprehension-of-data-ec848d5861d9; https://twitter.com/s_soroka/status/907941270735278085"
 ---
 
 # Required

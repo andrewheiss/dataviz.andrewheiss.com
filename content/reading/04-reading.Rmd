@@ -5,7 +5,7 @@ citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 stuff-to-add: >-
-  "https://www.smbc-comics.com/?id=3129"
+  "https://www.smbc-comics.com/?id=3129; https://www.autodeskresearch.com/publications/samestats, https://gist.github.com/apreshill/9d33891b5f9be4669ada20f76f101baa, http://www4.stat.ncsu.edu/~stefanski/NSF_Supported/Hidden_Images/stat_res_plots.html"
 ---
 
 # Required
