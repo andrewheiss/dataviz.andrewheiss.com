@@ -4,22 +4,25 @@ date: "2017-09-26"
 citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
-stuff-to-add: >-
-  "https://www.smbc-comics.com/?id=3129; https://www.autodeskresearch.com/publications/samestats, https://gist.github.com/apreshill/9d33891b5f9be4669ada20f76f101baa, http://www4.stat.ncsu.edu/~stefanski/NSF_Supported/Hidden_Images/stat_res_plots.html"
 ---
 
 # Required
 
 - Chapter 9 in Alberto Cairo, *The Truthful Art* [@Cairo:2016]
 - Chapter 7 in Stephanie Evergreen, *Effective Data Visualization* [@Evergreen:2017]
-- Websites TBA
+- [200 Countries, 200 Years, 4 Minutes](https://www.youtube.com/watch?v=jbkSRLYSojo)
+- [Two Alternatives to Using a Second Y-Axis](http://stephanieevergreen.com/two-alternatives-to-using-a-second-y-axis/) & [Illusion of success](http://junkcharts.typepad.com/junk_charts/2006/06/illusion_of_suc.html) & [Dissecting two axes](http://junkcharts.typepad.com/junk_charts/2006/01/dissecting_two_.html)
+- [Dual-Scaled Axes in Graphs: Are They Ever the Best Solution?](http://www.perceptualedge.com/articles/visual_business_intelligence/dual-scaled_axes.pdf) [@Few:2008]
 
 
 # Recommended
 
-- TBA
+- Kieran Healy, ["Two y-axes"](https://kieranhealy.org/blog/archives/2016/01/16/two-y-axes/)
+- ["A Study on Dual-Scale Data Charts"](https://www.lri.fr/~isenberg/publications/papers/Isenberg_2011_ASO.pdf) [@IsenbergBezerianosDragicevic:2011]
 
 
 # Questions to reflect on
 
-- TBA
+- How can you correctly and honestly communicate relationships between variables? How can you communicate the uncertainty in those relationships?
+- What are the dangers of visualizing two variables?
+- When is it appropriate to use two y-axes?
