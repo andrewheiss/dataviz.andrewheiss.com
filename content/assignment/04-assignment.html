@@ -3,6 +3,88 @@ title: "Relationships"
 date: "2017-09-26"
 ---
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 
-<p>The homework assignment for this week will be posted here by Wednesday, September 20 at 5:00 PM.</p>
+<p><strong>Another super important note</strong>: Once again, you’ll complete this assignment in R Markdown. I’ve created <a href="/files/your_name_homework4.Rmd">a blank R Markdown file</a> with the questions and some hints. Download this file and complete your assignment in it.<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Your browser will most likely open it as a new tab instead of downloading the file. Either right click on the link and choose “Save link as…” or copy and paste the text into a blank R Markdown file in RStudio.<br />
+<br />
+</span></span> I recommend saving it within an RStudio project.</p>
+<p><a href="mailto:andrew_heiss@byu.edu">E-mail me</a> a Word file or a PDF of the final compiled document.</p>
+<p>If you run into problems, check with your classmates or come by my office!</p>
+<div id="task-1-reflection-memo" class="section level2">
+<h2>Task 1: Reflection memo</h2>
+<p>Write a 500-word memo about <a href="/reading/04-reading/">the assigned readings</a> for this week. You can use some of the prompt questions there if you want:</p>
+<ul>
+<li>How can you correctly and honestly communicate relationships between variables? How can you communicate the uncertainty in those relationships?</li>
+<li>What are the dangers of visualizing two variables?</li>
+<li>When is it appropriate to use two y-axes?</li>
+</ul>
+<p>As you write the memo, also consider these central questions:</p>
+<ul>
+<li>How do these readings connect to our main goal of discovering truth?</li>
+<li>How does what I just read apply to me?</li>
+<li>How can this be useful to me?</li>
+</ul>
+</div>
+<div id="task-2-hans-rosling-redux" class="section level2">
+<h2>Task 2: Hans Rosling redux</h2>
+<p><span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> <img src="https://media.giphy.com/media/18LVVD0nUOn8A/giphy.gif" alt="Gapminder" /><br />
+<br />
+</span></span> For this part of the homework, you get to be just like <a href="https://www.youtube.com/watch?v=jbkSRLYSojo">Hans Rosling</a> and play with data on health (life expectancy) and wealth (GDP per capita). The data originally comes from World Bank statistics, but to make life easier, there’s an R package called <a href="https://github.com/jennybc/gapminder">“gapminder”</a> that includes the data, so you don’t have to download and clean any CSV or Excel files. If you don’t have the package installed, run <code>install.packages(&quot;gapminder&quot;)</code> or use the “Packages” panel in RStudio.</p>
+</div>
+<div id="bonus-latex-tips" class="section level2">
+<h2>Bonus <span class="math inline">\(\LaTeX\)</span> tips</h2>
+<p>Working with <span class="math inline">\(\LaTeX\)</span> can be a little tricky, even with R Markdown converting everything for you. <span class="math inline">\(\LaTeX\)</span> was invented before Unicode, so it can choke on characters like é and ü (you have to type those as <code>{\'e}</code> or <code>{\&quot;u}</code> in raw <span class="math inline">\(\TeX\)</span>, which is awful).<span><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"> The font is named <a href="https://en.wikipedia.org/wiki/Computer_Modern">Computer Modern</a>. Avid LaTeX users claim it’s the best font in the universe, but it’s not.<br />
+<br />
+</span></span> It’s also really really hard to change the default font, which is kind of ugly.</p>
+<p>Fortunately, when you installed the massive MacTeX or MikTeX programs, you also installed a more modern implementation of the LaTeX typesetting engine, named XeTeX (or xelatex), which can handle Unicode characters <em>and</em> use any Open Type font you have installed on your computer.</p>
+<p>Using xelatex and custom fonts when knitting to PDF is fairly easy. Add this to your metadata at the top of your document:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">title:</span> <span class="st">&quot;Whatever&quot;</span>
+<span class="fu">author:</span> <span class="st">&quot;Whatever&quot;</span>
+<span class="fu">mainfont:</span> <span class="st">&quot;Comic Sans MS&quot;</span>
+<span class="fu">fontsize:</span> <span class="st">&quot;10pt&quot;</span>
+<span class="fu">output:</span>
+  <span class="fu">pdf_document:</span>
+    <span class="fu">latex_engine:</span> xelatex
+<span class="ot">---</span></code></pre></div>
+<p>(But don’t actually use Comic Sans because ew.)<span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote"> <img src="https://media.giphy.com/media/gMDKyrWInxOhO/giphy.gif" alt="Ew." /><br />
+<br />
+</span></span></p>
+<p>You can see all the possible configuration options for <a href="http://rmarkdown.rstudio.com/pdf_document_format.html">PDF output</a>, <a href="http://rmarkdown.rstudio.com/html_document_format.html">HTML output</a>, and <a href="http://rmarkdown.rstudio.com/word_document_format.html">Word output</a> at <a href="http://rmarkdown.rstudio.com/">RStudio’s R Markdown site</a>.</p>
+</div>
