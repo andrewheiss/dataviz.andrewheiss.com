@@ -1,0 +1,43 @@
+---
+title: "Distributions and uncertainty"
+date: "2017-09-19"
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+---
+
+# Slides
+
+The slides from today's lecture will go here.
+
+
+# Working with R and R Markdown
+
+- Creating an RStudio project
+- Writing in Markdown ([play with Markdown](https://dillinger.io/)).^[{-} Remember to check out the [list of Markdown resources](/reference/#markdown).]
+- Converting Markdown files to other formats
+- Literate programming and R Markdown
+- Loading data
+- Working with data frames using `dplyr`
+- Basic plotting and saving ([`ggplot2` documentation](http://ggplot2.tidyverse.org/reference/))
+
+
+# Visualizing distributions and uncertainty
+
+- Summary statistics
+- Histograms
+- Density plots
+    - Ridge plots (née joy plots)^[{-} See some [great ridgeplots](http://blog.revolutionanalytics.com/2017/07/joyplots.html).]
+- Box plots
+- Violin plots
+- Bar plots and error bars
+
+
+# Feedback for today
+
+Go to [this form](https://goo.gl/forms/jeCAQuOPFkCqISoa2) and answer these three questions (anonymously if you want):
+
+1. What new thing did you learn today?
+2. What was the most unclear thing about today?
+3. What was the most exciting thing you learned today?
