@@ -1,0 +1,118 @@
+---
+title: "Homework assignment #5"
+author: "Your name here"
+date: "Date here"
+output: 
+  html_document: 
+    fig_caption: yes
+---
+
+# Reflection on readings
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+# Rats and slopegraphs
+
+The syntax below will include an image that is located in an `images` folder within your project. If you don't place the image there, change the path to match.
+
+![Caption for your graph](images/new_figure.png)
+
+
+# Tidy data
+
+```{r load-data}
+library(tidyverse)
+
+# Note: Download the four CSV files listed on the webpage for this assignment and place them in your `data` folder.
+fellowship <- read_csv("data/The_Fellowship_Of_The_Ring.csv")
+tt <- read_csv("data/The_Two_Towers.csv")
+rotk <- read_csv("data/The_Return_Of_The_King.csv")
+```
+
+Look at each of these individual data frames and answer these questions:
+
+- What's the total number of words spoken by male hobbits?
+- Does a certain `Race` dominate a movie? Does the dominant `Race` differ across the movies?
+- How well does your approach scale if there were many more movies or if I provided you with updated data that includes all the `Race`s (e.g. dwarves, orcs, etc.)?
+
+```{r tidyify}
+# bind_rows() stacks a bunch of data frames on top of each other
+# gather() rearranges the data into long, tidy format
+lotr <- bind_rows(fellowship, tt, rotk) %>%
+  gather(key = 'Gender', value = 'Words', Female, Male)
+```
+
+With the data in tidy format, it's far easier to work with since you can use the filme, gender, and race to aggregate the data. For instance, what's the total number of words spoken by male hobbits?
+
+```{r male-hobbits}
+lotr %>%
+  group_by(Gender, Race) %>%
+  summarize(total_words = sum(Words))
+```
+
+What's the difference between these two chunks?
+
+```{r gender-race-pct1}
+lotr %>%
+  group_by(Gender, Race) %>%
+  summarize(total_words = sum(Words)) %>%
+  mutate(percent = total_words / sum(total_words))
+```
+
+```{r gender-race-pct2}
+lotr %>%
+  group_by(Gender, Race) %>%
+  summarize(total_words = sum(Words)) %>%
+  ungroup() %>%
+  mutate(percent = total_words / sum(total_words))
+```
+
+Tidy data makes it easier to plot aggregates too:
+
+```{r}
+lotr_gender_race <- lotr %>%
+  group_by(Gender, Race) %>%
+  summarize(total_words = sum(Words)) %>%
+  ungroup() %>%
+  mutate(percent = total_words / sum(total_words))
+
+# geom_bar by default will try to calculate the sum of the y variable. We
+# already did that though, so we have to tell it to plot the "identity", or the
+# number itself.
+ggplot(lotr_gender_race, aes(x = Gender, y = total_words, fill = Race)) +
+  geom_bar(stat = "identity", position = "dodge")
+
+# BONUS PRO TIP
+# It's possible to add a second y-axis in ggplot as long as it's a direct
+# transformation of the original y-axis. The syntax is wonky and arcane, but it
+# works. Add this as a layer to the plot above and see what happens:
+#
+# scale_y_continuous(sec.axis = sec_axis(~ . / sum(lotr_gender_race$total_words), labels=scales::percent))
+```
+
+Using the tidy *Lord of the Rings* data, answer these questions and *make a plot for each*:
+
+Does a certain race dominate a movie? Does the dominant race differ across the movies?
+
+```{r race-movies}
+
+```
+
+Does a certain gender dominate a movie? (lolz of course it does, but still, calculate it)
+
+```{r gender-movies}
+
+```
+
+What's the average number of words spoken by female elves? (hint: instead of creating a variable to determine the `sum()` in `summarize()`, use `mean()`)
+
+```{r race-gender-mean}
+
+```
+
+Show a summary of the number of words spoken by each race and gender across all three movies (hint: you'll have to group by all three variables, and you'll probably need to use one as a facet)
+
+```{r race-gender-films}
+
+```
