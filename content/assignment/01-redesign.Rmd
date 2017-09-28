@@ -23,13 +23,13 @@ Here's what you need to do:
     - What story are you telling with your new graphic?
     - How did you apply the principles of CRAP? ^[{-} **Pro tip**: Imagine that this new graph could show up in an annual report and try making the new figure fit with the branding and style of Comic Relief.]
     - How did you apply Alberto Cairo's five qualities of great visualizations?
-5. **[E-mail me](mailto:andrew_heiss@byu.edu)** the following outputs:
+5. **[E-mail me](mailto:andrew_heiss@byu.edu)** the following outputs:^[{-} [![Example rubric for redesign 1](/images/rubrics/redesign1_rubric.png)](/assignment/rubrics/redesign1_rubric.pdf)]
     - The Excel file with the PivotTable
     - A PDF of your memo
     - A standalone PNG version of your graphic
     - A standalone PDF version of your graphic
 
-You will be graded based on how you use Excel and PivotTables,^[{-} It might be tempting to just type the numbers from the original chart into a spreadsheet and make a graph with them. ![Don't](https://media.giphy.com/media/l0HlJWe8FtAfCHF2U/giphy.gif)] how well you apply the principles of CRAP, *The Truthful Art*, and *Effective Data Visualization*, and how appropriate the graph is for the data and the story you're telling. **The assignment is due by midnight on Monday, September 18**.
+You will be graded based on how you use Excel and PivotTables,^[{-} It might be tempting to just type the numbers from the original chart into a spreadsheet and make a graph with them. ![Don't](https://media.giphy.com/media/l0HlJWe8FtAfCHF2U/giphy.gif)] how well you apply the principles of CRAP, *The Truthful Art*, and *Effective Data Visualization*, and how appropriate the graph is for the data and the story you're telling. I will use [this rubric](/assignment/rubrics/redesign1_rubric.pdf) to grade the finished product. **The assignment is due by midnight on Monday, September 18**.
 
 Please don't hestiate to ask for help from your classmates or from me!
 
