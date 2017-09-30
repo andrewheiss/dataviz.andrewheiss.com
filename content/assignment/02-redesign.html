@@ -93,7 +93,7 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <li>I’ve also created a few date-related variables (<code>sighting_year</code>, <code>sighting_month</code>, <code>sighting_day</code>, and <code>sighting_weekday</code>). You don’t have to use them, but they’re there if you need them.<span><label for="sn-8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-8" class="margin-toggle"/><span class="sidenote">The functions that create these, like <code>year()</code> and <code>wday()</code> are part of the <code>lubridate</code> library.<br />
 <br />
 </span></span></li>
-<li>The date/time variables are formatted like <code>04/03/2017 12:00:00 AM</code>, which R is not able to automatically parse as a date when reading the CSV file. You can use the <code>mdy_hms()</code> function in the <code>lubridate</code> library to parse dates that are structured as “month-day-year-hour-minute-second.”<span><label for="sn-9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-9" class="margin-toggle"/><span class="sidenote">There are also a bunch of other iterations of this function, like <code>ymd()</code>, <code>dmy()</code>, etc., for other date formats.<br />
+<li>The date/time variables are formatted like <code>04/03/2017 12:00:00 AM</code>, which R is not able to automatically parse as a date when reading the CSV file. You can use the <code>mdy_hm()</code> function in the <code>lubridate</code> library to parse dates that are structured as “month-day-year-hour-minute.”<span><label for="sn-9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-9" class="margin-toggle"/><span class="sidenote">There are also a bunch of other iterations of this function, like <code>ymd()</code>, <code>dmy()</code>, etc., for other date formats.<br />
 <br />
 </span></span></li>
 <li>There’s one row with an unspecified borough, so I filter that out.</li>
@@ -107,7 +107,7 @@ rats_clean &lt;-<span class="st"> </span>rats_raw %&gt;%
 <span class="st">  </span><span class="kw">rename</span>(<span class="dt">created_date =</span> <span class="st">`</span><span class="dt">Created Date</span><span class="st">`</span>,
          <span class="dt">location_type =</span> <span class="st">`</span><span class="dt">Location Type</span><span class="st">`</span>,
          <span class="dt">borough =</span> Borough) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">created_date =</span> <span class="kw">mdy_hms</span>(created_date)) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">created_date =</span> <span class="kw">mdy_hm</span>(created_date)) %&gt;%
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sighting_year =</span> <span class="kw">year</span>(created_date),
          <span class="dt">sighting_month =</span> <span class="kw">month</span>(created_date),
          <span class="dt">sighting_day =</span> <span class="kw">day</span>(created_date),

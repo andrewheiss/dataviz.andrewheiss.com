@@ -85,7 +85,7 @@ I've provided some starter code below. A couple comments about it:
 - By default, `read_csv()` treats cells that are empty or "NA" as missing values. This rat dataset uses "N/A" to mark missing values, so we need to add that as a possible marker of missingness (hence `na = c("", "NA", "N/A")`)
 - To make life easier, I've renamed some of the key variables you might work with. You can rename others if you want.
 - I've also created a few date-related variables (`sighting_year`, `sighting_month`, `sighting_day`, and `sighting_weekday`). You don't have to use them, but they're there if you need them.^[The functions that create these, like `year()` and `wday()` are part of the `lubridate` library.]
-- The date/time variables are formatted like `04/03/2017 12:00:00 AM`, which R is not able to automatically parse as a date when reading the CSV file. You can use the `mdy_hms()` function in the `lubridate` library to parse dates that are structured as "month-day-year-hour-minute-second".^[There are also a bunch of other iterations of this function, like `ymd()`, `dmy()`, etc., for other date formats.]
+- The date/time variables are formatted like `04/03/2017 12:00:00 AM`, which R is not able to automatically parse as a date when reading the CSV file. You can use the `mdy_hm()` function in the `lubridate` library to parse dates that are structured as "month-day-year-hour-minute".^[There are also a bunch of other iterations of this function, like `ymd()`, `dmy()`, etc., for other date formats.]
 - There's one row with an unspecified borough, so I filter that out.
 
 ```{r load-clean-data, eval=FALSE}
@@ -98,7 +98,7 @@ rats_clean <- rats_raw %>%
   rename(created_date = `Created Date`,
          location_type = `Location Type`,
          borough = Borough) %>%
-  mutate(created_date = mdy_hms(created_date)) %>%
+  mutate(created_date = mdy_hm(created_date)) %>%
   mutate(sighting_year = year(created_date),
          sighting_month = month(created_date),
          sighting_day = day(created_date),
