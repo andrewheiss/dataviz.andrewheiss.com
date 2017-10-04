@@ -1,0 +1,415 @@
+---
+title: "Comparisons"
+date: "2017-10-03"
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+---
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<h2>Contents</h2>
+<div id="TOC">
+<ul>
+<li><a href="#slides">Slides</a></li>
+<li><a href="#comparing-things">Comparing things</a><ul>
+<li><a href="#sparklines">Sparklines</a></li>
+<li><a href="#small-multiples">Small multiples</a></li>
+<li><a href="#lollipops">Lollipops</a></li>
+<li><a href="#slopegraphs">Slopegraphs</a></li>
+<li><a href="#bullet-charts">Bullet charts</a></li>
+</ul></li>
+<li><a href="#feedback-for-today">Feedback for today</a></li>
+</ul>
+</div>
+
+<div id="slides" class="section level2">
+<h2>Slides</h2>
+<p><a href="/slides/MPA-635_2017-10-03.pdf">Download the slides from today’s lecture</a>.</p>
+<figure>
+<a href="/slides/MPA-635_2017-10-03.pdf"><img src="/images/slides/slides_2017-10-03.png" alt="First slide" /></a>
+</figure>
+</div>
+<div id="comparing-things" class="section level2">
+<h2>Comparing things</h2>
+<div id="sparklines" class="section level3">
+<h3>Sparklines</h3>
+<ul>
+<li><a href="https://support.office.com/en-us/article/Use-sparklines-to-show-data-trends-1474e169-008c-4783-926b-5c60e620f5ca">Create in Excel</a></li>
+<li>Create in Word, HTML, and Adobe products with <a href="http://aftertheflood.co/projects/atf-spark">AtF Spark</a></li>
+<li>Create in R by saving really really tiny PDFs or PNGs</li>
+</ul>
+</div>
+<div id="small-multiples" class="section level3">
+<h3>Small multiples</h3>
+<ul>
+<li>Create in R with facets</li>
+</ul>
+</div>
+<div id="lollipops" class="section level3">
+<h3>Lollipops</h3>
+<p><a href="/data/Lord_Of_The_Rings.csv"><i class="fa fa-download" aria-hidden="true"></i> Download Lord of the Rings data</a></p>
+<p>First, we load the libraries we’ll need for all the examples. We’ll use <code>tidyverse</code> in both; we’ll use <code>forcats</code> in the lollipop chart and <code>ggrepel</code> in the slopegraph.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(forcats)
+<span class="kw">library</span>(ggrepel)</code></pre></div>
+<p>We load the CSV file into R and save it as a variable, or an object, named <code>lotr</code>. We use <code>fct_inorder()</code> inside a mutate command to make the <code>Film</code> variable an ordered factor so that the films plot in the correct order.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lotr &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/Lord_Of_The_Rings.csv&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Film =</span> <span class="kw">fct_inorder</span>(Film, <span class="dt">ordered =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<p>Next we summarize the data by race and gender. We can output the summarized table as a Markdown table with <code>knitr::kable()</code>. Remember that this syntax means that we’re using the <code>kable()</code> function inside the <code>knitr</code> package without actually loading it. Alternatively, you can run <code>library(knitr)</code> to load the package and then use <code>kable()</code> as needed without the double colon <code>::</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">race_gender &lt;-<span class="st"> </span>lotr %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Race, Gender) %&gt;%
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_words =</span> <span class="kw">sum</span>(Words))
+
+knitr::<span class="kw">kable</span>(race_gender)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Race</th>
+<th align="left">Gender</th>
+<th align="right">total_words</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Elf</td>
+<td align="left">Female</td>
+<td align="right">1743</td>
+</tr>
+<tr class="even">
+<td align="left">Elf</td>
+<td align="left">Male</td>
+<td align="right">1994</td>
+</tr>
+<tr class="odd">
+<td align="left">Hobbit</td>
+<td align="left">Female</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="left">Hobbit</td>
+<td align="left">Male</td>
+<td align="right">8780</td>
+</tr>
+<tr class="odd">
+<td align="left">Man</td>
+<td align="left">Female</td>
+<td align="right">669</td>
+</tr>
+<tr class="even">
+<td align="left">Man</td>
+<td align="left">Male</td>
+<td align="right">8043</td>
+</tr>
+</tbody>
+</table>
+<p>We can plot this summarized data, mapping variables to different aesthetics in the plot. A few things to note:</p>
+<ul>
+<li><code>geom_pointrange()</code> is what makes the lollipops. It takes two aesthetics: <code>ymin</code> and <code>ymax</code>. Here we want <code>ymin</code> to be zero so that all the lines start at the axis, but in other situations you could set it to an actual variable.</li>
+<li><code>position_dodge()</code> and <code>width</code> is what tells the point ranges to be plotted side-by-side.</li>
+<li><code>coord_flip()</code> rotates the whole plot so that the x-axis becomes the y-axis and vice versa.<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> Alternatively, you can avoid using <code>coord_flip()</code> by using <code>geom_pointrangeh()</code> (and all the other <code>*h</code> functions like <code>geom_barh</code> and <code>geom_colh()</code> in the <code>ggstance</code> library.<br />
+<br />
+</span></span></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(race_gender, <span class="kw">aes</span>(<span class="dt">x =</span> Gender, <span class="dt">y =</span> total_words, <span class="dt">color =</span> Race)) +
+<span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> <span class="dv">0</span>, <span class="dt">ymax =</span> total_words), 
+                  <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.5</span>)) +
+<span class="st">  </span><span class="kw">coord_flip</span>() +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>) +
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) +
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;blue&quot;</span>))</code></pre></div>
+<p><img src="/class/05-class_files/figure-html/plot-race-gender-1.png" width="480" /></p>
+<p>We can also plot race and gender across the three films. Because we used <code>fct_inorder()</code> earlier, the <code>Film</code> variable/column is an ordered factor and the films should be in order. Here we use the original <code>lotr</code> data frame instead of the summarized one, since we want the <code>Film</code> column too. We facet by film with <code>facet_wrap(~ Film)</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(lotr, <span class="kw">aes</span>(<span class="dt">x =</span> Gender, <span class="dt">y =</span> Words, <span class="dt">color =</span> Race)) +
+<span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> <span class="dv">0</span>, <span class="dt">ymax =</span> Words), 
+                  <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.5</span>)) +
+<span class="st">  </span><span class="kw">coord_flip</span>() +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>) +
+<span class="st">  </span><span class="kw">theme_light</span>() +
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) +
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;blue&quot;</span>)) +
+<span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>Film)</code></pre></div>
+<p><img src="/class/05-class_files/figure-html/plot-race-gender-film-1.png" width="768" /></p>
+</div>
+<div id="slopegraphs" class="section level3">
+<h3>Slopegraphs</h3>
+<p><a href="/data/isms_top5.csv"><i class="fa fa-download" aria-hidden="true"></i> Download General Conference “isms” data</a><span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> This data comes from <a href="https://www.lds-general-conference.org/">BYU’s LDS General Conference Corpus</a>. I created a list of <code>&quot;*ism&quot;</code> divided between the 1950s/60s and the 1990s/2000s, and then copied/pasted the results in to a CSV file.<br />
+<br />
+</span></span></p>
+<p>First, we load the data. I already filtered and summarized and tidyified this data, based on the original data that <a href="/data/isms_full.csv">looked liked this</a>. You can <a href="/code/clean_isms.R">see the R code I used to clean and tidy the data here</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">isms &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/isms_top5.csv&quot;</span>)
+
+knitr::<span class="kw">kable</span>(isms)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">word</th>
+<th align="left">decade</th>
+<th align="right">count</th>
+<th align="right">permil</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Baptism</td>
+<td align="left">coldwar</td>
+<td align="right">596</td>
+<td align="right">191.7</td>
+</tr>
+<tr class="even">
+<td align="left">Baptism</td>
+<td align="left">today</td>
+<td align="right">609</td>
+<td align="right">207.8</td>
+</tr>
+<tr class="odd">
+<td align="left">Communism</td>
+<td align="left">coldwar</td>
+<td align="right">216</td>
+<td align="right">69.5</td>
+</tr>
+<tr class="even">
+<td align="left">Communism</td>
+<td align="left">today</td>
+<td align="right">1</td>
+<td align="right">0.3</td>
+</tr>
+<tr class="odd">
+<td align="left">Criticism</td>
+<td align="left">coldwar</td>
+<td align="right">75</td>
+<td align="right">24.1</td>
+</tr>
+<tr class="even">
+<td align="left">Criticism</td>
+<td align="left">today</td>
+<td align="right">51</td>
+<td align="right">17.4</td>
+</tr>
+<tr class="odd">
+<td align="left">Mormonism</td>
+<td align="left">coldwar</td>
+<td align="right">135</td>
+<td align="right">43.4</td>
+</tr>
+<tr class="even">
+<td align="left">Mormonism</td>
+<td align="left">today</td>
+<td align="right">39</td>
+<td align="right">13.3</td>
+</tr>
+<tr class="odd">
+<td align="left">Socialism</td>
+<td align="left">coldwar</td>
+<td align="right">82</td>
+<td align="right">26.4</td>
+</tr>
+<tr class="even">
+<td align="left">Socialism</td>
+<td align="left">today</td>
+<td align="right">0</td>
+<td align="right">0.0</td>
+</tr>
+</tbody>
+</table>
+<p>Just plotting the data as-is gives us a rudimentary and ugly slopegraph. Note the <code>group</code> aesthetic—without it, the lines will not plot across the <code>coldwar</code> and <code>today</code> columns.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(isms, <span class="kw">aes</span>(<span class="dt">x =</span> decade, <span class="dt">y =</span> permil, <span class="dt">group =</span> word)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> word))</code></pre></div>
+<p><img src="/class/05-class_files/figure-html/slope-ugly-1.png" width="672" /></p>
+<p>We can add a bunch of columns to the original <code>isms</code> data frame to help with plotting. Here’s what’s happening:</p>
+<ul>
+<li>We create a <code>label_first</code> variable for the labels on the right side of the plot. We use <code>ifelse()</code>—if the decade is <code>coldwar</code>, use <code>paste0()</code> to combine the <code>word</code> column with the <code>permil</code> (or per million words) value, surrounded by parentheses; if it’s not <code>coldwar</code>, use a missing value, or <code>NA</code></li>
+<li>We create a <code>label_last</code> variable similarly, but this time only include the <code>permil</code> value on rows that aren’t <code>coldwar</code></li>
+<li>We create a <code>highlight</code> column to mark which lines we want colored</li>
+<li>We recode the <code>decade</code> column to nicer values</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">isms_plot &lt;-<span class="st"> </span>isms %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">label_first =</span> 
+           <span class="kw">ifelse</span>(decade ==<span class="st"> &quot;coldwar&quot;</span>, <span class="kw">paste0</span>(word, <span class="st">&quot; (&quot;</span>, permil, <span class="st">&quot;)&quot;</span>), <span class="ot">NA</span>)) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">label_last =</span> <span class="kw">ifelse</span>(decade ==<span class="st"> &quot;today&quot;</span>, permil, <span class="ot">NA</span>)) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">highlight =</span> <span class="kw">ifelse</span>(word %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Socialism&quot;</span>, <span class="st">&quot;Communism&quot;</span>), <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">decade =</span> <span class="kw">recode</span>(decade,
+                         <span class="dt">coldwar =</span> <span class="st">&quot;1950-1969&quot;</span>,
+                         <span class="dt">today =</span> <span class="st">&quot;1990-2009&quot;</span>))</code></pre></div>
+<p>We can use this enhanced data frame to add labels and color specific lines. Here’s the complete, final plot. A few things to note:</p>
+<ul>
+<li><code>geom_text_repel()</code> comes from the <code>ggrepel</code> library and uses fancy algorithms to ensure labels don’t overlap. We set <code>direction = &quot;y&quot;</code> to make sure the algorithm only shifts labels up and down (without it, the labels will show up everywhere), and we use <code>nudge_x</code> to move the labels horizontally away from the lines.</li>
+<li>We use a super minimal <code>theme_minimal()</code> theme and them make a few more adjustments with <code>theme()</code> to remove grid lines and the y axis text.</li>
+<li>R will give two warnings saying <code>Removed 5 rows containing missing values (geom_text_repel).</code> This is because it’s trying to plot missing values for the labels—but recall that we <em>created</em> those missing values in both <code>label_first</code> and <code>label_last</code>, so it’s not an issue. We’re purposely causing the warning and we can ignore it.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fancy_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(isms_plot, <span class="kw">aes</span>(<span class="dt">x =</span> decade, <span class="dt">y =</span> permil, <span class="dt">group =</span> word, <span class="dt">color =</span> highlight)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> label_first), <span class="dt">direction =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">nudge_x =</span> -<span class="dv">1</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> label_last), <span class="dt">direction =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">nudge_x =</span> <span class="dv">1</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="ot">FALSE</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Frequency of words ending in ‘ism’ in</span><span class="ch">\n</span><span class="st">LDS General Conference talks&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Word (occurrences per million words)&quot;</span>,
+       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) +
+<span class="st">  </span><span class="kw">theme_minimal</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>())
+fancy_plot</code></pre></div>
+<p><img src="/class/05-class_files/figure-html/final-slope-plot-1.png" width="672" /></p>
+<p>Because we saved the plot to a variable (<code>fancy_plot</code>), we can do stuff with it like saving it to our computer with <code>ggsave()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(fancy_plot, <span class="dt">filename =</span> <span class="st">&quot;output/words.pdf&quot;</span>, 
+       <span class="dt">width =</span> <span class="dv">7</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)
+<span class="kw">ggsave</span>(fancy_plot, <span class="dt">filename =</span> <span class="st">&quot;output/words.png&quot;</span>, 
+       <span class="dt">width =</span> <span class="dv">7</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)</code></pre></div>
+<p>Finally, just for fun, we can use nicer fonts to make the graphic even nicer. We’ll use Roboto Condensed, which is <a href="https://fonts.google.com/specimen/Roboto+Condensed">free from Google Fonts</a>.</p>
+<ul>
+<li>If you’re using macOS, ensure that you <a href="https://www.xquartz.org/">install XQuartz first</a>. That’s all you have to do to get the Cairo graphics library working.</li>
+<li>If you’re using Windows, either reload all the system fonts (after installing Roboto Condensed) with <code>extrafont::font_import()</code> or load the Roboto Condensed fonts individually on-the-fly:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">windowsFonts</span>(<span class="st">`</span><span class="dt">Roboto Condensed</span><span class="st">`</span> =<span class="st"> </span><span class="kw">windowsFont</span>(<span class="st">&quot;Roboto Condensed&quot;</span>))
+<span class="kw">windowsFonts</span>(<span class="st">`</span><span class="dt">Roboto Condensed Light</span><span class="st">`</span> =<span class="st"> </span><span class="kw">windowsFont</span>(<span class="st">&quot;Roboto Condensed Light&quot;</span>))</code></pre></div>
+<p>With that, we can specify font families and font faces (bold, italic, plain, etc.) in <code>geom_text_repel()</code> and in <code>theme()</code>:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nice_fonts &lt;-<span class="st"> </span><span class="kw">ggplot</span>(isms_plot, <span class="kw">aes</span>(<span class="dt">x =</span> decade, <span class="dt">y =</span> permil, <span class="dt">group =</span> word, <span class="dt">color =</span> highlight)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() +
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> label_first), <span class="dt">direction =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">nudge_x =</span> -<span class="dv">1</span>,
+                  <span class="dt">family =</span> <span class="st">&quot;Roboto Condensed Light&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;plain&quot;</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> label_last), <span class="dt">direction =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">nudge_x =</span> <span class="fl">0.3</span>,
+                  <span class="dt">family =</span> <span class="st">&quot;Roboto Condensed Light&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;plain&quot;</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="ot">FALSE</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Frequency of words ending in ‘ism’ in</span><span class="ch">\n</span><span class="st">LDS General Conference talks&quot;</span>,
+       <span class="dt">subtitle =</span> <span class="st">&quot;Word (occurrences per million words)&quot;</span>,
+       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) +
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>),
+        <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Roboto Condensed Light&quot;</span>,
+                                     <span class="dt">color =</span> <span class="st">&quot;grey50&quot;</span>, <span class="dt">face =</span> <span class="st">&quot;plain&quot;</span>))
+nice_fonts</code></pre></div>
+<p><img src="/class/05-class_files/figure-html/final-slope-plot-fonts-1.png" width="672" /></p>
+<p>We can save the plot with the custom fonts with <code>ggsave()</code> like always, but we have to use the Cairo graphics library to get the fonts to embed and to get a PNG with proper dimensions. Note the difference between the two—PDFs need <code>device = cairo_pdf</code> while PNGs need <code>type = &quot;cairo&quot;</code>. It’s different and I don’t fully understand why but ¯\_(ツ)_/¯.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(plot_isms, <span class="dt">filename =</span> <span class="st">&quot;isms.pdf&quot;</span>, <span class="dt">device =</span> cairo_pdf,
+       <span class="dt">width =</span> <span class="dv">6</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)
+<span class="kw">ggsave</span>(plot_isms, <span class="dt">filename =</span> <span class="st">&quot;isms.png&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;cairo&quot;</span>,
+       <span class="dt">width =</span> <span class="dv">6</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)</code></pre></div>
+</div>
+<div id="bullet-charts" class="section level3">
+<h3>Bullet charts</h3>
+<p><a href="/data/performance.csv"><i class="fa fa-download" aria-hidden="true"></i> Download fake performance data</a></p>
+<p>Bullet charts are just a bunch of bar charts stacked on top of each with with extra dots and lines. First we load a data frame I copied from Stephanie Evergreen’s book, and we make sure the region variable—here named <code>measure</code>—is an ordered factor, and we reverse it with <code>fct_rev()</code> because <code>coord_flip()</code> does weird stuff to the ordering.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">performance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/performance.csv&quot;</span>)
+
+knitr::<span class="kw">kable</span>(performance)</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">measure</th>
+<th align="right">bad</th>
+<th align="right">satisfactory</th>
+<th align="right">good</th>
+<th align="right">target</th>
+<th align="right">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Region A</td>
+<td align="right">33.3</td>
+<td align="right">66.6</td>
+<td align="right">100</td>
+<td align="right">75</td>
+<td align="right">70</td>
+</tr>
+<tr class="even">
+<td align="left">Region B</td>
+<td align="right">33.3</td>
+<td align="right">66.6</td>
+<td align="right">100</td>
+<td align="right">65</td>
+<td align="right">72</td>
+</tr>
+<tr class="odd">
+<td align="left">Region C</td>
+<td align="right">33.3</td>
+<td align="right">66.6</td>
+<td align="right">100</td>
+<td align="right">70</td>
+<td align="right">78</td>
+</tr>
+<tr class="even">
+<td align="left">Region D</td>
+<td align="right">33.3</td>
+<td align="right">66.6</td>
+<td align="right">100</td>
+<td align="right">65</td>
+<td align="right">71</td>
+</tr>
+</tbody>
+</table>
+<p>With the data in this form, it’s easy to plot. Here are a couple things to note:</p>
+<ul>
+<li>We overlay a bunch of <code>geom_col()</code> layers with different aesthics set for each</li>
+<li><code>geom_errorbar()</code> creates a line at the target level. We add a <code>geom_point()</code> layer in the same place for fun</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(performance) +
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="dt">x =</span> measure, <span class="dt">y =</span> good), <span class="dt">fill=</span><span class="st">&quot;goldenrod2&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) +
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(measure, satisfactory), <span class="dt">fill=</span><span class="st">&quot;goldenrod3&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) +
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(measure, bad), <span class="dt">fill=</span><span class="st">&quot;goldenrod4&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) +
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(measure, value), <span class="dt">fill=</span><span class="st">&quot;black&quot;</span>, <span class="dt">width =</span> <span class="fl">0.2</span>) +
+<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">x=</span> measure, <span class="dt">ymin =</span> target, <span class="dt">ymax =</span> target), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">width =</span> <span class="fl">0.45</span>) +
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(measure, target), <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="fl">2.5</span>) +
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="dv">100</span>)) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) +
+<span class="st">  </span><span class="kw">coord_flip</span>() +
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) +
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(),
+        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())</code></pre></div>
+<p><img src="/class/05-class_files/figure-html/bullet-plot-1.png" width="576" /></p>
+</div>
+</div>
+<div id="feedback-for-today" class="section level2">
+<h2>Feedback for today</h2>
+<p>Go to <a href="https://goo.gl/forms/jpUtEmlUYSfPSaDB2">this form</a> and answer these three questions (anonymously if you want):</p>
+<ol style="list-style-type: decimal">
+<li>What new thing did you learn today?</li>
+<li>What was the most unclear thing about today?</li>
+<li>What was the most exciting thing you learned today?</li>
+</ol>
+</div>

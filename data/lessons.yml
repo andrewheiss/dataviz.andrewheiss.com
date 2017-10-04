@@ -27,6 +27,7 @@ lessons:
     date: "October 3"
     reading: "05-reading"
     assignment: "05-assignment"
+    class: "05-class"
   - title: "⊞ *Redesign 2 due*"
     assignment: "02-redesign"
   - title: "Change over time"
