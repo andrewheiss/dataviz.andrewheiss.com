@@ -1,0 +1,33 @@
+---
+title: "Rubric test run"
+date: "2017-10-10"
+note: >-
+  These were all long-listed for the 2017 Information is Beautiful awards
+  https://www.informationisbeautifulawards.com/news/232-the-2017-longlist
+---
+
+Before you turn in your final rubric, you'll need to make sure it actually works. Use your improved and commented-upon draft rubric to evaluate the two visualizations below. 
+
+You'll only be graded for completion, but you'll want to do a thorough job to make sure your rubric works and matches expectations. You might also want to have a friend grade the same visualizations with your rubric to see if the scores are consistent across graders (especially since I'll be using your rubric on your final project).
+
+[Email me](mailto:andrew_heiss@byu.edu) a PDF of your filled-in rubric for each visualization, along with a short paragraph describing how well it worked/didn't work and what changes you made/didn't make.
+
+
+# Visualization 1
+
+[*The Washington Post,* "Who's in and who's out of the Paris agreement, by total greenhouse gas emissions"][wapo-paris]
+
+You need to view the full graphic at the Washington Post's website—don't grade the visualization based on the screenshot below.
+
+[![Who's in and who's out of the Paris agreement](/images/rubrics/wapo-paris.png)][wapo-paris]
+
+[wapo-paris]: https://www.washingtonpost.com/graphics/world/paris-climate-agreement-withdrawal/
+
+
+# Visualization 2
+
+[Valerio Pellegrini, "Nuclear Slowdown," *Wired UK*](https://www.wired.co.uk/article/nuclear-power-reactors-global)
+
+You need to view the full graphic at [Wired](https://www.wired.co.uk/article/nuclear-power-reactors-global), [Bēhance](https://www.behance.net/gallery/52825037/NUCLEAR-SLOWDOWN-Wired-UK), or by clicking on the screenshot—don't grade the visualization based on the smaller image below.
+
+[![Nuclear slowdown](/images/rubrics/nuclear-slowdown-thumb.png)](/images/rubrics/nuclear-slowdown.jpg)
