@@ -1,0 +1,149 @@
+---
+title: "Change over time"
+date: "2017-10-10"
+---
+
+Complete these tasks in an R Markdown file and [e-mail me](mailto:andrew_heiss@byu.edu) a PDF of the final compiled document. [Here's the typical starter file](/files/your_name_homework6.Rmd).^[Your browser will most likely open it as a new tab instead of downloading the file. Either right click on the link and choose "Save link as…" or copy and paste the text into a blank R Markdown file in RStudio.] I recommend saving it within an RStudio project.
+
+^[{-} ![Awesome. Wow.](/images/assignment/awesome-wow.jpg)] In the past, I haven't cared so much about the output of the Rmd files, and it's been fine to have them full of warnings and errors and huge graphics. This week (and in the future too), you'll need to make sure your homework memos are more polished. Remove messages and warnings from chunks that output them (hi super verbose `library(tidyverse)`), make sure your figures are appropriately sized, etc. Ideally, you'll have a clear, clutter-free memo describing each step you take and showing clean code and output.
+
+You'll notice that the starter file is mostly empty. You're on your own now.
+
+
+# Task 1: Reflection memo
+
+Write a **500**-word^[Back to normal again.] memo about [the assigned readings](/reading/06-reading/) for this week. You can use some of the prompt questions there if you want:
+
+- When is it okay (or not) to truncate the y-axis?
+- It is remarkably easy to mislead people with many of these chart types. Why? How can you avoid the same mistakes?
+- All these types of charts are good at communicating change over time, but some are more appropriate in different situations. When is it best to use these different types (e.g. line graphs vs. area graphs vs. horizon charts vs. heatmaps, etc.)?
+
+As you write the memo, also consider these central questions:
+
+- How do these readings connect to our main goal of discovering truth?
+- How does what I just read apply to me?
+- How can this be useful to me?
+
+
+# Task 2: Bullet charts
+
+Recreate this figure in R.^[{-} Original figure by Bill Dean, posted at ["The Bullet Graph "](http://www.storytellingwithdata.com/blog/2017/5/25/the-bullet-graph).] **Don't worry about including the legend.**
+
+<figure>
+
+![Bill Dean's bullet chart](/images/assignment/evergreen-bullet.png)
+
+</figure>
+
+Use this data: [<i class="fa fa-download" aria-hidden="true"></i> `water_usage.csv`](/data/water_usage.csv)
+
+A couple hints:
+
+- You can see general code for bullet charts in R [here](/class/05-class/#bullet-charts)
+- You'll need to make the months an ordered factor, otherwise they'll plot alphabetically. Use `fct_inorder(variable_name_here, ordered = TRUE)` from the `forcats` library
+
+The final image should look something like this:^[{-} Don't worry about custom fonts unless you want to be brave; I'm using [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed) in the plot.] You can use whatever colors you want.
+
+```{r bullet-chart, echo=FALSE, warning=FALSE, message=FALSE, fig.width=6, fig.height=3}
+library(tidyverse)
+library(forcats)
+
+water_usage <- tribble(
+  ~period, ~conservative, ~high, ~extremely_high, ~current, ~previous,
+  "JAN/FEB", 50, 80, 100, 64, 48,
+  "MAR/APR", 50, 80, 100, 52, 46,
+  "MAY/JUN", 50, 80, 100, 66, 53,
+  "JUL/AUG", 50, 80, 100, 99, 66,
+  "SEPT/OCT", 50, 80, 100, 50, 54,
+  "NOV/DEC", 50, 80, 100, 52, 49
+) %>%
+  mutate(period = fct_inorder(period))
+
+write_csv(water_usage, "data/water_usage.csv")
+
+ggplot(water_usage) +
+  geom_col(aes(x = period, y = extremely_high), fill="black", width = 0.5, alpha = 0.2) +
+  geom_col(aes(period, high), fill="black", width = 0.5, alpha = 0.2) +
+  geom_col(aes(period, conservative), fill="black", width = 0.5, alpha = 0.2) +
+  geom_col(aes(period, current), fill="black", width = 0.2) +
+  geom_errorbar(aes(x= period, ymin = previous, ymax = previous), color = "white",
+                width = 0.25, size = 2) +
+  scale_y_continuous(breaks = c(0, 50, 100)) +
+  labs(x = NULL, y = NULL,
+       title = "Water usage this year compared to last year",
+       subtitle = "The summer was apparently really bad",
+       caption = "Source: Stephanie Evergreen, Effective Data Visualization") +
+  theme_minimal(base_family = "Roboto Condensed", base_size = 9) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        plot.title = element_text(family = "Roboto Condensed", face = "bold",
+                                  size = rel(1.5)),
+        plot.caption = element_text(family = "Roboto Condensed Light", face = "plain",
+                                    size = rel(0.7), margin = margin(t = 15)))
+```
+
+
+# Task 3: Internet use around the world
+
+## Task 3a: Total internet users by region
+
+Plot the total number of internet users around the world by region using an area chart (hint, try `geom_area()`). Basically, make something similar to the figure below.^[{-} But don't worry about custom fonts unless you want to be brave; I'm using [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed) in the plot.] You can use whatever colors you want.
+
+^[{-} This data comes from Max Roser's [Our World in Data](https://ourworldindata.org/internet/) project.] Use this data: [<i class="fa fa-download" aria-hidden="true"></i> `internet-users-by-world-region.csv`](/data/internet-users-by-world-region.csv)
+
+<figure class="fullwidth">
+
+```{r internet-users, echo=FALSE, message=FALSE, fig.width=14, fig.height=5.5}
+library(tidyverse)
+library(viridis)
+
+internet_users <- read_csv("data/internet-users-by-world-region.csv") %>%
+  rename(users = `Internet Users by World Region (people)`)
+
+ggplot(internet_users, aes(x = Year, y = users, fill = Entity)) +
+  geom_area() + 
+  scale_fill_viridis(discrete = TRUE) + 
+  scale_y_continuous(labels = scales::comma) +
+  guides(fill = guide_legend(title = NULL, nrow = 2)) +
+  labs(y = "Number of users", x = NULL, 
+       title = "Internet users by world region",
+       subtitle = "So many cat memes",
+       caption = "Source: OurWorldInData.org/internet/") + 
+  theme_minimal(base_family = "Roboto Condensed", base_size = 18) + 
+  theme(legend.position = "bottom",
+        plot.title = element_text(family = "Roboto Condensed", face = "bold",
+                                  size = rel(1.5)))
+```
+
+</figure>
+
+## Task 3b: Proportion of internet users in specific countries
+
+Plot the proportion of population using the internet in a few countries using a line chart. The data you download includes values for hundreds of countries, so you'll need to filter it (hint, use something like `filter(Entity %in% c("list", "of", "countries", "here")` when you create/load the data you're plotting). Basically, make something similar to the figure below.^[{-} Once again, don't worry about custom fonts unless you want to be brave; I'm using [Roboto Condensed](https://fonts.google.com/specimen/Roboto+Condensed) in the plot.] You can use whatever colors you want.
+
+^[{-} This data also comes from Max Roser's [Our World in Data](https://ourworldindata.org/internet/) project.] Use this data: [<i class="fa fa-download" aria-hidden="true"></i> `share-of-individuals-using-the-internet-1990-2015.csv`](/data/share-of-individuals-using-the-internet-1990-2015.csv)
+
+<figure class="fullwidth">
+
+```{r internet-users-pct, echo=FALSE, message=FALSE, fig.width=14, fig.height=5.5}
+internet_users_pct <- read_csv("data/share-of-individuals-using-the-internet-1990-2015.csv") %>%
+  rename(users = `Individuals using the Internet (% of population) (% of population)`) %>%
+  filter(Entity %in% c("Panama", "Egypt", "United States", "China")) %>%
+  mutate(users = users / 100)
+
+ggplot(internet_users_pct, aes(x = Year, y = users, color = Entity)) +
+  geom_line(size = 1.5) + 
+  scale_color_viridis(discrete = TRUE, option = "magma", end = 0.9) + 
+  scale_y_continuous(labels = scales::percent) +
+  guides(color = guide_legend(title = NULL)) +
+  labs(y = "Number of users", x = NULL, 
+       title = "Share of population using the internet, 1990–2015",
+       subtitle = "The US outstrips everyone historically, but China is catching up quickly",
+       caption = "Source: OurWorldInData.org/internet/") + 
+  theme_minimal(base_family = "Roboto Condensed", base_size = 18) + 
+  theme(legend.position = "bottom",
+        plot.title = element_text(family = "Roboto Condensed", face = "bold",
+                                  size = rel(1.5)))
+```
+
+</figure>

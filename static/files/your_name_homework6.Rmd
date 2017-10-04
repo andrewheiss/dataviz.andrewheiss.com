@@ -1,0 +1,42 @@
+---
+title: "Your title here"
+author: "Your name here"
+date: "Date here"
+output: 
+  html_document: 
+    fig_caption: yes
+  pdf_document: 
+    latex_engine: xelatex
+    dev: cairo_pdf
+---
+
+# Reflection on readings
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+# Bullet charts
+
+```{r load-libraries, message=FALSE, warning=FALSE}
+
+```
+
+
+```{r bullet-chart}
+
+```
+
+
+# Internet use around the world
+
+## Total internet users by region
+
+```{r users-by-region}
+
+```
+
+## Proportion of internet users in specific countries
+
+```{r proportion-in-countries}
+
+```
