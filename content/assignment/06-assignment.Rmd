@@ -136,7 +136,7 @@ ggplot(internet_users_pct, aes(x = Year, y = users, color = Entity)) +
   scale_color_viridis(discrete = TRUE, option = "magma", end = 0.9) + 
   scale_y_continuous(labels = scales::percent) +
   guides(color = guide_legend(title = NULL)) +
-  labs(y = "Number of users", x = NULL, 
+  labs(y = "Proportion of population", x = NULL, 
        title = "Share of population using the internet, 1990–2015",
        subtitle = "The US outstrips everyone historically, but China is catching up quickly",
        caption = "Source: OurWorldInData.org/internet/") + 
