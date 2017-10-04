@@ -127,7 +127,7 @@ isms_plot <- isms %>%
 
 We can use this enhanced data frame to add labels and color specific lines. Here's the complete, final plot. A few things to note:
 
-- `geom_text_repel()` comes from the `ggrepel` library and uses fancy algorithms to ensure labels don't overlap. We set `direction = "y"` to make sure the algorithm only shifts labels up and down (without it, the labels will show up everywhere), and we use `nudge_x` to move the labels horizontally away from the lines.
+- `geom_text_repel()` comes from the `ggrepel` library and uses fancy algorithms to ensure labels don't overlap. We set `direction = "y"` to make sure the algorithm only shifts labels up and down (without it, the labels will show up everywhere), and we use `nudge_x` to move the labels horizontally away from the lines. We can use `seed = some_number` to ensure the random positioning of the labels is the same each time the plot is generated.
 - We use a super minimal `theme_minimal()` theme and them make a few more adjustments with `theme()` to remove grid lines and the y axis text.
 - R will give two warnings saying `Removed 5 rows containing missing values (geom_text_repel).` This is because it's trying to plot missing values for the labels—but recall that we *created* those missing values in both `label_first` and `label_last`, so it's not an issue. We're purposely causing the warning and we can ignore it.
 
@@ -135,8 +135,8 @@ We can use this enhanced data frame to add labels and color specific lines. Here
 fancy_plot <- ggplot(isms_plot, aes(x = decade, y = permil, group = word, color = highlight)) + 
   geom_point() +
   geom_line(size = 1.5) + 
-  geom_text_repel(aes(label = label_first), direction = "y", nudge_x = -1) + 
-  geom_text_repel(aes(label = label_last), direction = "y", nudge_x = 1) + 
+  geom_text_repel(aes(label = label_first), direction = "y", nudge_x = -1, seed = 1234) + 
+  geom_text_repel(aes(label = label_last), direction = "y", nudge_x = 1, seed = 1234) + 
   scale_color_manual(values = c("black", "red")) + 
   guides(color = FALSE) +
   labs(title = "Frequency of words ending in ‘ism’ in\nLDS General Conference talks",
@@ -175,9 +175,11 @@ nice_fonts <- ggplot(isms_plot, aes(x = decade, y = permil, group = word, color 
   geom_point() +
   geom_line(size = 1.5) + 
   geom_text_repel(aes(label = label_first), direction = "y", nudge_x = -1,
-                  family = "Roboto Condensed Light", fontface = "plain") + 
+                  family = "Roboto Condensed Light", fontface = "plain",
+                  seed = 1234) + 
   geom_text_repel(aes(label = label_last), direction = "y", nudge_x = 0.3,
-                  family = "Roboto Condensed Light", fontface = "plain") + 
+                  family = "Roboto Condensed Light", fontface = "plain",
+                  seed = 1234) + 
   scale_color_manual(values = c("black", "red")) + 
   guides(color = FALSE) +
   labs(title = "Frequency of words ending in ‘ism’ in\nLDS General Conference talks",
