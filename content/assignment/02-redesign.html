@@ -93,7 +93,7 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <li>I’ve also created a few date-related variables (<code>sighting_year</code>, <code>sighting_month</code>, <code>sighting_day</code>, and <code>sighting_weekday</code>). You don’t have to use them, but they’re there if you need them.<span><label for="sn-8" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-8" class="margin-toggle"/><span class="sidenote">The functions that create these, like <code>year()</code> and <code>wday()</code> are part of the <code>lubridate</code> library.<br />
 <br />
 </span></span></li>
-<li>The date/time variables are formatted like <code>04/03/2017 12:00:00 AM</code>, which R is not able to automatically parse as a date when reading the CSV file. You can use the <code>mdy_hm()</code> function in the <code>lubridate</code> library to parse dates that are structured as “month-day-year-hour-minute.”<span><label for="sn-9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-9" class="margin-toggle"/><span class="sidenote">There are also a bunch of other iterations of this function, like <code>ymd()</code>, <code>dmy()</code>, etc., for other date formats.<br />
+<li>The date/time variables are formatted like <code>04/03/2017 12:00:00 AM</code>, which R is not able to automatically parse as a date when reading the CSV file. You can use the <code>mdy_hms()</code> function in the <code>lubridate</code> library to parse dates that are structured as “month-day-year-hour-minute.”<span><label for="sn-9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-9" class="margin-toggle"/><span class="sidenote">There are also a bunch of other iterations of this function, like <code>ymd()</code>, <code>dmy()</code>, etc., for other date formats.<br />
 <br />
 </span></span></li>
 <li>There’s one row with an unspecified borough, so I filter that out.</li>
@@ -103,6 +103,11 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 
 rats_raw &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/Rat_Sightings.csv&quot;</span>, <span class="dt">na =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;N/A&quot;</span>))
 
+<span class="co"># If you get an arror that says &quot;All formats failed to parse. No formats</span>
+<span class="co"># found&quot;, it&#39;s because the mdy_hms function couldn&#39;t parse the date. The date</span>
+<span class="co"># variable *should* be in this format: &quot;04/03/2017 12:00:00 AM&quot;, but in some</span>
+<span class="co"># rare instances, it might load without the seconds as &quot;04/03/2017 12:00 AM&quot;.</span>
+<span class="co"># If there are no seconds, use mdy_hm() instead of mdy_hms().</span>
 rats_clean &lt;-<span class="st"> </span>rats_raw %&gt;%
 <span class="st">  </span><span class="kw">rename</span>(<span class="dt">created_date =</span> <span class="st">`</span><span class="dt">Created Date</span><span class="st">`</span>,
          <span class="dt">location_type =</span> <span class="st">`</span><span class="dt">Location Type</span><span class="st">`</span>,

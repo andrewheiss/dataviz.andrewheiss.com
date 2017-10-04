@@ -85,7 +85,7 @@ I've provided some starter code below. A couple comments about it:
 - By default, `read_csv()` treats cells that are empty or "NA" as missing values. This rat dataset uses "N/A" to mark missing values, so we need to add that as a possible marker of missingness (hence `na = c("", "NA", "N/A")`)
 - To make life easier, I've renamed some of the key variables you might work with. You can rename others if you want.
 - I've also created a few date-related variables (`sighting_year`, `sighting_month`, `sighting_day`, and `sighting_weekday`). You don't have to use them, but they're there if you need them.^[The functions that create these, like `year()` and `wday()` are part of the `lubridate` library.]
-- The date/time variables are formatted like `04/03/2017 12:00:00 AM`, which R is not able to automatically parse as a date when reading the CSV file. You can use the `mdy_hm()` function in the `lubridate` library to parse dates that are structured as "month-day-year-hour-minute".^[There are also a bunch of other iterations of this function, like `ymd()`, `dmy()`, etc., for other date formats.]
+- The date/time variables are formatted like `04/03/2017 12:00:00 AM`, which R is not able to automatically parse as a date when reading the CSV file. You can use the `mdy_hms()` function in the `lubridate` library to parse dates that are structured as "month-day-year-hour-minute".^[There are also a bunch of other iterations of this function, like `ymd()`, `dmy()`, etc., for other date formats.]
 - There's one row with an unspecified borough, so I filter that out.
 
 ```{r load-clean-data, eval=FALSE}
@@ -94,6 +94,11 @@ library(lubridate)
 
 rats_raw <- read_csv("data/Rat_Sightings.csv", na = c("", "NA", "N/A"))
 
+# If you get an arror that says "All formats failed to parse. No formats
+# found", it's because the mdy_hms function couldn't parse the date. The date
+# variable *should* be in this format: "04/03/2017 12:00:00 AM", but in some
+# rare instances, it might load without the seconds as "04/03/2017 12:00 AM".
+# If there are no seconds, use mdy_hm() instead of mdy_hms().
 rats_clean <- rats_raw %>%
   rename(created_date = `Created Date`,
          location_type = `Location Type`,
