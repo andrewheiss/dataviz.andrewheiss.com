@@ -5,7 +5,8 @@ citeproc: false
 bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 stuff-to-add: >-
-  "maps sometimes just show US population, xckd - http://www.dailymail.co.uk/news/article-462091/How-children-lost-right-roam-generations.html"
+  maps sometimes just show US population, xckd - http://www.dailymail.co.uk/news/article-462091/How-children-lost-right-roam-generations.html
+  Something about projections, xkcd again or some YT video or something
 ---
 
 # Required
