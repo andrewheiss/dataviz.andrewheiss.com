@@ -1,0 +1,215 @@
+---
+title: "Redesign 3: Refugees in the United States"
+date: "2017-10-17"
+---
+
+```{r load-libraries-data, message=FALSE, warning=FALSE, results="hide", echo=FALSE}
+library(tidyverse)
+library(countrycode)
+library(lubridate)
+
+non_countries <- c("Africa", "Asia", "Europe", "North America", "Oceania", 
+                   "South America", "Unknown", "Other", "Total")
+
+refugees_raw <- read_csv("data/refugee_status.csv", na = c("-", "X", "D")) 
+
+refugees_clean <- refugees_raw %>%
+  rename(origin_country = `Continent/Country of Nationality`) %>%
+  filter(!(origin_country %in% non_countries)) %>%
+  mutate(iso3 = countrycode(origin_country, "country.name", "iso3c",
+                            custom_match = c("Korea, North" = "PRK"))) %>%
+  mutate(origin_country = countrycode(iso3, "iso3c", "country.name"),
+         origin_region = countrycode(iso3, "iso3c", "region"),
+         origin_continent = countrycode(iso3, "iso3c", "continent")) %>%
+  gather(year, number, -origin_country, -iso3, -origin_region, -origin_continent) %>%
+  mutate(year = as.numeric(year),
+         year_date = ymd(paste0(year, "-01-01")))
+```
+
+```{r create-refugees-countries-cumulative, results="hide", echo=FALSE}
+refugees_countries_cumulative <- refugees_clean %>%
+  arrange(year_date) %>%
+  group_by(origin_country) %>%
+  mutate(cumulative_total = cumsum(number))
+```
+
+```{r create-refugees-continents, results="hide", echo=FALSE}
+refugees_continents <- refugees_clean %>%
+  group_by(origin_continent, year_date) %>%
+  summarize(total = sum(number, na.rm = TRUE))
+```
+
+```{r create-refugees-continents-cumulative, results="hide", echo=FALSE}
+refugees_continents_cumulative <- refugees_clean %>%
+  group_by(origin_continent, year_date) %>%
+  summarize(total = sum(number, na.rm = TRUE)) %>%
+  arrange(year_date) %>%
+  group_by(origin_continent) %>%
+  mutate(cumulative_total = cumsum(total))
+```
+
+```{r create-plots, results="hide", echo=FALSE, warning=FALSE, message=FALSE}
+library(gridExtra)
+
+plot_countries <- ggplot(filter(refugees_clean, 
+                                iso3 %in% c("IRQ", "SYR", "IRN")),
+                         aes(x = year_date, y = number, 
+                             color = origin_country)) +
+  geom_line() + 
+  labs(title = "1. Specific countries over time") +
+  theme_minimal(base_size = 10) +
+  theme(legend.position = "bottom",
+        plot.title = element_text(face = "bold"))
+
+plot_countries_cum <- ggplot(filter(refugees_countries_cumulative,
+                                    iso3 %in% c("IRQ", "SYR", "IRN")),
+                             aes(x = year_date, y = cumulative_total, 
+                                 color = origin_country)) +
+  geom_line() +
+  labs(title = "2. Specific countries over time, cumulative") +
+  theme_minimal(base_size = 10) +
+  theme(legend.position = "bottom",
+        plot.title = element_text(face = "bold"))
+
+plot_continents <- ggplot(refugees_continents,
+                          aes(x = year_date, y = total, 
+                              color = origin_continent)) +
+  geom_line() +
+  labs(title = "3. Continents over time") +
+  theme_minimal(base_size = 10) +
+  theme(legend.position = "bottom",
+        plot.title = element_text(face = "bold"))
+
+plot_continents_cum <- ggplot(refugees_continents_cumulative,
+                              aes(x = year_date, y = cumulative_total, 
+                                  color = origin_continent)) +
+  geom_line() +
+  labs(title = "4. Continents over time, cumulative") +
+  theme_minimal(base_size = 10) +
+  theme(legend.position = "bottom",
+        plot.title = element_text(face = "bold"))
+
+
+plot_all <- rbind(cbind(ggplotGrob(plot_countries), ggplotGrob(plot_countries_cum)),
+                  cbind(ggplotGrob(plot_continents), ggplotGrob(plot_continents_cum)))
+```
+
+<span class="newthought"> The United States has resettled</span> more than 600,000 refugees from 60 different countries since 2006.
+
+<figure>
+
+![[Refugees welcome, by Attila Szervác](https://commons.wikimedia.org/wiki/File:Refugees_welcome.png)](/images/assignment/refugees_welcome.jpg)
+
+</figure>
+
+In this final redesign assignment, you will use **R, ggplot, and [Illustrator](https://www.adobe.com/products/illustrator.html) or [Inkscape](https://inkscape.org/en/)** to explore where these refugees have come from.
+
+You can redesign one of these ugly, less-than-helpful graphs, or create a new story.
+
+<figure class="fullwidth">
+```{r show-plots, fig.width=11, fig.height=6, warning=FALSE, message=FALSE, echo=FALSE}
+grid::grid.draw(plot_all)
+```
+</figure>
+
+Here's what you need to do:
+
+1. **Download** the Department of Homeland Security's [<i class="fa fa-download" aria-hidden="true"></i> annual count of people granted refugee status between 2006–2015](/data/refugee_status.csv).^[As always, you'll probably need to right click on this link and choose "Save link as…", since your browser might want to display it as text. The data was originally [uploaded by the Department of Homeland Security to Kaggle](https://www.kaggle.com/dhs/refugee-report), and is provided with a public domain license.]
+2. **Clean** the data using the code I've given you below.
+3. **Create** an appropriate time-based visualization based on the data. I've shown a few different ways to summarize the data so that it's plottable down below. Don't just calculate overall averages or totals per country—the visualization needs to deal with change over time. *Do as much polishing and refining in R*—make adjustments to the colors, scales, labels, grid lines, and even fonts, etc. If you're plotting by countries, you don't have to show Iran, Iraq, and Syria—you can show any countries you want, as long as you're telling a story.
+4. **Save** the figure as a PDF.
+5. **Refine and polish**^[{-} `r blogdown::shortcode("youtube", "LhF_56SxrGk")`] the saved PDF in [Illustrator](https://www.adobe.com/products/illustrator.html) or [Inkscape](https://inkscape.org/en/), adding annotations, changing colors, and otherwise enhancing it.
+6. **Export** the polished image as a PDF and a PNG file.
+7. **Write** a memo (no word limit) explaining your process. I'm specifically looking for the following:
+    - What was wrong with the original graphic (if you’re fixing one of the original figures)?
+    - What story are you telling with your new graphic?
+    - How did you apply the principles of CRAP?
+    - How did you apply Alberto Cairo's five qualities of great visualizations?
+8. **E-mail me** the following outputs:
+    - A PDF of your memo with your code, intermediate graphic (the one you create in R), and final graphic (the one you enhance) in it.^[Remember to use `![Caption](path/to/figure/here)` to place external images in Markdown.]
+    - A standalone PNG version of your graphic.^[You'll export this from Illustrator or Inkscape]
+    - A standalone PDF version of your graphic.^[You'll export this from Illustrator or Inkscape]
+
+You will be graded on how you use R, `ggplot`, and Illustrator or Inkscape,^[{-} [![Example rubric for redesign 3](/images/rubrics/redesign3_rubric.png)](/assignment/rubrics/redesign3_rubric.pdf)] how well you apply the principles of CRAP (this in particular), *The Truthful Art,* and *Effective Data Visualization,* and how appropriate the graph is for the data and the story you're telling. I will use [this rubric](/assignment/rubrics/redesign3_rubric.pdf) to grade the final product.
+
+For this assignment, I am less concerned with the code (that's why I gave most of it to you), and more concerned with the *design*. Choose good colors based on palettes [listed in the reference list](/reference/#colors). Choose [good, clean fonts](/reference/#fonts). Use the heck out of `theme()`. Add informative design elements in Illustrator/Inkscape. Make it look beautiful and CRAPpy. 
+
+^[{-} ![You got this](https://media.giphy.com/media/11F0d3IVhQbreE/giphy.gif)] **The assignment is due by 11:59 PM on Monday, October 16.**
+
+You can do this.
+
+
+# Longish note about cleaning the data
+
+The data isn't perfectly clean and tidy, but it's real world data, so this is normal. Because the emphasis for this assignment is on design, not code, I've provided code to help you clean up the data.
+
+These are the main issues with the data:
+
+- There are non-numeric values in the data, like `-`, `X`, and `D`. The data isn't very well documented; I'm assuming `-` indicates a missing value, but I'm not sure what `X` and `D` mean, so for this assignment, we'll just assume they're also missing. 
+- The data generally includes rows for dozens of countries, but there are also rows for some continents, "unknown," "other," and a total row. Because [Africa is not a country](https://twitter.com/africasacountry), and neither are the other continents, we want to exclude all non-countries.
+- Maintaining consistent country names is the woooooooorst. Countries have different formal official names and datasets are never consistent in how they use those names.^[For instance, "North Korea", "Korea, North", "DPRK", "Korea, Democratic People's Republic of", and "Democratic People's Repbulic of Korea", and "Korea (DPRK)" are all perfectly normal versions of the country's name and you'll find them all in the wild.] It's such a tricky problem that social scientists have spent their careers just figuring out how to properly name and code countries. Really.^[See Gleditsch, Kristian S. & Michael D. Ward. 1999. ["Interstate System Membership: A Revised List of the Independent States since 1816."](http://privatewww.essex.ac.uk/~ksg/statelist.html) *International Interactions* 25: 393-413; or the ["ICOW Historical State Names Data Set"](http://www.paulhensel.org/icownames.html).] There are international standards for country codes, though, like [ISO 3166-1 alpha 3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) (my favorite), or ISO3. It's not perfect—it omits microstates (some Polynesian countries) and gray area states (Palestine, Kosovo)—but it's an international standard, so it has that going for it.
+- ^[{-} All this country code stuff is important for mapping data or for joining different datasets.] To ensure that country names are consistent in this data, we use the `countrycode` package (install it if you don't have it), which is amazing. The `countrycode()` function will take a country name in a given coding scheme and convert it to a different coding scheme using this syntax:^[{-} Run `?countrycode` to see all the different coding schemes it can convert to/from. Bonus tip: run `View(countrycode_data)` to see what all those coding schemes look like.]  
+
+        countrycode(variable, "current-coding-scheme", "new-coding-scheme")
+    
+    It also does a farily good job at guessing and parsing inconsistent country names (e.g. it will recognize "Congo, Democratic Republic", even though it should technically be "Democratic Republic of the Congo"). Here, we use `countrycode` to convert the inconsistent country names into ISO3 codes. We then create a cleaner version of the `origin_country` column by converting the ISO3 codes back into country names. Note that the function chokes on North Korea initially, since it's included as "Korea, North"—we use the `custom_match` argument to help the function out.
+- The data isn't tidy—there are individual columns for each year. `gather()` takes every column and changes it to a row. We exclude the country, region, continent, and ISO3 code from the change-into-rows transformation with `-origin_country, -iso3, -origin_region, -origin_continent`.
+- Currently, the year is being treated as a number, but it's helpful to also treat it as an actual date. We create a new variable named `year_date` that converts the raw number (e.g. 2009) into a date. The date needs to have at least a month, day, and year, so we actually convert it to January 1, 2009 with `ymd(paste0(year, "-01-01"))`.
+
+```{r ref.label="load-libraries-data", eval=FALSE}
+```
+
+# Data to possibly use in your plot
+
+Here are some possible summaries of the data you might use…
+
+## Country totals over time
+
+This is just the `refugees_clean` data frame I gave you. You'll want to filter it and select specific countries, though—you won't really be able to plot 60 countries all at once.
+
+```{r show-refugees-countries, echo=FALSE}
+refugees_clean %>%
+  head() %>%
+  knitr::kable(format = "html", table.attr = 'style="margin-bottom: 3rem;"')
+```
+
+## Cumulative country totals over time
+
+Note the `cumsum()` function—it calculate the cumulative sum of a column.
+
+```{r ref.label="create-refugees-countries-cumulative", eval=FALSE}
+```
+
+```{r show-refugees-countries-cumulative, echo=FALSE}
+refugees_countries_cumulative %>%
+  arrange(origin_country) %>%
+  head() %>%
+  knitr::kable(format = "html", table.attr = 'style="margin-bottom: 3rem;"')
+```
+
+## Continent totals over time
+
+Note the `na.rm = TRUE` argument in `sum()`. This makes R ignore any missing data when calculating the total. Without it, if R finds a missing value in the column, it will mark the final sum as `NA` too, which we don't want.
+
+```{r ref.label="create-refugees-continents", eval=FALSE}
+```
+
+```{r show-refugees-continents, echo=FALSE}
+refugees_continents %>%
+  head() %>%
+  knitr::kable(format = "html", table.attr = 'style="margin-bottom: 3rem;"')
+```
+
+## Cumulative continent totals over time
+
+Note that there are two `group_by()` functions here. First we get the total number of refugees per continent per year, then we group by continent only to get the cumulative sum of refugees across continents.
+
+```{r ref.label="create-refugees-continents-cumulative", eval=FALSE}
+```
+
+```{r show-refugees-continents-cumulative, echo=FALSE}
+refugees_continents_cumulative %>%
+  arrange(origin_continent) %>%
+  head() %>%
+  knitr::kable(format = "html", table.attr = 'style="margin-bottom: 3rem;"')
+```
