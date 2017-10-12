@@ -34,6 +34,7 @@ lessons:
     date: "October 10"
     reading: "06-reading"
     assignment: "06-assignment"
+    class: "06-class"
   - title: "⊞ *Rubric test run due*"
     assignment: "rubric-test"
   - title: "Geography"
