@@ -12,6 +12,8 @@ Now you get to show off all the tools you learned with (1) your final rubric and
 
 You've received feedback from me and your peers and you've tested out your rubric on two existing graphics. Polish up your data visualization rubric and e-mail me the final version. Half of your final project grade will be based on this, so make sure the rubric yields actual numbers.^[I sadly have no idea what "strong" + "acceptable" + "weak" is in real numbers.] You'll also want to make sure it has good external validity and works well when other people use it.
 
+^[{-} [![Final rubric rubric](/images/rubrics/final-rubric-rubric.png)](/assignment/rubrics/dataviz-rubric-rubric.pdf)] I will grade your rubric with [this rubric](/assignment/rubrics/dataviz-rubric-rubric.pdf).
+
 
 # Visualization
 
