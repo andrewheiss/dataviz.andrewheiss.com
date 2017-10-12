@@ -67,18 +67,18 @@ You can [download a full example of what a final project might look like](/files
 
 # Final deliverables
 
-You **must** e-mail me the following files **before** the deadline. 
+You **must** e-mail me the following files **before** the deadline.^[{-} [![Final project rubric](/images/rubrics/final-project_rubric.png)](/assignment/rubrics/final-project_rubric.pdf)]
 
 1. A memo introducing and describing your final graphic (see full instructions above)
 2. A standalone PDF of your graphic exported from Inkscape or Illustrator
 3. A standalone PNG of your graphic exported from Inkscape or Illustrator
 4. A PDF of your final rubric for evaluating visualizations
 
-^[{-} ![Clapping](https://media.giphy.com/media/l4HodBpDmoMA5p9bG/giphy.gif)] **No late work will be accepted for this project since it's the last project and it counts as your final.**
+**No late work will be accepted for this project since it's the last project and it counts as your final.**
 
-I will use *this rubric*^[This doesn't exist yet, but will soon.] to grade the final product.
+I will use [this rubric](/assignment/rubrics/final-project_rubric.pdf) to grade the final product.
 
-I am happy to give feedback and help along the way—just not at, like, 10 PM on the night it's due. Please don't hesitate to come and get help! My goal is for you to have a beautiful graphic in the end that you'll want to show off to all your friends, family, neighbors, employers, and strangers on the street—I'm not trying to trip you up or give you trick questions!
+^[{-} ![Clapping](https://media.giphy.com/media/l4HodBpDmoMA5p9bG/giphy.gif)] I am happy to give feedback and help along the way—just not at, like, 10 PM on the night it's due. Please don't hesitate to come and get help! My goal is for you to have a beautiful graphic in the end that you'll want to show off to all your friends, family, neighbors, employers, and strangers on the street—I'm not trying to trip you up or give you trick questions!
 
 And that's it. **You're done!** Go out into the world now and make beautiful, insightul, and truthful graphics.
 
