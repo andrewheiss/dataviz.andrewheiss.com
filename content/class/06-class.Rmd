@@ -80,16 +80,18 @@ nice_plot <- ggplot(bites_plot_year, aes(x = year, y = total_bites, color = spec
   fancy_theme(base_size = 18)
 
 nice_plot
-
-ggsave(nice_plot + fancy_theme(base_size = 11),
-       filename = "~/Desktop/nice_plot.pdf", device = cairo_pdf,
-       width = 7, height = 4, dpi = 300)
-ggsave(nice_plot + fancy_theme(base_size = 11),
-       filename = "~/Desktop/nice_plot.png", type = "cairo",
-       width = 7, height = 4, dpi = 300)
 ```
 
 </figure>
+
+```{r save-nice-plot, eval=FALSE}
+ggsave(nice_plot + fancy_theme(base_size = 11),
+       filename = "output/nice_plot.pdf", device = cairo_pdf,
+       width = 7, height = 4, dpi = 300)
+ggsave(nice_plot + fancy_theme(base_size = 11),
+       filename = "output/nice_plot.png", type = "cairo",
+       width = 7, height = 4, dpi = 300)
+```
 
 
 # Refining and enhancing plots in Illustrator
