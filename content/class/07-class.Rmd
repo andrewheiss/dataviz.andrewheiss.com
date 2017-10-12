@@ -1,0 +1,12 @@
+---
+title: "Geography"
+date: "2017-10-17"
+output:
+  blogdown::html_page:
+    template: ../../pandoc/toc-title_html.template
+    toc: true
+stuff-to-add: >-
+  ggplotly
+  https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html
+---
+
