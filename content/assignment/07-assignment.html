@@ -1,0 +1,202 @@
+---
+title: "Geography"
+date: "2017-10-17"
+notes: >-
+  Hurray for these blog posts:
+    - https://www.azavea.com/blog/2017/08/30/spatial-analysis-pipelines-in-r-with-simple-features/
+    - https://dcl-2017-01.github.io/curriculum/notes/spatial-vis.html
+    - https://rud.is/b/2017/09/18/mapping-fall-foliage-with-sf/
+    - https://edzer.github.io/UseR2017/
+---
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+<p>Complete these tasks in an R Markdown file and <a href="mailto:andrew_heiss@byu.edu">e-mail me</a> a PDF of the final compiled document. <a href="/files/your_name_homework7.Rmd">Here’s the typical starter file</a>. As always, I recommend saving it within an RStudio project. Make sure the final output is as clean and warning/message free as possible.</p>
+<div id="task-1-reflection-memo" class="section level2">
+<h2>Task 1: Reflection memo</h2>
+<p>Write a <strong>500</strong>-word memo about <a href="/reading/07-reading/">the assigned readings</a> for this week. You can use some of the prompt questions there if you want:</p>
+<ul>
+<li>How can you know if a map projection is truthful or misleading?</li>
+<li>What’s wrong (or not wrong) with using points on maps? Choropleths? Lines?</li>
+</ul>
+<p>As you write the memo, also consider these central questions:</p>
+<ul>
+<li>How do these readings connect to our main goal of discovering truth?</li>
+<li>How does what I just read apply to me?</li>
+<li>How can this be useful to me?</li>
+</ul>
+</div>
+<div id="task-2-make-a-map" class="section level2">
+<h2>Task 2: Make a map</h2>
+<p>This task is not very code intensive—I’m giving you all the code!</p>
+<p>That said, there’s still some work you have to do.</p>
+<div id="step-1-install-extra-software-and-r-packages" class="section level3">
+<h3>Step 1: Install extra software and R packages</h3>
+<ol style="list-style-type: decimal">
+<li>Plotting geographic stuff with ggplot is crazy easy nowadays with the new <code>sf</code> package, which works nicely within the tidyverse paradigm. However, it’s so new that the CRAN version of ggplot doesn’t have <code>geom_sf()</code> and other geographic plotting layers. You <strong>must</strong> install the development version of the package from GitHub. Doing this makes your computer compile the package from its source code and requires some fancy software to work.
+<ul>
+<li>If you’re using Windows, <a href="https://cran.r-project.org/bin/windows/Rtools/">download and install Rtools (currently Rtools34.exe)</a>.</li>
+<li><p>If you’re using macOS, open Terminal and type this:</p>
+<pre><code>xcode-select --install</code></pre>
+A software update popup window should appear that will ask if you want to install command line developer tools. Click on “Install” (you don’t need to click on “Get Xcode”)</li>
+</ul></li>
+<li><p>Once you install those tools, make sure you install the <code>devtools</code> package in R (using the “Packages” panel, like normal), and then run this in your R console:</p>
+<pre><code>devtools::install_github(&quot;tidyverse/ggplot2&quot;)</code></pre>
+This will download, compile, and install the latest development version of ggplot. It’ll take a while—go eat something.</li>
+<li>Using the “Packages” panel in RStudio, install these packages: <code>sf</code>, <code>maps</code>, <code>maptools</code>, and <code>rgeos</code></li>
+<li><strong>Final step for macOS people only</strong>: R doesn’t do all the geographic calculations by itself—it relies on a few pieces of standalone software behind the scenes. When people on Windows install <code>sf</code>, those pieces of software <em>should</em> be installed automatically. This doesn’t happen on macOS, so you have to install them manually. The easiest way to do this is with Terminal. Here’s what you have to do:
+<ol style="list-style-type: decimal">
+<li>Open Terminal</li>
+<li>If you haven’t already, go to <a href="https://brew.sh/">brew.sh</a>, copy the big long command under “Install Homebrew” (starts with <code>/usr/bin/ruby -e &quot;$(curl -fsSL...</code>), paste it into Terminal, and press enter. This installs Homebrew, which is special software that lets you install Unix-y programs from the terminal.<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> You can install stuff like MySQL, Python, Apache, and even R if you want; there’s a <a href="http://formulae.brew.sh/">full list of Homebrew formulae here</a>.<br />
+<br />
+</span></span></li>
+<li><p>Type this line in Terminal to install <code>gdal</code>, <code>geos</code>, and <code>proj</code>:</p>
+<pre><code>brew install gdal geos proj</code></pre></li>
+<li><p>Wait for a few minutes—go eat something else.</p></li>
+</ol></li>
+</ol>
+</div>
+<div id="step-2-actually-make-a-map" class="section level3">
+<h3>Step 2: Actually make a map</h3>
+<p>In last week’s assignment, you looked at the percentage of different countries’ populations with access to the internet. This week, you’ll use the same data to map the level of internet access around the world in 2015.</p>
+<p>I provide a full working example for you. Rather than just copying and pasting the code and knitting, though, I want you to run each line in RStudio and see what’s going on. <a href="/files/your_name_homework7.Rmd">In the starter Rmd file</a>, I’ve included a list of code pieces you need to explain.</p>
+<p>You need this data:</p>
+<ul>
+<li><span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> Again, this data comes from Max Roser’s <a href="https://ourworldindata.org/internet/">Our World in Data</a> project.<br />
+<br />
+</span></span> <a href="/data/share-of-individuals-using-the-internet-1990-2015.csv"><i class="fa fa-download" aria-hidden="true"></i> <strong>Share of individuals using the internet, 1990-2015</strong></a></li>
+<li><a href="http://www.naturalearthdata.com/downloads/50m-cultural-vectors/"><i class="fa fa-download" aria-hidden="true"></i> <strong>1:50m cultural shapefiles from Natural Earth</strong></a>: Click on “Download countries” under “Admin 0 — Countries”, unzip the file, and put the whole folder in your data folder (so you should have something like this: <code>data/ne_50m_admin_0_countries/files.whatever</code>)</li>
+</ul>
+<p>The only strange, arcane thing in the code is <code>coord_sf(crs = st_crs(XXXX))</code>. This changes the coordinate system (or projection) for the map.<span><label for="sn-3" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="sidenote">TECHNICALLY coordinate systems and projection systems <a href="https://gis.stackexchange.com/a/149751/56265">are different things</a>, but I’m not a geographer and I don’t care that much about the nuance.<br />
+<br />
+</span></span> Recall from your reading that there are lots of different ways to project maps onto a flat surface. “CRS” refers to “coordinate reference system” and lets you specify a projection. There are standard indexes of more than 4,000 of these projections (!!!) at <a href="http://spatialreference.org/">spatialreference.org</a>. Here are some common ones:</p>
+<ul>
+<li><a href="http://spatialreference.org/ref/esri/54002/">54002</a>: Equidistant cylindrical projection for the world<span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">This is essentially the <a href="https://en.wikipedia.org/wiki/Gall%E2%80%93Peters_projection">Gall-Peters projection</a> from <a href="https://www.youtube.com/watch?v=vVX-PrBRtTY">the West Wing clip</a>.<br />
+<br />
+</span></span></li>
+<li><a href="http://spatialreference.org/ref/esri/54004/">54004</a>: Mercator projection for the world</li>
+<li><a href="http://spatialreference.org/ref/esri/54008/">54008</a>: Sinusoidal projection for the world</li>
+<li><a href="http://spatialreference.org/ref/esri/54009/">54009</a>: Mollweide projection for the world</li>
+<li><a href="http://spatialreference.org/ref/esri/54030/">54030</a>: Robinson projection for the world<span><label for="sn-5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="sidenote">This is my favorite world projection.<br />
+<br />
+</span></span></li>
+<li><a href="http://spatialreference.org/ref/epsg/4326/">4326</a>: WGS 84: DOD GPS coordinates (standard -180 to 180 system)</li>
+<li><a href="http://spatialreference.org/ref/epsg/4269/">4269</a>: NAD 83: Relatively common projection for North America</li>
+<li><a href="http://spatialreference.org/ref/esri/102003/">102003</a>: Albers projection specifically for the contiguous United States</li>
+</ul>
+<p>Alternatively, instead of using these index numbers, you can use any of the names listed at <a href="http://proj4.org/projections/index.html"><code>proj.4</code></a>, such as:</p>
+<ul>
+<li><code>st_crs(&quot;+proj=merc&quot;)</code>: Mercator</li>
+<li><code>&quot;+proj=robin&quot;</code>: Robinson</li>
+<li><code>&quot;+proj=moll&quot;</code>: Mollweide</li>
+<li><code>&quot;+proj=aeqd&quot;</code>: Azimuthal Equidistant</li>
+<li><code>&quot;+proj=cass&quot;</code>: Cassini-Soldner</li>
+</ul>
+<p>Here we go! First we load the internet users data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install the most recent development version of ggplot from GitHub</span>
+<span class="co"># devtools::install_github(&quot;tidyverse/ggplot2&quot;)</span>
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(sf)
+
+internet_users &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/share-of-individuals-using-the-internet-1990-2015.csv&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">users =</span> <span class="st">`</span><span class="dt">Individuals using the Internet (% of population) (% of population)</span><span class="st">`</span>,
+         <span class="dt">iso_a3 =</span> Code)
+
+users_2015 &lt;-<span class="st"> </span>internet_users %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(Year ==<span class="st"> </span><span class="dv">2015</span>)</code></pre></div>
+<p>Then we load the geographic data and combine it with the internet data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">world_shapes &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/ne_50m_admin_0_countries/ne_50m_admin_0_countries.shp&quot;</span>,
+                        <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## Reading layer `ne_50m_admin_0_countries&#39; from data source `/Users/andrew/Sites/sites/dataviz/static/data/ne_50m_admin_0_countries/ne_50m_admin_0_countries.shp&#39; using driver `ESRI Shapefile&#39;
+## Simple feature collection with 241 features and 63 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: -180 ymin: -89.99893 xmax: 180 ymax: 83.59961
+## epsg (SRID):    4326
+## proj4string:    +proj=longlat +datum=WGS84 +no_defs</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># left_join takes two data frames and combines them, based on a shared column</span>
+<span class="co"># (in this case iso_a3)</span>
+users_map &lt;-<span class="st"> </span>world_shapes %&gt;%
+<span class="st">  </span><span class="kw">left_join</span>(users_2015, <span class="dt">by =</span> <span class="st">&quot;iso_a3&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(iso_a3 !=<span class="st"> &quot;ATA&quot;</span>)  <span class="co"># No internet in Antarctica. Sorry penguins.</span></code></pre></div>
+<p>Finally, we plot the map:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pretty_map &lt;-<span class="st"> </span><span class="kw">ggplot</span>(users_map) +
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> users), <span class="dt">color =</span> <span class="ot">NA</span>) +
+<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">crs =</span> <span class="kw">st_crs</span>(<span class="dv">54030</span>)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_fill_gradient</span>(<span class="dt">low =</span> <span class="st">&quot;#e7e1ef&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;#dd1c77&quot;</span>, <span class="dt">na.value =</span> <span class="st">&quot;grey70&quot;</span>,
+                      <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="kw">guide_colorbar</span>(<span class="dt">title.position =</span> <span class="st">&quot;top&quot;</span>, 
+                               <span class="dt">title.hjust =</span> <span class="st">&quot;0.5&quot;</span>,
+                               <span class="dt">title =</span> <span class="st">&quot;% of population&quot;</span>,
+                               <span class="dt">barwidth =</span> <span class="dv">10</span>, <span class="dt">barheight =</span> <span class="fl">0.5</span>)) +
+<span class="st">  </span><span class="kw">theme_void</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)
+
+pretty_map</code></pre></div>
+<p><img src="/assignment/07-assignment_files/figure-html/create-map-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ggsave(pretty_map, filename = &quot;output/map.pdf&quot;, width = 7, height = 5)</span></code></pre></div>
+</div>
+</div>
+<div id="task-3-illustrator-introduction" class="section level2">
+<h2>Task 3: Illustrator introduction</h2>
+<div id="step-1-quickly-get-familiar-with-illustrator-or-inkscape" class="section level3">
+<h3>Step 1: Quickly get familiar with Illustrator (or Inkscape)</h3>
+<p>Watch and work through these tutorials (you can speed them up to 1.5× or 2× if you want):</p>
+<ul>
+<li><a href="https://helpx.adobe.com/illustrator/how-to/create-new-document.html">Set up a new document</a></li>
+<li><a href="https://helpx.adobe.com/illustrator/how-to/ai-basics-fundamentals.html">Get to know Illustrator</a></li>
+<li><a href="https://helpx.adobe.com/illustrator/how-to/shapes-basics.html">Create and edit shapes</a></li>
+<li><a href="https://helpx.adobe.com/illustrator/how-to/text-basics.html">Add text to your designs</a></li>
+<li><a href="https://helpx.adobe.com/illustrator/how-to/ai-layers-basics.html">Organize content with layers</a></li>
+<li><a href="https://helpx.adobe.com/illustrator/how-to/sharing-basics.html">Share artwork</a></li>
+</ul>
+<p>These are all specific to Illustrator, but the same principles apply to Inkscape (though tools and options will have different names). I recommend learning Illustrator now while you have <a href="">free access to it</a>, and then in the future when you won’t necessarily have access to Adobe’s Creative Cloud, you’ll be able to translate your skills to Inkscape.</p>
+</div>
+<div id="step-2-make-something-with-illustrator" class="section level3">
+<h3>Step 2: Make something with Illustrator</h3>
+<ol style="list-style-type: decimal">
+<li>Use <code>ggsave()</code> to save your map of internet users as a PDF.</li>
+<li>Place the map in a new document in Illustrator.</li>
+<li>Enhance it with annotations, lines, shapes, etc. Make it fancy.<span><label for="sn-6" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="marginnote"> But also follow the principles of CRAP and don’t go crazy.<br />
+<br />
+</span></span></li>
+<li>Export the completed graphic as a PDF and PNG.</li>
+</ol>
+</div>
+</div>

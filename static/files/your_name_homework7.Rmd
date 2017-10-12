@@ -1,0 +1,43 @@
+---
+title: "Your title here"
+author: "Your name here"
+date: "Date here"
+output: 
+  html_document: 
+    fig_caption: yes
+  pdf_document: 
+    latex_engine: xelatex
+    dev: cairo_pdf
+---
+
+# Reflection
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+# Maps
+
+What do these pieces of code do?:
+
+- `st_read()`: ANSWER
+- `left_join()`: ANSWER
+- `geom_sf()`: ANSWER
+- `coord_sf()`: ANSWER
+- `csr = st_crs()` inside `coord_sf()`: ANSWER
+
+```{r load-libraries-data, warning=FALSE, message=FALSE}
+# Put code from website here and run it in RStudio
+```
+
+```{r load-geographic-data, warning=FALSE, message=FALSE}
+
+```
+
+```{r create-map}
+
+```
+
+
+# Illustrator
+
+![My aMaZInG enhanced map](path/to/your/figure.png)
