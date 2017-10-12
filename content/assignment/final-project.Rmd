@@ -60,6 +60,8 @@ Here's what you'll need to do:
 
 Remember to follow R Markdown etiquette rules and style—don't have it output extraneous messages or warnings, include summary tables in nice tables (remember `knitr::kable()`), adjust the dimensions for your figures, and remove the placeholder text that's in the template already (i.e. I don't wan't to see stuff like "Describe and show how you cleaned and reshaped the data" in the final report.)
 
+You can [download a full example of what a final project might look like](/files/example_final.zip) (but don't make your final combined visualization look exactly like this—show some creativity!)
+
 
 # Final deliverables
 
