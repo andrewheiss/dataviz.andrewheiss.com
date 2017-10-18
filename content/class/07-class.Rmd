@@ -11,7 +11,11 @@ stuff-to-add: >-
 
 # Slides
 
-The slides from today's lecture will go here.
+[Download the slides from today's lecture](/slides/MPA-635_2017-10-17.pdf).
+
+<figure>
+[![First slide](/images/slides/slides_2017-10-17.png)](/slides/MPA-635_2017-10-17.pdf)
+</figure>
 
 
 # Creating maps with R
@@ -23,7 +27,9 @@ Download these shapefiles, unzip them, and put them in your data folder: ^[{-} !
 
 We're going to make these two maps:
 
-```{r create-maps, warning=FALSE, message=FALSE, echo=FALSE}
+```{r create-maps, warning=FALSE, message=FALSE}
+# Make sure you install the development version of ggplot with
+# devtools::install_github("tidyverse/ggplot2")
 library(tidyverse)
 library(sf)
 library(stringr)
@@ -41,6 +47,10 @@ counties_with_data <- counties %>%
   st_join(libraries_county) %>%
   mutate(people_per_library = POP_CURRES / num_libraries)
 
+# In theory, geom_sf() should be able to plot points, and it does, but the
+# latest development version ignores arguments like size = 5, so we have to use
+# geom_point() instead. To do that, we have to extract the latitude and
+# longitude values as individual columns, hence this libraries_lat_lon here
 libraries_lat_lon <- cbind(libraries, st_coordinates(libraries))
 
 plot_libraries <- ggplot() +

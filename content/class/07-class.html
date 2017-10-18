@@ -9,6 +9,42 @@ stuff-to-add: >-
   ggplotly
 ---
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 <h2>Contents</h2>
 <div id="TOC">
@@ -22,7 +58,10 @@ stuff-to-add: >-
 
 <div id="slides" class="section level2">
 <h2>Slides</h2>
-<p>The slides from today’s lecture will go here.</p>
+<p><a href="/slides/MPA-635_2017-10-17.pdf">Download the slides from today’s lecture</a>.</p>
+<figure>
+<a href="/slides/MPA-635_2017-10-17.pdf"><img src="/images/slides/slides_2017-10-17.png" alt="First slide" /></a>
+</figure>
 </div>
 <div id="creating-maps-with-r" class="section level2">
 <h2>Creating maps with R</h2>
@@ -34,6 +73,54 @@ stuff-to-add: >-
 <li><a href="https://gis.utah.gov/data/society/schools-libraries/">Schools &amp; Libraries</a></li>
 </ul>
 <p>We’re going to make these two maps:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make sure you install the development version of ggplot with</span>
+<span class="co"># devtools::install_github(&quot;tidyverse/ggplot2&quot;)</span>
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(sf)
+<span class="kw">library</span>(stringr)
+<span class="kw">library</span>(gridExtra)
+
+counties &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/Counties/Counties.shp&quot;</span>, <span class="dt">quiet =</span> <span class="ot">TRUE</span>)
+libraries &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/Libraries/Libraries.shp&quot;</span>, <span class="dt">quiet =</span> <span class="ot">TRUE</span>)
+
+libraries_county &lt;-<span class="st"> </span>libraries %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(COUNTY) %&gt;%
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">num_libraries =</span> <span class="kw">n</span>()) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">NAME =</span> <span class="kw">str_to_upper</span>(COUNTY))
+
+counties_with_data &lt;-<span class="st"> </span>counties %&gt;%
+<span class="st">  </span><span class="kw">st_join</span>(libraries_county) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">people_per_library =</span> POP_CURRES /<span class="st"> </span>num_libraries)
+
+<span class="co"># In theory, geom_sf() should be able to plot points, and it does, but the</span>
+<span class="co"># latest development version ignores arguments like size = 5, so we have to use</span>
+<span class="co"># geom_point() instead. To do that, we have to extract the latitude and</span>
+<span class="co"># longitude values as individual columns, hence this libraries_lat_lon here</span>
+libraries_lat_lon &lt;-<span class="st"> </span><span class="kw">cbind</span>(libraries, <span class="kw">st_coordinates</span>(libraries))
+
+plot_libraries &lt;-<span class="st"> </span><span class="kw">ggplot</span>() +
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> counties_with_data, <span class="kw">aes</span>(<span class="dt">fill =</span> num_libraries), <span class="dt">size =</span> <span class="fl">0.25</span>) +
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> libraries_lat_lon, <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y), <span class="dt">size =</span> <span class="fl">0.5</span>) +
+<span class="st">  </span><span class="kw">scale_fill_gradient</span>(<span class="dt">low =</span> <span class="st">&quot;#fee0d2&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;#de2d26&quot;</span>, <span class="dt">na.value =</span> <span class="st">&quot;white&quot;</span>) +
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">size =</span> <span class="ot">FALSE</span>, 
+         <span class="dt">fill =</span> <span class="kw">guide_colorbar</span>(<span class="dt">title =</span> <span class="st">&quot;Number of libraries&quot;</span>, 
+                               <span class="dt">title.position =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">barwidth =</span> <span class="dv">10</span>)) +
+<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">crs =</span> <span class="dv">26912</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_void</span>() +
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)
+
+plot_people &lt;-<span class="st"> </span><span class="kw">ggplot</span>() +
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="dt">data =</span> counties_with_data, <span class="kw">aes</span>(<span class="dt">fill =</span> people_per_library), <span class="dt">size =</span> <span class="fl">0.25</span>) +
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> libraries_lat_lon, <span class="kw">aes</span>(<span class="dt">x =</span> X, <span class="dt">y =</span> Y), <span class="dt">size =</span> <span class="fl">0.5</span>) +
+<span class="st">  </span><span class="kw">scale_fill_gradient</span>(<span class="dt">low =</span> <span class="st">&quot;#fee0d2&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;#de2d26&quot;</span>, <span class="dt">na.value =</span> <span class="st">&quot;white&quot;</span>) +
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">size =</span> <span class="ot">FALSE</span>, 
+         <span class="dt">fill =</span> <span class="kw">guide_colorbar</span>(<span class="dt">title =</span> <span class="st">&quot;People per library&quot;</span>, 
+                               <span class="dt">title.position =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">barwidth =</span> <span class="dv">10</span>)) +
+<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">crs =</span> <span class="dv">26912</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_void</span>() +
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)
+
+<span class="kw">grid.arrange</span>(plot_libraries, plot_people, <span class="dt">nrow =</span> <span class="dv">1</span>)</code></pre></div>
 <p><img src="/class/07-class_files/figure-html/create-maps-1.png" width="672" /></p>
 </div>
 <div id="youre-on-your-own" class="section level2">
