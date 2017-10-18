@@ -1,0 +1,31 @@
+---
+title: "Surveys and qualitative data"
+date: "2017-10-24"
+---
+
+Complete these tasks in an R Markdown file and [e-mail me](mailto:andrew_heiss@byu.edu) a PDF of the final compiled document. [Here's the typical starter file](/files/your_name_homework8.Rmd). As always, I recommend saving it within an RStudio project. Make sure the final output is as clean and warning/message free as possible.
+
+
+# Task 1: Reflection memo
+
+*This memo is different*. Write **≈100** words about the [the assigned readings](/reading/08-reading/) for this week. You can use some of the prompt questions there if you want:
+
+- Why is qualitative data difficult to visualize?
+- Why are word clouds so problematic? When is (not) okay to use them? 
+
+Then, write **≈400** words exploring a few of these summative questions:
+
+- What is truth?
+- How do we find truth?
+- Are facts truth?
+- What's the difference between content and form?
+- Does beauty matter when describing truth?
+- How does any of this philosophical humanities stuff relate to data visualization?
+
+
+# Task 2: Text visualization
+
+Work through [this tutorial on visualizing text in *Harry Potter* with the `tidytext` package](https://uc-r.github.io/tidy_text) (which you'll need to install with the RStudio "Packages" panel). You don't need to understand all the code (it even uses some `for` loops!),^[{-} Really, all you're doing here is copying/pasting stuff into an Rmd file, so it shouldn't take too long. Try to understand what's happening with the code though.] but it'll give you the gist of working with words. We'll cover this in more detail in class on Tuesday.
+
+Include the graph of the 10 most common words in the 7 Harry Potter books and the scatterplot of frequencies from the tutorial in your knitted document.
+
