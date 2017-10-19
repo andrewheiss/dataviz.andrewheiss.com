@@ -5,6 +5,9 @@ output:
   blogdown::html_page:
     template: ../../pandoc/toc-title_html.template
     toc: true
+stuff-to-add: >-
+  Datasaurus Dozen: https://www.autodeskresearch.com/publications/samestats
+  guessthecorrelation.com
 ---
 
 # Slides
