@@ -10,6 +10,7 @@ stuff-to-add: >-
 
 # Required
 
+- [Treasuring All Truth](http://www.mormonnewsroom.org/article/treasuring-all-truth)
 - Chapters 5 and 8 in Stephanie Evergreen, *Effective Data Visualization* [@Evergreen:2017]
 - [Six Ideas for Displaying Qualitative Data](http://annkemery.com/qual-dataviz/)
 - [Word clouds considered harmful](http://www.niemanlab.org/2011/10/word-clouds-considered-harmful/)
