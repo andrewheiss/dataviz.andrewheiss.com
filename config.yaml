@@ -1,4 +1,4 @@
-baseURL: "https://dataviz.andrewheiss.com/"
+baseURL: "https://datavizf17.classes.andrewheiss.com/"
 languageCode: en-us
 title: Data visualization
 theme: ath-tufte-hugo
