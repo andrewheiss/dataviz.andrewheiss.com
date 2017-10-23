@@ -21,7 +21,16 @@ stuff-to-add: >-
   
   Would be cool but no time / at BYU :)
   Calling Bullshit 6.4: Dataviz Ducks: https://www.youtube.com/watch?v=rmii1hfP6d4
+  
+  Rest of R4DS to get good at manipulating data
+  Already ggplot experts
+  Coursera
+  Use it in projects! Force yourself to use it on stuff.
 ---
+
+# Slides
+
+The slides from today's lecture will go here.
 
 
 # Feedback for today
