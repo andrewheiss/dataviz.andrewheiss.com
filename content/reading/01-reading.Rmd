@@ -6,7 +6,7 @@ bibliography: ../../static/bib/references.bib
 csl: ../../static/bib/chicago-fullnote-bibliography-no-bib.csl
 ---
 
-*Note:* [^sorry] Typically, you need to finish the readings *before* class, but since you didn't receive the syllaubs until the first session of the course, you couldn't do any of the readings for today.
+*Note:* [^sorry] Typically, you need to finish the readings *before* class, but since you didn't receive the syllabus until the first session of the course, you couldn't do any of the readings for today.
 
 This stuff is really, really important and foundational, though, so you'll need to read it after class. This means that you'll also have to do the readings and reflection for next week at the same time. I'm so sorry. 
 
