@@ -28,18 +28,382 @@ stuff-to-add: >-
   Use it in projects! Force yourself to use it on stuff.
 ---
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { color: #800000; } /* DataType */
+code > span.dv { color: #0000ff; } /* DecVal */
+code > span.bn { color: #0000ff; } /* BaseN */
+code > span.fl { color: #800080; } /* Float */
+code > span.ch { color: #ff00ff; } /* Char */
+code > span.st { color: #dd0000; } /* String */
+code > span.co { color: #808080; font-style: italic; } /* Comment */
+code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
+code > span.fu { color: #000080; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #ff00ff; } /* SpecialChar */
+code > span.vs { color: #dd0000; } /* VerbatimString */
+code > span.ss { color: #dd0000; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.at { } /* Attribute */
+code > span.do { color: #808080; font-style: italic; } /* Documentation */
+code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 <h2>Contents</h2>
 <div id="TOC">
 <ul>
 <li><a href="#slides">Slides</a></li>
+<li><a href="#text-analysis-and-visualization">Text analysis and visualization</a><ul>
+<li><a href="#word-frequencies">Word frequencies</a></li>
+<li><a href="#sentiment-analysis">Sentiment analysis</a></li>
+<li><a href="#tf-idf-term-frequencyinverse-document-frequency">tf-idf: term frequency—inverse document frequency</a></li>
+<li><a href="#n-grams">n-grams</a></li>
+</ul></li>
 <li><a href="#feedback-for-today">Feedback for today</a></li>
 </ul>
 </div>
 
 <div id="slides" class="section level2">
 <h2>Slides</h2>
-<p>The slides from today’s lecture will go here.</p>
+<p><a href="/slides/MPA-635_2017-10-24.pdf">Download the slides from today’s lecture</a>.</p>
+<figure>
+<a href="/slides/MPA-635_2017-10-24.pdf"><img src="/images/slides/slides_2017-10-24.png" alt="First slide" /></a>
+</figure>
+</div>
+<div id="text-analysis-and-visualization" class="section level2">
+<h2>Text analysis and visualization</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(tidytext)
+<span class="kw">library</span>(gutenbergr)
+<span class="kw">library</span>(forcats)</code></pre></div>
+<p>We can download any book from <a href="https://www.gutenberg.org">Project Gutenberg</a> with <code>gutenbergr::gutenberg_download()</code>. The <code>gutenberg_id</code> argument is the ID for the book, found in the URL for the book. In class we looked at <a href="https://www.gutenberg.org/ebooks/45"><em>Anne of Green Gables</em></a>, which has an ID of 45.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">book &lt;-<span class="st"> </span><span class="kw">gutenberg_download</span>(<span class="dv">45</span>)</code></pre></div>
+<p>Once we’ve downloaded the book, we can tokenize the text (i.e. divide into words), and then create a long tidy data frame. <code>tidytext</code> does simple tokenization—it will not determine parts of speech or anything fancy like that. Look at <a href="https://github.com/statsmaths/cleanNLP">the <code>cleanNLP</code> package</a> for a tidy way to get full-blown natural language processing into R.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tidy_book &lt;-<span class="st"> </span>book %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">line =</span> <span class="kw">row_number</span>()) %&gt;%
+<span class="st">  </span><span class="kw">unnest_tokens</span>(word, text)
+
+tidy_book %&gt;%<span class="st"> </span><span class="kw">head</span>() %&gt;%<span class="st"> </span>knitr::<span class="kw">kable</span>()</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">gutenberg_id</th>
+<th align="right">line</th>
+<th align="left">word</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">45</td>
+<td align="right">1</td>
+<td align="left">anne</td>
+</tr>
+<tr class="even">
+<td align="right">45</td>
+<td align="right">1</td>
+<td align="left">of</td>
+</tr>
+<tr class="odd">
+<td align="right">45</td>
+<td align="right">1</td>
+<td align="left">green</td>
+</tr>
+<tr class="even">
+<td align="right">45</td>
+<td align="right">1</td>
+<td align="left">gables</td>
+</tr>
+<tr class="odd">
+<td align="right">45</td>
+<td align="right">3</td>
+<td align="left">by</td>
+</tr>
+<tr class="even">
+<td align="right">45</td>
+<td align="right">3</td>
+<td align="left">lucy</td>
+</tr>
+</tbody>
+</table>
+<div id="word-frequencies" class="section level3">
+<h3>Word frequencies</h3>
+<p>We can filter out common stopwords and then view the 20 most frequent words:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plot_words &lt;-<span class="st"> </span>tidy_book %&gt;%
+<span class="st">  </span><span class="kw">anti_join</span>(stop_words, <span class="dt">by =</span> <span class="st">&quot;word&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">count</span>(word, <span class="dt">sort =</span> <span class="ot">TRUE</span>) %&gt;%
+<span class="st">  </span><span class="kw">top_n</span>(<span class="dv">20</span>, n) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word =</span> <span class="kw">fct_rev</span>(<span class="kw">fct_inorder</span>(word, <span class="dt">ordered =</span> <span class="ot">TRUE</span>)))
+
+<span class="kw">ggplot</span>(plot_words, <span class="kw">aes</span>(<span class="dt">x =</span> word, <span class="dt">y =</span> n)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_col</span>() +
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<p><img src="/class/08-class_files/figure-html/plot-top-20-1.png" width="672" /></p>
+</div>
+<div id="sentiment-analysis" class="section level3">
+<h3>Sentiment analysis</h3>
+<p>There are several existing dictionaries of word sentiments, such as <a href="http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010">AFINN</a> and <a href="https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html">Bing</a>, which work differently—some use a continuous scale of negativity-positivity, whil others use a dichotomous variable:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_sentiments</span>(<span class="st">&quot;afinn&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">head</span>() %&gt;%<span class="st"> </span>knitr::<span class="kw">kable</span>()</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">word</th>
+<th align="right">score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">abandon</td>
+<td align="right">-2</td>
+</tr>
+<tr class="even">
+<td align="left">abandoned</td>
+<td align="right">-2</td>
+</tr>
+<tr class="odd">
+<td align="left">abandons</td>
+<td align="right">-2</td>
+</tr>
+<tr class="even">
+<td align="left">abducted</td>
+<td align="right">-2</td>
+</tr>
+<tr class="odd">
+<td align="left">abduction</td>
+<td align="right">-2</td>
+</tr>
+<tr class="even">
+<td align="left">abductions</td>
+<td align="right">-2</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_sentiments</span>(<span class="st">&quot;bing&quot;</span>) %&gt;%<span class="st"> </span><span class="kw">head</span>() %&gt;%<span class="st"> </span>knitr::<span class="kw">kable</span>()</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">word</th>
+<th align="left">sentiment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">2-faced</td>
+<td align="left">negative</td>
+</tr>
+<tr class="even">
+<td align="left">2-faces</td>
+<td align="left">negative</td>
+</tr>
+<tr class="odd">
+<td align="left">a+</td>
+<td align="left">positive</td>
+</tr>
+<tr class="even">
+<td align="left">abnormal</td>
+<td align="left">negative</td>
+</tr>
+<tr class="odd">
+<td align="left">abolish</td>
+<td align="left">negative</td>
+</tr>
+<tr class="even">
+<td align="left">abominable</td>
+<td align="left">negative</td>
+</tr>
+</tbody>
+</table>
+<p>We can join one of these sentiment dictionaries to the list of words and find the most common positive and negative words:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plot_sentiment &lt;-<span class="st"> </span>tidy_book %&gt;%
+<span class="st">  </span><span class="kw">inner_join</span>(<span class="kw">get_sentiments</span>(<span class="st">&quot;bing&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;word&quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">count</span>(sentiment, word, <span class="dt">sort =</span> <span class="ot">TRUE</span>) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(sentiment) %&gt;%
+<span class="st">  </span><span class="kw">top_n</span>(<span class="dv">10</span>, n) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(sentiment, n) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word =</span> <span class="kw">fct_inorder</span>(word))
+
+<span class="kw">ggplot</span>(plot_sentiment, <span class="kw">aes</span>(<span class="dt">x =</span> word, <span class="dt">y =</span> n)) +
+<span class="st">  </span><span class="kw">geom_col</span>() +
+<span class="st">  </span><span class="kw">coord_flip</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>sentiment, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</code></pre></div>
+<p><img src="/class/08-class_files/figure-html/plot-sentiment-1.png" width="672" /></p>
+</div>
+<div id="tf-idf-term-frequencyinverse-document-frequency" class="section level3">
+<h3>tf-idf: term frequency—inverse document frequency</h3>
+<p>Calculating the <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">tf-idf</a> lets us find the most unique words in individual documents in a collection, relative to other documents in the collection. Here we download four Dickens novels (<em>A Tale of Two Cities</em> (98), <em>David Copperfield</em> (766), <em>Great Expectations</em> (1400), and <em>A Christmas Carol</em> (19337)) and combine them into a tidy corpus:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dickens &lt;-<span class="st"> </span><span class="kw">gutenberg_download</span>(<span class="kw">c</span>(<span class="dv">19337</span>, <span class="dv">98</span>, <span class="dv">1400</span>, <span class="dv">766</span>),
+                              <span class="dt">meta_fields =</span> <span class="st">&quot;title&quot;</span>)</code></pre></div>
+<p>We can then calculate the tf-idf across the different books:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dickens_tidy &lt;-<span class="st"> </span>dickens %&gt;%
+<span class="st">  </span><span class="kw">unnest_tokens</span>(word, text) %&gt;%
+<span class="st">  </span><span class="kw">count</span>(title, word, <span class="dt">sort =</span> <span class="ot">TRUE</span>)
+
+dickens_unique &lt;-<span class="st"> </span>dickens_tidy %&gt;%
+<span class="st">  </span><span class="kw">bind_tf_idf</span>(word, title, n)
+  
+unique_top_10 &lt;-<span class="st"> </span>dickens_unique %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(title) %&gt;%
+<span class="st">  </span><span class="kw">top_n</span>(<span class="dv">10</span>, tf_idf) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(title, tf_idf) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word =</span> <span class="kw">fct_inorder</span>(word))
+
+unique_top_10 %&gt;%<span class="st"> </span><span class="kw">head</span>() %&gt;%<span class="st"> </span>knitr::<span class="kw">kable</span>()</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">title</th>
+<th align="left">word</th>
+<th align="right">n</th>
+<th align="right">tf</th>
+<th align="right">idf</th>
+<th align="right">tf_idf</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">A Christmas Carol</td>
+<td align="left">cratchits</td>
+<td align="right">14</td>
+<td align="right">0.0004730</td>
+<td align="right">1.386294</td>
+<td align="right">0.0006557</td>
+</tr>
+<tr class="even">
+<td align="left">A Christmas Carol</td>
+<td align="left">jacob</td>
+<td align="right">16</td>
+<td align="right">0.0005406</td>
+<td align="right">1.386294</td>
+<td align="right">0.0007494</td>
+</tr>
+<tr class="odd">
+<td align="left">A Christmas Carol</td>
+<td align="left">marley’s</td>
+<td align="right">16</td>
+<td align="right">0.0005406</td>
+<td align="right">1.386294</td>
+<td align="right">0.0007494</td>
+</tr>
+<tr class="even">
+<td align="left">A Christmas Carol</td>
+<td align="left">fezziwig</td>
+<td align="right">18</td>
+<td align="right">0.0006081</td>
+<td align="right">1.386294</td>
+<td align="right">0.0008430</td>
+</tr>
+<tr class="odd">
+<td align="left">A Christmas Carol</td>
+<td align="left">marley</td>
+<td align="right">20</td>
+<td align="right">0.0006757</td>
+<td align="right">1.386294</td>
+<td align="right">0.0009367</td>
+</tr>
+<tr class="even">
+<td align="left">A Christmas Carol</td>
+<td align="left">tim</td>
+<td align="right">24</td>
+<td align="right">0.0008108</td>
+<td align="right">1.386294</td>
+<td align="right">0.0011241</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(unique_top_10, <span class="kw">aes</span>(<span class="dt">x =</span> word, <span class="dt">y =</span> tf_idf, <span class="dt">fill =</span> title)) +
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) +
+<span class="st">  </span><span class="kw">coord_flip</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>title, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</code></pre></div>
+<p><img src="/class/08-class_files/figure-html/plot-tfidf-1.png" width="672" /></p>
+</div>
+<div id="n-grams" class="section level3">
+<h3>n-grams</h3>
+<p>We can also find the most common pairs of words, or n-grams. Rather than tokenizing by word, we can tokenize by ngram and specify the number of words—here we want bigrams, so we specify <code>n = 2</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dickens_bigrams &lt;-<span class="st"> </span>dickens %&gt;%
+<span class="st">  </span><span class="kw">unnest_tokens</span>(bigram, text, <span class="dt">token =</span> <span class="st">&quot;ngrams&quot;</span>, <span class="dt">n =</span> <span class="dv">2</span>) %&gt;%
+<span class="st">  </span><span class="kw">count</span>(bigram, <span class="dt">sort =</span> <span class="ot">TRUE</span>) 
+
+dickens_bigrams %&gt;%<span class="st"> </span><span class="kw">head</span>() %&gt;%<span class="st"> </span>knitr::<span class="kw">kable</span>()</code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">bigram</th>
+<th align="right">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">of the</td>
+<td align="right">3261</td>
+</tr>
+<tr class="even">
+<td align="left">in the</td>
+<td align="right">3226</td>
+</tr>
+<tr class="odd">
+<td align="left">it was</td>
+<td align="right">1756</td>
+</tr>
+<tr class="even">
+<td align="left">to be</td>
+<td align="right">1643</td>
+</tr>
+<tr class="odd">
+<td align="left">that i</td>
+<td align="right">1641</td>
+</tr>
+<tr class="even">
+<td align="left">to the</td>
+<td align="right">1633</td>
+</tr>
+</tbody>
+</table>
+<p>In class, we were interested in seeing which words are more likely to appear after “he” and “she” to see if there are any gendered patterns in Dickens’ novels (similar to <a href="https://pudding.cool/2017/08/screen-direction/">this</a>). To do this, we separate the bigram column into two columns named <code>word1</code> and <code>word2</code>, and filter the data so that it only includes rows where <code>word1</code> is “he” or “she”.</p>
+<p>We then calculate the log odds for each pair of words to see which ones are more likely to appear across genders. We finally sort the data by the absolute value of the log ratio (since some are negative) and take the top 15.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dickens_bigrams &lt;-<span class="st"> </span>dickens_bigrams %&gt;%
+<span class="st">  </span><span class="kw">separate</span>(bigram, <span class="kw">c</span>(<span class="st">&quot;word1&quot;</span>, <span class="st">&quot;word2&quot;</span>), <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(word1 %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;he&quot;</span>, <span class="st">&quot;she&quot;</span>)) %&gt;%
+<span class="st">  </span><span class="kw">count</span>(word1, word2, <span class="dt">wt =</span> n, <span class="dt">sort =</span> <span class="ot">TRUE</span>) %&gt;%
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">total =</span> nn)
+
+dickens_ratios &lt;-<span class="st"> </span>dickens_bigrams %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(word2) %&gt;%
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">sum</span>(total) &gt;<span class="st"> </span><span class="dv">10</span>) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%
+<span class="st">  </span><span class="kw">spread</span>(word1, total, <span class="dt">fill =</span> <span class="dv">0</span>) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">logratio =</span> <span class="kw">log2</span>(she /<span class="st"> </span>he)) %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(logratio))
+
+plot_ratios &lt;-<span class="st"> </span>dickens_ratios %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">abslogratio =</span> <span class="kw">abs</span>(logratio)) %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(logratio &lt;<span class="st"> </span><span class="dv">0</span>) %&gt;%
+<span class="st">  </span><span class="kw">top_n</span>(<span class="dv">15</span>, abslogratio) %&gt;%
+<span class="st">  </span><span class="kw">ungroup</span>() %&gt;%
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(logratio)) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word2 =</span> <span class="kw">fct_inorder</span>(word2, <span class="dt">ordered =</span> <span class="ot">TRUE</span>))
+
+<span class="kw">ggplot</span>(plot_ratios, <span class="kw">aes</span>(<span class="dt">x =</span> word2, <span class="dt">y =</span> logratio, <span class="dt">color =</span> logratio &lt;<span class="st"> </span><span class="dv">0</span>)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> <span class="dv">0</span>, <span class="dt">ymax =</span> logratio), <span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">fatten =</span> <span class="dv">6</span>) +
+<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<p><img src="/class/08-class_files/figure-html/plot-ratio-1.png" width="672" /></p>
+</div>
 </div>
 <div id="feedback-for-today" class="section level2">
 <h2>Feedback for today</h2>

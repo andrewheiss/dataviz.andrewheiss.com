@@ -30,7 +30,177 @@ stuff-to-add: >-
 
 # Slides
 
-The slides from today's lecture will go here.
+[Download the slides from today's lecture](/slides/MPA-635_2017-10-24.pdf).
+
+<figure>
+[![First slide](/images/slides/slides_2017-10-24.png)](/slides/MPA-635_2017-10-24.pdf)
+</figure>
+
+
+# Text analysis and visualization
+
+```{r load-libraries, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(tidytext)
+library(gutenbergr)
+library(forcats)
+```
+
+We can download any book from [Project Gutenberg](https://www.gutenberg.org) with `gutenbergr::gutenberg_download()`. The `gutenberg_id` argument is the ID for the book, found in the URL for the book. In class we looked at [*Anne of Green Gables*](https://www.gutenberg.org/ebooks/45), which has an ID of 45.
+
+```{r download-book, eval=FALSE}
+book <- gutenberg_download(45)
+```
+
+```{r cache-book, eval=FALSE, include=FALSE}
+saveRDS(book, file = "content/class/cache/anne-of-green-gables.rds")
+```
+
+```{r load-cache-book, include=FALSE}
+book <- readRDS("cache/anne-of-green-gables.rds")
+```
+
+Once we've downloaded the book, we can tokenize the text (i.e. divide into words), and then create a long tidy data frame. `tidytext` does simple tokenization—it will not determine parts of speech or anything fancy like that. Look at [the `cleanNLP` package](https://github.com/statsmaths/cleanNLP) for a tidy way to get full-blown natural language processing into R.
+
+```{r make-book-tidy}
+tidy_book <- book %>%
+  mutate(line = row_number()) %>%
+  unnest_tokens(word, text)
+
+tidy_book %>% head() %>% knitr::kable()
+```
+
+## Word frequencies
+
+We can filter out common stopwords and then view the 20 most frequent words:
+
+```{r plot-top-20}
+plot_words <- tidy_book %>%
+  anti_join(stop_words, by = "word") %>%
+  count(word, sort = TRUE) %>%
+  top_n(20, n) %>%
+  mutate(word = fct_rev(fct_inorder(word, ordered = TRUE)))
+
+ggplot(plot_words, aes(x = word, y = n)) + 
+  geom_col() +
+  coord_flip()
+```
+
+## Sentiment analysis
+
+There are several existing dictionaries of word sentiments, such as [AFINN](http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010) and [Bing](https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html), which work differently—some use a continuous scale of negativity-positivity, whil others use a dichotomous variable:
+
+```{r show-sentiment}
+get_sentiments("afinn") %>% head() %>% knitr::kable()
+
+get_sentiments("bing") %>% head() %>% knitr::kable()
+```
+
+We can join one of these sentiment dictionaries to the list of words and find the most common positive and negative words:
+
+```{r plot-sentiment}
+plot_sentiment <- tidy_book %>%
+  inner_join(get_sentiments("bing"), by = "word") %>%
+  count(sentiment, word, sort = TRUE) %>%
+  group_by(sentiment) %>%
+  top_n(10, n) %>%
+  ungroup() %>%
+  arrange(sentiment, n) %>%
+  mutate(word = fct_inorder(word))
+
+ggplot(plot_sentiment, aes(x = word, y = n)) +
+  geom_col() +
+  coord_flip() + 
+  facet_wrap(~ sentiment, scales = "free")
+```
+
+## tf-idf: term frequency—inverse document frequency
+
+Calculating the [tf-idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) lets us find the most unique words in individual documents in a collection, relative to other documents in the collection. Here we download four Dickens novels (*A Tale of Two Cities* (98), *David Copperfield* (766), *Great Expectations* (1400), and *A Christmas Carol* (19337)) and combine them into a tidy corpus:
+
+```{r get-dickens, eval=FALSE}
+dickens <- gutenberg_download(c(19337, 98, 1400, 766),
+                              meta_fields = "title")
+```
+
+```{r cache-dickens, eval=FALSE, include=FALSE}
+saveRDS(dickens, file = "cache/dickens.rds")
+```
+
+```{r load-cache-dickens, include=FALSE}
+dickens <- readRDS("cache/dickens.rds")
+```
+
+We can then calculate the tf-idf across the different books:
+
+```{r calculate-tfidf}
+dickens_tidy <- dickens %>%
+  unnest_tokens(word, text) %>%
+  count(title, word, sort = TRUE)
+
+dickens_unique <- dickens_tidy %>%
+  bind_tf_idf(word, title, n)
+  
+unique_top_10 <- dickens_unique %>%
+  group_by(title) %>%
+  top_n(10, tf_idf) %>%
+  ungroup() %>%
+  arrange(title, tf_idf) %>%
+  mutate(word = fct_inorder(word))
+
+unique_top_10 %>% head() %>% knitr::kable()
+```
+
+```{r plot-tfidf}
+ggplot(unique_top_10, aes(x = word, y = tf_idf, fill = title)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() + 
+  facet_wrap(~ title, scales = "free")
+```
+
+## n-grams
+
+We can also find the most common pairs of words, or n-grams. Rather than tokenizing by word, we can tokenize by ngram and specify the number of words—here we want bigrams, so we specify `n = 2`. 
+
+```{r show-ngrams}
+dickens_bigrams <- dickens %>%
+  unnest_tokens(bigram, text, token = "ngrams", n = 2) %>%
+  count(bigram, sort = TRUE) 
+
+dickens_bigrams %>% head() %>% knitr::kable()
+```
+
+In class, we were interested in seeing which words are more likely to appear after "he" and "she" to see if there are any gendered patterns in Dickens' novels (similar to [this](https://pudding.cool/2017/08/screen-direction/)). To do this, we separate the bigram column into two columns named `word1` and `word2`, and filter the data so that it only includes rows where `word1` is "he" or "she".
+
+We then calculate the log odds for each pair of words to see which ones are more likely to appear across genders. We finally sort the data by the absolute value of the log ratio (since some are negative) and take the top 15.
+
+```{r plot-ratio}
+dickens_bigrams <- dickens_bigrams %>%
+  separate(bigram, c("word1", "word2"), sep = " ") %>%
+  filter(word1 %in% c("he", "she")) %>%
+  count(word1, word2, wt = n, sort = TRUE) %>%
+  rename(total = nn)
+
+dickens_ratios <- dickens_bigrams %>%
+  group_by(word2) %>%
+  filter(sum(total) > 10) %>%
+  ungroup() %>%
+  spread(word1, total, fill = 0) %>%
+  mutate(logratio = log2(she / he)) %>%
+  arrange(desc(logratio))
+
+plot_ratios <- dickens_ratios %>%
+  mutate(abslogratio = abs(logratio)) %>%
+  group_by(logratio < 0) %>%
+  top_n(15, abslogratio) %>%
+  ungroup() %>%
+  arrange(desc(logratio)) %>%
+  mutate(word2 = fct_inorder(word2, ordered = TRUE))
+
+ggplot(plot_ratios, aes(x = word2, y = logratio, color = logratio < 0)) + 
+  geom_pointrange(aes(ymin = 0, ymax = logratio), size = 0.5, fatten = 6) +
+  coord_flip()
+```
 
 
 # Feedback for today

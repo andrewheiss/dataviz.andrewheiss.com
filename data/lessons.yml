@@ -48,5 +48,6 @@ lessons:
     date: "October 24"
     reading: "08-reading"
     assignment: "08-assignment"
+    class: "08-class"
   - title: "⊞ **Final project due**"
     assignment: "final-project"
