@@ -375,7 +375,7 @@ dickens_bigrams %&gt;%<span class="st"> </span><span class="kw">head</span>() %&
 </tr>
 </tbody>
 </table>
-<p>In class, we were interested in seeing which words are more likely to appear after “he” and “she” to see if there are any gendered patterns in Dickens’ novels (similar to <a href="https://pudding.cool/2017/08/screen-direction/">this</a>). To do this, we separate the bigram column into two columns named <code>word1</code> and <code>word2</code>, and filter the data so that it only includes rows where <code>word1</code> is “he” or “she”.</p>
+<p>In class, we were interested in seeing which words are more likely to appear after “he” and “she” to see if there are any gendered patterns in Dickens’ novels (similar to <a href="https://pudding.cool/2017/08/screen-direction/">this</a> and <a href="https://juliasilge.com/blog/gender-pronouns/">this</a>). To do this, we separate the bigram column into two columns named <code>word1</code> and <code>word2</code>, and filter the data so that it only includes rows where <code>word1</code> is “he” or “she”.</p>
 <p>We then calculate the log odds for each pair of words to see which ones are more likely to appear across genders. We finally sort the data by the absolute value of the log ratio (since some are negative) and take the top 15.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dickens_bigrams &lt;-<span class="st"> </span>dickens_bigrams %&gt;%
 <span class="st">  </span><span class="kw">separate</span>(bigram, <span class="kw">c</span>(<span class="st">&quot;word1&quot;</span>, <span class="st">&quot;word2&quot;</span>), <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>) %&gt;%

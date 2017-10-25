@@ -170,7 +170,7 @@ dickens_bigrams <- dickens %>%
 dickens_bigrams %>% head() %>% knitr::kable()
 ```
 
-In class, we were interested in seeing which words are more likely to appear after "he" and "she" to see if there are any gendered patterns in Dickens' novels (similar to [this](https://pudding.cool/2017/08/screen-direction/)). To do this, we separate the bigram column into two columns named `word1` and `word2`, and filter the data so that it only includes rows where `word1` is "he" or "she".
+In class, we were interested in seeing which words are more likely to appear after "he" and "she" to see if there are any gendered patterns in Dickens' novels (similar to [this](https://pudding.cool/2017/08/screen-direction/) and [this](https://juliasilge.com/blog/gender-pronouns/)). To do this, we separate the bigram column into two columns named `word1` and `word2`, and filter the data so that it only includes rows where `word1` is "he" or "she".
 
 We then calculate the log odds for each pair of words to see which ones are more likely to appear across genders. We finally sort the data by the absolute value of the log ratio (since some are negative) and take the top 15.
 
