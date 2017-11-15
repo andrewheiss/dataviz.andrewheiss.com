@@ -7,37 +7,41 @@ date: "2017-10-03"
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { font-weight: bold; } /* Keyword */
-code > span.dt { color: #800000; } /* DataType */
-code > span.dv { color: #0000ff; } /* DecVal */
-code > span.bn { color: #0000ff; } /* BaseN */
-code > span.fl { color: #800080; } /* Float */
-code > span.ch { color: #ff00ff; } /* Char */
-code > span.st { color: #dd0000; } /* String */
-code > span.co { color: #808080; font-style: italic; } /* Comment */
-code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
-code > span.fu { color: #000080; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #ff00ff; } /* SpecialChar */
-code > span.vs { color: #dd0000; } /* VerbatimString */
-code > span.ss { color: #dd0000; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { font-weight: bold; } /* Preprocessor */
-code > span.at { } /* Attribute */
-code > span.do { color: #808080; font-style: italic; } /* Documentation */
-code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
 </style>
 
 
@@ -108,23 +112,23 @@ rats_raw &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <span class="co"># variable *should* be in this format: &quot;04/03/2017 12:00:00 AM&quot;, but in some</span>
 <span class="co"># rare instances, it might load without the seconds as &quot;04/03/2017 12:00 AM&quot;.</span>
 <span class="co"># If there are no seconds, use mdy_hm() instead of mdy_hms().</span>
-rats_clean &lt;-<span class="st"> </span>rats_raw %&gt;%
+rats_clean &lt;-<span class="st"> </span>rats_raw <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">rename</span>(<span class="dt">created_date =</span> <span class="st">`</span><span class="dt">Created Date</span><span class="st">`</span>,
          <span class="dt">location_type =</span> <span class="st">`</span><span class="dt">Location Type</span><span class="st">`</span>,
-         <span class="dt">borough =</span> Borough) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">created_date =</span> <span class="kw">mdy_hm</span>(created_date)) %&gt;%
+         <span class="dt">borough =</span> Borough) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">created_date =</span> <span class="kw">mdy_hm</span>(created_date)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sighting_year =</span> <span class="kw">year</span>(created_date),
          <span class="dt">sighting_month =</span> <span class="kw">month</span>(created_date),
          <span class="dt">sighting_day =</span> <span class="kw">day</span>(created_date),
-         <span class="dt">sighting_weekday =</span> <span class="kw">wday</span>(created_date, <span class="dt">label =</span> <span class="ot">TRUE</span>, <span class="dt">abbr =</span> <span class="ot">FALSE</span>)) %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(borough !=<span class="st"> &quot;Unspecified&quot;</span>)</code></pre></div>
+         <span class="dt">sighting_weekday =</span> <span class="kw">wday</span>(created_date, <span class="dt">label =</span> <span class="ot">TRUE</span>, <span class="dt">abbr =</span> <span class="ot">FALSE</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(borough <span class="op">!=</span><span class="st"> &quot;Unspecified&quot;</span>)</code></pre></div>
 <p>You’ll summarize the data with functions from <code>dplyr</code>, including stuff like <code>count()</code>, <code>arrange()</code>, <code>filter()</code>, <code>group_by()</code>, <code>summarize()</code>, and <code>mutate()</code>. Here are some examples of ways to summarize the data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># See the count of rat sightings by weekday</span>
-rats_clean %&gt;%
+rats_clean <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">count</span>(sighting_weekday)
 
 <span class="co"># Assign a table to an object to use it in a plot</span>
-rats_by_weekday &lt;-<span class="st"> </span>rats_clean %&gt;%
+rats_by_weekday &lt;-<span class="st"> </span>rats_clean <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">count</span>(sighting_weekday, sighting_year)
 
 <span class="co"># geom_bar() will try to calculate the count for you by default. Here we</span>
@@ -137,19 +141,19 @@ rats_by_weekday &lt;-<span class="st"> </span>rats_clean %&gt;%
 <span class="co"># reverse the levels of the weekday category with the fct_rev function in the</span>
 <span class="co"># forcats package, which provides a bunch of functions for working with</span>
 <span class="co"># factors.</span>
-<span class="kw">ggplot</span>(rats_by_weekday, <span class="kw">aes</span>(<span class="dt">x =</span> forcats::<span class="kw">fct_rev</span>(sighting_weekday), <span class="dt">y =</span> n)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) +
-<span class="st">  </span><span class="kw">coord_flip</span>() +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>sighting_year)
+<span class="kw">ggplot</span>(rats_by_weekday, <span class="kw">aes</span>(<span class="dt">x =</span> forcats<span class="op">::</span><span class="kw">fct_rev</span>(sighting_weekday), <span class="dt">y =</span> n)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>sighting_year)
 
 <span class="co"># See the count of rat sightings by weekday and borough</span>
-rats_clean %&gt;%
+rats_clean <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">count</span>(sighting_weekday, borough, sighting_year)
 
 <span class="co"># An alternative to count() is to specify the groups with group_by() and then</span>
 <span class="co"># be explicit about how you&#39;re summarizing the groups, such as calculating the</span>
 <span class="co"># mean, standard deviation, or number of observations (we do that here with</span>
 <span class="co"># `n()`).</span>
-rats_clean %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(sighting_weekday, borough) %&gt;%
+rats_clean <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(sighting_weekday, borough) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</code></pre></div>

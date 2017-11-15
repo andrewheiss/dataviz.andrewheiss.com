@@ -11,37 +11,41 @@ output:
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { font-weight: bold; } /* Keyword */
-code > span.dt { color: #800000; } /* DataType */
-code > span.dv { color: #0000ff; } /* DecVal */
-code > span.bn { color: #0000ff; } /* BaseN */
-code > span.fl { color: #800080; } /* Float */
-code > span.ch { color: #ff00ff; } /* Char */
-code > span.st { color: #dd0000; } /* String */
-code > span.co { color: #808080; font-style: italic; } /* Comment */
-code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
-code > span.fu { color: #000080; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #ff00ff; } /* SpecialChar */
-code > span.vs { color: #dd0000; } /* VerbatimString */
-code > span.ss { color: #dd0000; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { font-weight: bold; } /* Preprocessor */
-code > span.at { } /* Attribute */
-code > span.do { color: #808080; font-style: italic; } /* Documentation */
-code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
 </style>
 
 <h2>Contents</h2>
@@ -90,14 +94,14 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">library</span>(forcats)
 <span class="kw">library</span>(ggrepel)</code></pre></div>
 <p>We load the CSV file into R and save it as a variable, or an object, named <code>lotr</code>. We use <code>fct_inorder()</code> inside a mutate command to make the <code>Film</code> variable an ordered factor so that the films plot in the correct order.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lotr &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/Lord_Of_The_Rings.csv&quot;</span>) %&gt;%
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lotr &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/Lord_Of_The_Rings.csv&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Film =</span> <span class="kw">fct_inorder</span>(Film, <span class="dt">ordered =</span> <span class="ot">TRUE</span>))</code></pre></div>
 <p>Next we summarize the data by race and gender. We can output the summarized table as a Markdown table with <code>knitr::kable()</code>. Remember that this syntax means that we’re using the <code>kable()</code> function inside the <code>knitr</code> package without actually loading it. Alternatively, you can run <code>library(knitr)</code> to load the package and then use <code>kable()</code> as needed without the double colon <code>::</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">race_gender &lt;-<span class="st"> </span>lotr %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(Race, Gender) %&gt;%
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">race_gender &lt;-<span class="st"> </span>lotr <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(Race, Gender) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_words =</span> <span class="kw">sum</span>(Words))
 
-knitr::<span class="kw">kable</span>(race_gender)</code></pre></div>
+knitr<span class="op">::</span><span class="kw">kable</span>(race_gender)</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -147,24 +151,24 @@ knitr::<span class="kw">kable</span>(race_gender)</code></pre></div>
 <br />
 </span></span></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(race_gender, <span class="kw">aes</span>(<span class="dt">x =</span> Gender, <span class="dt">y =</span> total_words, <span class="dt">color =</span> Race)) +
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(race_gender, <span class="kw">aes</span>(<span class="dt">x =</span> Gender, <span class="dt">y =</span> total_words, <span class="dt">color =</span> Race)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> <span class="dv">0</span>, <span class="dt">ymax =</span> total_words), 
-                  <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.5</span>)) +
-<span class="st">  </span><span class="kw">coord_flip</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>) +
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) +
+                  <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.5</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;blue&quot;</span>))</code></pre></div>
 <p><img src="/class/05-class_files/figure-html/plot-race-gender-1.png" width="480" /></p>
 <p>We can also plot race and gender across the three films. Because we used <code>fct_inorder()</code> earlier, the <code>Film</code> variable/column is an ordered factor and the films should be in order. Here we use the original <code>lotr</code> data frame instead of the summarized one, since we want the <code>Film</code> column too. We facet by film with <code>facet_wrap(~ Film)</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(lotr, <span class="kw">aes</span>(<span class="dt">x =</span> Gender, <span class="dt">y =</span> Words, <span class="dt">color =</span> Race)) +
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(lotr, <span class="kw">aes</span>(<span class="dt">x =</span> Gender, <span class="dt">y =</span> Words, <span class="dt">color =</span> Race)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> <span class="dv">0</span>, <span class="dt">ymax =</span> Words), 
-                  <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.5</span>)) +
-<span class="st">  </span><span class="kw">coord_flip</span>() +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>) +
-<span class="st">  </span><span class="kw">theme_light</span>() +
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;blue&quot;</span>)) +
-<span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>Film)</code></pre></div>
+                  <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.5</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_light</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;blue&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Film)</code></pre></div>
 <p><img src="/class/05-class_files/figure-html/plot-race-gender-film-1.png" width="768" /></p>
 </div>
 <div id="slopegraphs" class="section level3">
@@ -175,7 +179,7 @@ knitr::<span class="kw">kable</span>(race_gender)</code></pre></div>
 <p>First, we load the data. I already filtered and summarized and tidyified this data, based on the original data that <a href="/data/isms_full.csv">looked liked this</a>. You can <a href="/code/clean_isms.R">see the R code I used to clean and tidy the data here</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">isms &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/isms_top5.csv&quot;</span>)
 
-knitr::<span class="kw">kable</span>(isms)</code></pre></div>
+knitr<span class="op">::</span><span class="kw">kable</span>(isms)</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -249,8 +253,8 @@ knitr::<span class="kw">kable</span>(isms)</code></pre></div>
 </tbody>
 </table>
 <p>Just plotting the data as-is gives us a rudimentary and ugly slopegraph. Note the <code>group</code> aesthetic—without it, the lines will not plot across the <code>coldwar</code> and <code>today</code> columns.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(isms, <span class="kw">aes</span>(<span class="dt">x =</span> decade, <span class="dt">y =</span> permil, <span class="dt">group =</span> word)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(isms, <span class="kw">aes</span>(<span class="dt">x =</span> decade, <span class="dt">y =</span> permil, <span class="dt">group =</span> word)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">label =</span> word))</code></pre></div>
 <p><img src="/class/05-class_files/figure-html/slope-ugly-1.png" width="672" /></p>
 <p>We can add a bunch of columns to the original <code>isms</code> data frame to help with plotting. Here’s what’s happening:</p>
@@ -260,11 +264,11 @@ knitr::<span class="kw">kable</span>(isms)</code></pre></div>
 <li>We create a <code>highlight</code> column to mark which lines we want colored</li>
 <li>We recode the <code>decade</code> column to nicer values</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">isms_plot &lt;-<span class="st"> </span>isms %&gt;%
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">isms_plot &lt;-<span class="st"> </span>isms <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">label_first =</span> 
-           <span class="kw">ifelse</span>(decade ==<span class="st"> &quot;coldwar&quot;</span>, <span class="kw">paste0</span>(word, <span class="st">&quot; (&quot;</span>, permil, <span class="st">&quot;)&quot;</span>), <span class="ot">NA</span>)) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">label_last =</span> <span class="kw">ifelse</span>(decade ==<span class="st"> &quot;today&quot;</span>, permil, <span class="ot">NA</span>)) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">highlight =</span> <span class="kw">ifelse</span>(word %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Socialism&quot;</span>, <span class="st">&quot;Communism&quot;</span>), <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)) %&gt;%
+           <span class="kw">ifelse</span>(decade <span class="op">==</span><span class="st"> &quot;coldwar&quot;</span>, <span class="kw">paste0</span>(word, <span class="st">&quot; (&quot;</span>, permil, <span class="st">&quot;)&quot;</span>), <span class="ot">NA</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">label_last =</span> <span class="kw">ifelse</span>(decade <span class="op">==</span><span class="st"> &quot;today&quot;</span>, permil, <span class="ot">NA</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">highlight =</span> <span class="kw">ifelse</span>(word <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Socialism&quot;</span>, <span class="st">&quot;Communism&quot;</span>), <span class="ot">TRUE</span>, <span class="ot">FALSE</span>)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">decade =</span> <span class="kw">recode</span>(decade,
                          <span class="dt">coldwar =</span> <span class="st">&quot;1950-1969&quot;</span>,
                          <span class="dt">today =</span> <span class="st">&quot;1990-2009&quot;</span>))</code></pre></div>
@@ -274,17 +278,17 @@ knitr::<span class="kw">kable</span>(isms)</code></pre></div>
 <li>We use a super minimal <code>theme_minimal()</code> theme and them make a few more adjustments with <code>theme()</code> to remove grid lines and the y axis text.</li>
 <li>R will give two warnings saying <code>Removed 5 rows containing missing values (geom_text_repel).</code> This is because it’s trying to plot missing values for the labels—but recall that we <em>created</em> those missing values in both <code>label_first</code> and <code>label_last</code>, so it’s not an issue. We’re purposely causing the warning and we can ignore it.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fancy_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(isms_plot, <span class="kw">aes</span>(<span class="dt">x =</span> decade, <span class="dt">y =</span> permil, <span class="dt">group =</span> word, <span class="dt">color =</span> highlight)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> label_first), <span class="dt">direction =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">nudge_x =</span> -<span class="dv">1</span>, <span class="dt">seed =</span> <span class="dv">1234</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> label_last), <span class="dt">direction =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">nudge_x =</span> <span class="dv">1</span>, <span class="dt">seed =</span> <span class="dv">1234</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="ot">FALSE</span>) +
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fancy_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(isms_plot, <span class="kw">aes</span>(<span class="dt">x =</span> decade, <span class="dt">y =</span> permil, <span class="dt">group =</span> word, <span class="dt">color =</span> highlight)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> label_first), <span class="dt">direction =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">nudge_x =</span> <span class="op">-</span><span class="dv">1</span>, <span class="dt">seed =</span> <span class="dv">1234</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> label_last), <span class="dt">direction =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">nudge_x =</span> <span class="dv">1</span>, <span class="dt">seed =</span> <span class="dv">1234</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Frequency of words ending in ‘ism’ in</span><span class="ch">\n</span><span class="st">LDS General Conference talks&quot;</span>,
        <span class="dt">subtitle =</span> <span class="st">&quot;Word (occurrences per million words)&quot;</span>,
-       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) +
-<span class="st">  </span><span class="kw">theme_minimal</span>() +<span class="st"> </span>
+       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(),
         <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),
         <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>())
@@ -303,21 +307,21 @@ fancy_plot</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">windowsFonts</span>(<span class="st">`</span><span class="dt">Roboto Condensed</span><span class="st">`</span> =<span class="st"> </span><span class="kw">windowsFont</span>(<span class="st">&quot;Roboto Condensed&quot;</span>))
 <span class="kw">windowsFonts</span>(<span class="st">`</span><span class="dt">Roboto Condensed Light</span><span class="st">`</span> =<span class="st"> </span><span class="kw">windowsFont</span>(<span class="st">&quot;Roboto Condensed Light&quot;</span>))</code></pre></div>
 <p>With that, we can specify font families and font faces (bold, italic, plain, etc.) in <code>geom_text_repel()</code> and in <code>theme()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nice_fonts &lt;-<span class="st"> </span><span class="kw">ggplot</span>(isms_plot, <span class="kw">aes</span>(<span class="dt">x =</span> decade, <span class="dt">y =</span> permil, <span class="dt">group =</span> word, <span class="dt">color =</span> highlight)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() +
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> label_first), <span class="dt">direction =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">nudge_x =</span> -<span class="dv">1</span>,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">nice_fonts &lt;-<span class="st"> </span><span class="kw">ggplot</span>(isms_plot, <span class="kw">aes</span>(<span class="dt">x =</span> decade, <span class="dt">y =</span> permil, <span class="dt">group =</span> word, <span class="dt">color =</span> highlight)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="fl">1.5</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> label_first), <span class="dt">direction =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">nudge_x =</span> <span class="op">-</span><span class="dv">1</span>,
                   <span class="dt">family =</span> <span class="st">&quot;Roboto Condensed Light&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;plain&quot;</span>,
-                  <span class="dt">seed =</span> <span class="dv">1234</span>) +<span class="st"> </span>
+                  <span class="dt">seed =</span> <span class="dv">1234</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> label_last), <span class="dt">direction =</span> <span class="st">&quot;y&quot;</span>, <span class="dt">nudge_x =</span> <span class="fl">0.3</span>,
                   <span class="dt">family =</span> <span class="st">&quot;Roboto Condensed Light&quot;</span>, <span class="dt">fontface =</span> <span class="st">&quot;plain&quot;</span>,
-                  <span class="dt">seed =</span> <span class="dv">1234</span>) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="ot">FALSE</span>) +
+                  <span class="dt">seed =</span> <span class="dv">1234</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Frequency of words ending in ‘ism’ in</span><span class="ch">\n</span><span class="st">LDS General Conference talks&quot;</span>,
        <span class="dt">subtitle =</span> <span class="st">&quot;Word (occurrences per million words)&quot;</span>,
-       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) +
-<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) +<span class="st"> </span>
+       <span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(),
         <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>(),
         <span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(),
@@ -338,7 +342,7 @@ nice_fonts</code></pre></div>
 <p>Bullet charts are just a bunch of bar charts stacked on top of each with with extra dots and lines. First we load a data frame I copied from Stephanie Evergreen’s book, and we make sure the region variable—here named <code>measure</code>—is an ordered factor, and we reverse it with <code>fct_rev()</code> because <code>coord_flip()</code> does weird stuff to the ordering.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">performance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/performance.csv&quot;</span>)
 
-knitr::<span class="kw">kable</span>(performance)</code></pre></div>
+knitr<span class="op">::</span><span class="kw">kable</span>(performance)</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -390,17 +394,17 @@ knitr::<span class="kw">kable</span>(performance)</code></pre></div>
 <li>We overlay a bunch of <code>geom_col()</code> layers with different aesthics set for each</li>
 <li><code>geom_errorbar()</code> creates a line at the target level. We add a <code>geom_point()</code> layer in the same place for fun</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(performance) +
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="dt">x =</span> measure, <span class="dt">y =</span> good), <span class="dt">fill=</span><span class="st">&quot;goldenrod2&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) +
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(measure, satisfactory), <span class="dt">fill=</span><span class="st">&quot;goldenrod3&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) +
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(measure, bad), <span class="dt">fill=</span><span class="st">&quot;goldenrod4&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) +
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(measure, value), <span class="dt">fill=</span><span class="st">&quot;black&quot;</span>, <span class="dt">width =</span> <span class="fl">0.2</span>) +
-<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">x=</span> measure, <span class="dt">ymin =</span> target, <span class="dt">ymax =</span> target), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">width =</span> <span class="fl">0.45</span>) +
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(measure, target), <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="fl">2.5</span>) +
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="dv">100</span>)) +
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) +
-<span class="st">  </span><span class="kw">coord_flip</span>() +
-<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) +
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(performance) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="dt">x =</span> measure, <span class="dt">y =</span> good), <span class="dt">fill=</span><span class="st">&quot;goldenrod2&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(measure, satisfactory), <span class="dt">fill=</span><span class="st">&quot;goldenrod3&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(measure, bad), <span class="dt">fill=</span><span class="st">&quot;goldenrod4&quot;</span>, <span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(measure, value), <span class="dt">fill=</span><span class="st">&quot;black&quot;</span>, <span class="dt">width =</span> <span class="fl">0.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">x=</span> measure, <span class="dt">ymin =</span> target, <span class="dt">ymax =</span> target), <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">width =</span> <span class="fl">0.45</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(measure, target), <span class="dt">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="fl">2.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">50</span>, <span class="dv">100</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>(<span class="dt">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(),
         <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())</code></pre></div>
 <p><img src="/class/05-class_files/figure-html/bullet-plot-1.png" width="576" /></p>

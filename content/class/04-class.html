@@ -14,37 +14,41 @@ stuff-to-add: >-
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { font-weight: bold; } /* Keyword */
-code > span.dt { color: #800000; } /* DataType */
-code > span.dv { color: #0000ff; } /* DecVal */
-code > span.bn { color: #0000ff; } /* BaseN */
-code > span.fl { color: #800080; } /* Float */
-code > span.ch { color: #ff00ff; } /* Char */
-code > span.st { color: #dd0000; } /* String */
-code > span.co { color: #808080; font-style: italic; } /* Comment */
-code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
-code > span.fu { color: #000080; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #ff00ff; } /* SpecialChar */
-code > span.vs { color: #dd0000; } /* VerbatimString */
-code > span.ss { color: #dd0000; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { font-weight: bold; } /* Preprocessor */
-code > span.at { } /* Attribute */
-code > span.do { color: #808080; font-style: italic; } /* Documentation */
-code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
 </style>
 
 <h2>Contents</h2>
@@ -87,11 +91,11 @@ code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">install_github</span>(<span class="st">&quot;username/repository_name&quot;</span>)
 
 <span class="co"># Or, in one line</span>
-devtools::<span class="kw">install_github</span>(<span class="st">&quot;username/repository_name&quot;</span>)
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;username/repository_name&quot;</span>)
 
 <span class="co"># So, in real life, you can do this:</span>
-devtools::<span class="kw">install_github</span>(<span class="st">&quot;clauswilke/ggridges&quot;</span>)
-devtools::<span class="kw">install_github</span>(<span class="st">&quot;andrewheiss/reconPlots&quot;</span>)</code></pre></div>
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;clauswilke/ggridges&quot;</span>)
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;andrewheiss/reconPlots&quot;</span>)</code></pre></div>
 </div>
 <div id="pipes" class="section level3">
 <h3>Pipes (<code>%&gt;%</code>)</h3>
@@ -107,9 +111,9 @@ x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1
 <span class="kw">round</span>(<span class="kw">sqrt</span>(<span class="kw">var</span>(x)), <span class="dt">digits =</span> <span class="dv">2</span>)
 
 <span class="co"># Use pipes to make nested functions easier to read and write</span>
-x %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">var</span>() %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">sqrt</span>() %&gt;%<span class="st"> </span>
+x <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">var</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">sqrt</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">round</span>(<span class="dt">digits =</span> <span class="dv">2</span>)</code></pre></div>
 <p>Pipes are even more helpful when manipulating data frames. For instance, typically it’s best to load the raw data as a data frame, clean it with a chain of functions, and then save it as a separate data frame:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
@@ -118,13 +122,13 @@ x %&gt;%<span class="st"> </span>
 
 cr_raw &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/ComicRelief_360Giving_International.xlsx&quot;</span>)
 
-cr &lt;-<span class="st"> </span>cr_raw %&gt;%
+cr &lt;-<span class="st"> </span>cr_raw <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">rename</span>(<span class="dt">amount =</span> <span class="st">`</span><span class="dt">Amount Awarded</span><span class="st">`</span>,
          <span class="dt">duration =</span> <span class="st">`</span><span class="dt">Planned Dates:Duration (months)</span><span class="st">`</span>,
          <span class="dt">program =</span> <span class="st">`</span><span class="dt">Grant Programme:Title</span><span class="st">`</span>,
-         <span class="dt">award_date =</span> <span class="st">`</span><span class="dt">Award Date</span><span class="st">`</span>) %&gt;%
+         <span class="dt">award_date =</span> <span class="st">`</span><span class="dt">Award Date</span><span class="st">`</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="co"># year() comes from lubridate and it extracts the year from a date object</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">award_year =</span> <span class="kw">year</span>(award_date)) %&gt;%
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">award_year =</span> <span class="kw">year</span>(award_date)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="co"># as.factor() converts values to categorical variables</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">award_year =</span> <span class="kw">as.factor</span>(award_year))</code></pre></div>
 </div>
@@ -132,22 +136,22 @@ cr &lt;-<span class="st"> </span>cr_raw %&gt;%
 <h3>Working with ggplot objects</h3>
 <p>You can save the output of a <code>ggplot</code> plot to an object (<code>p1</code> here):</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get rid of the largest grants</span>
-cr_filtered &lt;-<span class="st"> </span>cr %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(amount &lt;<span class="st"> </span><span class="dv">3000000</span>)
+cr_filtered &lt;-<span class="st"> </span>cr <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(amount <span class="op">&lt;</span><span class="st"> </span><span class="dv">3000000</span>)
 
-p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(cr_filtered, <span class="kw">aes</span>(<span class="dt">x =</span> duration, <span class="dt">y =</span> amount)) +
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> award_year)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;brown&quot;</span>)) +
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;#274981&quot;</span>) +<span class="st"> </span>
+p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(cr_filtered, <span class="kw">aes</span>(<span class="dt">x =</span> duration, <span class="dt">y =</span> amount)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> award_year)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;green&quot;</span>, <span class="st">&quot;brown&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;#274981&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)
 p1</code></pre></div>
 <p><img src="/class/04-class_files/figure-html/plot1-1.png" width="672" /></p>
 <p>When you save <code>ggplot</code> plots as objects, you can do fun things with them, like add additional layers without repeating all the code from the base plot:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p2 &lt;-<span class="st"> </span>p1 +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p2 &lt;-<span class="st"> </span>p1 <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Some cool title&quot;</span>)
 p2</code></pre></div>
 <p><img src="/class/04-class_files/figure-html/plot2-3-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p3 &lt;-<span class="st"> </span>p2 +
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p3 &lt;-<span class="st"> </span>p2 <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>()
 p3</code></pre></div>
 <p><img src="/class/04-class_files/figure-html/plot2-3-2.png" width="672" /></p>
@@ -169,8 +173,8 @@ p3</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p_lots_of_them &lt;-<span class="st"> </span><span class="kw">arrangeGrob</span>(p1, p2, p3, <span class="dt">nrow =</span> <span class="dv">3</span>)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(p_lots_of_them, <span class="dt">filename =</span> <span class="st">&quot;lots_o_plots.pdf&quot;</span>)</code></pre></div>
 <p>If you want to plot a saved <code>arrangeGrob</code> object, you have to use these two functions:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grid::<span class="kw">grid.newpage</span>()  <span class="co"># Clear out whatever plot is there already</span>
-grid::<span class="kw">grid.draw</span>(p_lots_of_them)  <span class="co"># Draw the combined plot</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grid<span class="op">::</span><span class="kw">grid.newpage</span>()  <span class="co"># Clear out whatever plot is there already</span>
+grid<span class="op">::</span><span class="kw">grid.draw</span>(p_lots_of_them)  <span class="co"># Draw the combined plot</span></code></pre></div>
 <p><img src="/class/04-class_files/figure-html/grid-draw-grob-1.png" width="672" /></p>
 </div>
 <div id="fonts" class="section level3">
@@ -188,16 +192,16 @@ grid::<span class="kw">grid.draw</span>(p_lots_of_them)  <span class="co"># Draw
 <li>You can use special scales that draw on fancy algorithms and hand-picked color palettes, like <a href="http://colorbrewer2.org/">Color Brewer</a> and <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">Viridis</a></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(viridis)
-<span class="kw">ggplot</span>(cr_filtered, <span class="kw">aes</span>(<span class="dt">x =</span> duration, <span class="dt">y =</span> amount)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> <span class="kw">as.factor</span>(program))) +
+<span class="kw">ggplot</span>(cr_filtered, <span class="kw">aes</span>(<span class="dt">x =</span> duration, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> <span class="kw">as.factor</span>(program))) <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_color_viridis</span>(<span class="dt">discrete =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p><img src="/class/04-class_files/figure-html/color-example-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cr_filtered, <span class="kw">aes</span>(<span class="dt">x =</span> duration, <span class="dt">y =</span> amount)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> <span class="kw">as.factor</span>(program))) +
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cr_filtered, <span class="kw">aes</span>(<span class="dt">x =</span> duration, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> <span class="kw">as.factor</span>(program))) <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">type =</span> <span class="st">&quot;qual&quot;</span>)</code></pre></div>
 <p><img src="/class/04-class_files/figure-html/color-example-2.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cr_filtered, <span class="kw">aes</span>(<span class="dt">x =</span> duration, <span class="dt">y =</span> amount)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> <span class="kw">as.factor</span>(award_year))) +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cr_filtered, <span class="kw">aes</span>(<span class="dt">x =</span> duration, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> <span class="kw">as.factor</span>(award_year))) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#203864&quot;</span>, <span class="st">&quot;#DC5B44&quot;</span>))</code></pre></div>
 <p><img src="/class/04-class_files/figure-html/color-example-3.png" width="672" /></p>
 </div>
@@ -212,7 +216,7 @@ my_ugly_theme &lt;-<span class="st"> </span><span class="kw">theme</span>(<span 
                        <span class="dt">legend.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;hotpink&quot;</span>), 
                        <span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>, <span class="dt">legend.direction =</span> <span class="st">&quot;horizontal&quot;</span>)
 
-p1 +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Months&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Amount&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Cool stuff&quot;</span>) +
+p1 <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Months&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Amount&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Cool stuff&quot;</span>) <span class="op">+</span>
 <span class="st">  </span>my_ugly_theme</code></pre></div>
 <p><img src="/class/04-class_files/figure-html/ugly-theme-1.png" width="672" /></p>
 </div>

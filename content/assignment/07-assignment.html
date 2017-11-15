@@ -13,37 +13,41 @@ notes: >-
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { font-weight: bold; } /* Keyword */
-code > span.dt { color: #800000; } /* DataType */
-code > span.dv { color: #0000ff; } /* DecVal */
-code > span.bn { color: #0000ff; } /* BaseN */
-code > span.fl { color: #800080; } /* Float */
-code > span.ch { color: #ff00ff; } /* Char */
-code > span.st { color: #dd0000; } /* String */
-code > span.co { color: #808080; font-style: italic; } /* Comment */
-code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
-code > span.fu { color: #000080; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #ff00ff; } /* SpecialChar */
-code > span.vs { color: #dd0000; } /* VerbatimString */
-code > span.ss { color: #dd0000; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { font-weight: bold; } /* Preprocessor */
-code > span.at { } /* Attribute */
-code > span.do { color: #808080; font-style: italic; } /* Documentation */
-code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
 </style>
 
 
@@ -134,12 +138,12 @@ This will download, compile, and install the latest development version of ggplo
 <span class="kw">library</span>(tidyverse)
 <span class="kw">library</span>(sf)
 
-internet_users &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/share-of-individuals-using-the-internet-1990-2015.csv&quot;</span>) %&gt;%
+internet_users &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/share-of-individuals-using-the-internet-1990-2015.csv&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">rename</span>(<span class="dt">users =</span> <span class="st">`</span><span class="dt">Individuals using the Internet (% of population) (% of population)</span><span class="st">`</span>,
          <span class="dt">iso_a3 =</span> Code)
 
-users_2015 &lt;-<span class="st"> </span>internet_users %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(Year ==<span class="st"> </span><span class="dv">2015</span>)</code></pre></div>
+users_<span class="dv">2015</span> &lt;-<span class="st"> </span>internet_users <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(Year <span class="op">==</span><span class="st"> </span><span class="dv">2015</span>)</code></pre></div>
 <p>Then we load the geographic data and combine it with the internet data:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">world_shapes &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/ne_50m_admin_0_countries/ne_50m_admin_0_countries.shp&quot;</span>,
                         <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</code></pre></div>
@@ -152,20 +156,20 @@ users_2015 &lt;-<span class="st"> </span>internet_users %&gt;%
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># left_join takes two data frames and combines them, based on a shared column</span>
 <span class="co"># (in this case iso_a3)</span>
-users_map &lt;-<span class="st"> </span>world_shapes %&gt;%
-<span class="st">  </span><span class="kw">left_join</span>(users_2015, <span class="dt">by =</span> <span class="st">&quot;iso_a3&quot;</span>) %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(iso_a3 !=<span class="st"> &quot;ATA&quot;</span>)  <span class="co"># No internet in Antarctica. Sorry penguins.</span></code></pre></div>
+users_map &lt;-<span class="st"> </span>world_shapes <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">left_join</span>(users_<span class="dv">2015</span>, <span class="dt">by =</span> <span class="st">&quot;iso_a3&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(iso_a3 <span class="op">!=</span><span class="st"> &quot;ATA&quot;</span>)  <span class="co"># No internet in Antarctica. Sorry penguins.</span></code></pre></div>
 <p>Finally, we plot the map:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pretty_map &lt;-<span class="st"> </span><span class="kw">ggplot</span>(users_map) +
-<span class="st">  </span><span class="kw">geom_sf</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> users), <span class="dt">color =</span> <span class="ot">NA</span>) +
-<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">crs =</span> <span class="kw">st_crs</span>(<span class="dv">54030</span>)) +<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pretty_map &lt;-<span class="st"> </span><span class="kw">ggplot</span>(users_map) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_sf</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> users), <span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">crs =</span> <span class="kw">st_crs</span>(<span class="dv">54030</span>)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_fill_gradient</span>(<span class="dt">low =</span> <span class="st">&quot;#e7e1ef&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;#dd1c77&quot;</span>, <span class="dt">na.value =</span> <span class="st">&quot;grey70&quot;</span>,
-                      <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)) +<span class="st"> </span>
+                      <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="kw">guide_colorbar</span>(<span class="dt">title.position =</span> <span class="st">&quot;top&quot;</span>, 
                                <span class="dt">title.hjust =</span> <span class="st">&quot;0.5&quot;</span>,
                                <span class="dt">title =</span> <span class="st">&quot;% of population&quot;</span>,
-                               <span class="dt">barwidth =</span> <span class="dv">10</span>, <span class="dt">barheight =</span> <span class="fl">0.5</span>)) +
-<span class="st">  </span><span class="kw">theme_void</span>() +<span class="st"> </span>
+                               <span class="dt">barwidth =</span> <span class="dv">10</span>, <span class="dt">barheight =</span> <span class="fl">0.5</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)
 
 pretty_map</code></pre></div>

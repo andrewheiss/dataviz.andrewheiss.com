@@ -11,37 +11,41 @@ output:
 div.sourceCode { overflow-x: auto; }
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
   margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #dddddd; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
 td.sourceCode { padding-left: 5px; }
-code > span.kw { font-weight: bold; } /* Keyword */
-code > span.dt { color: #800000; } /* DataType */
-code > span.dv { color: #0000ff; } /* DecVal */
-code > span.bn { color: #0000ff; } /* BaseN */
-code > span.fl { color: #800080; } /* Float */
-code > span.ch { color: #ff00ff; } /* Char */
-code > span.st { color: #dd0000; } /* String */
-code > span.co { color: #808080; font-style: italic; } /* Comment */
-code > span.al { color: #00ff00; font-weight: bold; } /* Alert */
-code > span.fu { color: #000080; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #ff0000; font-weight: bold; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #ff00ff; } /* SpecialChar */
-code > span.vs { color: #dd0000; } /* VerbatimString */
-code > span.ss { color: #dd0000; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { font-weight: bold; } /* Preprocessor */
-code > span.at { } /* Attribute */
-code > span.do { color: #808080; font-style: italic; } /* Documentation */
-code > span.an { color: #808080; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #808080; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #808080; font-weight: bold; font-style: italic; } /* Information */
+pre, code { color: #1f1c1b; background-color: #ffffff; }
+code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code > span.dt { color: #0057ae; } /* DataType */
+code > span.dv { color: #b08000; } /* DecVal */
+code > span.bn { color: #b08000; } /* BaseN */
+code > span.fl { color: #b08000; } /* Float */
+code > span.cn { color: #aa5500; } /* Constant */
+code > span.ch { color: #924c9d; } /* Char */
+code > span.sc { color: #3daee9; } /* SpecialChar */
+code > span.st { color: #bf0303; } /* String */
+code > span.vs { color: #bf0303; } /* VerbatimString */
+code > span.ss { color: #ff5500; } /* SpecialString */
+code > span.im { color: #ff5500; } /* Import */
+code > span.co { color: #898887; } /* Comment */
+code > span.do { color: #607880; } /* Documentation */
+code > span.an { color: #ca60ca; } /* Annotation */
+code > span.cv { color: #0095ff; } /* CommentVar */
+code > span.ot { color: #006e28; } /* Other */
+code > span.fu { color: #644a9b; } /* Function */
+code > span.va { color: #0057ae; } /* Variable */
+code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #1f1c1b; } /* Operator */
+code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code > span.pp { color: #006e28; } /* Preprocessor */
+code > span.at { color: #0057ae; } /* Attribute */
+code > span.re { color: #0057ae; } /* RegionMarker */
+code > span.in { color: #b08000; } /* Information */
+code > span.wa { color: #bf0303; } /* Warning */
+code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
+code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code > span. { color: #1f1c1b; } /* Normal */
 </style>
 
 <h2>Contents</h2>
@@ -137,11 +141,11 @@ crimes &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span clas
 <br />
 </span></span></p>
 <p>Also in Excel, we only graphed the observations where the count was greater than 1,000. We can filter the data the same way here with <code>filter()</code>. View the <code>crimes_types</code> object when you’re done.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_types &lt;-<span class="st"> </span>crimes %&gt;%
-<span class="st">  </span><span class="kw">group_by</span>(<span class="st">`</span><span class="dt">OFFENSE DESCRIPTION</span><span class="st">`</span>) %&gt;%
-<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">number =</span> <span class="kw">n</span>()) %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">percent =</span> number /<span class="st"> </span><span class="kw">sum</span>(number)) %&gt;%
-<span class="st">  </span><span class="kw">filter</span>(number &gt;<span class="st"> </span><span class="dv">1000</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_types &lt;-<span class="st"> </span>crimes <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(<span class="st">`</span><span class="dt">OFFENSE DESCRIPTION</span><span class="st">`</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">number =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">percent =</span> number <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(number)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(number <span class="op">&gt;</span><span class="st"> </span><span class="dv">1000</span>)
 
 crimes_types</code></pre></div>
 <pre><code>## # A tibble: 13 x 3
@@ -161,8 +165,8 @@ crimes_types</code></pre></div>
 ## 12        STOLEN VEHICLE   2273 0.03708296
 ## 13               TRAFFIC   8541 0.13934252</code></pre>
 <p>This data is sorted alphabetically by default, since we grouped the data by <code>OFFENSE DESCRIPTION</code>, but sorting it by the count or percent is easy. Note the final line with <code>fct_inorder</code>—this creates a new column called <code>crime</code> that is a <em>factor</em>, or a categorical variable. If we plot the <code>OFFENSE DESCRIPTION</code> variable, R will order it alphabetically. Transforming it into an ordered factor will make R plot the categories in the correct order.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_types_sorted &lt;-<span class="st"> </span>crimes_types %&gt;%
-<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(number)) %&gt;%
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_types_sorted &lt;-<span class="st"> </span>crimes_types <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(number)) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">crime =</span> <span class="kw">fct_inorder</span>(<span class="st">`</span><span class="dt">OFFENSE DESCRIPTION</span><span class="st">`</span>, <span class="dt">ordered =</span> <span class="ot">TRUE</span>))
 
 crimes_types_sorted</code></pre></div>
@@ -182,21 +186,21 @@ crimes_types_sorted</code></pre></div>
 ## 11                LIQUOR   2023 0.03300432         LIQUOR
 ## 12              BURGLARY   1868 0.03047557       BURGLARY
 ## 13                 FRAUD   1164 0.01899013          FRAUD</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_types_sorted$crime</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_types_sorted<span class="op">$</span>crime</code></pre></div>
 <pre><code>##  [1] LARCENY        PUBLIC ORDER   TRAFFIC        PUBLIC PEACE  
 ##  [5] ASSAULT        ESCAPE         DAMAGED PROP   INV OF PRIVACY
 ##  [9] DRUGS          STOLEN VEHICLE LIQUOR         BURGLARY      
 ## [13] FRAUD         
 ## 13 Levels: LARCENY &lt; PUBLIC ORDER &lt; TRAFFIC &lt; PUBLIC PEACE &lt; ... &lt; FRAUD</code></pre>
 <p>With the data summarized and sorted, we can finally plot it. We’ll go over each of the pieces of this in class, so don’t worry if it looks intimidating—this is the final product. The basic gist of what’s happening is that we take a <code>ggplot()</code> object, map data to aesthetics (in this case <code>x</code> and <code>y</code> mapped to the <code>percent</code> variable and the <code>crime</code> variable), and then add a sequence of layers that determine how that data is plotted.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(crimes_types_sorted, <span class="kw">aes</span>(<span class="dt">x =</span> percent, <span class="dt">y =</span> <span class="kw">fct_rev</span>(crime))) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_barh</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) +
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(crimes_types_sorted, <span class="kw">aes</span>(<span class="dt">x =</span> percent, <span class="dt">y =</span> <span class="kw">fct_rev</span>(crime))) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_barh</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>,
        <span class="dt">title =</span> <span class="st">&quot;Most frequent crimes in Salt Lake City&quot;</span>,
        <span class="dt">subtitle =</span> <span class="st">&quot;January 1-December 31, 2012&quot;</span>,
-       <span class="dt">caption =</span> <span class="st">&quot;Source: data.slcgov.com&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">labels =</span> percent) +
-<span class="st">  </span><span class="kw">theme_light</span>(<span class="dt">base_family =</span> <span class="st">&quot;Source Sans Pro&quot;</span>) +<span class="st"> </span>
+       <span class="dt">caption =</span> <span class="st">&quot;Source: data.slcgov.com&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">labels =</span> percent) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_light</span>(<span class="dt">base_family =</span> <span class="st">&quot;Source Sans Pro&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),
         <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Light&quot;</span>),
         <span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Light&quot;</span>),
@@ -205,19 +209,19 @@ crimes_types_sorted</code></pre></div>
         <span class="dt">panel.grid.major.y =</span> <span class="kw">element_blank</span>())</code></pre></div>
 <p><img src="/class/02-class_files/figure-html/plot-crimes-1.png" width="672" /></p>
 <p>Highlighting the traffic bar is a little tricky, since we can’t select it with the mouse and change the color by hand. The easiest way to do it is to create a new variable to map onto the fill color of each bar. We then remove the legend and modify the colors with <code>guides()</code> and <code>scale_fill_manual()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_highlight &lt;-<span class="st"> </span>crimes_types_sorted %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">highlight =</span> <span class="kw">ifelse</span>(crime ==<span class="st"> &quot;TRAFFIC&quot;</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_highlight &lt;-<span class="st"> </span>crimes_types_sorted <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">highlight =</span> <span class="kw">ifelse</span>(crime <span class="op">==</span><span class="st"> &quot;TRAFFIC&quot;</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>))
 
-<span class="kw">ggplot</span>(crimes_highlight, <span class="kw">aes</span>(<span class="dt">x =</span> percent, <span class="dt">y =</span> <span class="kw">fct_rev</span>(crime), <span class="dt">fill =</span> highlight)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_barh</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) +
+<span class="kw">ggplot</span>(crimes_highlight, <span class="kw">aes</span>(<span class="dt">x =</span> percent, <span class="dt">y =</span> <span class="kw">fct_rev</span>(crime), <span class="dt">fill =</span> highlight)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_barh</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>,
        <span class="dt">title =</span> <span class="st">&quot;Most frequent crimes in Salt Lake City&quot;</span>,
        <span class="dt">subtitle =</span> <span class="st">&quot;January 1-December 31, 2012&quot;</span>,
-       <span class="dt">caption =</span> <span class="st">&quot;Source: data.slcgov.com&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">labels =</span> percent) +
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;grey70&quot;</span>, <span class="st">&quot;darkorange&quot;</span>)) +
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) +
-<span class="st">  </span><span class="kw">theme_light</span>(<span class="dt">base_family =</span> <span class="st">&quot;Source Sans Pro&quot;</span>) +<span class="st"> </span>
+       <span class="dt">caption =</span> <span class="st">&quot;Source: data.slcgov.com&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">labels =</span> percent) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;grey70&quot;</span>, <span class="st">&quot;darkorange&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_light</span>(<span class="dt">base_family =</span> <span class="st">&quot;Source Sans Pro&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),
         <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Light&quot;</span>),
         <span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Light&quot;</span>),
@@ -226,21 +230,21 @@ crimes_types_sorted</code></pre></div>
         <span class="dt">panel.grid.major.y =</span> <span class="kw">element_blank</span>())</code></pre></div>
 <p><img src="/class/02-class_files/figure-html/plot-crimes-highlight-1.png" width="672" /></p>
 <p>Finally, adding the label is a little tricky too, since we can’t manually type into the plot. Here, we add yet another variable to the data frame, this time for the text that will show up in the label. We only want to label the bars where <code>highlight == TRUE</code>, so we use an <code>ifelse()</code> statement to do that. We also save the plot to a variable instead of just plotting directly (i.e. instead of running <code>ggplot()</code>, we assign it to <code>plot_crimes</code>)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_highlight_label &lt;-<span class="st"> </span>crimes_highlight %&gt;%
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">text =</span> <span class="kw">ifelse</span>(highlight, <span class="kw">paste0</span>(<span class="kw">round</span>(percent *<span class="st"> </span><span class="dv">100</span>), <span class="st">&quot;%&quot;</span>), <span class="st">&quot;&quot;</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">crimes_highlight_label &lt;-<span class="st"> </span>crimes_highlight <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">text =</span> <span class="kw">ifelse</span>(highlight, <span class="kw">paste0</span>(<span class="kw">round</span>(percent <span class="op">*</span><span class="st"> </span><span class="dv">100</span>), <span class="st">&quot;%&quot;</span>), <span class="st">&quot;&quot;</span>))
 
 plot_crimes &lt;-<span class="st"> </span><span class="kw">ggplot</span>(crimes_highlight_label, <span class="kw">aes</span>(<span class="dt">x =</span> percent, <span class="dt">y =</span> <span class="kw">fct_rev</span>(crime), 
-                                                  <span class="dt">fill =</span> highlight, <span class="dt">label =</span> text)) +<span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_barh</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) +
-<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">hjust =</span> <span class="fl">1.3</span>, <span class="dt">family =</span> <span class="st">&quot;Source Sans Pro&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) +
+                                                  <span class="dt">fill =</span> highlight, <span class="dt">label =</span> text)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_barh</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">hjust =</span> <span class="fl">1.3</span>, <span class="dt">family =</span> <span class="st">&quot;Source Sans Pro&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>,
        <span class="dt">title =</span> <span class="st">&quot;Most frequent crimes in Salt Lake City&quot;</span>,
        <span class="dt">subtitle =</span> <span class="st">&quot;January 1-December 31, 2012&quot;</span>,
-       <span class="dt">caption =</span> <span class="st">&quot;Source: data.slcgov.com&quot;</span>) +
-<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">labels =</span> percent) +
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;grey70&quot;</span>, <span class="st">&quot;darkorange&quot;</span>)) +
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) +
-<span class="st">  </span><span class="kw">theme_light</span>(<span class="dt">base_family =</span> <span class="st">&quot;Source Sans Pro&quot;</span>) +<span class="st"> </span>
+       <span class="dt">caption =</span> <span class="st">&quot;Source: data.slcgov.com&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">labels =</span> percent) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;grey70&quot;</span>, <span class="st">&quot;darkorange&quot;</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_light</span>(<span class="dt">base_family =</span> <span class="st">&quot;Source Sans Pro&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>(),
         <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Light&quot;</span>),
         <span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Source Sans Pro Light&quot;</span>),
