@@ -49,7 +49,7 @@ refugees_continents_cumulative <- refugees_clean %>%
 ```
 
 ```{r create-plots, results="hide", echo=FALSE, warning=FALSE, message=FALSE}
-library(gridExtra)
+library(egg)
 
 plot_countries <- ggplot(filter(refugees_clean, 
                                 iso3 %in% c("IRQ", "SYR", "IRN")),
@@ -89,9 +89,10 @@ plot_continents_cum <- ggplot(refugees_continents_cumulative,
   theme(legend.position = "bottom",
         plot.title = element_text(face = "bold"))
 
-
-plot_all <- rbind(cbind(ggplotGrob(plot_countries), ggplotGrob(plot_countries_cum)),
-                  cbind(ggplotGrob(plot_continents), ggplotGrob(plot_continents_cum)))
+plot_all <- gtable_rbind(gtable_cbind(ggplotGrob(plot_countries),
+                                      ggplotGrob(plot_countries_cum)),
+                         gtable_cbind(ggplotGrob(plot_continents),
+                                      ggplotGrob(plot_continents_cum)))
 ```
 
 <span class="newthought"> The United States has resettled</span> more than 600,000 refugees from 60 different countries since 2006.
