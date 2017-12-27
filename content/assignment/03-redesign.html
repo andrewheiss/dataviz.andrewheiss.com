@@ -124,8 +124,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <br />
 </span></span> <strong>The assignment is due by 11:59 PM on Monday, October 16.</strong></p>
 <p>You can do this.</p>
-<section id="longish-note-about-cleaning-the-data" class="level2">
-<h2>Longish note about cleaning the data</h2>
+<h2 id="longish-note-about-cleaning-the-data">Longish note about cleaning the data</h2>
 <p>The data isn’t perfectly clean and tidy, but it’s real world data, so this is normal. Because the emphasis for this assignment is on design, not code, I’ve provided code to help you clean up the data.</p>
 <p>These are the main issues with the data:</p>
 <ul>
@@ -166,12 +165,9 @@ It also does a farily good job at guessing and parsing inconsistent country name
 <a class="sourceLine" id="cb2-18" data-line-number="18"><span class="st">  </span><span class="kw">gather</span>(year, number, <span class="op">-</span>origin_country, <span class="op">-</span>iso3, <span class="op">-</span>origin_region, <span class="op">-</span>origin_continent) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb2-19" data-line-number="19"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">as.numeric</span>(year),</a>
 <a class="sourceLine" id="cb2-20" data-line-number="20">         <span class="dt">year_date =</span> <span class="kw">ymd</span>(<span class="kw">paste0</span>(year, <span class="st">&quot;-01-01&quot;</span>)))</a></code></pre></div>
-</section>
-<section id="data-to-possibly-use-in-your-plot" class="level2">
-<h2>Data to possibly use in your plot</h2>
+<h2 id="data-to-possibly-use-in-your-plot">Data to possibly use in your plot</h2>
 <p>Here are some possible summaries of the data you might use…</p>
-<section id="country-totals-over-time" class="level3">
-<h3>Country totals over time</h3>
+<h3 id="country-totals-over-time">Country totals over time</h3>
 <p>This is just the <code>refugees_clean</code> data frame I gave you. You’ll want to filter it and select specific countries, though—you won’t really be able to plot 60 countries all at once.</p>
 <table style="margin-bottom: 3rem;">
 <thead>
@@ -340,9 +336,7 @@ Asia
 </tr>
 </tbody>
 </table>
-</section>
-<section id="cumulative-country-totals-over-time" class="level3">
-<h3>Cumulative country totals over time</h3>
+<h3 id="cumulative-country-totals-over-time">Cumulative country totals over time</h3>
 <p>Note the <code>cumsum()</code> function—it calculate the cumulative sum of a column.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">refugees_countries_cumulative &lt;-<span class="st"> </span>refugees_clean <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw">arrange</span>(year_date) <span class="op">%&gt;%</span></a>
@@ -536,9 +530,7 @@ Asia
 </tr>
 </tbody>
 </table>
-</section>
-<section id="continent-totals-over-time" class="level3">
-<h3>Continent totals over time</h3>
+<h3 id="continent-totals-over-time">Continent totals over time</h3>
 <p>Note the <code>na.rm = TRUE</code> argument in <code>sum()</code>. This makes R ignore any missing data when calculating the total. Without it, if R finds a missing value in the column, it will mark the final sum as <code>NA</code> too, which we don’t want.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">refugees_continents &lt;-<span class="st"> </span>refugees_clean <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(origin_continent, year_date) <span class="op">%&gt;%</span></a>
@@ -626,9 +618,7 @@ Africa
 </tr>
 </tbody>
 </table>
-</section>
-<section id="cumulative-continent-totals-over-time" class="level3">
-<h3>Cumulative continent totals over time</h3>
+<h3 id="cumulative-continent-totals-over-time">Cumulative continent totals over time</h3>
 <p>Note that there are two <code>group_by()</code> functions here. First we get the total number of refugees per continent per year, then we group by continent only to get the cumulative sum of refugees across continents.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">refugees_continents_cumulative &lt;-<span class="st"> </span>refugees_clean <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(origin_continent, year_date) <span class="op">%&gt;%</span></a>
@@ -740,5 +730,3 @@ Africa
 </tr>
 </tbody>
 </table>
-</section>
-</section>

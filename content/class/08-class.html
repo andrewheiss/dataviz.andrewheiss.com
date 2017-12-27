@@ -111,15 +111,12 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul>
 </div>
 
-<section id="slides" class="level2">
-<h2>Slides</h2>
+<h2 id="slides">Slides</h2>
 <p><a href="/slides/MPA-635_2017-10-24.pdf">Download the slides from today’s lecture</a>.</p>
 <figure>
 <a href="/slides/MPA-635_2017-10-24.pdf"><img src="/images/slides/slides_2017-10-24.png" alt="First slide" /></a>
 </figure>
-</section>
-<section id="text-analysis-and-visualization" class="level2">
-<h2>Text analysis and visualization</h2>
+<h2 id="text-analysis-and-visualization">Text analysis and visualization</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(tidytext)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(gutenbergr)</a>
@@ -173,8 +170,7 @@ code span.wa { color: #bf0303; } /* Warning */
 </tr>
 </tbody>
 </table>
-<section id="word-frequencies" class="level3">
-<h3>Word frequencies</h3>
+<h3 id="word-frequencies">Word frequencies</h3>
 <p>We can filter out common stopwords and then view the 20 most frequent words:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">plot_words &lt;-<span class="st"> </span>tidy_book <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">anti_join</span>(stop_words, <span class="dt">by =</span> <span class="st">&quot;word&quot;</span>) <span class="op">%&gt;%</span></a>
@@ -186,9 +182,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb4-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb4-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="/class/08-class_files/figure-html/plot-top-20-1.png" width="672" /></p>
-</section>
-<section id="sentiment-analysis" class="level3">
-<h3>Sentiment analysis</h3>
+<h3 id="sentiment-analysis">Sentiment analysis</h3>
 <p>There are several existing dictionaries of word sentiments, such as <a href="http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010">AFINN</a> and <a href="https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html">Bing</a>, which work differently—some use a continuous scale of negativity-positivity, whil others use a dichotomous variable:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">get_sentiments</span>(<span class="st">&quot;afinn&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
 <table>
@@ -275,9 +269,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb7-12" data-line-number="12"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb7-13" data-line-number="13"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>sentiment, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</a></code></pre></div>
 <p><img src="/class/08-class_files/figure-html/plot-sentiment-1.png" width="672" /></p>
-</section>
-<section id="tf-idf-term-frequencyinverse-document-frequency" class="level3">
-<h3>tf-idf: term frequency—inverse document frequency</h3>
+<h3 id="tf-idf-term-frequencyinverse-document-frequency">tf-idf: term frequency—inverse document frequency</h3>
 <p>Calculating the <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">tf-idf</a> lets us find the most unique words in individual documents in a collection, relative to other documents in the collection. Here we download four Dickens novels (<em>A Tale of Two Cities</em> (98), <em>David Copperfield</em> (766), <em>Great Expectations</em> (1400), and <em>A Christmas Carol</em> (19337)) and combine them into a tidy corpus:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">dickens &lt;-<span class="st"> </span><span class="kw">gutenberg_download</span>(<span class="kw">c</span>(<span class="dv">19337</span>, <span class="dv">98</span>, <span class="dv">1400</span>, <span class="dv">766</span>),</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">                              <span class="dt">meta_fields =</span> <span class="st">&quot;title&quot;</span>)</a></code></pre></div>
@@ -364,9 +356,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>title, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</a></code></pre></div>
 <p><img src="/class/08-class_files/figure-html/plot-tfidf-1.png" width="672" /></p>
-</section>
-<section id="n-grams" class="level3">
-<h3>n-grams</h3>
+<h3 id="n-grams">n-grams</h3>
 <p>We can also find the most common pairs of words, or n-grams. Rather than tokenizing by word, we can tokenize by ngram and specify the number of words—here we want bigrams, so we specify <code>n = 2</code>.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">dickens_bigrams &lt;-<span class="st"> </span>dickens <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw">unnest_tokens</span>(bigram, text, <span class="dt">token =</span> <span class="st">&quot;ngrams&quot;</span>, <span class="dt">n =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span></a>
@@ -435,10 +425,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb12-24" data-line-number="24"><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> <span class="dv">0</span>, <span class="dt">ymax =</span> logratio), <span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">fatten =</span> <span class="dv">6</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb12-25" data-line-number="25"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="/class/08-class_files/figure-html/plot-ratio-1.png" width="672" /></p>
-</section>
-</section>
-<section id="feedback-for-today" class="level2">
-<h2>Feedback for today</h2>
+<h2 id="feedback-for-today">Feedback for today</h2>
 <p>First, make sure you <a href="https://studentratings.byu.edu/">fill out BYU’s official ratings for this class</a> sometime before Saturday, October 28.</p>
 <p>Second, go to <a href="https://goo.gl/forms/eXleRluJZurKVltM2">this form</a> and answer these questions (anonymously if you want):</p>
 <ol type="1">
@@ -452,4 +439,3 @@ code span.wa { color: #bf0303; } /* Warning */
 <li>What else should I change in future versions of this class?</li>
 <li>Any other comments?</li>
 </ol>
-</section>

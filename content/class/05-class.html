@@ -91,31 +91,23 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul>
 </div>
 
-<section id="slides" class="level2">
-<h2>Slides</h2>
+<h2 id="slides">Slides</h2>
 <p><a href="/slides/MPA-635_2017-10-03.pdf">Download the slides from today’s lecture</a>.</p>
 <figure>
 <a href="/slides/MPA-635_2017-10-03.pdf"><img src="/images/slides/slides_2017-10-03.png" alt="First slide" /></a>
 </figure>
-</section>
-<section id="comparing-things" class="level2">
-<h2>Comparing things</h2>
-<section id="sparklines" class="level3">
-<h3>Sparklines</h3>
+<h2 id="comparing-things">Comparing things</h2>
+<h3 id="sparklines">Sparklines</h3>
 <ul>
 <li><a href="https://support.office.com/en-us/article/Use-sparklines-to-show-data-trends-1474e169-008c-4783-926b-5c60e620f5ca">Create in Excel</a></li>
 <li>Create in Word, HTML, and Adobe products with <a href="http://aftertheflood.co/projects/atf-spark">AtF Spark</a></li>
 <li>Create in R by saving really really tiny PDFs or PNGs</li>
 </ul>
-</section>
-<section id="small-multiples" class="level3">
-<h3>Small multiples</h3>
+<h3 id="small-multiples">Small multiples</h3>
 <ul>
 <li>Create in R with facets</li>
 </ul>
-</section>
-<section id="lollipops" class="level3">
-<h3>Lollipops</h3>
+<h3 id="lollipops">Lollipops</h3>
 <p><a href="/data/Lord_Of_The_Rings.csv"><i class="fa fa-download" aria-hidden="true"></i> Download Lord of the Rings data</a></p>
 <p>First, we load the libraries we’ll need for all the examples. We’ll use <code>tidyverse</code> in both; we’ll use <code>forcats</code> in the lollipop chart and <code>ggrepel</code> in the slopegraph.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
@@ -198,9 +190,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb5-8" data-line-number="8"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;blue&quot;</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb5-9" data-line-number="9"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Film)</a></code></pre></div>
 <p><img src="/class/05-class_files/figure-html/plot-race-gender-film-1.png" width="768" /></p>
-</section>
-<section id="slopegraphs" class="level3">
-<h3>Slopegraphs</h3>
+<h3 id="slopegraphs">Slopegraphs</h3>
 <p><a href="/data/isms_top5.csv"><i class="fa fa-download" aria-hidden="true"></i> Download General Conference “isms” data</a><span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> This data comes from <a href="https://www.lds-general-conference.org/">BYU’s LDS General Conference Corpus</a>. I created a list of <code>&quot;*ism&quot;</code> divided between the 1950s/60s and the 1990s/2000s, and then copied/pasted the results in to a CSV file.<br />
 <br />
 </span></span></p>
@@ -363,9 +353,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb13-2" data-line-number="2">       <span class="dt">width =</span> <span class="dv">6</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)</a>
 <a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw">ggsave</span>(plot_isms, <span class="dt">filename =</span> <span class="st">&quot;isms.png&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;cairo&quot;</span>,</a>
 <a class="sourceLine" id="cb13-4" data-line-number="4">       <span class="dt">width =</span> <span class="dv">6</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)</a></code></pre></div>
-</section>
-<section id="bullet-charts" class="level3">
-<h3>Bullet charts</h3>
+<h3 id="bullet-charts">Bullet charts</h3>
 <p><a href="/data/performance.csv"><i class="fa fa-download" aria-hidden="true"></i> Download fake performance data</a></p>
 <p>Bullet charts are just a bunch of bar charts stacked on top of each with with extra dots and lines. First we load a data frame I copied from Stephanie Evergreen’s book, and we make sure the region variable—here named <code>measure</code>—is an ordered factor, and we reverse it with <code>fct_rev()</code> because <code>coord_flip()</code> does weird stuff to the ordering.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">performance &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/performance.csv&quot;</span>)</a>
@@ -436,14 +424,10 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb15-12" data-line-number="12"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(),</a>
 <a class="sourceLine" id="cb15-13" data-line-number="13">        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())</a></code></pre></div>
 <p><img src="/class/05-class_files/figure-html/bullet-plot-1.png" width="576" /></p>
-</section>
-</section>
-<section id="feedback-for-today" class="level2">
-<h2>Feedback for today</h2>
+<h2 id="feedback-for-today">Feedback for today</h2>
 <p>Go to <a href="https://goo.gl/forms/jpUtEmlUYSfPSaDB2">this form</a> and answer these three questions (anonymously if you want):</p>
 <ol type="1">
 <li>What new thing did you learn today?</li>
 <li>What was the most unclear thing about today?</li>
 <li>What was the most exciting thing you learned today?</li>
 </ol>
-</section>

@@ -9,23 +9,19 @@ date: "2017-10-26"
 <br />
 </span></span> You made it to the end of our whirlwind tour of data visualization principles! Congratulations!</p>
 <p>Now you get to show off all the tools you learned with (1) your final rubric and (2) a beautiful, truthful, narrative visualization.</p>
-<section id="rubric" class="level2">
-<h2>Rubric</h2>
+<h2 id="rubric">Rubric</h2>
 <p>You’ve received feedback from me and your peers and you’ve tested out your rubric on two existing graphics. Polish up your data visualization rubric and e-mail me the final version. Half of your final project grade will be based on this, so make sure the rubric yields actual numbers.<span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">I sadly have no idea what “strong” + “acceptable” + “weak” is in real numbers.<br />
 <br />
 </span></span> You’ll also want to make sure it has good external validity and works well when other people use it.</p>
 <p><span><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"> <a href="/assignment/rubrics/dataviz-rubric-rubric.pdf"><img src="/images/rubrics/final-rubric-rubric.png" alt="Final rubric rubric" /></a><br />
 <br />
 </span></span> I will grade your rubric with <a href="/assignment/rubrics/dataviz-rubric-rubric.pdf">this rubric</a>.</p>
-</section>
-<section id="visualization" class="level2">
-<h2>Visualization</h2>
+<h2 id="visualization">Visualization</h2>
 <p>For your final project, you will take a dataset, explore it, tinker with it, and tell a nuanced story about it using at least three graphs.</p>
 <p>I want this project to be as useful for you and your future career as possible—you’ll hopefully want to show off your final project in a portfolio or during job interviews.</p>
 <p>Accordingly, you have some choice in what data you can use for this project. I’ve found several different high-quality datasets online related to the core MPA tracks (and some business stuff too, for the MBAs in the class).</p>
 <p><strong>You do not have to choose a dataset in your given emphasis.</strong> Choose whatever one you are most interested in or will have the most fun with.</p>
-<section id="nonprofit-management" class="level3">
-<h3>Nonprofit management</h3>
+<h3 id="nonprofit-management">Nonprofit management</h3>
 <ul>
 <li><a href="https://www.kaggle.com/crawford/us-charities-and-nonprofits">U.S. Charities and Non-profits</a>: All of the charities and nonprofits registered with the IRS<span><label for="sn-4" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="sidenote">Source: IRS. This is actually split into six separate files. You can combine them all into one massive national database with <code>bind_rows()</code>, or filter the data to include specific states (or a single state). It all depends on the story you’re telling.<br />
 <br />
@@ -34,9 +30,7 @@ date: "2017-10-26"
 <br />
 </span></span></li>
 </ul>
-</section>
-<section id="federal-state-and-local-government-management" class="level3">
-<h3>Federal, state, and local government management</h3>
+<h3 id="federal-state-and-local-government-management">Federal, state, and local government management</h3>
 <ul>
 <li><a href="https://www.kaggle.com/kwullum/deadly-traffic-accidents-in-the-uk-2015">Deadly traffic accidents in the UK (2015)</a>: List of all traffic-related deaths in the UK in 2015<span><label for="sn-6" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="sidenote">Source: <a href="https://data.gov.uk/dataset/road-accidents-safety-data/resource/ceb00cff-443d-4d43-b17a-ee13437e9564">data.gov.uk</a><br />
 <br />
@@ -54,9 +48,7 @@ date: "2017-10-26"
 <br />
 </span></span></li>
 </ul>
-</section>
-<section id="business-management" class="level3">
-<h3>Business management</h3>
+<h3 id="business-management">Business management</h3>
 <ul>
 <li><a href="https://www.kaggle.com/jiashenliu/515k-hotel-reviews-data-in-europe">515K Hotel Reviews Data in Europe</a>: 515,000 customer reviews and scoring of 1,493 luxury hotels across Europe<span><label for="sn-11" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-11" class="margin-toggle"/><span class="sidenote">Source: Booking.com<br />
 <br />
@@ -65,10 +57,7 @@ date: "2017-10-26"
 <br />
 </span></span></li>
 </ul>
-</section>
-</section>
-<section id="instructions" class="level2">
-<h2>Instructions</h2>
+<h2 id="instructions">Instructions</h2>
 <p>Here’s what you’ll need to do:</p>
 <ol type="1">
 <li>Download a dataset and explore it. Many of these datasets are large and will not open (well) in Excel, so you’ll need to load the CSV file into R with <code>read_csv()</code>. Most of these datasets have nice categorical variables that you can use for grouping and summarizing, and many have time components too, so you can look at trends. Your past homework assignments will come in handy here.</li>
@@ -87,9 +76,7 @@ date: "2017-10-26"
 </ol>
 <p>Remember to follow R Markdown etiquette rules and style—don’t have it output extraneous messages or warnings, include summary tables in nice tables (remember <code>knitr::kable()</code>), adjust the dimensions for your figures, and remove the placeholder text that’s in the template already (i.e. I don’t wan’t to see stuff like “Describe and show how you cleaned and reshaped the data” in the final report.)</p>
 <p>You can <a href="/files/example_final.zip">download a full example of what a final project might look like</a> (but don’t make your final combined visualization look exactly like this—show some creativity!)</p>
-</section>
-<section id="final-deliverables" class="level2">
-<h2>Final deliverables</h2>
+<h2 id="final-deliverables">Final deliverables</h2>
 <p>You <strong>must</strong> e-mail me the following files <strong>before</strong> the deadline.<span><label for="sn-13" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-13" class="margin-toggle"/><span class="marginnote"> <a href="/assignment/rubrics/final-project_rubric.pdf"><img src="/images/rubrics/final-project_rubric.png" alt="Final project rubric" /></a><br />
 <br />
 </span></span></p>
@@ -106,4 +93,3 @@ date: "2017-10-26"
 </span></span> I am happy to give feedback and help along the way—just not at, like, 10 PM on the night it’s due. Please don’t hesitate to come and get help! My goal is for you to have a beautiful graphic in the end that you’ll want to show off to all your friends, family, neighbors, employers, and strangers on the street—I’m not trying to trip you up or give you trick questions!</p>
 <p>And that’s it. <strong>You’re done!</strong> Go out into the world now and make beautiful, insightul, and truthful graphics.</p>
 <p><a href="https://24ways.org/2010/go-forth-and-make-awesomeness/"><span class="newthought">Go forth and make awesomeness.</span></a></p>
-</section>

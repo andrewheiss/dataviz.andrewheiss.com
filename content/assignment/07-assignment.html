@@ -80,8 +80,7 @@ code span.wa { color: #bf0303; } /* Warning */
 
 
 <p>Complete these tasks in an R Markdown file and <a href="mailto:andrew_heiss@byu.edu">e-mail me</a> a PDF of the final compiled document. <a href="/files/your_name_homework7.Rmd">Here’s the typical starter file</a>. As always, I recommend saving it within an RStudio project. Make sure the final output is as clean and warning/message free as possible.</p>
-<section id="task-1-reflection-memo" class="level2">
-<h2>Task 1: Reflection memo</h2>
+<h2 id="task-1-reflection-memo">Task 1: Reflection memo</h2>
 <p>Write a <strong>500</strong>-word memo about <a href="/reading/07-reading/">the assigned readings</a> for this week. You can use some of the prompt questions there if you want:</p>
 <ul>
 <li>How can you know if a map projection is truthful or misleading?</li>
@@ -93,13 +92,10 @@ code span.wa { color: #bf0303; } /* Warning */
 <li>How does what I just read apply to me?</li>
 <li>How can this be useful to me?</li>
 </ul>
-</section>
-<section id="task-2-make-a-map" class="level2">
-<h2>Task 2: Make a map</h2>
+<h2 id="task-2-make-a-map">Task 2: Make a map</h2>
 <p>This task is not very code intensive—I’m giving you all the code!</p>
 <p>That said, there’s still some work you have to do.</p>
-<section id="step-1-install-extra-software-and-r-packages" class="level3">
-<h3>Step 1: Install extra software and R packages</h3>
+<h3 id="step-1-install-extra-software-and-r-packages">Step 1: Install extra software and R packages</h3>
 <ol type="1">
 <li>Plotting geographic stuff with ggplot is crazy easy nowadays with the new <code>sf</code> package, which works nicely within the tidyverse paradigm. However, it’s so new that the CRAN version of ggplot doesn’t have <code>geom_sf()</code> and other geographic plotting layers. You <strong>must</strong> install the development version of the package from GitHub. Doing this makes your computer compile the package from its source code and requires some fancy software to work.
 <ul>
@@ -123,9 +119,7 @@ This will download, compile, and install the latest development version of ggplo
 <li><p>Wait for a few minutes—go eat something else.</p></li>
 </ol></li>
 </ol>
-</section>
-<section id="step-2-actually-make-a-map" class="level3">
-<h3>Step 2: Actually make a map</h3>
+<h3 id="step-2-actually-make-a-map">Step 2: Actually make a map</h3>
 <p>In last week’s assignment, you looked at the percentage of different countries’ populations with access to the internet. This week, you’ll use the same data to map the level of internet access around the world in 2015.</p>
 <p>I provide a full working example for you. Rather than just copying and pasting the code and knitting, though, I want you to run each line in RStudio and see what’s going on. <a href="/files/your_name_homework7.Rmd">In the starter Rmd file</a>, I’ve included a list of code pieces you need to explain.</p>
 <p>You need this data:</p>
@@ -203,12 +197,8 @@ This will download, compile, and install the latest development version of ggplo
 <a class="sourceLine" id="cb8-13" data-line-number="13">pretty_map</a></code></pre></div>
 <p><img src="/assignment/07-assignment_files/figure-html/create-map-1.png" width="672" /></p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># ggsave(pretty_map, filename = &quot;output/map.pdf&quot;, width = 7, height = 5)</span></a></code></pre></div>
-</section>
-</section>
-<section id="task-3-illustrator-introduction" class="level2">
-<h2>Task 3: Illustrator introduction</h2>
-<section id="step-1-quickly-get-familiar-with-illustrator-or-inkscape" class="level3">
-<h3>Step 1: Quickly get familiar with Illustrator (or Inkscape)</h3>
+<h2 id="task-3-illustrator-introduction">Task 3: Illustrator introduction</h2>
+<h3 id="step-1-quickly-get-familiar-with-illustrator-or-inkscape">Step 1: Quickly get familiar with Illustrator (or Inkscape)</h3>
 <p>Watch and work through these tutorials (you can speed them up to 1.5× or 2× if you want):</p>
 <ul>
 <li><a href="https://helpx.adobe.com/illustrator/how-to/create-new-document.html">Set up a new document</a></li>
@@ -219,9 +209,7 @@ This will download, compile, and install the latest development version of ggplo
 <li><a href="https://helpx.adobe.com/illustrator/how-to/sharing-basics.html">Share artwork</a></li>
 </ul>
 <p>These are all specific to Illustrator, but the same principles apply to Inkscape (though tools and options will have different names). I recommend learning Illustrator now while you have <a href="">free access to it</a>, and then in the future when you won’t necessarily have access to Adobe’s Creative Cloud, you’ll be able to translate your skills to Inkscape.</p>
-</section>
-<section id="step-2-make-something-with-illustrator" class="level3">
-<h3>Step 2: Make something with Illustrator</h3>
+<h3 id="step-2-make-something-with-illustrator">Step 2: Make something with Illustrator</h3>
 <ol type="1">
 <li>Use <code>ggsave()</code> to save your map of internet users as a PDF.</li>
 <li>Place the map in a new document in Illustrator.</li>
@@ -230,5 +218,3 @@ This will download, compile, and install the latest development version of ggplo
 </span></span></li>
 <li>Export the completed graphic as a PDF and PNG.</li>
 </ol>
-</section>
-</section>

@@ -8,8 +8,7 @@ date: "2017-10-03"
 <p>As always, complete these tasks in an R Markdown file and <a href="mailto:andrew_heiss@byu.edu">e-mail me</a> a Word file or a PDF of the final compiled document. <a href="/files/your_name_homework5.Rmd">Here’s a starter file</a>.<span><label for="sn-1" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="sidenote">Your browser will most likely open it as a new tab instead of downloading the file. Either right click on the link and choose “Save link as…” or copy and paste the text into a blank R Markdown file in RStudio.<br />
 <br />
 </span></span> I recommend saving it within an RStudio project.</p>
-<section id="task-1-reflection-memo" class="level2">
-<h2>Task 1: Reflection memo</h2>
+<h2 id="task-1-reflection-memo">Task 1: Reflection memo</h2>
 <p>Write a <strong>250</strong>-word<span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">Special for this week only! Have a happy General Conference.<br />
 <br />
 </span></span> memo about <a href="/reading/05-reading/">the assigned readings</a> for this week. You can use some of the prompt questions there if you want:</p>
@@ -23,17 +22,13 @@ date: "2017-10-03"
 <li>How does what I just read apply to me?</li>
 <li>How can this be useful to me?</li>
 </ul>
-</section>
-<section id="task-2-create-a-slopegraph-in-excel" class="level2">
-<h2>Task 2: Create a slopegraph in Excel</h2>
+<h2 id="task-2-create-a-slopegraph-in-excel">Task 2: Create a slopegraph in Excel</h2>
 <p><span><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"> <img src="https://media.giphy.com/media/l2JHPc1s3B7m3Bc9q/giphy.gif" alt="Subway rat" /><br />
 <br />
 </span></span> Back to Excel for a minute! <a href="/data/NYC_Rats_2010_2016.xlsx"><i class="fa fa-download" aria-hidden="true"></i> Download this data on the number of rat sightings in New York City’s five boroughs in 2010 and 2016</a> and create a slopegraph following Stephanie Evergreen’s tutorial on pages 36–44 in <em>Effective Data Visualization</em>. Include the finished graphic in the memo.</p>
 <p>Important tip: You can include images in Markdown with the follwing syntax: <code>![Caption for the image](path/to/the/image.png)</code>. If you’re exporting the memo as a PDF, include a PDF version of the slopegraph; f you’re exporting the memo as HTML or docx, include a PNG version of the slopegraph.</p>
 <p>(So, if you put the image in a folder named <code>images/</code> in your project directory, you’d do something like this): <code>![My fancy slopegraph](images/finished_slopegraph.png)</code></p>
-</section>
-<section id="task-3-working-with-tidy-data" class="level2">
-<h2>Task 3: Working with tidy data</h2>
+<h2 id="task-3-working-with-tidy-data">Task 3: Working with tidy data</h2>
 <p>Download all these files and place them in your <code>data/</code> folder.<span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote"> You’ll probably need to right click on each and choose “Save link as…”.<br />
 <br />
 </span></span></p>
@@ -62,4 +57,3 @@ date: "2017-10-03"
 </figure>
 <p>This is longer and more repetitive (and perhaps ugly), but far, far easier for computers to work with. Each varaible has its own column now (<code>Film</code>, <code>Gender</code>, <code>Race</code>, and <code>Words</code>), each observation has its own row, and each value is in its own cell.</p>
 <p>Untidy data comes in lots of different forms, but the R package <code>tidyr</code> (which is part of the <code>tidyverse</code> and is loaded when you run <code>library(tidyverse)</code>), can tidyify pretty much anything. You can see full details in <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">this vignette for <code>tidyr</code></a>.</p>
-</section>

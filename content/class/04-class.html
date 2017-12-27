@@ -96,24 +96,18 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul>
 </div>
 
-<section id="slides" class="level2">
-<h2>Slides</h2>
+<h2 id="slides">Slides</h2>
 <p><a href="/slides/MPA-635_2017-09-26.pdf">Download the slides from today’s lecture</a>.</p>
 <figure>
 <a href="/slides/MPA-635_2017-09-26.pdf"><img src="/images/slides/slides_2017-09-26.png" alt="First slide" /></a>
 </figure>
-</section>
-<section id="miscellaneous-r-stuff" class="level2">
-<h2>Miscellaneous R stuff</h2>
+<h2 id="miscellaneous-r-stuff">Miscellaneous R stuff</h2>
 <p>Download Comic Relief data and place it in a folder named <code>data</code> in your project: <a href="/data/ComicRelief_360Giving_International.xlsx"><i class="fa fa-download" aria-hidden="true"></i> Comic Relief 2015–2016 grants</a></p>
-<section id="searching-for-code-on-github" class="level3">
-<h3>Searching for code on GitHub</h3>
+<h3 id="searching-for-code-on-github">Searching for code on GitHub</h3>
 <p><a href="https://github.com/">GitHub</a> is an excellent source of real-world code, and it’s easy to search for examples of things other people have written.<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> Use the advanced search to limit the search language to R.<br />
 <br />
 </span></span></p>
-</section>
-<section id="installing-packages-from-github" class="level3">
-<h3>Installing packages from GitHub</h3>
+<h3 id="installing-packages-from-github">Installing packages from GitHub</h3>
 <p>Not all R packages are hosted on CRAN—many are repositories that live on GitHub. It’s possible to install packages from GitHub, but you can’t use RStudio’s “Packages” panel. Most non-CRAN packages will include instructions of how to install (such as this package for <a href="https://github.com/clauswilke/ggridges">ridge plots</a>), but the general syntax is this:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(devtools)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install_github</span>(<span class="st">&quot;username/repository_name&quot;</span>)</a>
@@ -124,9 +118,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># So, in real life, you can do this:</span></a>
 <a class="sourceLine" id="cb1-8" data-line-number="8">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;clauswilke/ggridges&quot;</span>)</a>
 <a class="sourceLine" id="cb1-9" data-line-number="9">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;andrewheiss/reconPlots&quot;</span>)</a></code></pre></div>
-</section>
-<section id="pipes" class="level3">
-<h3>Pipes (<code>%&gt;%</code>)</h3>
+<h3 id="pipes">Pipes (<code>%&gt;%</code>)</h3>
 <p>Pipes let you concatenate nested functions in a human-readable form and can make it a lot easier to understand your code:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"></a>
@@ -159,9 +151,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb3-13" data-line-number="13"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">award_year =</span> <span class="kw">year</span>(award_date)) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb3-14" data-line-number="14"><span class="st">  </span><span class="co"># as.factor() converts values to categorical variables</span></a>
 <a class="sourceLine" id="cb3-15" data-line-number="15"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">award_year =</span> <span class="kw">as.factor</span>(award_year))</a></code></pre></div>
-</section>
-<section id="working-with-ggplot-objects" class="level3">
-<h3>Working with ggplot objects</h3>
+<h3 id="working-with-ggplot-objects">Working with ggplot objects</h3>
 <p>You can save the output of a <code>ggplot</code> plot to an object (<code>p1</code> here):</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Get rid of the largest grants</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">cr_filtered &lt;-<span class="st"> </span>cr <span class="op">%&gt;%</span></a>
@@ -204,13 +194,9 @@ code span.wa { color: #bf0303; } /* Warning */
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">grid<span class="op">::</span><span class="kw">grid.newpage</span>()  <span class="co"># Clear out whatever plot is there already</span></a>
 <a class="sourceLine" id="cb13-2" data-line-number="2">grid<span class="op">::</span><span class="kw">grid.draw</span>(p_lots_of_them)  <span class="co"># Draw the combined plot</span></a></code></pre></div>
 <p><img src="/class/04-class_files/figure-html/grid-draw-grob-1.png" width="672" /></p>
-</section>
-<section id="fonts" class="level3">
-<h3>Fonts</h3>
+<h3 id="fonts">Fonts</h3>
 <p>It’s relatively easy to use custom fonts in <code>ggplot</code> plots, but there are some tricks. <a href="https://www.andrewheiss.com/blog/2017/09/27/working-with-r-cairo-graphics-custom-fonts-and-ggplot/">Read this post for more details and for instructions for how to do it on macOS and Windows</a>.</p>
-</section>
-<section id="colors" class="level3">
-<h3>Colors</h3>
+<h3 id="colors">Colors</h3>
 <p>You can specify colors in R in a few different ways:</p>
 <ul>
 <li>R has hundreds of built-in named colors, <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">listed here</a><span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> I typically don’t use these, except for the <code>greyXX</code> colors, since it’s easier to use something like <code>c(&quot;grey30&quot;, &quot;grey60&quot;, &quot;grey90&quot;)</code> to get a series of greyscale colors than looking up their hex codes.<br />
@@ -232,9 +218,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb16-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> <span class="kw">as.factor</span>(award_year))) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb16-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#203864&quot;</span>, <span class="st">&quot;#DC5B44&quot;</span>))</a></code></pre></div>
 <p><img src="/class/04-class_files/figure-html/color-example-3.png" width="672" /></p>
-</section>
-<section id="theme-options" class="level3">
-<h3>Theme options</h3>
+<h3 id="theme-options">Theme options</h3>
 <p>You can make adjustments to plots with the <code>theme()</code> function, but there are a billion different options to play with. To simplify life, you can install a GUI interface for manipulating themes <a href="https://github.com/calligross/ggthemeassist">with the <code>ggThemeAssist</code> package</a>. Once it’s installed, you can access it in RStudio with the “Addins” menu at the top of the window. You must have a ggplot object selected for it to work.</p>
 <p><code>ggThemeAssist</code> will generate a bunch of settings inside a <code>theme()</code> function. If you want to reuse those settings in other plots, you can assign them to a variable and then add that variable as a layer to other plots:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># This was all generated with ggThemeAssist</span></a>
@@ -247,14 +231,10 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb17-8" data-line-number="8">p1 <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Months&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Amount&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Cool stuff&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb17-9" data-line-number="9"><span class="st">  </span>my_ugly_theme</a></code></pre></div>
 <p><img src="/class/04-class_files/figure-html/ugly-theme-1.png" width="672" /></p>
-</section>
-</section>
-<section id="feedback-for-today" class="level2">
-<h2>Feedback for today</h2>
+<h2 id="feedback-for-today">Feedback for today</h2>
 <p>Go to <a href="https://goo.gl/forms/f2KdhCePXOV1gJRw2">this form</a> and answer these three questions (anonymously if you want):</p>
 <ol type="1">
 <li>What new thing did you learn today?</li>
 <li>What was the most unclear thing about today?</li>
 <li>What was the most exciting thing you learned today?</li>
 </ol>
-</section>

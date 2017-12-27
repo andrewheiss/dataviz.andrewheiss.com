@@ -98,23 +98,17 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul>
 </div>
 
-<section id="slides" class="level2">
-<h2>Slides</h2>
+<h2 id="slides">Slides</h2>
 <p><a href="/slides/MPA-635_2017-10-10.pdf">Download the slides from today’s lecture</a>.</p>
 <figure>
 <a href="/slides/MPA-635_2017-10-10.pdf"><img src="/images/slides/slides_2017-10-10.png" alt="First slide" /></a>
 </figure>
-</section>
-<section id="make-this-plot" class="level2">
-<h2>Make this plot</h2>
-<section id="data" class="level3">
-<h3>Data</h3>
+<h2 id="make-this-plot">Make this plot</h2>
+<h3 id="data">Data</h3>
 <p><span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> <a href="https://www.kaggle.com/rtatman/animal-bites">See complete column descriptions</a>. The data is released under a public domain license and hosted originally at Kaggle.<br />
 <br />
 </span></span> <a href="/data/Health_AnimalBites.csv"><i class="fa fa-download" aria-hidden="true"></i> Louisville animal bites</a></p>
-</section>
-<section id="colors" class="level3">
-<h3>Colors</h3>
+<h3 id="colors">Colors</h3>
 <ul>
 <li><span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> Colors originally from <a href="https://color.adobe.com/Animal-Print-color-theme-3375361/edit/?copy=true">this palette at Adobe Color</a>.<br />
 <br />
@@ -122,9 +116,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li><span style="color: #2FCBC5">#2FCBC5</span></li>
 <li><span style="color: #37291E">#37291E</span></li>
 </ul>
-</section>
-<section id="fonts" class="level3">
-<h3>Fonts</h3>
+<h3 id="fonts">Fonts</h3>
 <ul>
 <li><span><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"> Download <a href="https://fonts.google.com/specimen/Roboto+Condensed">Roboto Condensed from Google Fonts</a>.<br />
 <br />
@@ -132,9 +124,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li><em>Roboto Condensed Light</em> in subtitle and caption</li>
 <li><em>Roboto Condensed</em> everywhere else</li>
 </ul>
-</section>
-<section id="final-figure" class="level3">
-<h3>Final figure</h3>
+<h3 id="final-figure">Final figure</h3>
 <figure class="fullwidth">
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(lubridate)</a>
@@ -185,12 +175,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">ggsave</span>(nice_plot <span class="op">+</span><span class="st"> </span><span class="kw">fancy_theme</span>(<span class="dt">base_size =</span> <span class="dv">11</span>),</a>
 <a class="sourceLine" id="cb2-5" data-line-number="5">       <span class="dt">filename =</span> <span class="st">&quot;output/nice_plot.png&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;cairo&quot;</span>,</a>
 <a class="sourceLine" id="cb2-6" data-line-number="6">       <span class="dt">width =</span> <span class="dv">7</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</a></code></pre></div>
-</section>
-</section>
-<section id="refining-and-enhancing-plots-in-illustrator" class="level2">
-<h2>Refining and enhancing plots in Illustrator</h2>
-<section id="install-a-vector-image-editor" class="level3">
-<h3>Install a vector image editor</h3>
+<h2 id="refining-and-enhancing-plots-in-illustrator">Refining and enhancing plots in Illustrator</h2>
+<h3 id="install-a-vector-image-editor">Install a vector image editor</h3>
 <ul>
 <li><a href="https://www.adobe.com/products/illustrator.html"><strong>Adobe Illustrator</strong></a>: This is the industry standard vector editor; it’s expensive, but <a href="https://it.byu.edu/byu/sc_help.do?sysparm_document_key=kb_knowledge,b12dddc74f1a7240aa42d49f0310c798">it’s free for BYU students</a>.</li>
 <li><a href="https://inkscape.org/en/"><strong>Inkscape</strong></a>: This is an open source editor, so it’s free (yay!) but can be clunky to work with (boo). It’s sufficient for what we’re going to be doing, though.
@@ -199,9 +185,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li>Also, the developers haven’t paid for a macOS developer certificate, so Inkscape might show an error saying it can’t open the first time you try to open it. If that happens, go find it in your “Applications” folder, right click on Inkscape, and choose “Open”. You only have to do this one time—after you’ve opened it like this once, it will open just fine in the future.</li>
 </ul></li>
 </ul>
-</section>
-<section id="make-an-image-and-refine-it" class="level3">
-<h3>Make an image and refine it</h3>
+<h3 id="make-an-image-and-refine-it">Make an image and refine it</h3>
 <p><strong>Data</strong>: <a href="/data/hot-dog-contest-winners.csv"><i class="fa fa-download" aria-hidden="true"></i> Nathan’s Famous Hot Dog contest winners</a><span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote"> Data originally from <a href="https://flowingdata.com/2009/07/02/whos-going-to-win-nathans-hot-dog-eating-contest/">FlowingData</a>.<br />
 <br />
 </span></span></p>
@@ -246,18 +230,12 @@ code span.wa { color: #bf0303; } /* Warning */
 <img src="/images/class/hot-dogs.gif" alt="Enhanced hot dog eating contest graph" /><figcaption>Enhanced hot dog eating contest graph</figcaption>
 </figure>
 </figure>
-</section>
-</section>
-<section id="bonus-ggplot-features" class="level2">
-<h2>Bonus <code>ggplot</code> features</h2>
-<section id="extensions" class="level3">
-<h3>Extensions</h3>
+<h2 id="bonus-ggplot-features">Bonus <code>ggplot</code> features</h2>
+<h3 id="extensions">Extensions</h3>
 <p>So far, we’ve used a few extra packages to enhance our <code>ggplot</code> plots, like <code>ggrepel</code>, <code>gridExtra</code>, and <code>ggThemeAssist</code>. There are dozens of other <code>ggplot</code>-related packages, but it’s hard to find them or know what exists. The <a href="http://www.ggplot2-exts.org/gallery/"><code>ggplot2</code> Extensions Gallery</a> helpfully lists 35<span><label for="sn-5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="sidenote">As of October 9, 2017<br />
 <br />
 </span></span> different packages.</p>
-</section>
-<section id="animation" class="level3">
-<h3>Animation</h3>
+<h3 id="animation">Animation</h3>
 <p>You can use the <a href="https://github.com/dgrtwo/gganimate"><code>gganimate</code> package</a> to add a new aesthetic “frame” to your plots, meaning you can map a variable like “year” to a plot to show changes over time.</p>
 <p>Install the package in R with this command: (it’s not on CRAN so you can’t use the “Packages” panel):</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># install.packages(devtools)  # Install devtools it it&#39;s not already installed</span></a>
@@ -359,14 +337,10 @@ code span.wa { color: #bf0303; } /* Warning */
 <video width="600" autoplay controls loop>
 <source src="/images/class/rosling_plot_tween.mp4">
 </video>
-</section>
-</section>
-<section id="feedback-for-today" class="level2">
-<h2>Feedback for today</h2>
+<h2 id="feedback-for-today">Feedback for today</h2>
 <p>Go to <a href="https://goo.gl/forms/mdZaBIBxeI4Oqm532">this form</a> and answer these three questions (anonymously if you want):</p>
 <ol type="1">
 <li>What new thing did you learn today?</li>
 <li>What was the most unclear thing about today?</li>
 <li>What was the most exciting thing you learned today?</li>
 </ol>
-</section>

@@ -73,8 +73,7 @@ code span.wa { color: #bf0303; } /* Warning */
 </style>
 
 
-<section id="task-1-reflection-memo" class="level2">
-<h2>Task 1: Reflection memo</h2>
+<h2 id="task-1-reflection-memo">Task 1: Reflection memo</h2>
 <p>Write a 500-word memo about <a href="/reading/02-reading/">the assigned readings</a> for this week. You can use some of the prompt questions there if you want. As you write the memo, also consider these central questions:</p>
 <ul>
 <li>How do these readings connect to our main goal of discovering truth?</li>
@@ -82,9 +81,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li>How can this be useful to me?</li>
 </ul>
 <p><strong><a href="mailto:andrew_heiss@byu.edu">E-mail me</a> a PDF of the memo.</strong></p>
-</section>
-<section id="task-2-playing-with-r" class="level2">
-<h2>Task 2: Playing with R</h2>
+<h2 id="task-2-playing-with-r">Task 2: Playing with R</h2>
 <p>This example uses data from the <a href="https://www.gapminder.org/">Gapminder project</a>.<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> You may have seen Hans Rosling’s <a href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen">delightful TED talk</a> showing how global health and wealth have been increasing. If you haven’t, you should watch it. Sadly, Hans died in February 2017.<br />
 <br />
 </span></span> You’ll need to install the <code>gapminder</code> R package first. Install it either with the “Packages” panel in RStudio or by typing <code>install.packages(&quot;gapminder&quot;)</code> in the R console.</p>
@@ -92,8 +89,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <br />
 </span></span> open it in RStudio, and walk through the examples in RStudio on your computer. If you place your cursor on some R code and press “⌘ + enter” (for macOS users) or “ctrl + enter” (for Windows users), RStudio will send that line to the console and run it.</p>
 <p>There are a few questions that you’ll need to answer, but that’s all.</p>
-<section id="life-expectancy-in-2007" class="level3">
-<h3>Life expectancy in 2007</h3>
+<h3 id="life-expectancy-in-2007">Life expectancy in 2007</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># This loads ggplot, dplyr, and other packages you&#39;ll need</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(gapminder)</a></code></pre></div>
@@ -133,9 +129,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">2</span>)</a></code></pre></div>
 <p><img src="/assignment/02-assignment_files/figure-html/plot-2007-2-1.png" width="672" /></p>
-</section>
-<section id="average-life-expectancy-in-2007-by-continent" class="level3">
-<h3>Average life expectancy in 2007 by continent</h3>
+<h3 id="average-life-expectancy-in-2007-by-continent">Average life expectancy in 2007 by continent</h3>
 <p>We’re also interested in the differences of life expectancy across continents. First, we can group all rows by continent and calculate the mean:<span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote"> This is where the <code>%&gt;%</code> function is actually super useful. Remember that it lets you chain functions together—this means we can read these commands as a set of instructions: take the <code>gapminder</code> data frame, filter it, group it by continent, and summarize each group by calculating the mean. Without using the <code>%&gt;%</code>, we could write this same chain like this: <code>summarize(group_by(filter(gapminder, year == 2007), continent), avg_life_exp = mean(lifeExp))</code>. But that’s <em>awful</em> and impossible to read and full of parentheses that can easily be mismatched.<br />
 <br />
 </span></span></p>
@@ -177,5 +171,3 @@ code span.wa { color: #bf0303; } /* Warning */
 <li>What’s going on with Oceania?</li>
 </ul>
 <p><a href="mailto:andrew_heiss@byu.edu">E-mail me</a> the answers to the questions posed in this example.</p>
-</section>
-</section>
