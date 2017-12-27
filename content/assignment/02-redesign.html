@@ -4,50 +4,78 @@ date: "2017-10-03"
 ---
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
-td.sourceCode { padding-left: 5px; }
-pre, code { color: #1f1c1b; background-color: #ffffff; }
-code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-code > span.dt { color: #0057ae; } /* DataType */
-code > span.dv { color: #b08000; } /* DecVal */
-code > span.bn { color: #b08000; } /* BaseN */
-code > span.fl { color: #b08000; } /* Float */
-code > span.cn { color: #aa5500; } /* Constant */
-code > span.ch { color: #924c9d; } /* Char */
-code > span.sc { color: #3daee9; } /* SpecialChar */
-code > span.st { color: #bf0303; } /* String */
-code > span.vs { color: #bf0303; } /* VerbatimString */
-code > span.ss { color: #ff5500; } /* SpecialString */
-code > span.im { color: #ff5500; } /* Import */
-code > span.co { color: #898887; } /* Comment */
-code > span.do { color: #607880; } /* Documentation */
-code > span.an { color: #ca60ca; } /* Annotation */
-code > span.cv { color: #0095ff; } /* CommentVar */
-code > span.ot { color: #006e28; } /* Other */
-code > span.fu { color: #644a9b; } /* Function */
-code > span.va { color: #0057ae; } /* Variable */
-code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #1f1c1b; } /* Operator */
-code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-code > span.pp { color: #006e28; } /* Preprocessor */
-code > span.at { color: #0057ae; } /* Attribute */
-code > span.re { color: #0057ae; } /* RegionMarker */
-code > span.in { color: #b08000; } /* Information */
-code > span.wa { color: #bf0303; } /* Warning */
-code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
-code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
-code > span. { color: #1f1c1b; } /* Normal */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
 </style>
 
 
 <p><span class="newthought">New York City is full of urban wildlife,</span> and rats are one of the city’s most infamous animal mascots. Rats in NYC are plentiful, but they also deliver food, so they’re useful too.</p>
 <figure>
-{{% youtube PeJUqcbool4 %}}
+{{% youtube "PeJUqcbool4" %}}
 </figure>
 <p>NYC keeps incredibly detailed data regarding animal sightings, including rats, and <a href="https://www.kaggle.com/new-york-city/nyc-rat-sightings/data">it makes this data publicly available</a>.</p>
 <p>For this second redesign assignment, you will use <strong>R and <code>ggplot</code></strong> to tell an interesting story hidden in the data. You can recreate one of these ugly, less-than-helpful graphs, or create a new story by looking at other variables in the data:</p>
@@ -55,7 +83,7 @@ code > span. { color: #1f1c1b; } /* Normal */
 <img src="/images/assignment/rat_examples.png" alt="Bad example 1" />
 </figure>
 <p>Here’s what you need to do:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong>Download</strong> New York City’s database of rat sightings since 2010:<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> <img src="https://media.giphy.com/media/3rgXBqQT75uvb1V8Os/giphy.gif" alt="Shredder" /><br />
 <br />
 </span></span> <a href="/data/Rat_Sightings.csv"><i class="fa fa-download" aria-hidden="true"></i> NYC Rat Sightings</a>. Place this in a folder named <code>data</code> in an RStudio project.<span><label for="sn-2" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="sidenote">As always, you’ll probably need to right click on this link and choose “Save link as…”, since your browser will want to display it as text. The data was originally <a href="https://www.kaggle.com/new-york-city/nyc-rat-sightings/data">uploaded by the City of New York to Kaggle</a>, and is provided with a public domain license.<br />
@@ -102,58 +130,58 @@ code > span. { color: #1f1c1b; } /* Normal */
 </span></span></li>
 <li>There’s one row with an unspecified borough, so I filter that out.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(lubridate)
-
-rats_raw &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/Rat_Sightings.csv&quot;</span>, <span class="dt">na =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;N/A&quot;</span>))
-
-<span class="co"># If you get an arror that says &quot;All formats failed to parse. No formats</span>
-<span class="co"># found&quot;, it&#39;s because the mdy_hms function couldn&#39;t parse the date. The date</span>
-<span class="co"># variable *should* be in this format: &quot;04/03/2017 12:00:00 AM&quot;, but in some</span>
-<span class="co"># rare instances, it might load without the seconds as &quot;04/03/2017 12:00 AM&quot;.</span>
-<span class="co"># If there are no seconds, use mdy_hm() instead of mdy_hms().</span>
-rats_clean &lt;-<span class="st"> </span>rats_raw <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">created_date =</span> <span class="st">`</span><span class="dt">Created Date</span><span class="st">`</span>,
-         <span class="dt">location_type =</span> <span class="st">`</span><span class="dt">Location Type</span><span class="st">`</span>,
-         <span class="dt">borough =</span> Borough) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">created_date =</span> <span class="kw">mdy_hm</span>(created_date)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sighting_year =</span> <span class="kw">year</span>(created_date),
-         <span class="dt">sighting_month =</span> <span class="kw">month</span>(created_date),
-         <span class="dt">sighting_day =</span> <span class="kw">day</span>(created_date),
-         <span class="dt">sighting_weekday =</span> <span class="kw">wday</span>(created_date, <span class="dt">label =</span> <span class="ot">TRUE</span>, <span class="dt">abbr =</span> <span class="ot">FALSE</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(borough <span class="op">!=</span><span class="st"> &quot;Unspecified&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(lubridate)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">rats_raw &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/Rat_Sightings.csv&quot;</span>, <span class="dt">na =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>, <span class="st">&quot;NA&quot;</span>, <span class="st">&quot;N/A&quot;</span>))</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="co"># If you get an arror that says &quot;All formats failed to parse. No formats</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># found&quot;, it&#39;s because the mdy_hms function couldn&#39;t parse the date. The date</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="co"># variable *should* be in this format: &quot;04/03/2017 12:00:00 AM&quot;, but in some</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co"># rare instances, it might load without the seconds as &quot;04/03/2017 12:00 AM&quot;.</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co"># If there are no seconds, use mdy_hm() instead of mdy_hms().</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">rats_clean &lt;-<span class="st"> </span>rats_raw <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">created_date =</span> <span class="st">`</span><span class="dt">Created Date</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">         <span class="dt">location_type =</span> <span class="st">`</span><span class="dt">Location Type</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">         <span class="dt">borough =</span> Borough) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">created_date =</span> <span class="kw">mdy_hm</span>(created_date)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sighting_year =</span> <span class="kw">year</span>(created_date),</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17">         <span class="dt">sighting_month =</span> <span class="kw">month</span>(created_date),</a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">         <span class="dt">sighting_day =</span> <span class="kw">day</span>(created_date),</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">         <span class="dt">sighting_weekday =</span> <span class="kw">wday</span>(created_date, <span class="dt">label =</span> <span class="ot">TRUE</span>, <span class="dt">abbr =</span> <span class="ot">FALSE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="st">  </span><span class="kw">filter</span>(borough <span class="op">!=</span><span class="st"> &quot;Unspecified&quot;</span>)</a></code></pre></div>
 <p>You’ll summarize the data with functions from <code>dplyr</code>, including stuff like <code>count()</code>, <code>arrange()</code>, <code>filter()</code>, <code>group_by()</code>, <code>summarize()</code>, and <code>mutate()</code>. Here are some examples of ways to summarize the data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># See the count of rat sightings by weekday</span>
-rats_clean <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(sighting_weekday)
-
-<span class="co"># Assign a table to an object to use it in a plot</span>
-rats_by_weekday &lt;-<span class="st"> </span>rats_clean <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(sighting_weekday, sighting_year)
-
-<span class="co"># geom_bar() will try to calculate the count for you by default. Here we</span>
-<span class="co"># already have the count, so we have to specify that the statistic we care</span>
-<span class="co"># about in the bar chart is &quot;identity&quot;, or the actual variable that&#39;s there</span>
-<span class="co"># already.</span>
-<span class="co">#</span>
-<span class="co"># coord_flip() flips the plot so that the weekdays show up on the y-axis. This</span>
-<span class="co"># messes with the ordering, though, and puts Saturday at the top. You can</span>
-<span class="co"># reverse the levels of the weekday category with the fct_rev function in the</span>
-<span class="co"># forcats package, which provides a bunch of functions for working with</span>
-<span class="co"># factors.</span>
-<span class="kw">ggplot</span>(rats_by_weekday, <span class="kw">aes</span>(<span class="dt">x =</span> forcats<span class="op">::</span><span class="kw">fct_rev</span>(sighting_weekday), <span class="dt">y =</span> n)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>sighting_year)
-
-<span class="co"># See the count of rat sightings by weekday and borough</span>
-rats_clean <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(sighting_weekday, borough, sighting_year)
-
-<span class="co"># An alternative to count() is to specify the groups with group_by() and then</span>
-<span class="co"># be explicit about how you&#39;re summarizing the groups, such as calculating the</span>
-<span class="co"># mean, standard deviation, or number of observations (we do that here with</span>
-<span class="co"># `n()`).</span>
-rats_clean <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(sighting_weekday, borough) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># See the count of rat sightings by weekday</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">rats_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw">count</span>(sighting_weekday)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="co"># Assign a table to an object to use it in a plot</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">rats_by_weekday &lt;-<span class="st"> </span>rats_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="st">  </span><span class="kw">count</span>(sighting_weekday, sighting_year)</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co"># geom_bar() will try to calculate the count for you by default. Here we</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co"># already have the count, so we have to specify that the statistic we care</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co"># about in the bar chart is &quot;identity&quot;, or the actual variable that&#39;s there</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co"># already.</span></a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co"># coord_flip() flips the plot so that the weekdays show up on the y-axis. This</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co"># messes with the ordering, though, and puts Saturday at the top. You can</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co"># reverse the levels of the weekday category with the fct_rev function in the</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co"># forcats package, which provides a bunch of functions for working with</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co"># factors.</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="kw">ggplot</span>(rats_by_weekday, <span class="kw">aes</span>(<span class="dt">x =</span> forcats<span class="op">::</span><span class="kw">fct_rev</span>(sighting_weekday), <span class="dt">y =</span> n)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>sighting_year)</a>
+<a class="sourceLine" id="cb2-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co"># See the count of rat sightings by weekday and borough</span></a>
+<a class="sourceLine" id="cb2-25" data-line-number="25">rats_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="st">  </span><span class="kw">count</span>(sighting_weekday, borough, sighting_year)</a>
+<a class="sourceLine" id="cb2-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb2-28" data-line-number="28"><span class="co"># An alternative to count() is to specify the groups with group_by() and then</span></a>
+<a class="sourceLine" id="cb2-29" data-line-number="29"><span class="co"># be explicit about how you&#39;re summarizing the groups, such as calculating the</span></a>
+<a class="sourceLine" id="cb2-30" data-line-number="30"><span class="co"># mean, standard deviation, or number of observations (we do that here with</span></a>
+<a class="sourceLine" id="cb2-31" data-line-number="31"><span class="co"># `n()`).</span></a>
+<a class="sourceLine" id="cb2-32" data-line-number="32">rats_clean <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-33" data-line-number="33"><span class="st">  </span><span class="kw">group_by</span>(sighting_weekday, borough) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb2-34" data-line-number="34"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n =</span> <span class="kw">n</span>())</a></code></pre></div>

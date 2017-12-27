@@ -8,44 +8,72 @@ output:
 ---
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
-td.sourceCode { padding-left: 5px; }
-pre, code { color: #1f1c1b; background-color: #ffffff; }
-code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-code > span.dt { color: #0057ae; } /* DataType */
-code > span.dv { color: #b08000; } /* DecVal */
-code > span.bn { color: #b08000; } /* BaseN */
-code > span.fl { color: #b08000; } /* Float */
-code > span.cn { color: #aa5500; } /* Constant */
-code > span.ch { color: #924c9d; } /* Char */
-code > span.sc { color: #3daee9; } /* SpecialChar */
-code > span.st { color: #bf0303; } /* String */
-code > span.vs { color: #bf0303; } /* VerbatimString */
-code > span.ss { color: #ff5500; } /* SpecialString */
-code > span.im { color: #ff5500; } /* Import */
-code > span.co { color: #898887; } /* Comment */
-code > span.do { color: #607880; } /* Documentation */
-code > span.an { color: #ca60ca; } /* Annotation */
-code > span.cv { color: #0095ff; } /* CommentVar */
-code > span.ot { color: #006e28; } /* Other */
-code > span.fu { color: #644a9b; } /* Function */
-code > span.va { color: #0057ae; } /* Variable */
-code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #1f1c1b; } /* Operator */
-code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-code > span.pp { color: #006e28; } /* Preprocessor */
-code > span.at { color: #0057ae; } /* Attribute */
-code > span.re { color: #0057ae; } /* RegionMarker */
-code > span.in { color: #b08000; } /* Information */
-code > span.wa { color: #bf0303; } /* Warning */
-code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
-code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
-code > span. { color: #1f1c1b; } /* Normal */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
 </style>
 
 <h2>Contents</h2>
@@ -70,22 +98,22 @@ code > span. { color: #1f1c1b; } /* Normal */
 </ul>
 </div>
 
-<div id="slides" class="section level2">
+<section id="slides" class="level2">
 <h2>Slides</h2>
 <p><a href="/slides/MPA-635_2017-10-10.pdf">Download the slides from today’s lecture</a>.</p>
 <figure>
 <a href="/slides/MPA-635_2017-10-10.pdf"><img src="/images/slides/slides_2017-10-10.png" alt="First slide" /></a>
 </figure>
-</div>
-<div id="make-this-plot" class="section level2">
+</section>
+<section id="make-this-plot" class="level2">
 <h2>Make this plot</h2>
-<div id="data" class="section level3">
+<section id="data" class="level3">
 <h3>Data</h3>
 <p><span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> <a href="https://www.kaggle.com/rtatman/animal-bites">See complete column descriptions</a>. The data is released under a public domain license and hosted originally at Kaggle.<br />
 <br />
 </span></span> <a href="/data/Health_AnimalBites.csv"><i class="fa fa-download" aria-hidden="true"></i> Louisville animal bites</a></p>
-</div>
-<div id="colors" class="section level3">
+</section>
+<section id="colors" class="level3">
 <h3>Colors</h3>
 <ul>
 <li><span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> Colors originally from <a href="https://color.adobe.com/Animal-Print-color-theme-3375361/edit/?copy=true">this palette at Adobe Color</a>.<br />
@@ -94,8 +122,8 @@ code > span. { color: #1f1c1b; } /* Normal */
 <li><span style="color: #2FCBC5">#2FCBC5</span></li>
 <li><span style="color: #37291E">#37291E</span></li>
 </ul>
-</div>
-<div id="fonts" class="section level3">
+</section>
+<section id="fonts" class="level3">
 <h3>Fonts</h3>
 <ul>
 <li><span><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"> Download <a href="https://fonts.google.com/specimen/Roboto+Condensed">Roboto Condensed from Google Fonts</a>.<br />
@@ -104,64 +132,64 @@ code > span. { color: #1f1c1b; } /* Normal */
 <li><em>Roboto Condensed Light</em> in subtitle and caption</li>
 <li><em>Roboto Condensed</em> everywhere else</li>
 </ul>
-</div>
-<div id="final-figure" class="section level3">
+</section>
+<section id="final-figure" class="level3">
 <h3>Final figure</h3>
 <figure class="fullwidth">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(lubridate)
-
-bites_raw &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/Health_AnimalBites.csv&quot;</span>)
-
-bites &lt;-<span class="st"> </span>bites_raw <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">year</span>(bite_date)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">species =</span> <span class="kw">recode</span>(SpeciesIDDesc, 
-                          <span class="dt">CAT =</span> <span class="st">&quot;Cat&quot;</span>, <span class="dt">DOG =</span> <span class="st">&quot;Dog&quot;</span>, <span class="dt">.default =</span> <span class="st">&quot;Other&quot;</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">species =</span> <span class="kw">factor</span>(species, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Dog&quot;</span>, <span class="st">&quot;Cat&quot;</span>, <span class="st">&quot;Other&quot;</span>), <span class="dt">ordered =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(year <span class="op">&lt;</span><span class="st"> </span><span class="dv">2018</span>, year <span class="op">&gt;</span><span class="st"> </span><span class="dv">2010</span>) 
-
-bites_plot_year &lt;-<span class="st"> </span>bites <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(species)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(year, species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_bites =</span> <span class="kw">n</span>())
-
-fancy_theme &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">base_size =</span> <span class="dv">11</span>) {
-  <span class="kw">theme_minimal</span>(<span class="dt">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>, <span class="dt">base_size =</span> base_size) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>,
-                                  <span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">1.5</span>)),
-        <span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Roboto Condensed Light&quot;</span>, <span class="dt">face =</span> <span class="st">&quot;plain&quot;</span>,
-                                    <span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">0.7</span>)),
-        <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Roboto Condensed Light&quot;</span>, <span class="dt">face =</span> <span class="st">&quot;plain&quot;</span>,
-                                     <span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">1.1</span>)),
-        <span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,
-        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())
-}
-
-nice_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bites_plot_year, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> total_bites, <span class="dt">color =</span> species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Total number of bites&quot;</span>, 
-       <span class="dt">title =</span> <span class="st">&quot;Is the Louisville canine rampage over?&quot;</span>, 
-       <span class="dt">subtitle =</span> <span class="st">&quot;Total number of reported animal bites per year&quot;</span>,
-       <span class="dt">caption =</span> <span class="st">&quot;Source: Louisville Metro Department of Public Health and Wellness&quot;</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="ot">NULL</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#F05A2A&quot;</span>, <span class="st">&quot;#2FCBC5&quot;</span>, <span class="st">&quot;#37291E&quot;</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">2011</span>, <span class="dv">2017</span>, <span class="dv">1</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">fancy_theme</span>(<span class="dt">base_size =</span> <span class="dv">18</span>)
-
-nice_plot</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(lubridate)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">bites_raw &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/Health_AnimalBites.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">bites &lt;-<span class="st"> </span>bites_raw <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">year</span>(bite_date)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">species =</span> <span class="kw">recode</span>(SpeciesIDDesc, </a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">                          <span class="dt">CAT =</span> <span class="st">&quot;Cat&quot;</span>, <span class="dt">DOG =</span> <span class="st">&quot;Dog&quot;</span>, <span class="dt">.default =</span> <span class="st">&quot;Other&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">species =</span> <span class="kw">factor</span>(species, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Dog&quot;</span>, <span class="st">&quot;Cat&quot;</span>, <span class="st">&quot;Other&quot;</span>), <span class="dt">ordered =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">&lt;</span><span class="st"> </span><span class="dv">2018</span>, year <span class="op">&gt;</span><span class="st"> </span><span class="dv">2010</span>) </a>
+<a class="sourceLine" id="cb1-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">bites_plot_year &lt;-<span class="st"> </span>bites <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(species)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="st">  </span><span class="kw">group_by</span>(year, species) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">total_bites =</span> <span class="kw">n</span>())</a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18">fancy_theme &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">base_size =</span> <span class="dv">11</span>) {</a>
+<a class="sourceLine" id="cb1-19" data-line-number="19">  <span class="kw">theme_minimal</span>(<span class="dt">base_family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>, <span class="dt">base_size =</span> base_size) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Roboto Condensed&quot;</span>, <span class="dt">face =</span> <span class="st">&quot;bold&quot;</span>,</a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">                                  <span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">1.5</span>)),</a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">        <span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Roboto Condensed Light&quot;</span>, <span class="dt">face =</span> <span class="st">&quot;plain&quot;</span>,</a>
+<a class="sourceLine" id="cb1-23" data-line-number="23">                                    <span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">0.7</span>)),</a>
+<a class="sourceLine" id="cb1-24" data-line-number="24">        <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Roboto Condensed Light&quot;</span>, <span class="dt">face =</span> <span class="st">&quot;plain&quot;</span>,</a>
+<a class="sourceLine" id="cb1-25" data-line-number="25">                                     <span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">1.1</span>)),</a>
+<a class="sourceLine" id="cb1-26" data-line-number="26">        <span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">}</a>
+<a class="sourceLine" id="cb1-29" data-line-number="29"></a>
+<a class="sourceLine" id="cb1-30" data-line-number="30">nice_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bites_plot_year, <span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> total_bites, <span class="dt">color =</span> species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="st">&quot;Total number of bites&quot;</span>, </a>
+<a class="sourceLine" id="cb1-33" data-line-number="33">       <span class="dt">title =</span> <span class="st">&quot;Is the Louisville canine rampage over?&quot;</span>, </a>
+<a class="sourceLine" id="cb1-34" data-line-number="34">       <span class="dt">subtitle =</span> <span class="st">&quot;Total number of reported animal bites per year&quot;</span>,</a>
+<a class="sourceLine" id="cb1-35" data-line-number="35">       <span class="dt">caption =</span> <span class="st">&quot;Source: Louisville Metro Department of Public Health and Wellness&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-36" data-line-number="36"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="ot">NULL</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-37" data-line-number="37"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;#F05A2A&quot;</span>, <span class="st">&quot;#2FCBC5&quot;</span>, <span class="st">&quot;#37291E&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-38" data-line-number="38"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">2011</span>, <span class="dv">2017</span>, <span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-39" data-line-number="39"><span class="st">  </span><span class="kw">fancy_theme</span>(<span class="dt">base_size =</span> <span class="dv">18</span>)</a>
+<a class="sourceLine" id="cb1-40" data-line-number="40"></a>
+<a class="sourceLine" id="cb1-41" data-line-number="41">nice_plot</a></code></pre></div>
 <p><img src="/class/06-class_files/figure-html/create-class-plot-1.png" width="1344" /></p>
 </figure>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(nice_plot <span class="op">+</span><span class="st"> </span><span class="kw">fancy_theme</span>(<span class="dt">base_size =</span> <span class="dv">11</span>),
-       <span class="dt">filename =</span> <span class="st">&quot;output/nice_plot.pdf&quot;</span>, <span class="dt">device =</span> cairo_pdf,
-       <span class="dt">width =</span> <span class="dv">7</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)
-<span class="kw">ggsave</span>(nice_plot <span class="op">+</span><span class="st"> </span><span class="kw">fancy_theme</span>(<span class="dt">base_size =</span> <span class="dv">11</span>),
-       <span class="dt">filename =</span> <span class="st">&quot;output/nice_plot.png&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;cairo&quot;</span>,
-       <span class="dt">width =</span> <span class="dv">7</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</code></pre></div>
-</div>
-</div>
-<div id="refining-and-enhancing-plots-in-illustrator" class="section level2">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">ggsave</span>(nice_plot <span class="op">+</span><span class="st"> </span><span class="kw">fancy_theme</span>(<span class="dt">base_size =</span> <span class="dv">11</span>),</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">       <span class="dt">filename =</span> <span class="st">&quot;output/nice_plot.pdf&quot;</span>, <span class="dt">device =</span> cairo_pdf,</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">       <span class="dt">width =</span> <span class="dv">7</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">ggsave</span>(nice_plot <span class="op">+</span><span class="st"> </span><span class="kw">fancy_theme</span>(<span class="dt">base_size =</span> <span class="dv">11</span>),</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">       <span class="dt">filename =</span> <span class="st">&quot;output/nice_plot.png&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;cairo&quot;</span>,</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">       <span class="dt">width =</span> <span class="dv">7</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</a></code></pre></div>
+</section>
+</section>
+<section id="refining-and-enhancing-plots-in-illustrator" class="level2">
 <h2>Refining and enhancing plots in Illustrator</h2>
-<div id="install-a-vector-image-editor" class="section level3">
+<section id="install-a-vector-image-editor" class="level3">
 <h3>Install a vector image editor</h3>
 <ul>
 <li><a href="https://www.adobe.com/products/illustrator.html"><strong>Adobe Illustrator</strong></a>: This is the industry standard vector editor; it’s expensive, but <a href="https://it.byu.edu/byu/sc_help.do?sysparm_document_key=kb_knowledge,b12dddc74f1a7240aa42d49f0310c798">it’s free for BYU students</a>.</li>
@@ -171,38 +199,38 @@ nice_plot</code></pre></div>
 <li>Also, the developers haven’t paid for a macOS developer certificate, so Inkscape might show an error saying it can’t open the first time you try to open it. If that happens, go find it in your “Applications” folder, right click on Inkscape, and choose “Open”. You only have to do this one time—after you’ve opened it like this once, it will open just fine in the future.</li>
 </ul></li>
 </ul>
-</div>
-<div id="make-an-image-and-refine-it" class="section level3">
+</section>
+<section id="make-an-image-and-refine-it" class="level3">
 <h3>Make an image and refine it</h3>
 <p><strong>Data</strong>: <a href="/data/hot-dog-contest-winners.csv"><i class="fa fa-download" aria-hidden="true"></i> Nathan’s Famous Hot Dog contest winners</a><span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote"> Data originally from <a href="https://flowingdata.com/2009/07/02/whos-going-to-win-nathans-hot-dog-eating-contest/">FlowingData</a>.<br />
 <br />
 </span></span></p>
 <p><strong>Plot with transparent background</strong>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-
-hotdogs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/hot-dog-contest-winners.csv&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">dogs =</span> <span class="st">`</span><span class="dt">Dogs eaten</span><span class="st">`</span>, <span class="dt">record =</span> <span class="st">`</span><span class="dt">New record</span><span class="st">`</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">record =</span> <span class="kw">factor</span>(record))
-
-plot_hotdogs &lt;-<span class="st"> </span><span class="kw">ggplot</span>(hotdogs, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> dogs, <span class="dt">fill =</span> record)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;grey80&quot;</span>, <span class="st">&quot;#FC7300&quot;</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">1980</span>, <span class="dv">2010</span>, <span class="dv">2</span>), <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">70</span>, <span class="dv">10</span>), <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Hot dogs and buns&quot;</span>, <span class="dt">x =</span> <span class="ot">NULL</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="dt">colour =</span> <span class="ot">NA</span>),
-        <span class="dt">plot.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="dt">colour =</span> <span class="ot">NA</span>),
-        <span class="dt">axis.ticks.x =</span> <span class="kw">element_line</span>(<span class="dt">size =</span> <span class="fl">0.25</span>),
-        <span class="dt">panel.grid.major.x =</span> <span class="kw">element_blank</span>(),
-        <span class="dt">panel.grid.major.y =</span> <span class="kw">element_line</span>(<span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>),
-        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())
-
-plot_hotdogs</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">hotdogs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/hot-dog-contest-winners.csv&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">dogs =</span> <span class="st">`</span><span class="dt">Dogs eaten</span><span class="st">`</span>, <span class="dt">record =</span> <span class="st">`</span><span class="dt">New record</span><span class="st">`</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">record =</span> <span class="kw">factor</span>(record))</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">plot_hotdogs &lt;-<span class="st"> </span><span class="kw">ggplot</span>(hotdogs, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> dogs, <span class="dt">fill =</span> record)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;grey80&quot;</span>, <span class="st">&quot;#FC7300&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">1980</span>, <span class="dv">2010</span>, <span class="dv">2</span>), <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">70</span>, <span class="dv">10</span>), <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Hot dogs and buns&quot;</span>, <span class="dt">x =</span> <span class="ot">NULL</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="dt">colour =</span> <span class="ot">NA</span>),</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">        <span class="dt">plot.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="dt">colour =</span> <span class="ot">NA</span>),</a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">        <span class="dt">axis.ticks.x =</span> <span class="kw">element_line</span>(<span class="dt">size =</span> <span class="fl">0.25</span>),</a>
+<a class="sourceLine" id="cb3-18" data-line-number="18">        <span class="dt">panel.grid.major.x =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">        <span class="dt">panel.grid.major.y =</span> <span class="kw">element_line</span>(<span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>),</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">        <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())</a>
+<a class="sourceLine" id="cb3-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb3-22" data-line-number="22">plot_hotdogs</a></code></pre></div>
 <p><img src="/class/06-class_files/figure-html/build-hotdogs-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(plot_hotdogs, <span class="dt">filename =</span> <span class="st">&quot;output/hotdogs.pdf&quot;</span>, <span class="dt">device =</span> cairo_pdf,
-       <span class="dt">width =</span> <span class="dv">7</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>, <span class="dt">bg =</span> <span class="st">&quot;transparent&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">ggsave</span>(plot_hotdogs, <span class="dt">filename =</span> <span class="st">&quot;output/hotdogs.pdf&quot;</span>, <span class="dt">device =</span> cairo_pdf,</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">       <span class="dt">width =</span> <span class="dv">7</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>, <span class="dt">bg =</span> <span class="st">&quot;transparent&quot;</span>)</a></code></pre></div>
 <p><strong>Text for annotations</strong>:</p>
 <ul>
 <li>Winners from Nathan’s Hot Dog Eating Contest</li>
@@ -214,34 +242,33 @@ plot_hotdogs</code></pre></div>
 </ul>
 <p><strong>Enhanced plot</strong>:</p>
 <figure class="fullwidth">
-<div class="figure">
-<img src="/images/class/hot-dogs.gif" alt="Enhanced hot dog eating contest graph" />
-<p class="caption">Enhanced hot dog eating contest graph</p>
-</div>
+<figure>
+<img src="/images/class/hot-dogs.gif" alt="Enhanced hot dog eating contest graph" /><figcaption>Enhanced hot dog eating contest graph</figcaption>
 </figure>
-</div>
-</div>
-<div id="bonus-ggplot-features" class="section level2">
+</figure>
+</section>
+</section>
+<section id="bonus-ggplot-features" class="level2">
 <h2>Bonus <code>ggplot</code> features</h2>
-<div id="extensions" class="section level3">
+<section id="extensions" class="level3">
 <h3>Extensions</h3>
 <p>So far, we’ve used a few extra packages to enhance our <code>ggplot</code> plots, like <code>ggrepel</code>, <code>gridExtra</code>, and <code>ggThemeAssist</code>. There are dozens of other <code>ggplot</code>-related packages, but it’s hard to find them or know what exists. The <a href="http://www.ggplot2-exts.org/gallery/"><code>ggplot2</code> Extensions Gallery</a> helpfully lists 35<span><label for="sn-5" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-5" class="margin-toggle"/><span class="sidenote">As of October 9, 2017<br />
 <br />
 </span></span> different packages.</p>
-</div>
-<div id="animation" class="section level3">
+</section>
+<section id="animation" class="level3">
 <h3>Animation</h3>
 <p>You can use the <a href="https://github.com/dgrtwo/gganimate"><code>gganimate</code> package</a> to add a new aesthetic “frame” to your plots, meaning you can map a variable like “year” to a plot to show changes over time.</p>
 <p>Install the package in R with this command: (it’s not on CRAN so you can’t use the “Packages” panel):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(devtools)  # Install devtools it it&#39;s not already installed</span>
-devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dgrtwo/gganimate&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># install.packages(devtools)  # Install devtools it it&#39;s not already installed</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;dgrtwo/gganimate&quot;</span>)</a></code></pre></div>
 <p>Before you use it, though, you have to install two command line tools on your computer to manipulate images and videos. You don’t actually have to ever use these programs—they just have to be installed, and <code>gganimate</code> will use them.</p>
 <ul>
 <li><em>ImageMagick</em>: tool for creating and manipulationg animated GIFs and other images</li>
 <li><em>FFmpeg</em>: tool for creating and manipulating movie files</li>
 </ul>
 <p><strong>Installation on Windows</strong></p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Download <a href="https://imagemagick.org/script/download.php#windows">ImageMagick for Windows</a> and run the installer.</li>
 <li>Make sure you select these options:<span><label for="sn-6" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="marginnote"> <img src="/images/class/im-windows-options.png" alt="ImageMagick installation options for Windows" /><br />
 <br />
@@ -255,93 +282,91 @@ devtools<span class="op">::</span><span class="kw">install_github</span>(<span c
 </ol>
 <p><strong>Installation on macOS</strong></p>
 <p>Because both ImageMagick and FFmpeg are Linux-based programs, and because underneath its fancy bells and whistles, macOS is essentially a Unix system, there’s no automatic installer for macOS. You have to install ImageMagick and FFmpeg with Terminal instead, but it’s not hard!</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Open Terminal</li>
 <li>Go to <a href="https://brew.sh/">brew.sh</a>, copy the big long command under “Install Homebrew” (starts with <code>/usr/bin/ruby -e &quot;$(curl -fsSL...</code>), paste it into Terminal, and press enter. This installs Homebrew, which is special software that lets you install Unix-y programs from the terminal.<span><label for="sn-7" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-7" class="margin-toggle"/><span class="marginnote"> You can install stuff like MySQL, Python, Apache, and even R if you want; there’s a <a href="http://formulae.brew.sh/">full list of Homebrew formulae here</a>.<br />
 <br />
 </span></span></li>
 <li><p>Type these three lines in Terminal:</p>
-<pre><code>brew install imagemagick
-brew install libvpx
-brew install ffmpeg --with-libvpx</code></pre></li>
-<li>Wait for a few minutes while your Terminal makes you feel like a hacker.<span><label for="sn-8" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-8" class="margin-toggle"/><span class="marginnote"> {{% youtube rUGQHdYUIEo %}}<br />
+<pre><code> brew install imagemagick
+ brew install libvpx
+ brew install ffmpeg --with-libvpx</code></pre></li>
+<li>Wait for a few minutes while your Terminal makes you feel like a hacker.<span><label for="sn-8" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-8" class="margin-toggle"/><span class="marginnote"> {{% youtube "rUGQHdYUIEo" %}}<br />
 <br />
 </span></span></li>
 <li><p>The end. You shouldn’t have to restart or log out.</p></li>
 </ol>
 <p><strong>Usage</strong></p>
 <p>We won’t cover this in very much depth in class—look at <a href="https://github.com/dgrtwo/gganimate">the documentation at GitHub for full details</a>. Here’s a quick example, though. Note the new <code>frame = year</code> aesthetic mapping:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(gapminder)
-<span class="kw">library</span>(gganimate)
-
-rosling_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gapminder, 
-                       <span class="kw">aes</span>(gdpPercap, lifeExp, <span class="dt">size =</span> pop, 
-                           <span class="dt">color =</span> continent, <span class="dt">frame =</span> year)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">size =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="ot">NULL</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Wealth&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Health&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gganimate</span>(rosling_plot)</code></pre></div>
-<div class="figure">
-<img src="/images/class/rosling_plot.gif" alt="Animated Gapminder plot" />
-<p class="caption">Animated Gapminder plot</p>
-</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">library</span>(gapminder)</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw">library</span>(gganimate)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">rosling_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gapminder, </a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">                       <span class="kw">aes</span>(gdpPercap, lifeExp, <span class="dt">size =</span> pop, </a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">                           <span class="dt">color =</span> continent, <span class="dt">frame =</span> year)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">size =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="ot">NULL</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Wealth&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Health&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">gganimate</span>(rosling_plot)</a></code></pre></div>
+<figure>
+<img src="/images/class/rosling_plot.gif" alt="Animated Gapminder plot" /><figcaption>Animated Gapminder plot</figcaption>
+</figure>
 <p>You can also save the animation to your computer:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gganimate</span>(rosling_plot, <span class="dt">filename =</span> <span class="st">&quot;name_of_file.gif&quot;</span>, 
-          <span class="dt">ani.width =</span> <span class="dv">600</span>, <span class="dt">ani.height =</span> <span class="dv">400</span>)
-<span class="kw">gganimate</span>(rosling_plot, <span class="dt">filename =</span> <span class="st">&quot;name_of_file.mp4&quot;</span>, 
-          <span class="dt">ani.width =</span> <span class="dv">600</span>, <span class="dt">ani.height =</span> <span class="dv">400</span>)</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">gganimate</span>(rosling_plot, <span class="dt">filename =</span> <span class="st">&quot;name_of_file.gif&quot;</span>, </a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">          <span class="dt">ani.width =</span> <span class="dv">600</span>, <span class="dt">ani.height =</span> <span class="dv">400</span>)</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">gganimate</span>(rosling_plot, <span class="dt">filename =</span> <span class="st">&quot;name_of_file.mp4&quot;</span>, </a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">          <span class="dt">ani.width =</span> <span class="dv">600</span>, <span class="dt">ani.height =</span> <span class="dv">400</span>)</a></code></pre></div>
 <p>You can adjust the animation speed with the <code>interval</code> argument in <code>gganimate()</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">gganimate</span>(rosling_plot, <span class="dt">interval =</span> <span class="fl">0.2</span>)</code></pre></div>
-<div class="figure">
-<img src="/images/class/rosling_plot_fast.gif" alt="Fast animated Gapminder plot" />
-<p class="caption">Fast animated Gapminder plot</p>
-</div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">gganimate</span>(rosling_plot, <span class="dt">interval =</span> <span class="fl">0.2</span>)</a></code></pre></div>
+<figure>
+<img src="/images/class/rosling_plot_fast.gif" alt="Fast animated Gapminder plot" /><figcaption>Fast animated Gapminder plot</figcaption>
+</figure>
 <p>To use this in an R Markdown document, you have to include <code>fig.show=&quot;animate&quot;</code> in the chunk options, otherwise each individual frame will be shown. If you’re using a custom interval, you have to specify it with <code>interval=X</code>. You can also specify the output format for the HTML chunk (e.g. <code>gif</code>, <code>webm</code>, <code>mp4</code>, etc.):</p>
 <pre><code>{r name-of-chunk, fig.show=&quot;animate&quot;, interval=0.2, ffmpeg.format=&quot;gif&quot;, warning=FALSE, message=FALSE}</code></pre>
 <p>These animations tend to not be very smooth, though, with data points jumping to their new positions every five years (in the case of the Gapminder data). We can make everything go a lot smoother with the <a href="https://github.com/thomasp85/tweenr"><code>tweenr</code> package</a>, which interpolates data points to smooth everything out. You have to transform the data little first, but the end result is magical:<span><label for="sn-9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-9" class="margin-toggle"/><span class="sidenote">This code is from <a href="http://blog.revolutionanalytics.com/2017/05/tweenr.html">David Smith</a>.<br />
 <br />
 </span></span></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&#39;tweenr&#39;)  # Install if necessary; it&#39;s on CRAN</span>
-<span class="kw">library</span>(tweenr)
-
-gapminder_edit &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">arrange</span>(country, year) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">time =</span> year, <span class="dt">id =</span> country, continent, pop) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ease=</span><span class="st">&quot;linear&quot;</span>)
-
-gapminder_tween &lt;-<span class="st"> </span><span class="kw">tween_elements</span>(gapminder_edit,
-                                  <span class="st">&quot;time&quot;</span>, <span class="st">&quot;id&quot;</span>, <span class="st">&quot;ease&quot;</span>, <span class="dt">nframes =</span> <span class="dv">300</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">round</span>(time), <span class="dt">country =</span> .group) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">left_join</span>(gapminder, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;continent&quot;</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">pop =</span> pop.x)
-
-rosling_plot_tween &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gapminder_tween, 
-                             <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">size =</span> pop, 
-                                 <span class="dt">color =</span> continent, <span class="dt">frame =</span> .frame)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">size =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="ot">NULL</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Wealth&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Health&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)
-
-<span class="kw">gganimate</span>(rosling_plot_tween, <span class="dt">filename =</span> <span class="st">&quot;rosling_plot_tween.mp4&quot;</span>, 
-          <span class="dt">ani.width=</span><span class="dv">600</span>, <span class="dt">ani.height=</span><span class="dv">400</span>, <span class="dt">title_frame =</span> <span class="ot">FALSE</span>, <span class="dt">interval =</span> <span class="fl">0.05</span>)</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># install.packages(&#39;tweenr&#39;)  # Install if necessary; it&#39;s on CRAN</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">library</span>(tweenr)</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">gapminder_edit &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="st">  </span><span class="kw">arrange</span>(country, year) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="st">  </span><span class="kw">select</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">time =</span> year, <span class="dt">id =</span> country, continent, pop) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ease=</span><span class="st">&quot;linear&quot;</span>)</a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">gapminder_tween &lt;-<span class="st"> </span><span class="kw">tween_elements</span>(gapminder_edit,</a>
+<a class="sourceLine" id="cb12-10" data-line-number="10">                                  <span class="st">&quot;time&quot;</span>, <span class="st">&quot;id&quot;</span>, <span class="st">&quot;ease&quot;</span>, <span class="dt">nframes =</span> <span class="dv">300</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">year =</span> <span class="kw">round</span>(time), <span class="dt">country =</span> .group) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="st">  </span><span class="kw">left_join</span>(gapminder, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;country&quot;</span>, <span class="st">&quot;year&quot;</span>, <span class="st">&quot;continent&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">pop =</span> pop.x)</a>
+<a class="sourceLine" id="cb12-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb12-15" data-line-number="15">rosling_plot_tween &lt;-<span class="st"> </span><span class="kw">ggplot</span>(gapminder_tween, </a>
+<a class="sourceLine" id="cb12-16" data-line-number="16">                             <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">size =</span> pop, </a>
+<a class="sourceLine" id="cb12-17" data-line-number="17">                                 <span class="dt">color =</span> continent, <span class="dt">frame =</span> .frame)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-18" data-line-number="18"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-19" data-line-number="19"><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-20" data-line-number="20"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">size =</span> <span class="ot">FALSE</span>, <span class="dt">color =</span> <span class="kw">guide_legend</span>(<span class="dt">title =</span> <span class="ot">NULL</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-21" data-line-number="21"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Wealth&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Health&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-22" data-line-number="22"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-23" data-line-number="23"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</a>
+<a class="sourceLine" id="cb12-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb12-25" data-line-number="25"><span class="kw">gganimate</span>(rosling_plot_tween, <span class="dt">filename =</span> <span class="st">&quot;rosling_plot_tween.mp4&quot;</span>, </a>
+<a class="sourceLine" id="cb12-26" data-line-number="26">          <span class="dt">ani.width=</span><span class="dv">600</span>, <span class="dt">ani.height=</span><span class="dv">400</span>, <span class="dt">title_frame =</span> <span class="ot">FALSE</span>, <span class="dt">interval =</span> <span class="fl">0.05</span>)</a></code></pre></div>
 <video width="600" autoplay controls loop>
 <source src="/images/class/rosling_plot_tween.mp4">
 </video>
-</div>
-</div>
-<div id="feedback-for-today" class="section level2">
+</section>
+</section>
+<section id="feedback-for-today" class="level2">
 <h2>Feedback for today</h2>
 <p>Go to <a href="https://goo.gl/forms/mdZaBIBxeI4Oqm532">this form</a> and answer these three questions (anonymously if you want):</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>What new thing did you learn today?</li>
 <li>What was the most unclear thing about today?</li>
 <li>What was the most exciting thing you learned today?</li>
 </ol>
-</div>
+</section>

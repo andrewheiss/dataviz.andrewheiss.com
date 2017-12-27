@@ -4,44 +4,72 @@ date: "2017-09-26"
 ---
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
-td.sourceCode { padding-left: 5px; }
-pre, code { color: #1f1c1b; background-color: #ffffff; }
-code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-code > span.dt { color: #0057ae; } /* DataType */
-code > span.dv { color: #b08000; } /* DecVal */
-code > span.bn { color: #b08000; } /* BaseN */
-code > span.fl { color: #b08000; } /* Float */
-code > span.cn { color: #aa5500; } /* Constant */
-code > span.ch { color: #924c9d; } /* Char */
-code > span.sc { color: #3daee9; } /* SpecialChar */
-code > span.st { color: #bf0303; } /* String */
-code > span.vs { color: #bf0303; } /* VerbatimString */
-code > span.ss { color: #ff5500; } /* SpecialString */
-code > span.im { color: #ff5500; } /* Import */
-code > span.co { color: #898887; } /* Comment */
-code > span.do { color: #607880; } /* Documentation */
-code > span.an { color: #ca60ca; } /* Annotation */
-code > span.cv { color: #0095ff; } /* CommentVar */
-code > span.ot { color: #006e28; } /* Other */
-code > span.fu { color: #644a9b; } /* Function */
-code > span.va { color: #0057ae; } /* Variable */
-code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #1f1c1b; } /* Operator */
-code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-code > span.pp { color: #006e28; } /* Preprocessor */
-code > span.at { color: #0057ae; } /* Attribute */
-code > span.re { color: #0057ae; } /* RegionMarker */
-code > span.in { color: #b08000; } /* Information */
-code > span.wa { color: #bf0303; } /* Warning */
-code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
-code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
-code > span. { color: #1f1c1b; } /* Normal */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
 </style>
 
 
@@ -50,7 +78,7 @@ code > span. { color: #1f1c1b; } /* Normal */
 </span></span> I recommend saving it within an RStudio project.</p>
 <p><a href="mailto:andrew_heiss@byu.edu">E-mail me</a> a Word file or a PDF of the final compiled document.</p>
 <p>If you run into problems, check with your classmates or come by my office!</p>
-<div id="task-1-reflection-memo" class="section level2">
+<section id="task-1-reflection-memo" class="level2">
 <h2>Task 1: Reflection memo</h2>
 <p>Write a 500-word memo about <a href="/reading/04-reading/">the assigned readings</a> for this week. You can use some of the prompt questions there if you want:</p>
 <ul>
@@ -64,31 +92,31 @@ code > span. { color: #1f1c1b; } /* Normal */
 <li>How does what I just read apply to me?</li>
 <li>How can this be useful to me?</li>
 </ul>
-</div>
-<div id="task-2-hans-rosling-redux" class="section level2">
+</section>
+<section id="task-2-hans-rosling-redux" class="level2">
 <h2>Task 2: Hans Rosling redux</h2>
 <p><span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> <img src="https://media.giphy.com/media/18LVVD0nUOn8A/giphy.gif" alt="Gapminder" /><br />
 <br />
 </span></span> For this part of the homework, you get to be just like <a href="https://www.youtube.com/watch?v=jbkSRLYSojo">Hans Rosling</a> and play with data on health (life expectancy) and wealth (GDP per capita). The data originally comes from World Bank statistics, but to make life easier, there’s an R package called <a href="https://github.com/jennybc/gapminder">“gapminder”</a> that includes the data, so you don’t have to download and clean any CSV or Excel files. If you don’t have the package installed, run <code>install.packages(&quot;gapminder&quot;)</code> or use the “Packages” panel in RStudio.</p>
-</div>
-<div id="bonus-latex-tips" class="section level2">
+</section>
+<section id="bonus-latex-tips" class="level2">
 <h2>Bonus <span class="math inline">\(\LaTeX\)</span> tips</h2>
 <p>Working with <span class="math inline">\(\LaTeX\)</span> can be a little tricky, even with R Markdown converting everything for you. <span class="math inline">\(\LaTeX\)</span> was invented before Unicode, so it can choke on characters like é and ü (you have to type those as <code>{\'e}</code> or <code>{\&quot;u}</code> in raw <span class="math inline">\(\TeX\)</span>, which is awful).<span><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"> The font is named <a href="https://en.wikipedia.org/wiki/Computer_Modern">Computer Modern</a>. Avid LaTeX users claim it’s the best font in the universe, but it’s not.<br />
 <br />
 </span></span> It’s also really really hard to change the default font, which is kind of ugly.</p>
 <p>Fortunately, when you installed the massive MacTeX or MikTeX programs, you also installed a more modern implementation of the LaTeX typesetting engine, named XeTeX (or xelatex), which can handle Unicode characters <em>and</em> use any Open Type font you have installed on your computer.</p>
 <p>Using xelatex and custom fonts when knitting to PDF is fairly easy. Add this to your metadata at the top of your document:</p>
-<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
-<span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Whatever&quot;</span>
-<span class="fu">author:</span><span class="at"> </span><span class="st">&quot;Whatever&quot;</span>
-<span class="fu">mainfont:</span><span class="at"> </span><span class="st">&quot;Comic Sans MS&quot;</span>
-<span class="fu">fontsize:</span><span class="at"> </span><span class="st">&quot;10pt&quot;</span>
-<span class="fu">output:</span>
-  <span class="fu">pdf_document:</span>
-    <span class="fu">latex_engine:</span><span class="at"> xelatex</span>
-<span class="ot">---</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Whatever&quot;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="fu">author:</span><span class="at"> </span><span class="st">&quot;Whatever&quot;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="fu">mainfont:</span><span class="at"> </span><span class="st">&quot;Comic Sans MS&quot;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="fu">fontsize:</span><span class="at"> </span><span class="st">&quot;10pt&quot;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">  <span class="fu">pdf_document:</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="fu">latex_engine:</span><span class="at"> xelatex</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="ot">---</span></a></code></pre></div>
 <p>(But don’t actually use Comic Sans because ew.)<span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote"> <img src="https://media.giphy.com/media/gMDKyrWInxOhO/giphy.gif" alt="Ew." /><br />
 <br />
 </span></span></p>
 <p>You can see all the possible configuration options for <a href="http://rmarkdown.rstudio.com/pdf_document_format.html">PDF output</a>, <a href="http://rmarkdown.rstudio.com/html_document_format.html">HTML output</a>, and <a href="http://rmarkdown.rstudio.com/word_document_format.html">Word output</a> at <a href="http://rmarkdown.rstudio.com/">RStudio’s R Markdown site</a>.</p>
-</div>
+</section>

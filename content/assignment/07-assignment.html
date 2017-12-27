@@ -10,49 +10,77 @@ notes: >-
 ---
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
-td.sourceCode { padding-left: 5px; }
-pre, code { color: #1f1c1b; background-color: #ffffff; }
-code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-code > span.dt { color: #0057ae; } /* DataType */
-code > span.dv { color: #b08000; } /* DecVal */
-code > span.bn { color: #b08000; } /* BaseN */
-code > span.fl { color: #b08000; } /* Float */
-code > span.cn { color: #aa5500; } /* Constant */
-code > span.ch { color: #924c9d; } /* Char */
-code > span.sc { color: #3daee9; } /* SpecialChar */
-code > span.st { color: #bf0303; } /* String */
-code > span.vs { color: #bf0303; } /* VerbatimString */
-code > span.ss { color: #ff5500; } /* SpecialString */
-code > span.im { color: #ff5500; } /* Import */
-code > span.co { color: #898887; } /* Comment */
-code > span.do { color: #607880; } /* Documentation */
-code > span.an { color: #ca60ca; } /* Annotation */
-code > span.cv { color: #0095ff; } /* CommentVar */
-code > span.ot { color: #006e28; } /* Other */
-code > span.fu { color: #644a9b; } /* Function */
-code > span.va { color: #0057ae; } /* Variable */
-code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #1f1c1b; } /* Operator */
-code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-code > span.pp { color: #006e28; } /* Preprocessor */
-code > span.at { color: #0057ae; } /* Attribute */
-code > span.re { color: #0057ae; } /* RegionMarker */
-code > span.in { color: #b08000; } /* Information */
-code > span.wa { color: #bf0303; } /* Warning */
-code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
-code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
-code > span. { color: #1f1c1b; } /* Normal */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
 </style>
 
 
 <p>Complete these tasks in an R Markdown file and <a href="mailto:andrew_heiss@byu.edu">e-mail me</a> a PDF of the final compiled document. <a href="/files/your_name_homework7.Rmd">Here’s the typical starter file</a>. As always, I recommend saving it within an RStudio project. Make sure the final output is as clean and warning/message free as possible.</p>
-<div id="task-1-reflection-memo" class="section level2">
+<section id="task-1-reflection-memo" class="level2">
 <h2>Task 1: Reflection memo</h2>
 <p>Write a <strong>500</strong>-word memo about <a href="/reading/07-reading/">the assigned readings</a> for this week. You can use some of the prompt questions there if you want:</p>
 <ul>
@@ -65,38 +93,38 @@ code > span. { color: #1f1c1b; } /* Normal */
 <li>How does what I just read apply to me?</li>
 <li>How can this be useful to me?</li>
 </ul>
-</div>
-<div id="task-2-make-a-map" class="section level2">
+</section>
+<section id="task-2-make-a-map" class="level2">
 <h2>Task 2: Make a map</h2>
 <p>This task is not very code intensive—I’m giving you all the code!</p>
 <p>That said, there’s still some work you have to do.</p>
-<div id="step-1-install-extra-software-and-r-packages" class="section level3">
+<section id="step-1-install-extra-software-and-r-packages" class="level3">
 <h3>Step 1: Install extra software and R packages</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Plotting geographic stuff with ggplot is crazy easy nowadays with the new <code>sf</code> package, which works nicely within the tidyverse paradigm. However, it’s so new that the CRAN version of ggplot doesn’t have <code>geom_sf()</code> and other geographic plotting layers. You <strong>must</strong> install the development version of the package from GitHub. Doing this makes your computer compile the package from its source code and requires some fancy software to work.
 <ul>
 <li>If you’re using Windows, <a href="https://cran.r-project.org/bin/windows/Rtools/">download and install Rtools (currently Rtools34.exe)</a>.</li>
 <li><p>If you’re using macOS, open Terminal and type this:</p>
-<pre><code>xcode-select --install</code></pre>
+<pre><code>  xcode-select --install</code></pre>
 A software update popup window should appear that will ask if you want to install command line developer tools. Click on “Install” (you don’t need to click on “Get Xcode”)</li>
 </ul></li>
 <li><p>Once you install those tools, make sure you install the <code>devtools</code> package in R (using the “Packages” panel, like normal), and then run this in your R console:</p>
-<pre><code>devtools::install_github(&quot;tidyverse/ggplot2&quot;)</code></pre>
+<pre><code> devtools::install_github(&quot;tidyverse/ggplot2&quot;)</code></pre>
 This will download, compile, and install the latest development version of ggplot. It’ll take a while—go eat something.</li>
 <li>Using the “Packages” panel in RStudio, install these packages: <code>sf</code>, <code>maps</code>, <code>maptools</code>, and <code>rgeos</code></li>
 <li><strong>Final step for macOS people only</strong>: R doesn’t do all the geographic calculations by itself—it relies on a few pieces of standalone software behind the scenes. When people on Windows install <code>sf</code>, those pieces of software <em>should</em> be installed automatically. This doesn’t happen on macOS, so you have to install them manually. The easiest way to do this is with Terminal. Here’s what you have to do:
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Open Terminal</li>
 <li>If you haven’t already, go to <a href="https://brew.sh/">brew.sh</a>, copy the big long command under “Install Homebrew” (starts with <code>/usr/bin/ruby -e &quot;$(curl -fsSL...</code>), paste it into Terminal, and press enter. This installs Homebrew, which is special software that lets you install Unix-y programs from the terminal.<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> You can install stuff like MySQL, Python, Apache, and even R if you want; there’s a <a href="http://formulae.brew.sh/">full list of Homebrew formulae here</a>.<br />
 <br />
 </span></span></li>
 <li><p>Type this line in Terminal to install <code>gdal</code>, <code>geos</code>, and <code>proj</code>:</p>
-<pre><code>brew install gdal geos proj</code></pre></li>
+<pre><code> brew install gdal geos proj</code></pre></li>
 <li><p>Wait for a few minutes—go eat something else.</p></li>
 </ol></li>
 </ol>
-</div>
-<div id="step-2-actually-make-a-map" class="section level3">
+</section>
+<section id="step-2-actually-make-a-map" class="level3">
 <h3>Step 2: Actually make a map</h3>
 <p>In last week’s assignment, you looked at the percentage of different countries’ populations with access to the internet. This week, you’ll use the same data to map the level of internet access around the world in 2015.</p>
 <p>I provide a full working example for you. Rather than just copying and pasting the code and knitting, though, I want you to run each line in RStudio and see what’s going on. <a href="/files/your_name_homework7.Rmd">In the starter Rmd file</a>, I’ve included a list of code pieces you need to explain.</p>
@@ -133,20 +161,20 @@ This will download, compile, and install the latest development version of ggplo
 <li><code>&quot;+proj=cass&quot;</code>: Cassini-Soldner</li>
 </ul>
 <p>Here we go! First we load the internet users data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install the most recent development version of ggplot from GitHub</span>
-<span class="co"># devtools::install_github(&quot;tidyverse/ggplot2&quot;)</span>
-<span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(sf)
-
-internet_users &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/share-of-individuals-using-the-internet-1990-2015.csv&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">users =</span> <span class="st">`</span><span class="dt">Individuals using the Internet (% of population) (% of population)</span><span class="st">`</span>,
-         <span class="dt">iso_a3 =</span> Code)
-
-users_<span class="dv">2015</span> &lt;-<span class="st"> </span>internet_users <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(Year <span class="op">==</span><span class="st"> </span><span class="dv">2015</span>)</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># Install the most recent development version of ggplot from GitHub</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co"># devtools::install_github(&quot;tidyverse/ggplot2&quot;)</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">library</span>(sf)</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">internet_users &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/share-of-individuals-using-the-internet-1990-2015.csv&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">users =</span> <span class="st">`</span><span class="dt">Individuals using the Internet (% of population) (% of population)</span><span class="st">`</span>,</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">         <span class="dt">iso_a3 =</span> Code)</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">users_<span class="dv">2015</span> &lt;-<span class="st"> </span>internet_users <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="st">  </span><span class="kw">filter</span>(Year <span class="op">==</span><span class="st"> </span><span class="dv">2015</span>)</a></code></pre></div>
 <p>Then we load the geographic data and combine it with the internet data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">world_shapes &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/ne_50m_admin_0_countries/ne_50m_admin_0_countries.shp&quot;</span>,
-                        <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">world_shapes &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/ne_50m_admin_0_countries/ne_50m_admin_0_countries.shp&quot;</span>,</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">                        <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>## Reading layer `ne_50m_admin_0_countries&#39; from data source `/Users/andrew/Sites/sites/dataviz/static/data/ne_50m_admin_0_countries/ne_50m_admin_0_countries.shp&#39; using driver `ESRI Shapefile&#39;
 ## Simple feature collection with 241 features and 63 fields
 ## geometry type:  MULTIPOLYGON
@@ -154,32 +182,32 @@ users_<span class="dv">2015</span> &lt;-<span class="st"> </span>internet_users 
 ## bbox:           xmin: -180 ymin: -89.99893 xmax: 180 ymax: 83.59961
 ## epsg (SRID):    4326
 ## proj4string:    +proj=longlat +datum=WGS84 +no_defs</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># left_join takes two data frames and combines them, based on a shared column</span>
-<span class="co"># (in this case iso_a3)</span>
-users_map &lt;-<span class="st"> </span>world_shapes <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">left_join</span>(users_<span class="dv">2015</span>, <span class="dt">by =</span> <span class="st">&quot;iso_a3&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(iso_a3 <span class="op">!=</span><span class="st"> &quot;ATA&quot;</span>)  <span class="co"># No internet in Antarctica. Sorry penguins.</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># left_join takes two data frames and combines them, based on a shared column</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co"># (in this case iso_a3)</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">users_map &lt;-<span class="st"> </span>world_shapes <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw">left_join</span>(users_<span class="dv">2015</span>, <span class="dt">by =</span> <span class="st">&quot;iso_a3&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw">filter</span>(iso_a3 <span class="op">!=</span><span class="st"> &quot;ATA&quot;</span>)  <span class="co"># No internet in Antarctica. Sorry penguins.</span></a></code></pre></div>
 <p>Finally, we plot the map:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pretty_map &lt;-<span class="st"> </span><span class="kw">ggplot</span>(users_map) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_sf</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> users), <span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">crs =</span> <span class="kw">st_crs</span>(<span class="dv">54030</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_fill_gradient</span>(<span class="dt">low =</span> <span class="st">&quot;#e7e1ef&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;#dd1c77&quot;</span>, <span class="dt">na.value =</span> <span class="st">&quot;grey70&quot;</span>,
-                      <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="kw">guide_colorbar</span>(<span class="dt">title.position =</span> <span class="st">&quot;top&quot;</span>, 
-                               <span class="dt">title.hjust =</span> <span class="st">&quot;0.5&quot;</span>,
-                               <span class="dt">title =</span> <span class="st">&quot;% of population&quot;</span>,
-                               <span class="dt">barwidth =</span> <span class="dv">10</span>, <span class="dt">barheight =</span> <span class="fl">0.5</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)
-
-pretty_map</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">pretty_map &lt;-<span class="st"> </span><span class="kw">ggplot</span>(users_map) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_sf</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> users), <span class="dt">color =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw">coord_sf</span>(<span class="dt">crs =</span> <span class="kw">st_crs</span>(<span class="dv">54030</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_fill_gradient</span>(<span class="dt">low =</span> <span class="st">&quot;#e7e1ef&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;#dd1c77&quot;</span>, <span class="dt">na.value =</span> <span class="st">&quot;grey70&quot;</span>,</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">                      <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="kw">guide_colorbar</span>(<span class="dt">title.position =</span> <span class="st">&quot;top&quot;</span>, </a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">                               <span class="dt">title.hjust =</span> <span class="st">&quot;0.5&quot;</span>,</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">                               <span class="dt">title =</span> <span class="st">&quot;% of population&quot;</span>,</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">                               <span class="dt">barwidth =</span> <span class="dv">10</span>, <span class="dt">barheight =</span> <span class="fl">0.5</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="st">  </span><span class="kw">theme_void</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">pretty_map</a></code></pre></div>
 <p><img src="/assignment/07-assignment_files/figure-html/create-map-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ggsave(pretty_map, filename = &quot;output/map.pdf&quot;, width = 7, height = 5)</span></code></pre></div>
-</div>
-</div>
-<div id="task-3-illustrator-introduction" class="section level2">
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># ggsave(pretty_map, filename = &quot;output/map.pdf&quot;, width = 7, height = 5)</span></a></code></pre></div>
+</section>
+</section>
+<section id="task-3-illustrator-introduction" class="level2">
 <h2>Task 3: Illustrator introduction</h2>
-<div id="step-1-quickly-get-familiar-with-illustrator-or-inkscape" class="section level3">
+<section id="step-1-quickly-get-familiar-with-illustrator-or-inkscape" class="level3">
 <h3>Step 1: Quickly get familiar with Illustrator (or Inkscape)</h3>
 <p>Watch and work through these tutorials (you can speed them up to 1.5× or 2× if you want):</p>
 <ul>
@@ -191,10 +219,10 @@ pretty_map</code></pre></div>
 <li><a href="https://helpx.adobe.com/illustrator/how-to/sharing-basics.html">Share artwork</a></li>
 </ul>
 <p>These are all specific to Illustrator, but the same principles apply to Inkscape (though tools and options will have different names). I recommend learning Illustrator now while you have <a href="">free access to it</a>, and then in the future when you won’t necessarily have access to Adobe’s Creative Cloud, you’ll be able to translate your skills to Inkscape.</p>
-</div>
-<div id="step-2-make-something-with-illustrator" class="section level3">
+</section>
+<section id="step-2-make-something-with-illustrator" class="level3">
 <h3>Step 2: Make something with Illustrator</h3>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Use <code>ggsave()</code> to save your map of internet users as a PDF.</li>
 <li>Place the map in a new document in Illustrator.</li>
 <li>Enhance it with annotations, lines, shapes, etc. Make it fancy.<span><label for="sn-6" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="marginnote"> But also follow the principles of CRAP and don’t go crazy.<br />
@@ -202,5 +230,5 @@ pretty_map</code></pre></div>
 </span></span></li>
 <li>Export the completed graphic as a PDF and PNG.</li>
 </ol>
-</div>
-</div>
+</section>
+</section>

@@ -4,48 +4,76 @@ date: "2017-09-12"
 ---
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
-td.sourceCode { padding-left: 5px; }
-pre, code { color: #1f1c1b; background-color: #ffffff; }
-code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-code > span.dt { color: #0057ae; } /* DataType */
-code > span.dv { color: #b08000; } /* DecVal */
-code > span.bn { color: #b08000; } /* BaseN */
-code > span.fl { color: #b08000; } /* Float */
-code > span.cn { color: #aa5500; } /* Constant */
-code > span.ch { color: #924c9d; } /* Char */
-code > span.sc { color: #3daee9; } /* SpecialChar */
-code > span.st { color: #bf0303; } /* String */
-code > span.vs { color: #bf0303; } /* VerbatimString */
-code > span.ss { color: #ff5500; } /* SpecialString */
-code > span.im { color: #ff5500; } /* Import */
-code > span.co { color: #898887; } /* Comment */
-code > span.do { color: #607880; } /* Documentation */
-code > span.an { color: #ca60ca; } /* Annotation */
-code > span.cv { color: #0095ff; } /* CommentVar */
-code > span.ot { color: #006e28; } /* Other */
-code > span.fu { color: #644a9b; } /* Function */
-code > span.va { color: #0057ae; } /* Variable */
-code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #1f1c1b; } /* Operator */
-code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-code > span.pp { color: #006e28; } /* Preprocessor */
-code > span.at { color: #0057ae; } /* Attribute */
-code > span.re { color: #0057ae; } /* RegionMarker */
-code > span.in { color: #b08000; } /* Information */
-code > span.wa { color: #bf0303; } /* Warning */
-code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
-code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
-code > span. { color: #1f1c1b; } /* Normal */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
 </style>
 
 
-<div id="task-1-reflection-memo" class="section level2">
+<section id="task-1-reflection-memo" class="level2">
 <h2>Task 1: Reflection memo</h2>
 <p>Write a 500-word memo about <a href="/reading/02-reading/">the assigned readings</a> for this week. You can use some of the prompt questions there if you want. As you write the memo, also consider these central questions:</p>
 <ul>
@@ -54,8 +82,8 @@ code > span. { color: #1f1c1b; } /* Normal */
 <li>How can this be useful to me?</li>
 </ul>
 <p><strong><a href="mailto:andrew_heiss@byu.edu">E-mail me</a> a PDF of the memo.</strong></p>
-</div>
-<div id="task-2-playing-with-r" class="section level2">
+</section>
+<section id="task-2-playing-with-r" class="level2">
 <h2>Task 2: Playing with R</h2>
 <p>This example uses data from the <a href="https://www.gapminder.org/">Gapminder project</a>.<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> You may have seen Hans Rosling’s <a href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen">delightful TED talk</a> showing how global health and wealth have been increasing. If you haven’t, you should watch it. Sadly, Hans died in February 2017.<br />
 <br />
@@ -64,13 +92,13 @@ code > span. { color: #1f1c1b; } /* Normal */
 <br />
 </span></span> open it in RStudio, and walk through the examples in RStudio on your computer. If you place your cursor on some R code and press “⌘ + enter” (for macOS users) or “ctrl + enter” (for Windows users), RStudio will send that line to the console and run it.</p>
 <p>There are a few questions that you’ll need to answer, but that’s all.</p>
-<div id="life-expectancy-in-2007" class="section level3">
+<section id="life-expectancy-in-2007" class="level3">
 <h3>Life expectancy in 2007</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This loads ggplot, dplyr, and other packages you&#39;ll need</span>
-<span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(gapminder)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># This loads ggplot, dplyr, and other packages you&#39;ll need</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(gapminder)</a></code></pre></div>
 <p>Let’s first look at the first few rows of data:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(gapminder)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">head</span>(gapminder)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##       country continent  year lifeExp      pop gdpPercap
 ##        &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -83,10 +111,10 @@ code > span. { color: #1f1c1b; } /* Normal */
 <p>Right now, the <code>gapminder</code> data frame contains rows for all years for all countries. We want to only look at 2007, so we create a new data frame that filters only rows for 2007.<span><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"> Note how there’s a weird sequence of characters: <code>%&gt;%</code>. This is called a <em>pipe</em> and lets you chain functions together. We could have also written this as <code>gapminder_2007 &lt;- filter(gapminder, year == 2007)</code>.<br />
 <br />
 </span></span></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder_<span class="dv">2007</span> &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>)
-
-<span class="kw">head</span>(gapminder_<span class="dv">2007</span>)</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">gapminder_<span class="dv">2007</span> &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">head</span>(gapminder_<span class="dv">2007</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
 ##       country continent  year lifeExp      pop  gdpPercap
 ##        &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;      &lt;dbl&gt;
@@ -97,26 +125,26 @@ code > span. { color: #1f1c1b; } /* Normal */
 ## 5   Argentina  Americas  2007  75.320 40301927 12779.3796
 ## 6   Australia   Oceania  2007  81.235 20434176 34435.3674</code></pre>
 <p>Now we can plot a histogram of 2007 life expectancies with the default settings:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>()</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>()</a></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="/assignment/02-assignment_files/figure-html/plot-2007-1-1.png" width="672" /></p>
 <p>R will use 30 histogram bins by default, but that’s not always appropriate, and it will yell at you for doing so. <strong>Adjust the number of bins to 2, then 40, then 100.</strong> <strong>What’s a good number for this data? Why?</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">2</span>)</a></code></pre></div>
 <p><img src="/assignment/02-assignment_files/figure-html/plot-2007-2-1.png" width="672" /></p>
-</div>
-<div id="average-life-expectancy-in-2007-by-continent" class="section level3">
+</section>
+<section id="average-life-expectancy-in-2007-by-continent" class="level3">
 <h3>Average life expectancy in 2007 by continent</h3>
 <p>We’re also interested in the differences of life expectancy across continents. First, we can group all rows by continent and calculate the mean:<span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote"> This is where the <code>%&gt;%</code> function is actually super useful. Remember that it lets you chain functions together—this means we can read these commands as a set of instructions: take the <code>gapminder</code> data frame, filter it, group it by continent, and summarize each group by calculating the mean. Without using the <code>%&gt;%</code>, we could write this same chain like this: <code>summarize(group_by(filter(gapminder, year == 2007), continent), avg_life_exp = mean(lifeExp))</code>. But that’s <em>awful</em> and impossible to read and full of parentheses that can easily be mismatched.<br />
 <br />
 </span></span></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder_cont_<span class="dv">2007</span> &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">avg_life_exp =</span> <span class="kw">mean</span>(lifeExp))
-
-<span class="kw">head</span>(gapminder_cont_<span class="dv">2007</span>)</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">gapminder_cont_<span class="dv">2007</span> &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">2007</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw">group_by</span>(continent) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">avg_life_exp =</span> <span class="kw">mean</span>(lifeExp))</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="kw">head</span>(gapminder_cont_<span class="dv">2007</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 5 x 2
 ##   continent avg_life_exp
 ##      &lt;fctr&gt;        &lt;dbl&gt;
@@ -126,21 +154,21 @@ code > span. { color: #1f1c1b; } /* Normal */
 ## 4    Europe     77.64860
 ## 5   Oceania     80.71950</code></pre>
 <p>Let’s plot these averages as a bar chart:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_cont_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> avg_life_exp, <span class="dt">fill =</span> continent)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_col</span>()</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">ggplot</span>(gapminder_cont_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> avg_life_exp, <span class="dt">fill =</span> continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_col</span>()</a></code></pre></div>
 <p><img src="/assignment/02-assignment_files/figure-html/plot-2007-bar-1.png" width="672" /></p>
 <p>Then, let’s plot them as density distributions. We don’t need to use the summarized data frame for this, just the original filtered <code>gapminder_2007</code> data frame:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp, <span class="dt">fill =</span> continent)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_density</span>()</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp, <span class="dt">fill =</span> continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_density</span>()</a></code></pre></div>
 <p><img src="/assignment/02-assignment_files/figure-html/plot-2007-density-1.png" width="672" /></p>
 <p>Now let’s plot life expectancies as violin charts. These are the density distributions turned sideways:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> lifeExp, <span class="dt">fill =</span> continent)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_violin</span>()</code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> lifeExp, <span class="dt">fill =</span> continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_violin</span>()</a></code></pre></div>
 <p><img src="/assignment/02-assignment_files/figure-html/plot-2007-violin-1.png" width="672" /></p>
 <p>Finally, we can add actual points of data for each country to the violin chart:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> lifeExp, <span class="dt">fill =</span> continent)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> lifeExp, <span class="dt">fill =</span> continent)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_violin</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <p><img src="/assignment/02-assignment_files/figure-html/plot-2007-violin-points-1.png" width="672" /></p>
 <p>The bar chart, density plot, violin plot, and violin plot + points each show different ways of looking at a single number—the average life expectancy in each continent. <strong>Answer these questions:</strong></p>
 <ul>
@@ -149,5 +177,5 @@ code > span. { color: #1f1c1b; } /* Normal */
 <li>What’s going on with Oceania?</li>
 </ul>
 <p><a href="mailto:andrew_heiss@byu.edu">E-mail me</a> the answers to the questions posed in this example.</p>
-</div>
-</div>
+</section>
+</section>

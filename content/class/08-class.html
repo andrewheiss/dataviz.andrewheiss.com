@@ -29,44 +29,72 @@ stuff-to-add: >-
 ---
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #ffffff; color: #1f1c1b; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; background-color: #ffffff; color: #a0a0a0; border-right: 1px solid #a0a0a0; }
-td.sourceCode { padding-left: 5px; }
-pre, code { color: #1f1c1b; background-color: #ffffff; }
-code > span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-code > span.dt { color: #0057ae; } /* DataType */
-code > span.dv { color: #b08000; } /* DecVal */
-code > span.bn { color: #b08000; } /* BaseN */
-code > span.fl { color: #b08000; } /* Float */
-code > span.cn { color: #aa5500; } /* Constant */
-code > span.ch { color: #924c9d; } /* Char */
-code > span.sc { color: #3daee9; } /* SpecialChar */
-code > span.st { color: #bf0303; } /* String */
-code > span.vs { color: #bf0303; } /* VerbatimString */
-code > span.ss { color: #ff5500; } /* SpecialString */
-code > span.im { color: #ff5500; } /* Import */
-code > span.co { color: #898887; } /* Comment */
-code > span.do { color: #607880; } /* Documentation */
-code > span.an { color: #ca60ca; } /* Annotation */
-code > span.cv { color: #0095ff; } /* CommentVar */
-code > span.ot { color: #006e28; } /* Other */
-code > span.fu { color: #644a9b; } /* Function */
-code > span.va { color: #0057ae; } /* Variable */
-code > span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #1f1c1b; } /* Operator */
-code > span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-code > span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-code > span.pp { color: #006e28; } /* Preprocessor */
-code > span.at { color: #0057ae; } /* Attribute */
-code > span.re { color: #0057ae; } /* RegionMarker */
-code > span.in { color: #b08000; } /* Information */
-code > span.wa { color: #bf0303; } /* Warning */
-code > span.al { color: #bf0303; font-weight: bold; } /* Alert */
-code > span.er { color: #bf0303; text-decoration: underline; } /* Error */
-code > span. { color: #1f1c1b; } /* Normal */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
 </style>
 
 <h2>Contents</h2>
@@ -83,337 +111,337 @@ code > span. { color: #1f1c1b; } /* Normal */
 </ul>
 </div>
 
-<div id="slides" class="section level2">
+<section id="slides" class="level2">
 <h2>Slides</h2>
 <p><a href="/slides/MPA-635_2017-10-24.pdf">Download the slides from today’s lecture</a>.</p>
 <figure>
 <a href="/slides/MPA-635_2017-10-24.pdf"><img src="/images/slides/slides_2017-10-24.png" alt="First slide" /></a>
 </figure>
-</div>
-<div id="text-analysis-and-visualization" class="section level2">
+</section>
+<section id="text-analysis-and-visualization" class="level2">
 <h2>Text analysis and visualization</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(tidytext)
-<span class="kw">library</span>(gutenbergr)
-<span class="kw">library</span>(forcats)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(tidytext)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(gutenbergr)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">library</span>(forcats)</a></code></pre></div>
 <p>We can download any book from <a href="https://www.gutenberg.org">Project Gutenberg</a> with <code>gutenbergr::gutenberg_download()</code>. The <code>gutenberg_id</code> argument is the ID for the book, found in the URL for the book. In class we looked at <a href="https://www.gutenberg.org/ebooks/45"><em>Anne of Green Gables</em></a>, which has an ID of 45.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">book &lt;-<span class="st"> </span><span class="kw">gutenberg_download</span>(<span class="dv">45</span>)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">book &lt;-<span class="st"> </span><span class="kw">gutenberg_download</span>(<span class="dv">45</span>)</a></code></pre></div>
 <p>Once we’ve downloaded the book, we can tokenize the text (i.e. divide into words), and then create a long tidy data frame. <code>tidytext</code> does simple tokenization—it will not determine parts of speech or anything fancy like that. Look at <a href="https://github.com/statsmaths/cleanNLP">the <code>cleanNLP</code> package</a> for a tidy way to get full-blown natural language processing into R.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tidy_book &lt;-<span class="st"> </span>book <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">line =</span> <span class="kw">row_number</span>()) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">unnest_tokens</span>(word, text)
-
-tidy_book <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">tidy_book &lt;-<span class="st"> </span>book <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">line =</span> <span class="kw">row_number</span>()) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">  </span><span class="kw">unnest_tokens</span>(word, text)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">tidy_book <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
-<th align="right">gutenberg_id</th>
-<th align="right">line</th>
-<th align="left">word</th>
+<th style="text-align: right;">gutenberg_id</th>
+<th style="text-align: right;">line</th>
+<th style="text-align: left;">word</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">45</td>
-<td align="right">1</td>
-<td align="left">anne</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">anne</td>
 </tr>
 <tr class="even">
-<td align="right">45</td>
-<td align="right">1</td>
-<td align="left">of</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">of</td>
 </tr>
 <tr class="odd">
-<td align="right">45</td>
-<td align="right">1</td>
-<td align="left">green</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">green</td>
 </tr>
 <tr class="even">
-<td align="right">45</td>
-<td align="right">1</td>
-<td align="left">gables</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">gables</td>
 </tr>
 <tr class="odd">
-<td align="right">45</td>
-<td align="right">3</td>
-<td align="left">by</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">by</td>
 </tr>
 <tr class="even">
-<td align="right">45</td>
-<td align="right">3</td>
-<td align="left">lucy</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">lucy</td>
 </tr>
 </tbody>
 </table>
-<div id="word-frequencies" class="section level3">
+<section id="word-frequencies" class="level3">
 <h3>Word frequencies</h3>
 <p>We can filter out common stopwords and then view the 20 most frequent words:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plot_words &lt;-<span class="st"> </span>tidy_book <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">anti_join</span>(stop_words, <span class="dt">by =</span> <span class="st">&quot;word&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(word, <span class="dt">sort =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">top_n</span>(<span class="dv">20</span>, n) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word =</span> <span class="kw">fct_rev</span>(<span class="kw">fct_inorder</span>(word, <span class="dt">ordered =</span> <span class="ot">TRUE</span>)))
-
-<span class="kw">ggplot</span>(plot_words, <span class="kw">aes</span>(<span class="dt">x =</span> word, <span class="dt">y =</span> n)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">plot_words &lt;-<span class="st"> </span>tidy_book <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">anti_join</span>(stop_words, <span class="dt">by =</span> <span class="st">&quot;word&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw">count</span>(word, <span class="dt">sort =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">20</span>, n) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word =</span> <span class="kw">fct_rev</span>(<span class="kw">fct_inorder</span>(word, <span class="dt">ordered =</span> <span class="ot">TRUE</span>)))</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="kw">ggplot</span>(plot_words, <span class="kw">aes</span>(<span class="dt">x =</span> word, <span class="dt">y =</span> n)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="/class/08-class_files/figure-html/plot-top-20-1.png" width="672" /></p>
-</div>
-<div id="sentiment-analysis" class="section level3">
+</section>
+<section id="sentiment-analysis" class="level3">
 <h3>Sentiment analysis</h3>
 <p>There are several existing dictionaries of word sentiments, such as <a href="http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010">AFINN</a> and <a href="https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html">Bing</a>, which work differently—some use a continuous scale of negativity-positivity, whil others use a dichotomous variable:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_sentiments</span>(<span class="st">&quot;afinn&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">get_sentiments</span>(<span class="st">&quot;afinn&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
-<th align="left">word</th>
-<th align="right">score</th>
+<th style="text-align: left;">word</th>
+<th style="text-align: right;">score</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">abandon</td>
-<td align="right">-2</td>
+<td style="text-align: left;">abandon</td>
+<td style="text-align: right;">-2</td>
 </tr>
 <tr class="even">
-<td align="left">abandoned</td>
-<td align="right">-2</td>
+<td style="text-align: left;">abandoned</td>
+<td style="text-align: right;">-2</td>
 </tr>
 <tr class="odd">
-<td align="left">abandons</td>
-<td align="right">-2</td>
+<td style="text-align: left;">abandons</td>
+<td style="text-align: right;">-2</td>
 </tr>
 <tr class="even">
-<td align="left">abducted</td>
-<td align="right">-2</td>
+<td style="text-align: left;">abducted</td>
+<td style="text-align: right;">-2</td>
 </tr>
 <tr class="odd">
-<td align="left">abduction</td>
-<td align="right">-2</td>
+<td style="text-align: left;">abduction</td>
+<td style="text-align: right;">-2</td>
 </tr>
 <tr class="even">
-<td align="left">abductions</td>
-<td align="right">-2</td>
+<td style="text-align: left;">abductions</td>
+<td style="text-align: right;">-2</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_sentiments</span>(<span class="st">&quot;bing&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">get_sentiments</span>(<span class="st">&quot;bing&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
-<th align="left">word</th>
-<th align="left">sentiment</th>
+<th style="text-align: left;">word</th>
+<th style="text-align: left;">sentiment</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">2-faced</td>
-<td align="left">negative</td>
+<td style="text-align: left;">2-faced</td>
+<td style="text-align: left;">negative</td>
 </tr>
 <tr class="even">
-<td align="left">2-faces</td>
-<td align="left">negative</td>
+<td style="text-align: left;">2-faces</td>
+<td style="text-align: left;">negative</td>
 </tr>
 <tr class="odd">
-<td align="left">a+</td>
-<td align="left">positive</td>
+<td style="text-align: left;">a+</td>
+<td style="text-align: left;">positive</td>
 </tr>
 <tr class="even">
-<td align="left">abnormal</td>
-<td align="left">negative</td>
+<td style="text-align: left;">abnormal</td>
+<td style="text-align: left;">negative</td>
 </tr>
 <tr class="odd">
-<td align="left">abolish</td>
-<td align="left">negative</td>
+<td style="text-align: left;">abolish</td>
+<td style="text-align: left;">negative</td>
 </tr>
 <tr class="even">
-<td align="left">abominable</td>
-<td align="left">negative</td>
+<td style="text-align: left;">abominable</td>
+<td style="text-align: left;">negative</td>
 </tr>
 </tbody>
 </table>
 <p>We can join one of these sentiment dictionaries to the list of words and find the most common positive and negative words:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plot_sentiment &lt;-<span class="st"> </span>tidy_book <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">inner_join</span>(<span class="kw">get_sentiments</span>(<span class="st">&quot;bing&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;word&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(sentiment, word, <span class="dt">sort =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(sentiment) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">top_n</span>(<span class="dv">10</span>, n) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">arrange</span>(sentiment, n) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word =</span> <span class="kw">fct_inorder</span>(word))
-
-<span class="kw">ggplot</span>(plot_sentiment, <span class="kw">aes</span>(<span class="dt">x =</span> word, <span class="dt">y =</span> n)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>sentiment, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">plot_sentiment &lt;-<span class="st"> </span>tidy_book <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw">inner_join</span>(<span class="kw">get_sentiments</span>(<span class="st">&quot;bing&quot;</span>), <span class="dt">by =</span> <span class="st">&quot;word&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw">count</span>(sentiment, word, <span class="dt">sort =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(sentiment) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">10</span>, n) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="st">  </span><span class="kw">arrange</span>(sentiment, n) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word =</span> <span class="kw">fct_inorder</span>(word))</a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="kw">ggplot</span>(plot_sentiment, <span class="kw">aes</span>(<span class="dt">x =</span> word, <span class="dt">y =</span> n)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>sentiment, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</a></code></pre></div>
 <p><img src="/class/08-class_files/figure-html/plot-sentiment-1.png" width="672" /></p>
-</div>
-<div id="tf-idf-term-frequencyinverse-document-frequency" class="section level3">
+</section>
+<section id="tf-idf-term-frequencyinverse-document-frequency" class="level3">
 <h3>tf-idf: term frequency—inverse document frequency</h3>
 <p>Calculating the <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">tf-idf</a> lets us find the most unique words in individual documents in a collection, relative to other documents in the collection. Here we download four Dickens novels (<em>A Tale of Two Cities</em> (98), <em>David Copperfield</em> (766), <em>Great Expectations</em> (1400), and <em>A Christmas Carol</em> (19337)) and combine them into a tidy corpus:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dickens &lt;-<span class="st"> </span><span class="kw">gutenberg_download</span>(<span class="kw">c</span>(<span class="dv">19337</span>, <span class="dv">98</span>, <span class="dv">1400</span>, <span class="dv">766</span>),
-                              <span class="dt">meta_fields =</span> <span class="st">&quot;title&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">dickens &lt;-<span class="st"> </span><span class="kw">gutenberg_download</span>(<span class="kw">c</span>(<span class="dv">19337</span>, <span class="dv">98</span>, <span class="dv">1400</span>, <span class="dv">766</span>),</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">                              <span class="dt">meta_fields =</span> <span class="st">&quot;title&quot;</span>)</a></code></pre></div>
 <p>We can then calculate the tf-idf across the different books:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dickens_tidy &lt;-<span class="st"> </span>dickens <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">unnest_tokens</span>(word, text) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(title, word, <span class="dt">sort =</span> <span class="ot">TRUE</span>)
-
-dickens_unique &lt;-<span class="st"> </span>dickens_tidy <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">bind_tf_idf</span>(word, title, n)
-  
-unique_top_<span class="dv">10</span> &lt;-<span class="st"> </span>dickens_unique <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(title) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">top_n</span>(<span class="dv">10</span>, tf_idf) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">arrange</span>(title, tf_idf) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word =</span> <span class="kw">fct_inorder</span>(word))
-
-unique_top_<span class="dv">10</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">dickens_tidy &lt;-<span class="st"> </span>dickens <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw">unnest_tokens</span>(word, text) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw">count</span>(title, word, <span class="dt">sort =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">dickens_unique &lt;-<span class="st"> </span>dickens_tidy <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="st">  </span><span class="kw">bind_tf_idf</span>(word, title, n)</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">  </a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">unique_top_<span class="dv">10</span> &lt;-<span class="st"> </span>dickens_unique <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="st">  </span><span class="kw">group_by</span>(title) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">10</span>, tf_idf) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="st">  </span><span class="kw">arrange</span>(title, tf_idf) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word =</span> <span class="kw">fct_inorder</span>(word))</a>
+<a class="sourceLine" id="cb9-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb9-15" data-line-number="15">unique_top_<span class="dv">10</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
-<th align="left">title</th>
-<th align="left">word</th>
-<th align="right">n</th>
-<th align="right">tf</th>
-<th align="right">idf</th>
-<th align="right">tf_idf</th>
+<th style="text-align: left;">title</th>
+<th style="text-align: left;">word</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">tf</th>
+<th style="text-align: right;">idf</th>
+<th style="text-align: right;">tf_idf</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">A Christmas Carol</td>
-<td align="left">cratchits</td>
-<td align="right">14</td>
-<td align="right">0.0004730</td>
-<td align="right">1.386294</td>
-<td align="right">0.0006557</td>
+<td style="text-align: left;">A Christmas Carol</td>
+<td style="text-align: left;">cratchits</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0.0004730</td>
+<td style="text-align: right;">1.386294</td>
+<td style="text-align: right;">0.0006557</td>
 </tr>
 <tr class="even">
-<td align="left">A Christmas Carol</td>
-<td align="left">jacob</td>
-<td align="right">16</td>
-<td align="right">0.0005406</td>
-<td align="right">1.386294</td>
-<td align="right">0.0007494</td>
+<td style="text-align: left;">A Christmas Carol</td>
+<td style="text-align: left;">jacob</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.0005406</td>
+<td style="text-align: right;">1.386294</td>
+<td style="text-align: right;">0.0007494</td>
 </tr>
 <tr class="odd">
-<td align="left">A Christmas Carol</td>
-<td align="left">marley’s</td>
-<td align="right">16</td>
-<td align="right">0.0005406</td>
-<td align="right">1.386294</td>
-<td align="right">0.0007494</td>
+<td style="text-align: left;">A Christmas Carol</td>
+<td style="text-align: left;">marley’s</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">0.0005406</td>
+<td style="text-align: right;">1.386294</td>
+<td style="text-align: right;">0.0007494</td>
 </tr>
 <tr class="even">
-<td align="left">A Christmas Carol</td>
-<td align="left">fezziwig</td>
-<td align="right">18</td>
-<td align="right">0.0006081</td>
-<td align="right">1.386294</td>
-<td align="right">0.0008430</td>
+<td style="text-align: left;">A Christmas Carol</td>
+<td style="text-align: left;">fezziwig</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">0.0006081</td>
+<td style="text-align: right;">1.386294</td>
+<td style="text-align: right;">0.0008430</td>
 </tr>
 <tr class="odd">
-<td align="left">A Christmas Carol</td>
-<td align="left">marley</td>
-<td align="right">20</td>
-<td align="right">0.0006757</td>
-<td align="right">1.386294</td>
-<td align="right">0.0009367</td>
+<td style="text-align: left;">A Christmas Carol</td>
+<td style="text-align: left;">marley</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">0.0006757</td>
+<td style="text-align: right;">1.386294</td>
+<td style="text-align: right;">0.0009367</td>
 </tr>
 <tr class="even">
-<td align="left">A Christmas Carol</td>
-<td align="left">tim</td>
-<td align="right">24</td>
-<td align="right">0.0008108</td>
-<td align="right">1.386294</td>
-<td align="right">0.0011241</td>
+<td style="text-align: left;">A Christmas Carol</td>
+<td style="text-align: left;">tim</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0.0008108</td>
+<td style="text-align: right;">1.386294</td>
+<td style="text-align: right;">0.0011241</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(unique_top_<span class="dv">10</span>, <span class="kw">aes</span>(<span class="dt">x =</span> word, <span class="dt">y =</span> tf_idf, <span class="dt">fill =</span> title)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>title, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">ggplot</span>(unique_top_<span class="dv">10</span>, <span class="kw">aes</span>(<span class="dt">x =</span> word, <span class="dt">y =</span> tf_idf, <span class="dt">fill =</span> title)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">show.legend =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>title, <span class="dt">scales =</span> <span class="st">&quot;free&quot;</span>)</a></code></pre></div>
 <p><img src="/class/08-class_files/figure-html/plot-tfidf-1.png" width="672" /></p>
-</div>
-<div id="n-grams" class="section level3">
+</section>
+<section id="n-grams" class="level3">
 <h3>n-grams</h3>
 <p>We can also find the most common pairs of words, or n-grams. Rather than tokenizing by word, we can tokenize by ngram and specify the number of words—here we want bigrams, so we specify <code>n = 2</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dickens_bigrams &lt;-<span class="st"> </span>dickens <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">unnest_tokens</span>(bigram, text, <span class="dt">token =</span> <span class="st">&quot;ngrams&quot;</span>, <span class="dt">n =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(bigram, <span class="dt">sort =</span> <span class="ot">TRUE</span>) 
-
-dickens_bigrams <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">dickens_bigrams &lt;-<span class="st"> </span>dickens <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw">unnest_tokens</span>(bigram, text, <span class="dt">token =</span> <span class="st">&quot;ngrams&quot;</span>, <span class="dt">n =</span> <span class="dv">2</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="st">  </span><span class="kw">count</span>(bigram, <span class="dt">sort =</span> <span class="ot">TRUE</span>) </a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">dickens_bigrams <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>() <span class="op">%&gt;%</span><span class="st"> </span>knitr<span class="op">::</span><span class="kw">kable</span>()</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
-<th align="left">bigram</th>
-<th align="right">n</th>
+<th style="text-align: left;">bigram</th>
+<th style="text-align: right;">n</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">of the</td>
-<td align="right">3261</td>
+<td style="text-align: left;">of the</td>
+<td style="text-align: right;">3261</td>
 </tr>
 <tr class="even">
-<td align="left">in the</td>
-<td align="right">3226</td>
+<td style="text-align: left;">in the</td>
+<td style="text-align: right;">3226</td>
 </tr>
 <tr class="odd">
-<td align="left">it was</td>
-<td align="right">1756</td>
+<td style="text-align: left;">it was</td>
+<td style="text-align: right;">1756</td>
 </tr>
 <tr class="even">
-<td align="left">to be</td>
-<td align="right">1643</td>
+<td style="text-align: left;">to be</td>
+<td style="text-align: right;">1643</td>
 </tr>
 <tr class="odd">
-<td align="left">that i</td>
-<td align="right">1641</td>
+<td style="text-align: left;">that i</td>
+<td style="text-align: right;">1641</td>
 </tr>
 <tr class="even">
-<td align="left">to the</td>
-<td align="right">1633</td>
+<td style="text-align: left;">to the</td>
+<td style="text-align: right;">1633</td>
 </tr>
 </tbody>
 </table>
 <p>In class, we were interested in seeing which words are more likely to appear after “he” and “she” to see if there are any gendered patterns in Dickens’ novels (similar to <a href="https://pudding.cool/2017/08/screen-direction/">this</a> and <a href="https://juliasilge.com/blog/gender-pronouns/">this</a>). To do this, we separate the bigram column into two columns named <code>word1</code> and <code>word2</code>, and filter the data so that it only includes rows where <code>word1</code> is “he” or “she”.</p>
 <p>We then calculate the log odds for each pair of words to see which ones are more likely to appear across genders. We finally sort the data by the absolute value of the log ratio (since some are negative) and take the top 15.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dickens_bigrams &lt;-<span class="st"> </span>dickens_bigrams <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">separate</span>(bigram, <span class="kw">c</span>(<span class="st">&quot;word1&quot;</span>, <span class="st">&quot;word2&quot;</span>), <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(word1 <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;he&quot;</span>, <span class="st">&quot;she&quot;</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">count</span>(word1, word2, <span class="dt">wt =</span> n, <span class="dt">sort =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">total =</span> nn)
-
-dickens_ratios &lt;-<span class="st"> </span>dickens_bigrams <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(word2) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(<span class="kw">sum</span>(total) <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">spread</span>(word1, total, <span class="dt">fill =</span> <span class="dv">0</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">logratio =</span> <span class="kw">log2</span>(she <span class="op">/</span><span class="st"> </span>he)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(logratio))
-
-plot_ratios &lt;-<span class="st"> </span>dickens_ratios <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">abslogratio =</span> <span class="kw">abs</span>(logratio)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">group_by</span>(logratio <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">top_n</span>(<span class="dv">15</span>, abslogratio) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(logratio)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word2 =</span> <span class="kw">fct_inorder</span>(word2, <span class="dt">ordered =</span> <span class="ot">TRUE</span>))
-
-<span class="kw">ggplot</span>(plot_ratios, <span class="kw">aes</span>(<span class="dt">x =</span> word2, <span class="dt">y =</span> logratio, <span class="dt">color =</span> logratio <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> <span class="dv">0</span>, <span class="dt">ymax =</span> logratio), <span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">fatten =</span> <span class="dv">6</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">coord_flip</span>()</code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">dickens_bigrams &lt;-<span class="st"> </span>dickens_bigrams <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw">separate</span>(bigram, <span class="kw">c</span>(<span class="st">&quot;word1&quot;</span>, <span class="st">&quot;word2&quot;</span>), <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(word1 <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;he&quot;</span>, <span class="st">&quot;she&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="st">  </span><span class="kw">count</span>(word1, word2, <span class="dt">wt =</span> n, <span class="dt">sort =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">total =</span> nn)</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">dickens_ratios &lt;-<span class="st"> </span>dickens_bigrams <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="st">  </span><span class="kw">group_by</span>(word2) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="st">  </span><span class="kw">filter</span>(<span class="kw">sum</span>(total) <span class="op">&gt;</span><span class="st"> </span><span class="dv">10</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="st">  </span><span class="kw">spread</span>(word1, total, <span class="dt">fill =</span> <span class="dv">0</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">logratio =</span> <span class="kw">log2</span>(she <span class="op">/</span><span class="st"> </span>he)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(logratio))</a>
+<a class="sourceLine" id="cb12-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb12-15" data-line-number="15">plot_ratios &lt;-<span class="st"> </span>dickens_ratios <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-16" data-line-number="16"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">abslogratio =</span> <span class="kw">abs</span>(logratio)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-17" data-line-number="17"><span class="st">  </span><span class="kw">group_by</span>(logratio <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-18" data-line-number="18"><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">15</span>, abslogratio) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-19" data-line-number="19"><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-20" data-line-number="20"><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(logratio)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-21" data-line-number="21"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">word2 =</span> <span class="kw">fct_inorder</span>(word2, <span class="dt">ordered =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb12-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb12-23" data-line-number="23"><span class="kw">ggplot</span>(plot_ratios, <span class="kw">aes</span>(<span class="dt">x =</span> word2, <span class="dt">y =</span> logratio, <span class="dt">color =</span> logratio <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-24" data-line-number="24"><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> <span class="dv">0</span>, <span class="dt">ymax =</span> logratio), <span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">fatten =</span> <span class="dv">6</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-25" data-line-number="25"><span class="st">  </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p><img src="/class/08-class_files/figure-html/plot-ratio-1.png" width="672" /></p>
-</div>
-</div>
-<div id="feedback-for-today" class="section level2">
+</section>
+</section>
+<section id="feedback-for-today" class="level2">
 <h2>Feedback for today</h2>
 <p>First, make sure you <a href="https://studentratings.byu.edu/">fill out BYU’s official ratings for this class</a> sometime before Saturday, October 28.</p>
 <p>Second, go to <a href="https://goo.gl/forms/eXleRluJZurKVltM2">this form</a> and answer these questions (anonymously if you want):</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>What were the two most important things you learned in this class?</li>
 <li>What were the two most exciting things you learned in this class?</li>
 <li>What were the two most difficult things you had to do in this class?</li>
@@ -424,4 +452,4 @@ plot_ratios &lt;-<span class="st"> </span>dickens_ratios <span class="op">%&gt;%
 <li>What else should I change in future versions of this class?</li>
 <li>Any other comments?</li>
 </ol>
-</div>
+</section>
