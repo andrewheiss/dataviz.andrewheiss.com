@@ -26,6 +26,9 @@ menu:
     - name: Reference
       url: /reference/
       weight: 4
+    - name: Final projects
+      url: /final-projects/
+      weight: 5
 # Disable taxonomies
 taxonomies:
   tag: ""
