@@ -54,6 +54,7 @@ params:
     slack: "https://mpa635fall2017.slack.com/"
     dates: "September 5–October 24, 2017"
     github: "andrewheiss/dataviz.andrewheiss.com"
+    copyrightYear: "2017"
     contactDetails: >-
       Office hours: Mondays from 10:30–11:30. [Sign up for other times here.](https://calendly.com/andrewheiss/meeting/)<br><br>E-mail is the best way to get in contact with me—I will respond to all course-related e-mails within 24 hours (*really*).
   university: 
