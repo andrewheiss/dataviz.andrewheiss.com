@@ -68,7 +68,7 @@ fancy_theme <- function(base_size = 11) {
         panel.grid.minor = element_blank())
 }
 
-nice_plot <- ggplot(bites_plot_year, aes(x = year, y = total_bites, color = species)) +
+nice_plot <- ggplot(bites_plot_year, aes(x = year, y = total_bites, color = species, group = species)) +
   geom_line(size = 2) + 
   labs(x = NULL, y = "Total number of bites", 
        title = "Is the Louisville canine rampage over?", 
