@@ -58,7 +58,7 @@ plot_libraries <- ggplot() +
   guides(size = FALSE, 
          fill = guide_colorbar(title = "Number of libraries", 
                                title.position = "top", barwidth = 10)) +
-  coord_sf(crs = 26912) + 
+  coord_sf(crs = 26912, datum = NA) + 
   theme_void() +
   theme(legend.position = "bottom")
 

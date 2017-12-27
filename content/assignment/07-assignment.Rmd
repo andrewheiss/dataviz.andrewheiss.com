@@ -120,7 +120,7 @@ Finally, we plot the map:
 ```{r create-map}
 pretty_map <- ggplot(users_map) +
   geom_sf(aes(fill = users), color = NA) +
-  coord_sf(crs = st_crs(54030)) + 
+  coord_sf(crs = st_crs(54030), datum = NA) + 
   scale_fill_gradient(low = "#e7e1ef", high = "#dd1c77", na.value = "grey70",
                       limits = c(0, 100)) + 
   guides(fill = guide_colorbar(title.position = "top", 
