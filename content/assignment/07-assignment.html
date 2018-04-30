@@ -96,7 +96,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>This task is not very code intensive—I’m giving you all the code!</p>
 <p>That said, there’s still some work you have to do.</p>
 <h3 id="step-1-install-extra-software-and-r-packages">Step 1: Install extra software and R packages</h3>
-<ol type="1">
+<ol style="list-style-type: decimal">
 <li>Plotting geographic stuff with ggplot is crazy easy nowadays with the new <code>sf</code> package, which works nicely within the tidyverse paradigm. However, it’s so new that the CRAN version of ggplot doesn’t have <code>geom_sf()</code> and other geographic plotting layers. You <strong>must</strong> install the development version of the package from GitHub. Doing this makes your computer compile the package from its source code and requires some fancy software to work.
 <ul>
 <li>If you’re using Windows, <a href="https://cran.r-project.org/bin/windows/Rtools/">download and install Rtools (currently Rtools34.exe)</a>.</li>
@@ -109,7 +109,7 @@ A software update popup window should appear that will ask if you want to instal
 This will download, compile, and install the latest development version of ggplot. It’ll take a while—go eat something.</li>
 <li>Using the “Packages” panel in RStudio, install these packages: <code>sf</code>, <code>maps</code>, <code>maptools</code>, and <code>rgeos</code></li>
 <li><strong>Final step for macOS people only</strong>: R doesn’t do all the geographic calculations by itself—it relies on a few pieces of standalone software behind the scenes. When people on Windows install <code>sf</code>, those pieces of software <em>should</em> be installed automatically. This doesn’t happen on macOS, so you have to install them manually. The easiest way to do this is with Terminal. Here’s what you have to do:
-<ol type="1">
+<ol style="list-style-type: decimal">
 <li>Open Terminal</li>
 <li>If you haven’t already, go to <a href="https://brew.sh/">brew.sh</a>, copy the big long command under “Install Homebrew” (starts with <code>/usr/bin/ruby -e &quot;$(curl -fsSL...</code>), paste it into Terminal, and press enter. This installs Homebrew, which is special software that lets you install Unix-y programs from the terminal.<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> You can install stuff like MySQL, Python, Apache, and even R if you want; there’s a <a href="http://formulae.brew.sh/">full list of Homebrew formulae here</a>.<br />
 <br />
@@ -210,7 +210,7 @@ This will download, compile, and install the latest development version of ggplo
 </ul>
 <p>These are all specific to Illustrator, but the same principles apply to Inkscape (though tools and options will have different names). I recommend learning Illustrator now while you have <a href="">free access to it</a>, and then in the future when you won’t necessarily have access to Adobe’s Creative Cloud, you’ll be able to translate your skills to Inkscape.</p>
 <h3 id="step-2-make-something-with-illustrator">Step 2: Make something with Illustrator</h3>
-<ol type="1">
+<ol style="list-style-type: decimal">
 <li>Use <code>ggsave()</code> to save your map of internet users as a PDF.</li>
 <li>Place the map in a new document in Illustrator.</li>
 <li>Enhance it with annotations, lines, shapes, etc. Make it fancy.<span><label for="sn-6" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="marginnote"> But also follow the principles of CRAP and don’t go crazy.<br />

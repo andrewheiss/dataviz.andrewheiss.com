@@ -7,6 +7,7 @@ output:
     toc: true
 ---
 
+<!-- BLOGDOWN-HEAD -->
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
@@ -75,6 +76,7 @@ code span.va { color: #0057ae; } /* Variable */
 code span.vs { color: #bf0303; } /* VerbatimString */
 code span.wa { color: #bf0303; } /* Warning */
 </style>
+<!-- /BLOGDOWN-HEAD -->
 
 <h2>Contents</h2>
 <div id="TOC">
@@ -226,9 +228,10 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul>
 <p><strong>Enhanced plot</strong>:</p>
 <figure class="fullwidth">
-<figure>
-<img src="/images/class/hot-dogs.gif" alt="Enhanced hot dog eating contest graph" /><figcaption>Enhanced hot dog eating contest graph</figcaption>
-</figure>
+<div class="figure">
+<img src="/images/class/hot-dogs.gif" alt="Enhanced hot dog eating contest graph" />
+<p class="caption">Enhanced hot dog eating contest graph</p>
+</div>
 </figure>
 <h2 id="bonus-ggplot-features">Bonus <code>ggplot</code> features</h2>
 <h3 id="extensions">Extensions</h3>
@@ -246,7 +249,7 @@ code span.wa { color: #bf0303; } /* Warning */
 <li><em>FFmpeg</em>: tool for creating and manipulating movie files</li>
 </ul>
 <p><strong>Installation on Windows</strong></p>
-<ol type="1">
+<ol style="list-style-type: decimal">
 <li>Download <a href="https://imagemagick.org/script/download.php#windows">ImageMagick for Windows</a> and run the installer.</li>
 <li>Make sure you select these options:<span><label for="sn-6" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-6" class="margin-toggle"/><span class="marginnote"> <img src="/images/class/im-windows-options.png" alt="ImageMagick installation options for Windows" /><br />
 <br />
@@ -260,7 +263,7 @@ code span.wa { color: #bf0303; } /* Warning */
 </ol>
 <p><strong>Installation on macOS</strong></p>
 <p>Because both ImageMagick and FFmpeg are Linux-based programs, and because underneath its fancy bells and whistles, macOS is essentially a Unix system, there’s no automatic installer for macOS. You have to install ImageMagick and FFmpeg with Terminal instead, but it’s not hard!</p>
-<ol type="1">
+<ol style="list-style-type: decimal">
 <li>Open Terminal</li>
 <li>Go to <a href="https://brew.sh/">brew.sh</a>, copy the big long command under “Install Homebrew” (starts with <code>/usr/bin/ruby -e &quot;$(curl -fsSL...</code>), paste it into Terminal, and press enter. This installs Homebrew, which is special software that lets you install Unix-y programs from the terminal.<span><label for="sn-7" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-7" class="margin-toggle"/><span class="marginnote"> You can install stuff like MySQL, Python, Apache, and even R if you want; there’s a <a href="http://formulae.brew.sh/">full list of Homebrew formulae here</a>.<br />
 <br />
@@ -290,9 +293,10 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb7-12" data-line-number="12"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb7-13" data-line-number="13"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">gganimate</span>(rosling_plot)</a></code></pre></div>
-<figure>
-<img src="/images/class/rosling_plot.gif" alt="Animated Gapminder plot" /><figcaption>Animated Gapminder plot</figcaption>
-</figure>
+<div class="figure">
+<img src="/images/class/rosling_plot.gif" alt="Animated Gapminder plot" />
+<p class="caption">Animated Gapminder plot</p>
+</div>
 <p>You can also save the animation to your computer:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">gganimate</span>(rosling_plot, <span class="dt">filename =</span> <span class="st">&quot;name_of_file.gif&quot;</span>, </a>
 <a class="sourceLine" id="cb9-2" data-line-number="2">          <span class="dt">ani.width =</span> <span class="dv">600</span>, <span class="dt">ani.height =</span> <span class="dv">400</span>)</a>
@@ -300,9 +304,10 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb9-4" data-line-number="4">          <span class="dt">ani.width =</span> <span class="dv">600</span>, <span class="dt">ani.height =</span> <span class="dv">400</span>)</a></code></pre></div>
 <p>You can adjust the animation speed with the <code>interval</code> argument in <code>gganimate()</code>:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">gganimate</span>(rosling_plot, <span class="dt">interval =</span> <span class="fl">0.2</span>)</a></code></pre></div>
-<figure>
-<img src="/images/class/rosling_plot_fast.gif" alt="Fast animated Gapminder plot" /><figcaption>Fast animated Gapminder plot</figcaption>
-</figure>
+<div class="figure">
+<img src="/images/class/rosling_plot_fast.gif" alt="Fast animated Gapminder plot" />
+<p class="caption">Fast animated Gapminder plot</p>
+</div>
 <p>To use this in an R Markdown document, you have to include <code>fig.show=&quot;animate&quot;</code> in the chunk options, otherwise each individual frame will be shown. If you’re using a custom interval, you have to specify it with <code>interval=X</code>. You can also specify the output format for the HTML chunk (e.g. <code>gif</code>, <code>webm</code>, <code>mp4</code>, etc.):</p>
 <pre><code>{r name-of-chunk, fig.show=&quot;animate&quot;, interval=0.2, ffmpeg.format=&quot;gif&quot;, warning=FALSE, message=FALSE}</code></pre>
 <p>These animations tend to not be very smooth, though, with data points jumping to their new positions every five years (in the case of the Gapminder data). We can make everything go a lot smoother with the <a href="https://github.com/thomasp85/tweenr"><code>tweenr</code> package</a>, which interpolates data points to smooth everything out. You have to transform the data little first, but the end result is magical:<span><label for="sn-9" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-9" class="margin-toggle"/><span class="sidenote">This code is from <a href="http://blog.revolutionanalytics.com/2017/05/tweenr.html">David Smith</a>.<br />
@@ -339,7 +344,7 @@ code span.wa { color: #bf0303; } /* Warning */
 </video>
 <h2 id="feedback-for-today">Feedback for today</h2>
 <p>Go to <a href="https://goo.gl/forms/mdZaBIBxeI4Oqm532">this form</a> and answer these three questions (anonymously if you want):</p>
-<ol type="1">
+<ol style="list-style-type: decimal">
 <li>What new thing did you learn today?</li>
 <li>What was the most unclear thing about today?</li>
 <li>What was the most exciting thing you learned today?</li>

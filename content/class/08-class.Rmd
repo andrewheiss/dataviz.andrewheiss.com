@@ -207,7 +207,7 @@ ggplot(plot_ratios, aes(x = word2, y = logratio, color = logratio < 0)) +
 
 First, make sure you [fill out BYU's official ratings for this class](https://studentratings.byu.edu/) sometime before Saturday, October 28.
 
-Second, go to [this form](https://goo.gl/forms/eXleRluJZurKVltM2) and answer these questions (anonymously if you want):
+Second, go to [this form](https://goo.gl/forms/cYspZM8A5llI1jU83) and answer these questions (anonymously if you want):
 
 1. What were the two most important things you learned in this class?
 2. What were the two most exciting things you learned in this class?

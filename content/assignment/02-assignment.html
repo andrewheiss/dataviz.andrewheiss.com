@@ -82,10 +82,12 @@ code span.wa { color: #bf0303; } /* Warning */
 </ul>
 <p><strong><a href="mailto:andrew_heiss@byu.edu">E-mail me</a> a PDF of the memo.</strong></p>
 <h2 id="task-2-playing-with-r">Task 2: Playing with R</h2>
-<p>This example uses data from the <a href="https://www.gapminder.org/">Gapminder project</a>.<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote"> You may have seen Hans Rosling’s <a href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen">delightful TED talk</a> showing how global health and wealth have been increasing. If you haven’t, you should watch it. Sadly, Hans died in February 2017.<br />
+<p>This example uses data from the <a href="https://www.gapminder.org/">Gapminder project</a>.<span><label for="sn-1" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-1" class="margin-toggle"/><span class="marginnote">
+You may have seen Hans Rosling’s <a href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen">delightful TED talk</a> showing how global health and wealth have been increasing. If you haven’t, you should watch it. Sadly, Hans died in February 2017.<br />
 <br />
 </span></span> You’ll need to install the <code>gapminder</code> R package first. Install it either with the “Packages” panel in RStudio or by typing <code>install.packages(&quot;gapminder&quot;)</code> in the R console.</p>
-<p>For this first R-based assignment, you won’t do any actual coding. <a href="https://raw.githubusercontent.com/andrewheiss/dataviz.andrewheiss.com/master/content/assignment/02-assignment.Rmd">Download this file</a>,<span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote"> Your browser might show the file instead of downloading it. If that’s the case, you can copy/paste the code from the browser to RStudio. In RStudio, go to “File” &gt; “New” &gt; “New R Markdown…”, click “OK” with the default options, delete all the placeholder code/text in the new file, and paste the example code in the now-blank file.<br />
+<p>For this first R-based assignment, you won’t do any actual coding. <a href="https://raw.githubusercontent.com/andrewheiss/dataviz.andrewheiss.com/master/content/assignment/02-assignment.Rmd">Download this file</a>,<span><label for="sn-2" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-2" class="margin-toggle"/><span class="marginnote">
+Your browser might show the file instead of downloading it. If that’s the case, you can copy/paste the code from the browser to RStudio. In RStudio, go to “File” &gt; “New” &gt; “New R Markdown…”, click “OK” with the default options, delete all the placeholder code/text in the new file, and paste the example code in the now-blank file.<br />
 <br />
 </span></span> open it in RStudio, and walk through the examples in RStudio on your computer. If you place your cursor on some R code and press “⌘ + enter” (for macOS users) or “ctrl + enter” (for Windows users), RStudio will send that line to the console and run it.</p>
 <p>There are a few questions that you’ll need to answer, but that’s all.</p>
@@ -96,15 +98,16 @@ code span.wa { color: #bf0303; } /* Warning */
 <p>Let’s first look at the first few rows of data:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">head</span>(gapminder)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
-##       country continent  year lifeExp      pop gdpPercap
-##        &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
-## 1 Afghanistan      Asia  1952  28.801  8425333  779.4453
-## 2 Afghanistan      Asia  1957  30.332  9240934  820.8530
-## 3 Afghanistan      Asia  1962  31.997 10267083  853.1007
-## 4 Afghanistan      Asia  1967  34.020 11537966  836.1971
-## 5 Afghanistan      Asia  1972  36.088 13079460  739.9811
-## 6 Afghanistan      Asia  1977  38.438 14880372  786.1134</code></pre>
-<p>Right now, the <code>gapminder</code> data frame contains rows for all years for all countries. We want to only look at 2007, so we create a new data frame that filters only rows for 2007.<span><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote"> Note how there’s a weird sequence of characters: <code>%&gt;%</code>. This is called a <em>pipe</em> and lets you chain functions together. We could have also written this as <code>gapminder_2007 &lt;- filter(gapminder, year == 2007)</code>.<br />
+##   country     continent  year lifeExp      pop gdpPercap
+##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+## 1 Afghanistan Asia       1952    28.8  8425333      779.
+## 2 Afghanistan Asia       1957    30.3  9240934      821.
+## 3 Afghanistan Asia       1962    32.0 10267083      853.
+## 4 Afghanistan Asia       1967    34.0 11537966      836.
+## 5 Afghanistan Asia       1972    36.1 13079460      740.
+## 6 Afghanistan Asia       1977    38.4 14880372      786.</code></pre>
+<p>Right now, the <code>gapminder</code> data frame contains rows for all years for all countries. We want to only look at 2007, so we create a new data frame that filters only rows for 2007.<span><label for="sn-3" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-3" class="margin-toggle"/><span class="marginnote">
+Note how there’s a weird sequence of characters: <code>%&gt;%</code>. This is called a <em>pipe</em> and lets you chain functions together. We could have also written this as <code>gapminder_2007 &lt;- filter(gapminder, year == 2007)</code>.<br />
 <br />
 </span></span></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">gapminder_<span class="dv">2007</span> &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
@@ -112,14 +115,14 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb4-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="kw">head</span>(gapminder_<span class="dv">2007</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 6
-##       country continent  year lifeExp      pop  gdpPercap
-##        &lt;fctr&gt;    &lt;fctr&gt; &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;      &lt;dbl&gt;
-## 1 Afghanistan      Asia  2007  43.828 31889923   974.5803
-## 2     Albania    Europe  2007  76.423  3600523  5937.0295
-## 3     Algeria    Africa  2007  72.301 33333216  6223.3675
-## 4      Angola    Africa  2007  42.731 12420476  4797.2313
-## 5   Argentina  Americas  2007  75.320 40301927 12779.3796
-## 6   Australia   Oceania  2007  81.235 20434176 34435.3674</code></pre>
+##   country     continent  year lifeExp      pop gdpPercap
+##   &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+## 1 Afghanistan Asia       2007    43.8 31889923      975.
+## 2 Albania     Europe     2007    76.4  3600523     5937.
+## 3 Algeria     Africa     2007    72.3 33333216     6223.
+## 4 Angola      Africa     2007    42.7 12420476     4797.
+## 5 Argentina   Americas   2007    75.3 40301927    12779.
+## 6 Australia   Oceania    2007    81.2 20434176    34435.</code></pre>
 <p>Now we can plot a histogram of 2007 life expectancies with the default settings:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">ggplot</span>(gapminder_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> lifeExp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>()</a></code></pre></div>
@@ -130,7 +133,8 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">2</span>)</a></code></pre></div>
 <p><img src="/assignment/02-assignment_files/figure-html/plot-2007-2-1.png" width="672" /></p>
 <h3 id="average-life-expectancy-in-2007-by-continent">Average life expectancy in 2007 by continent</h3>
-<p>We’re also interested in the differences of life expectancy across continents. First, we can group all rows by continent and calculate the mean:<span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote"> This is where the <code>%&gt;%</code> function is actually super useful. Remember that it lets you chain functions together—this means we can read these commands as a set of instructions: take the <code>gapminder</code> data frame, filter it, group it by continent, and summarize each group by calculating the mean. Without using the <code>%&gt;%</code>, we could write this same chain like this: <code>summarize(group_by(filter(gapminder, year == 2007), continent), avg_life_exp = mean(lifeExp))</code>. But that’s <em>awful</em> and impossible to read and full of parentheses that can easily be mismatched.<br />
+<p>We’re also interested in the differences of life expectancy across continents. First, we can group all rows by continent and calculate the mean:<span><label for="sn-4" class="margin-toggle">&#8853;</label><input type="checkbox" id="sn-4" class="margin-toggle"/><span class="marginnote">
+This is where the <code>%&gt;%</code> function is actually super useful. Remember that it lets you chain functions together—this means we can read these commands as a set of instructions: take the <code>gapminder</code> data frame, filter it, group it by continent, and summarize each group by calculating the mean. Without using the <code>%&gt;%</code>, we could write this same chain like this: <code>summarize(group_by(filter(gapminder, year == 2007), continent), avg_life_exp = mean(lifeExp))</code>. But that’s <em>awful</em> and impossible to read and full of parentheses that can easily be mismatched.<br />
 <br />
 </span></span></p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">gapminder_cont_<span class="dv">2007</span> &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</span></a>
@@ -141,12 +145,12 @@ code span.wa { color: #bf0303; } /* Warning */
 <a class="sourceLine" id="cb9-6" data-line-number="6"><span class="kw">head</span>(gapminder_cont_<span class="dv">2007</span>)</a></code></pre></div>
 <pre><code>## # A tibble: 5 x 2
 ##   continent avg_life_exp
-##      &lt;fctr&gt;        &lt;dbl&gt;
-## 1    Africa     54.80604
-## 2  Americas     73.60812
-## 3      Asia     70.72848
-## 4    Europe     77.64860
-## 5   Oceania     80.71950</code></pre>
+##   &lt;fct&gt;            &lt;dbl&gt;
+## 1 Africa            54.8
+## 2 Americas          73.6
+## 3 Asia              70.7
+## 4 Europe            77.6
+## 5 Oceania           80.7</code></pre>
 <p>Let’s plot these averages as a bar chart:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">ggplot</span>(gapminder_cont_<span class="dv">2007</span>, <span class="kw">aes</span>(<span class="dt">x =</span> continent, <span class="dt">y =</span> avg_life_exp, <span class="dt">fill =</span> continent)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_col</span>()</a></code></pre></div>
